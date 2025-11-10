@@ -1,6 +1,6 @@
 #region Prolog
 
-AttrInsert('Pazarlama_Gider_Hesapları', '', 'Code Name', 'S');
+AttrInsert('Pazarlama_Gider_Hesapları', '', 'Code Name', 'A');
 #endregion
 #region Metadata
 
