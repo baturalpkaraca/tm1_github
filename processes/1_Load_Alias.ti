@@ -1,3 +1,7 @@
+#region Prolog
+
+AttrInsert('Pazarlama_Gider_Hesapları', '', 'Code Name', 'S');
+#endregion
 #region Metadata
 
 ElementAttrPutS( vAlias, 'Pazarlama_Gider_Hesapları', 'Pazarlama_Gider_Hesapları', vElement, 'Code Name' );
