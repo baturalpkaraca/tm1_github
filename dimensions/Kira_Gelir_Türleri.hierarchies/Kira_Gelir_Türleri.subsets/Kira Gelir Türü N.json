@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Kira Gelir Türü N",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Kira_Gelir_Türleri].[Kira_Gelir_Türleri]) , 0)}}"
-}

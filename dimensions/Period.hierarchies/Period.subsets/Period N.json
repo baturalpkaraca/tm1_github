@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Period N",
-	"Expression":"{EXCEPT(DISTINCT({[Period].[Period].[Total Period],DESCENDANTS([Period].[Period].[Total Period] , 99 , LEAVES)}) , {[Period].[Period].[Total Period]})}"
-}

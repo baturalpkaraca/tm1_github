@@ -1,5 +1,0 @@
-SKIPCHECK;
-
-FEEDERS;
-
-['Fiili', 'Metrekare'] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'SQM' );

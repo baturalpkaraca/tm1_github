@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"SPK",
-	"Alias":"Name",
-	"Expression":"{DRILLDOWNMEMBER({[Mali_Tablo_Source].[Mali_Tablo_Source].[SPK]} , {[Mali_Tablo_Source].[Mali_Tablo_Source].[SPK]} , RECURSIVE)}"
-}

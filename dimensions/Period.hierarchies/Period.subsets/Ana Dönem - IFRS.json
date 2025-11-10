@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Ana Dönem - IFRS",
-	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Period]) , [Sistem].([Sistem_Kalemleri].[Ana Dönem],[Sistem_Meas].[Değer]))}"
-}

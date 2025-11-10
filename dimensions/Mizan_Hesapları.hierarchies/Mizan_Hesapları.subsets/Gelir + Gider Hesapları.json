@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Gelir + Gider Hesapları",
-	"Expression":"{DRILLDOWNMEMBER({[Mizan_Hesapları].[Mizan_Hesapları].[6]} , {[Mizan_Hesapları].[Mizan_Hesapları].[6]} , RECURSIVE),DRILLDOWNMEMBER({[Mizan_Hesapları].[Mizan_Hesapları].[8]} , {[Mizan_Hesapları].[Mizan_Hesapları].[8]} , RECURSIVE)}"
-}

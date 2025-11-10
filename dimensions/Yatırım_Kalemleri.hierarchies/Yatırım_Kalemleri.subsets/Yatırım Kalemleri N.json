@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Yatırım Kalemleri N",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Yatırım_Kalemleri].[Yatırım_Kalemleri]) , 0)}}"
-}

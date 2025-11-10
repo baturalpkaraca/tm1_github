@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"N",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Depolama_Sarf_Malzeme_Tipi].[Depolama_Sarf_Malzeme_Tipi]) , 0)}}"
-}

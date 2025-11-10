@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Toplam Mizan Hesapları",
-	"Expression":"{DRILLDOWNMEMBER({[Mizan_Hesapları].[Mizan_Hesapları].[Toplam]} , {[Mizan_Hesapları].[Mizan_Hesapları].[Toplam]} , RECURSIVE)}"
-}

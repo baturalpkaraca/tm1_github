@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Ana Versiyon - Bütçe",
-	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Version]) , [Sistem].([Sistem_Kalemleri].[Ana Senaryo],[Sistem_Meas].[Değer]))}"
-}

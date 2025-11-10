@@ -1,9 +1,0 @@
-SKIPCHECK;
-
-FEEDERS;
-
-['Aktif', 'Çalışan Sayısı'] => DB( 'IK - Bordro Arge', 'Toplam Maliyet', !İK_Arge_Projeleri, 'TOPLAM', 'TOPLAM', !Version, !Period, 'Tutar'  );
-
-['Aktif', 'Çalışan Sayısı'] => DB( 'Arge - Cost', '8060800001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
-
-['Aktif', 'Çalışan Sayısı'] => DB( 'Arge - Cost', 'COST', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );

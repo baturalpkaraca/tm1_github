@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"PL",
-	"Expression":"{DRILLDOWNMEMBER({[PL_Acc].[PL_Acc].[PL]} , {[PL_Acc].[PL_Acc].[PL]} , RECURSIVE)}"
-}

@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Gelir Hesapları",
-	"Expression":"{TM1FILTERBYPATTERN({{TM1FILTERBYLEVEL(TM1SUBSETALL([Mizan_Hesapları].[Mizan_Hesapları]) , 0)}},\"6*\",\"MEMBER_NAME\")}"
-}

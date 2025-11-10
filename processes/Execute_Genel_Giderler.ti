@@ -1,9 +1,0 @@
-#region Prolog
-
-ExecuteProcess( 'Load_Genel_Giderler_IK_Bordro', 'pVersiyon', pVersiyon );
-ExecuteProcess( 'Load_Genel_Giderler_IK_Bordro_Arge', 'pVersiyon', pVersiyon );
-ExecuteProcess( 'Load_Genel_Giderler_IK_MM_V_P', 'pVersiyon', pVersiyon );
-ExecuteProcess( 'Load_Genel_Giderler_IK_Proje', 'pVersiyon', pVersiyon );
-ExecuteProcess( 'Load_Genel_Giderler_IK_Genel_Giriş', 'pVersiyon', pVersiyon );
-ExecuteProcess( 'Load_Genel_Giderler_İdari_İşler', 'pVersiyon', pVersiyon );
-#endregion

@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Total Masraf Kar Merkezleri",
-	"Alias":"Code - Name",
-	"Expression":"{ORDER(DRILLDOWNMEMBER({[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[All Cost Centers]} , {[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[All Cost Centers]} , RECURSIVE) , IIF([Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"Code - Name\")=\"\", [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"Code - Name\")) , ASC)}"
-}

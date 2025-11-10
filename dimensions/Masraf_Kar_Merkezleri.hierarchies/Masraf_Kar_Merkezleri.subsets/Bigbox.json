@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Bigbox",
-	"Alias":"Kar Merkezi Code - Name",
-	"Expression":"{ORDER(DRILLDOWNMEMBER({[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[Koçtaş]} , {[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[Koçtaş]} , RECURSIVE) , IIF([Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"Kar Merkezi Code - Name\")=\"\", [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"Kar Merkezi Code - Name\")) , ASC)}"
-}

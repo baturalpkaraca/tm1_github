@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Güvenlik N",
-	"Expression":"{EXCEPT(DRILLDOWNMEMBER({[Depolama_Personel_Güvenlik_Tipi].[Depolama_Personel_Güvenlik_Tipi].[Toplam Güvenlik]} , {[Depolama_Personel_Güvenlik_Tipi].[Depolama_Personel_Güvenlik_Tipi].[Toplam Güvenlik]} , RECURSIVE) , {[Depolama_Personel_Güvenlik_Tipi].[Depolama_Personel_Güvenlik_Tipi].[Toplam Güvenlik]})}"
-}

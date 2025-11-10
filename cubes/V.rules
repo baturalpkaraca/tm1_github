@@ -1,6 +1,0 @@
-SKIPCHECK;
-
-['Plan Start Date'] = S: IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', DIMNM( 'Period', DB( 'V_P', !Version, 'Total Period', 'Plan Start (Calc)' )), CONTINUE);
-
-FEEDERS;
-

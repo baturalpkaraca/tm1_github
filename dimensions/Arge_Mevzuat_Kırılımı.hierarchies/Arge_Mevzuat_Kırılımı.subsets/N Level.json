@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"N Level",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Arge_Mevzuat_Kırılımı].[Arge_Mevzuat_Kırılımı]) , 0)}}"
-}

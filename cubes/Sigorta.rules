@@ -1,7 +1,0 @@
-SKIPCHECK;
-
-[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
-
-FEEDERS;
-
-['Aktif', 'Sigorta Tipleri Toplam', 'Amount'] => DB( 'Genel Giderler', '8080500001', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar' );

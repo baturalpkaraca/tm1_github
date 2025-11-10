@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Cost N",
-	"Alias":"Hesap Kodu - İsim",
-	"Expression":"{EXCEPT(DISTINCT({[Mizan_Hesapları].[Mizan_Hesapları].[COST],DESCENDANTS([Mizan_Hesapları].[Mizan_Hesapları].[COST] , 99 , LEAVES)}) , {[Mizan_Hesapları].[Mizan_Hesapları].[COST]})}"
-}

@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"SPK",
-	"Expression":"{DRILLDOWNMEMBER({[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[SPK]} , {[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[SPK]} , RECURSIVE),[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[SPK.EBT]}"
-}

@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Koçtaş Total v2",
-	"Alias":"Code - Name",
-	"Expression":"{{DISTINCT({DESCENDANTS([Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[Koçtaş Total])})}}"
-}

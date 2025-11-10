@@ -1,6 +1,0 @@
-#region Prolog
-
-CubeProcessFeeders( 'Mali Tablo' );
-CubeProcessFeeders( 'SPK Giriş Plan' );
-CubeProcessFeeders( 'MM_V' );
-#endregion

@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Departmanlar N",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Departmanlar].[Departmanlar]) , 0)}}"
-}

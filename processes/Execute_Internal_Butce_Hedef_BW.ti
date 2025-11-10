@@ -1,8 +1,0 @@
-#region Prolog
-
-RunProcess( 'Export_BW_Internal_Butce_Hedef', 'pPeriod', pPeriod );
-#endregion
-#region Epilog
-
-RunProcess( 'Export_BW_Internal_Butce_Hedef_INT_Kategori', 'pPeriod', pPeriod );
-#endregion

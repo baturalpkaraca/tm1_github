@@ -1,5 +1,0 @@
-SKIPCHECK;
-
-FEEDERS;
-
-[] => DB( 'Prim Reyon', !MM_P_Meas, 'No Kategori', !Masraf_Kar_Merkezleri, !Period, 'Amount'  );

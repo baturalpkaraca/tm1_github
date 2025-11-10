@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Mizan Hesapları N",
-	"Expression":"{EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Mizan_Hesapları].[Mizan_Hesapları]) , 0) , {[Mizan_Hesapları].[Mizan_Hesapları].[1],[Mizan_Hesapları].[Mizan_Hesapları].[2],[Mizan_Hesapları].[Mizan_Hesapları].[3],[Mizan_Hesapları].[Mizan_Hesapları].[4],[Mizan_Hesapları].[Mizan_Hesapları].[5],[Mizan_Hesapları].[Mizan_Hesapları].[6],[Mizan_Hesapları].[Mizan_Hesapları].[7],[Mizan_Hesapları].[Mizan_Hesapları].[8],[Mizan_Hesapları].[Mizan_Hesapları].[9]})}"
-}

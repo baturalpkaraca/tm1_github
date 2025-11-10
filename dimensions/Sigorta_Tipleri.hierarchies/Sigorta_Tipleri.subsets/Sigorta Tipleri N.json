@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Sigorta Tipleri N",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Sigorta_Tipleri].[Sigorta_Tipleri]) , 0)}}"
-}
