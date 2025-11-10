@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"}Hold_Dogacan Saritas_}}_Kiralık Ekipman Giriş",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Kiralık_Ekipman_Giriş_Meas')"
+		},
+		{
+			"@id":"Dimensions('}Hold')"
+		}
+	],
+	"Views@Code.links":[]
+}

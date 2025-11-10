@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"}Hold_Ozkan Polat_}}_Genel Giderler",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Departmanlar')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Genel_Giderler_Meas')"
+		},
+		{
+			"@id":"Dimensions('}Hold')"
+		}
+	],
+	"Views@Code.links":[]
+}

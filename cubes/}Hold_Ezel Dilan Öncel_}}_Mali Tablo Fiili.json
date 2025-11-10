@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"}Hold_Ezel Dilan Öncel_}}_Mali Tablo Fiili",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları_Uclu')"
+		},
+		{
+			"@id":"Dimensions('Mali_Tablo_Tipi')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Mali_Tablo_Fiili_Meas')"
+		},
+		{
+			"@id":"Dimensions('}Hold')"
+		}
+	],
+	"Views@Code.links":[]
+}

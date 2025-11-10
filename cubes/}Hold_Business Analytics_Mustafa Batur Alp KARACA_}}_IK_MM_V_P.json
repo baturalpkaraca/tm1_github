@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"}Hold_Business Analytics_Mustafa Batur Alp KARACA_}}_IK_MM_V_P",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('İK_MM_V_P_Meas')"
+		},
+		{
+			"@id":"Dimensions('}Hold')"
+		}
+	],
+	"Views@Code.links":[]
+}
