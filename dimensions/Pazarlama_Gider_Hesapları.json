@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Pazarlama_Gider_Hesapları",
+	"Hierarchies@Code.links":
+	[
+		"Pazarlama_Gider_Hesapları.hierarchies/Pazarlama_Gider_Hesapları.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Pazarlama_Gider_Hesapları')/Hierarchies('Pazarlama_Gider_Hesapları')"
+	}
+}
