@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kira_Gider_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Kira_Gider_Meas.hierarchies/Kira_Gider_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kira_Gider_Meas')/Hierarchies('Kira_Gider_Meas')"
+	}
+}

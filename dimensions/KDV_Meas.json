@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"KDV_Meas",
+	"Hierarchies@Code.links":
+	[
+		"KDV_Meas.hierarchies/KDV_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('KDV_Meas')/Hierarchies('KDV_Meas')"
+	}
+}

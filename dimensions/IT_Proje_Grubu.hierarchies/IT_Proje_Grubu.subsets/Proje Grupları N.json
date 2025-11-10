@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Proje Grupları N",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([IT_Proje_Grubu].[IT_Proje_Grubu]) , 0)}}"
+}

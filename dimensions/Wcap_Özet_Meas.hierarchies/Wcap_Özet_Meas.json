@@ -1,0 +1,87 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Wcap_Özet_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Budget.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Actual",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget vs Base",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget vs Actual",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Forecast vs Budget",
+			"ComponentName":"Budget.",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Forecast vs Budget",
+			"ComponentName":"Forecast.",
+			"Weight":1
+		},
+		{
+			"ParentName":"Forecast vs Actual",
+			"ComponentName":"Forecast.",
+			"Weight":1
+		},
+		{
+			"ParentName":"Forecast vs Actual",
+			"ComponentName":"Actual.",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget vs Base",
+			"ComponentName":"Budget",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget vs Base",
+			"ComponentName":"Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget vs Actual",
+			"ComponentName":"Budget",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget vs Actual",
+			"ComponentName":"Actual.",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":[]
+}

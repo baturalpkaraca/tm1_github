@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Pazarlama_Giderleri_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"MM",
+			"Type":"String"
+		},
+		{
+			"Name":"MM (Dağıtım)",
+			"Type":"String"
+		},
+		{
+			"Name":"Detay",
+			"Type":"String"
+		},
+		{
+			"Name":"İçerik",
+			"Type":"String"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,1460 @@
+{
+	"@type":"Hierarchy",
+	"Name":"SPK_Giriş_Acc",
+	"Elements":
+	[
+		{
+			"Name":"PARO (IFRIC13)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PARO - BS Charge - 380",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PARO - PL Charge - 600",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock Provision - NRV",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Stock - BS Charge - 153",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock - PL Charge - 621",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Stock",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"153",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"154",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"157",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"159",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"621 Reclass Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"660 Reclass Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"630 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"631 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"632 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TP - PL Charge - 642 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TP - PL Charge - 660 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TR - PL Charge - 642 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TR - PL Charge - 660 Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 Other sales Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 B2B Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TP Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"373 to 320 Reclass - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"373 to 320 Tax Reclass - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AJE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"RJE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NRV + Display + Shrinkage",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NRV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Display",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Provision/Stock Ratio",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock Provision Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock Provision",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - cumulative",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PY Period End Stocks",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stocks End",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Purchases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Purchase Consignment %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Consignment _ purchases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Purchases (Exc. Consingment)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate - Cumulative",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate Consignment %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Consignment _ rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate (Exc. Consingment)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% of Rebates in Total Purch. (Exc. Cons.)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate in Stocks",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate in stock opening balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate in stock adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% of Rebates in Total Purch. (oran düzeltme)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% of Rebates in Total Purch. (final oran )",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final Rebate in Stocks",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate in stock adjustment (Final)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday Pay Provision",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Litigation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IAS39 Trade Receivables",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IAS39 Trade Payables",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Depreciation (Stat-IAS)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Deferred Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Rebate in Stock Adj",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IFRS 16",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Eko",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Holiday - BS Charge - 373",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday - PL Charge - 632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday - PL Charge - 631",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Holiday - PL Charge - 630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Litigation - BS Charge - 373",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Litigation - PL Charge - 654",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TR - BS Charge - 120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TR - BS Charge - 108",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TR - PL Charge - 660",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TR - PL Charge - 642",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TP - BS Charge - 320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TP - PL Charge - 660",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 TP - PL Charge - 642",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stat - 631",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stat - 632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS - 631",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS - 632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustment - 631",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustment - 632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stat - 630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS - 630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustment - 630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tax - BS Charge - 470",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tax - PL Charge - 691",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate - BS Charge - 153",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate - PL Charge - 621",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - BS Charge - 252",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - BS Charge - 256",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - BS Charge - 309",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - BS Charge - 409",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - PL Charge - 631",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - PL Charge - 632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - PL Charge - 646",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - PL Charge - 656",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16 - PL Charge - 660",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eko-180",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eko-660",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Receivables from RP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payebles to RP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kingfisher",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Rec. Class.",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IAS18 (Sales)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IAS18 (COGS)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"37308 / 300 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"264 Reclass",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"108 to 100",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kıdem Rje",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Ar-Ge Aje",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"181 to 102 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AVM Net-Off",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finansal Gelir Gider Ters",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tfs Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"193 / 370 Other Rec. Class.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"136 / 120 Other Rec. Class.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"656 / 660 Other Rec. Class.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"646 / 642 Other Rec. Class.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"600 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"646 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"649 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"621 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"660 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"264 / 0 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"257 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"268 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"108",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"654",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"631",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ar-Ge - BS Charge - 258",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ar-Ge - BS Charge - 263",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ar-Ge - BS Charge - 268",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ar-Ge- PL Charge - 630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"373 to 320 Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"373 to 320 Tax Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 for T/R",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Oth. T/R (exc. 108)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly B2B Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth. T/R (exc. 108) - Avg",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly B2B Sales - Sum",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turnover rate - T/R",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turnover days - T/R",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 for CCR",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Credit Card Rec.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Sales (exc. B2B)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Credit Card Rec. - Avg",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Sales (exc. B2B) - Sum",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turnover rate - CCR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turnover days - CCR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 for T/P",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"T/P",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly COGS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly COGS - Sum",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"T/P - Avg",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turnover rate - T/P",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turnover days - T/P",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TR - Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TR - Turnover Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TR - Interest Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TR - Discount Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TR - Net Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TR - Discount Balance - Negative YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CCR - Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CCR - Turnover Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CCR - Interest Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CCR - Discount Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CCR - Net Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CCR - Discount Balance - Negative YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"T/P - Purchases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TP - Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TP - Turnover Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TP - Interest Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TP - Discount Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TP - Net Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TP - Discount Balance - Negative YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales - Discount Balance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sales - Discount Balance - Negative YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"B2B - Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"B2B - Turnover Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"B2B - Interest Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"B2B - Discount Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"B2B - Net Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"B2B - Discount Balance - Negative YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth.S - Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth.S - Turnover Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth.S - Interest Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth.S - Discount Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth.S - Net Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oth.S - Discount Balance - Negative YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - Turnover Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - Interest Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - Discount Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - Net Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COGS - Discount Balance - Negative YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"108 to 102",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"102",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"PARO (IFRIC13)",
+			"ComponentName":"PARO - BS Charge - 380",
+			"Weight":0
+		},
+		{
+			"ParentName":"PARO (IFRIC13)",
+			"ComponentName":"PARO - PL Charge - 600",
+			"Weight":0
+		},
+		{
+			"ParentName":"Stock Provision - NRV",
+			"ComponentName":"Total Stock",
+			"Weight":0
+		},
+		{
+			"ParentName":"Stock Provision - NRV",
+			"ComponentName":"Stock - BS Charge - 153",
+			"Weight":0
+		},
+		{
+			"ParentName":"Stock Provision - NRV",
+			"ComponentName":"Stock - PL Charge - 621",
+			"Weight":0
+		},
+		{
+			"ParentName":"Total Stock",
+			"ComponentName":"153",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Stock",
+			"ComponentName":"154",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Stock",
+			"ComponentName":"157",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Stock",
+			"ComponentName":"159",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"PARO (IFRIC13)",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Stock Provision - NRV",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Holiday Pay Provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Litigation",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"IAS39 Trade Receivables",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"IAS39 Trade Payables",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Depreciation (Stat-IAS)",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Ar-Ge Aje",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Deferred Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Rebate in Stock Adj",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"IFRS 16",
+			"Weight":1
+		},
+		{
+			"ParentName":"AJE",
+			"ComponentName":"Eko",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Receivables from RP",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Payebles to RP",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Kingfisher",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Other Rec. Class.",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"IAS18 (Sales)",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"IAS18 (COGS)",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"37308 / 300 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"264 Reclass",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"108 to 100",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"108 to 102",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Kıdem Rje",
+			"Weight":1
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"373 to 320 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"373 to 320 Tax Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"181 to 102 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"AVM Net-Off",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Finansal Gelir Gider Ters",
+			"Weight":0
+		},
+		{
+			"ParentName":"RJE",
+			"ComponentName":"Tfs Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"NRV + Display + Shrinkage",
+			"ComponentName":"NRV",
+			"Weight":1
+		},
+		{
+			"ParentName":"NRV + Display + Shrinkage",
+			"ComponentName":"Display",
+			"Weight":1
+		},
+		{
+			"ParentName":"NRV + Display + Shrinkage",
+			"ComponentName":"Shrinkage",
+			"Weight":1
+		},
+		{
+			"ParentName":"Holiday Pay Provision",
+			"ComponentName":"Holiday - BS Charge - 373",
+			"Weight":0
+		},
+		{
+			"ParentName":"Holiday Pay Provision",
+			"ComponentName":"Holiday - PL Charge - 630",
+			"Weight":0
+		},
+		{
+			"ParentName":"Holiday Pay Provision",
+			"ComponentName":"Holiday - PL Charge - 632",
+			"Weight":0
+		},
+		{
+			"ParentName":"Holiday Pay Provision",
+			"ComponentName":"Holiday - PL Charge - 631",
+			"Weight":0
+		},
+		{
+			"ParentName":"Litigation",
+			"ComponentName":"Litigation - BS Charge - 373",
+			"Weight":0
+		},
+		{
+			"ParentName":"Litigation",
+			"ComponentName":"Litigation - PL Charge - 654",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Receivables",
+			"ComponentName":"IAS39 TR - BS Charge - 120",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Receivables",
+			"ComponentName":"IAS39 TR - BS Charge - 108",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Receivables",
+			"ComponentName":"IAS39 TR - PL Charge - 660",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Receivables",
+			"ComponentName":"IAS39 TR - PL Charge - 642",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Payables",
+			"ComponentName":"IAS39 TP - BS Charge - 320",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Payables",
+			"ComponentName":"IAS39 TP - PL Charge - 660",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 Trade Payables",
+			"ComponentName":"IAS39 TP - PL Charge - 642",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"Stat - 630",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"Stat - 631",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"Stat - 632",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"IAS - 630",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"IAS - 631",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"IAS - 632",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"Adjustment - 630",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"Adjustment - 631",
+			"Weight":0
+		},
+		{
+			"ParentName":"Depreciation (Stat-IAS)",
+			"ComponentName":"Adjustment - 632",
+			"Weight":0
+		},
+		{
+			"ParentName":"Deferred Tax",
+			"ComponentName":"Tax - BS Charge - 470",
+			"Weight":0
+		},
+		{
+			"ParentName":"Deferred Tax",
+			"ComponentName":"Tax - PL Charge - 691",
+			"Weight":0
+		},
+		{
+			"ParentName":"Rebate in Stock Adj",
+			"ComponentName":"Rebate - BS Charge - 153",
+			"Weight":0
+		},
+		{
+			"ParentName":"Rebate in Stock Adj",
+			"ComponentName":"Rebate - PL Charge - 621",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - BS Charge - 252",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - BS Charge - 256",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - BS Charge - 309",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - BS Charge - 409",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - PL Charge - 631",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - PL Charge - 632",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - PL Charge - 646",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - PL Charge - 656",
+			"Weight":0
+		},
+		{
+			"ParentName":"IFRS 16",
+			"ComponentName":"IFRS 16 - PL Charge - 660",
+			"Weight":0
+		},
+		{
+			"ParentName":"Eko",
+			"ComponentName":"Eko-180",
+			"Weight":0
+		},
+		{
+			"ParentName":"Eko",
+			"ComponentName":"Eko-660",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Rec. Class.",
+			"ComponentName":"193 / 370 Other Rec. Class.",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Rec. Class.",
+			"ComponentName":"136 / 120 Other Rec. Class.",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Rec. Class.",
+			"ComponentName":"656 / 660 Other Rec. Class.",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Rec. Class.",
+			"ComponentName":"646 / 642 Other Rec. Class.",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS18 (Sales)",
+			"ComponentName":"642 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS18 (Sales)",
+			"ComponentName":"600 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS18 (Sales)",
+			"ComponentName":"646 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS18 (Sales)",
+			"ComponentName":"649 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS18 (COGS)",
+			"ComponentName":"621 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS18 (COGS)",
+			"ComponentName":"660 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"264 Reclass",
+			"ComponentName":"264 / 0 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"264 Reclass",
+			"ComponentName":"257 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"264 Reclass",
+			"ComponentName":"268 Reclass",
+			"Weight":0
+		},
+		{
+			"ParentName":"108 to 100",
+			"ComponentName":"100",
+			"Weight":0
+		},
+		{
+			"ParentName":"108 to 100",
+			"ComponentName":"108",
+			"Weight":0
+		},
+		{
+			"ParentName":"Kıdem Rje",
+			"ComponentName":"654",
+			"Weight":0
+		},
+		{
+			"ParentName":"Kıdem Rje",
+			"ComponentName":"631",
+			"Weight":0
+		},
+		{
+			"ParentName":"Kıdem Rje",
+			"ComponentName":"632",
+			"Weight":0
+		},
+		{
+			"ParentName":"Ar-Ge Aje",
+			"ComponentName":"Ar-Ge - BS Charge - 258",
+			"Weight":0
+		},
+		{
+			"ParentName":"Ar-Ge Aje",
+			"ComponentName":"Ar-Ge - BS Charge - 263",
+			"Weight":0
+		},
+		{
+			"ParentName":"Ar-Ge Aje",
+			"ComponentName":"Ar-Ge - BS Charge - 268",
+			"Weight":0
+		},
+		{
+			"ParentName":"Ar-Ge Aje",
+			"ComponentName":"Ar-Ge- PL Charge - 630",
+			"Weight":0
+		},
+		{
+			"ParentName":"IAS39 for T/R",
+			"ComponentName":"Oth. T/R (exc. 108)",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/R",
+			"ComponentName":"Monthly B2B Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/R",
+			"ComponentName":"Oth. T/R (exc. 108) - Avg",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/R",
+			"ComponentName":"Monthly B2B Sales - Sum",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/R",
+			"ComponentName":"Turnover rate - T/R",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/R",
+			"ComponentName":"Turnover days - T/R",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for CCR",
+			"ComponentName":"Credit Card Rec.",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for CCR",
+			"ComponentName":"Monthly Sales (exc. B2B)",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for CCR",
+			"ComponentName":"Credit Card Rec. - Avg",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for CCR",
+			"ComponentName":"Monthly Sales (exc. B2B) - Sum",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for CCR",
+			"ComponentName":"Turnover rate - CCR",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for CCR",
+			"ComponentName":"Turnover days - CCR",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"T/P",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"Monthly COGS",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"Monthly COGS - Sum",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"T/P - Avg",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"T/P - Purchases",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"Turnover rate - T/P",
+			"Weight":1
+		},
+		{
+			"ParentName":"IAS39 for T/P",
+			"ComponentName":"Turnover days - T/P",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales - Discount Balance",
+			"ComponentName":"B2B - Discount Balance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales - Discount Balance",
+			"ComponentName":"Oth.S - Discount Balance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales - Discount Balance - Negative YTD",
+			"ComponentName":"B2B - Discount Balance - Negative YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales - Discount Balance - Negative YTD",
+			"ComponentName":"Oth.S - Discount Balance - Negative YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"108 to 102",
+			"ComponentName":"108",
+			"Weight":0
+		},
+		{
+			"ParentName":"108 to 102",
+			"ComponentName":"102",
+			"Weight":0
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"SPK_Giriş_Acc.subsets/AJE-RJE.json",
+		"SPK_Giriş_Acc.subsets/BS Workdone.json",
+		"SPK_Giriş_Acc.subsets/IAS39.json",
+		"SPK_Giriş_Acc.subsets/Rebate Stock Adj..json",
+		"SPK_Giriş_Acc.subsets/Turnover.json"
+	]
+}

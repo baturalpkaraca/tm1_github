@@ -1,0 +1,37 @@
+{
+	"@type":"Subset",
+	"Name":"Internal Prim",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Perakende Satış')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Perakende Margin')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Ticari Satış')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Ticari Margin')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Handyman Sales')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Kiosk Sales')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Mobil Ticari')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('Mobil Ticari Margin')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('3P Satış')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')/Elements('3P Margin')"
+		}
+	]
+}

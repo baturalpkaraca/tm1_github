@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Depo Ekipman Tipi N",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Depo_Ekipman_Tipi].[Depo_Ekipman_Tipi]) , 0)}}"
+}

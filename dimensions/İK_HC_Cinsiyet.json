@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_HC_Cinsiyet",
+	"Hierarchies@Code.links":
+	[
+		"İK_HC_Cinsiyet.hierarchies/İK_HC_Cinsiyet.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_HC_Cinsiyet')/Hierarchies('İK_HC_Cinsiyet')"
+	}
+}

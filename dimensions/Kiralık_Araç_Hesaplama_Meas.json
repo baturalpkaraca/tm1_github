@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kiralık_Araç_Hesaplama_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Kiralık_Araç_Hesaplama_Meas.hierarchies/Kiralık_Araç_Hesaplama_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kiralık_Araç_Hesaplama_Meas')/Hierarchies('Kiralık_Araç_Hesaplama_Meas')"
+	}
+}

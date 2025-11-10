@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Report_KPI",
+	"Hierarchies@Code.links":
+	[
+		"Report_KPI.hierarchies/Report_KPI.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Report_KPI')/Hierarchies('Report_KPI')"
+	}
+}

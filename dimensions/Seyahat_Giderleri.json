@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Seyahat_Giderleri",
+	"Hierarchies@Code.links":
+	[
+		"Seyahat_Giderleri.hierarchies/Seyahat_Giderleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Seyahat_Giderleri')/Hierarchies('Seyahat_Giderleri')"
+	}
+}

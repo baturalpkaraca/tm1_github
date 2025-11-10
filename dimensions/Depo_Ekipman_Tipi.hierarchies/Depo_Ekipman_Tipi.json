@@ -1,0 +1,117 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depo_Ekipman_Tipi",
+	"Elements":
+	[
+		{
+			"Name":"Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Manlift",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Transpalet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Reach Truck",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İstif Aracı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manup",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Elektrikli Forklift",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diesel Forklift",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Elektrikli Transpalet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stacker",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Manlift",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Forklift",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Transpalet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Reach Truck",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"İstif Aracı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Diğer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Manup",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Elektrikli Forklift",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Diesel Forklift",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Elektrikli Transpalet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Stacker",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Depo_Ekipman_Tipi.subsets/Depo Ekipman Tipi N.json"
+	]
+}

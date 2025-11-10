@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İndirim_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Baz Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İndirim Tutarı",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

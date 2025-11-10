@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"SPK_Giriş_Acc",
+	"Hierarchies@Code.links":
+	[
+		"SPK_Giriş_Acc.hierarchies/SPK_Giriş_Acc.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')"
+	}
+}

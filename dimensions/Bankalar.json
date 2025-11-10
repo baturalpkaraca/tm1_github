@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Bankalar",
+	"Hierarchies@Code.links":
+	[
+		"Bankalar.hierarchies/Bankalar.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Bankalar')/Hierarchies('Bankalar')"
+	}
+}

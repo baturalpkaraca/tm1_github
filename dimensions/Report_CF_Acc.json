@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Report_CF_Acc",
+	"Hierarchies@Code.links":
+	[
+		"Report_CF_Acc.hierarchies/Report_CF_Acc.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Report_CF_Acc')/Hierarchies('Report_CF_Acc')"
+	}
+}

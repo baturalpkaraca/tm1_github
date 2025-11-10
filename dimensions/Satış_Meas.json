@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Satış_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Satış_Meas.hierarchies/Satış_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Satış_Meas')/Hierarchies('Satış_Meas')"
+	}
+}

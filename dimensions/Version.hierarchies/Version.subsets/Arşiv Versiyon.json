@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Arşiv Versiyon",
+	"Expression":"{EXCEPT(DISTINCT({[Version].[Version].[Arşiv],DESCENDANTS([Version].[Version].[Arşiv] , 99 , LEAVES)}) , {[Version].[Version].[Arşiv]})}"
+}

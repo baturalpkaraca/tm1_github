@@ -1,0 +1,87 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Dağıtım_Detay",
+	"Elements":
+	[
+		{
+			"Name":"Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Personel Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"410-1 Elektrik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ekipman Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sarf Malzemesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Güvenlik Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lojistik Primi",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Personel Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"410-1 Elektrik",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Ekipman Gideri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Sarf Malzemesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Diğer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Güvenlik Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Kira Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Lojistik Primi",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

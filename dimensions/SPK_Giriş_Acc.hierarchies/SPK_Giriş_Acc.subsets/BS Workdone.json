@@ -1,0 +1,43 @@
+{
+	"@type":"Subset",
+	"Name":"BS Workdone",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Total Stock')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('153')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('154')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('157')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('159')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('NRV + Display + Shrinkage')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('NRV')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Display')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Shrinkage')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Stock Provision Adjustment')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Provision/Stock Ratio')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Stock Provision')"
+		}
+	]
+}

@@ -1,0 +1,111 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Version",
+	"Elements":
+	[
+		{
+			"Name":"Fiili",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Aktif",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Arşiv",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2024 | Arşiv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 5+7 2024 | Arşiv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 9+3 2024 | Arşiv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 9+3 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 3+9 2025 | Arşiv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 5+7 2025 | Arşiv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 6+6 2025 | Arşiv",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Aktif",
+			"ComponentName":"Budget 2025",
+			"Weight":0
+		},
+		{
+			"ParentName":"Aktif",
+			"ComponentName":"Forecast 9+3 2025",
+			"Weight":0
+		},
+		{
+			"ParentName":"Aktif",
+			"ComponentName":"Budget 2026",
+			"Weight":0
+		},
+		{
+			"ParentName":"Arşiv",
+			"ComponentName":"Budget 2024 | Arşiv",
+			"Weight":0
+		},
+		{
+			"ParentName":"Arşiv",
+			"ComponentName":"Forecast 5+7 2024 | Arşiv",
+			"Weight":0
+		},
+		{
+			"ParentName":"Arşiv",
+			"ComponentName":"Forecast 9+3 2024 | Arşiv",
+			"Weight":0
+		},
+		{
+			"ParentName":"Arşiv",
+			"ComponentName":"Forecast 3+9 2025 | Arşiv",
+			"Weight":0
+		},
+		{
+			"ParentName":"Arşiv",
+			"ComponentName":"Forecast 5+7 2025 | Arşiv",
+			"Weight":0
+		},
+		{
+			"ParentName":"Arşiv",
+			"ComponentName":"Forecast 6+6 2025 | Arşiv",
+			"Weight":0
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Version.subsets/Aktif Versiyon.json",
+		"Version.subsets/Ana Versiyon.json",
+		"Version.subsets/Ana Versiyon - Bütçe.json",
+		"Version.subsets/Arşiv Versiyon.json",
+		"Version.subsets/Tüm Versiyonlar.json"
+	]
+}

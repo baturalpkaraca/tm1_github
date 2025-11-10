@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Mizan_Kontrol_Meas",
+	"Elements":
+	[
+		{
+			"Name":"STAT Fark",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS Fark",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SPK Mizan",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mizan Sistemden Gelen",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mizan Karşılık Sonrası",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım STAT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım IFRS",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

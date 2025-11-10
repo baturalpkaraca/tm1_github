@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Fiili_Tanımsız_Mağazalar_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Fiili_Tanımsız_Mağazalar_Meas.hierarchies/Fiili_Tanımsız_Mağazalar_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Fiili_Tanımsız_Mağazalar_Meas')/Hierarchies('Fiili_Tanımsız_Mağazalar_Meas')"
+	}
+}

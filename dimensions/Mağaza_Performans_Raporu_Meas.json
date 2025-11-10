@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Mağaza_Performans_Raporu_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Mağaza_Performans_Raporu_Meas.hierarchies/Mağaza_Performans_Raporu_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Mağaza_Performans_Raporu_Meas')/Hierarchies('Mağaza_Performans_Raporu_Meas')"
+	}
+}

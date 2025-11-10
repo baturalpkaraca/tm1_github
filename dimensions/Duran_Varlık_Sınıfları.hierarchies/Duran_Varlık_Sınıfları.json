@@ -1,0 +1,105 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Duran_Varlık_Sınıfları",
+	"Elements":
+	[
+		{
+			"Name":"Toplam Duran Varlık",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"250",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"254",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"255",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"258",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"260",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"261",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"262",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"263",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"264",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"253",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"250",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"253",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"254",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"255",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"258",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"260",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"261",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"262",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"263",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Duran Varlık",
+			"ComponentName":"264",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

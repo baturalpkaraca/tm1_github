@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Giriş_Fiili_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Aktifleştirme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Devreden Maliyet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Giriş Maliyet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Devreden Amortisman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dönem Amoritsmanı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çıkışlar Maliyet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisman Çıkışlar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_Proje_Parametre",
+	"Hierarchies@Code.links":
+	[
+		"İK_Proje_Parametre.hierarchies/İK_Proje_Parametre.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_Proje_Parametre')/Hierarchies('İK_Proje_Parametre')"
+	}
+}

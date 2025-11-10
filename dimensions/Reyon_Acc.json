@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Reyon_Acc",
+	"Hierarchies@Code.links":
+	[
+		"Reyon_Acc.hierarchies/Reyon_Acc.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Reyon_Acc')/Hierarchies('Reyon_Acc')"
+	}
+}

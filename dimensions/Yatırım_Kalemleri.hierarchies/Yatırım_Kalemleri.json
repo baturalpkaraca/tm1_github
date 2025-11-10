@@ -1,0 +1,1791 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Kalemleri",
+	"Elements":
+	[
+		{
+			"Name":"Toplam Yatırım",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"İnşaat",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Endirekt Satınalma",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Pazarlama",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kolon - Duvar Giydirme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yönlendirici Görseller (POS & POP & FM1)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer - Pazarlama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dış mekan Pano&Billboard",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağaza açılış&revamp iletişimi çalışmaları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dijital sinyalizasyonlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Açılış Organizasyonu/PR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metal Raf (Mağaza)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metal Raf (Depo)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metal Aksesuar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Aydınlatma Çadırı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ahşap Dekorasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kullanım Ekipmanları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer - Endirekt Satınalma",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Akü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alan Çalışması",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alçak Gerilim Panolari",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Altyapi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Anons ve seslendirme Sistemi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asansör",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asma Tavan Tamiratı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Aydınlatma Armatür ilave ve revizyonu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Boya",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Branda ve Tente",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cam",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cctv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cephe Kaplama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çati Kaplama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çelik İşleri (Çati Ve Cephe )",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çevre Aydinlatmasi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çevre Düzenleme + Otopark + Asfalt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dış Bahçenin Kapatılması",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dock Leveler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Duman Tahliye Sistemi revizyonu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Duman Tahliye Sistemi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Elektrik Proje",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hafriyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hava Perdesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Havalandırma Sistemi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Havalandirma Tesisati",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hırsız Güvenlik Alarm Sistem",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hız Kesici",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İnce  İnşaat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İnce  İnşaat (Otopark)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İzolasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Jeneratör",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kaba  İnşaat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kablo Taşiyicilari",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kablolar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kapı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kartlı Geçiş Sistemi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kavşak Projesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kepenk",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kış Bahçesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Klima",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağaza Duvar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mazgal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mekanik Proje",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Merdiven",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mimari Proje",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oda",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oda Yenilemesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Og Trafo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje Ruhsat Harci",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rampa düzenlemesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rooftop Cihazı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Seramik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sihhi Tesisat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Statik Proje",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sundurma",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tel Örgü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temel İslahı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tesisat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Topraklama Ve Yildirimdan Korunma",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Totem + Logo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yalıtım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yangin İhbar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yangin Tesisati",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yürüyen Merdiven - Yol Revizyonu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Zemin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Zemin ve Duvar Kaplama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer - İnşaat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3D Printer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IT-Akü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Barkod Okuyucu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Barkod Okuyucu Kablosu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Barkod Printer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Baz İstasyonu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cep Telefonu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cradle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dotmatrix",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Etiket Yazıcı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fan",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Güvenlik Donanımları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hub Switch",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kasa Switch",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Laptop",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lukhan Yazıcı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Masaüstü Telefon Görüntülü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Masaüstü Telefon Görüntüsüz",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Network Storage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Network Yazıcı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ÖKC Geçiş Projesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PDKS Cihazı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Projeksiyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RF Pod",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Santral",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Smartphone",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sunucu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Switch",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tablet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Telsiz Telefon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UPS 20 Kva",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UPS 5 Kva",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Video Konferans Cihazı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yazarkasa",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yazarkasa Base Değişim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yazarkasa Switch",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3D Max",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adobe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Arcon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Arcon Entegrasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Autocad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Autoreplenishment - Invent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Beko Yazarkasa Geliştirmeler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BW Financial Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BW Reorganization",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAR Consultancy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cluster SQL Projesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Commvault",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Customer Desk Faz 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Customer Desk Roll-out",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dijitalleşme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"E-Mutabakat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"eWM Projesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Genius Program",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GNFR Endirek Satınalma Projesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Güvenlik Yazılımları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"HANA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"HR Replace",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hybris",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hybris B2C",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IDM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incoming e-Invoice",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"JDA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"JDA CR Geliştirmeler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"JDA Floor Planning",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"JDA Space Planning",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KVK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manage Engine Password Manager Pro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"McAfee Drive Encryption Yeni",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"McAfee Drive Encryption Yenileme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"McAfee Endpoint Protection Yeni",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"McAfee Endpoint Protection Yenileme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MDM - Airwatch",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Merkezi Sipariş Ekranı Faz II",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MFA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Microsoft EA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Microsoft Ofis 365",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Microsoft TrueUp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MSATA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NAC & SOC & Network İzleme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Nesus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oracle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OSC Implementation - KF Entegrasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Photoshop",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"POS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Positive Web",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate Simulasyon Projesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RF Mal Kabul Değişiklikleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Misc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Upgrade",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Secure FTP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ServiceNow ITSM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ServiceNow PPS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Servicenow PPS Implementasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sketch Up",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TM1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TM1 Faz 2 - Support",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TM1 Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"URL & App Control & IPS & ATP & Antivirus & Antibot",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Virtual Reality - Dijital Mağaza",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağaza Ağ ve Altyapı Yatırımları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer - IT",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam Yatırım",
+			"ComponentName":"IT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Yatırım",
+			"ComponentName":"İnşaat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Yatırım",
+			"ComponentName":"Endirekt Satınalma",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Yatırım",
+			"ComponentName":"Pazarlama",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"3D Printer",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"IT-Akü",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Barkod Okuyucu",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Barkod Okuyucu Kablosu",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Barkod Printer",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Baz İstasyonu",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Cep Telefonu",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Cradle",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Dotmatrix",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Etiket Yazıcı",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Fan",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Güvenlik Donanımları",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Hub Switch",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Kasa Switch",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Kiosk",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Laptop",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Lukhan Yazıcı",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Masaüstü Telefon Görüntülü",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Masaüstü Telefon Görüntüsüz",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Network Storage",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Network Yazıcı",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"ÖKC Geçiş Projesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"PC",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"PDKS Cihazı",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Projeksiyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"RF",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"RF Pod",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Santral",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Smartphone",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Sunucu",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Switch",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Tablet",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Telsiz Telefon",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"UPS 20 Kva",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"UPS 5 Kva",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Video Konferans Cihazı",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Yazarkasa",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Yazarkasa Base Değişim",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Yazarkasa Switch",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"3D Max",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Adobe",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Arcon",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Arcon Entegrasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Autocad",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Autoreplenishment - Invent",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Beko Yazarkasa Geliştirmeler",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"BW Financial Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"BW Reorganization",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"CAR",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"CAR Consultancy",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Cluster SQL Projesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Commvault",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Customer Desk Faz 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Customer Desk Roll-out",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Dijitalleşme",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"DLP",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"E-Mutabakat",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"eWM Projesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Genius Program",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"GNFR Endirek Satınalma Projesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Güvenlik Yazılımları",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"HANA",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"HR Replace",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Hybris",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Hybris B2C",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"IDM",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"IFRS",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Incoming e-Invoice",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"JDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"JDA CR Geliştirmeler",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"JDA Floor Planning",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"JDA Space Planning",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"KVK",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Manage Engine Password Manager Pro",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"McAfee Drive Encryption Yeni",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"McAfee Drive Encryption Yenileme",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"McAfee Endpoint Protection Yeni",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"McAfee Endpoint Protection Yenileme",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"MDM - Airwatch",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Merkezi Sipariş Ekranı Faz II",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"MFA",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Microsoft EA",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Microsoft Ofis 365",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Microsoft TrueUp",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"MSATA",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"NAC & SOC & Network İzleme",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Nesus",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Oracle",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"OSC Implementation - KF Entegrasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Photoshop",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"POS",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Positive Web",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Rebate Simulasyon Projesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"RF Mal Kabul Değişiklikleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"SAP Misc",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"SAP Upgrade",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Secure FTP",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"ServiceNow ITSM",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"ServiceNow PPS",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Servicenow PPS Implementasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Sketch Up",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"TM1",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"TM1 Faz 2 - Support",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"TM1 Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"URL & App Control & IPS & ATP & Antivirus & Antibot",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Virtual Reality - Dijital Mağaza",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Mağaza Ağ ve Altyapı Yatırımları",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Diğer - IT",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Akü",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Alan Çalışması",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Alçak Gerilim Panolari",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Altyapi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Anons ve seslendirme Sistemi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Asansör",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Asma Tavan Tamiratı",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Aydınlatma Armatür ilave ve revizyonu",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Boya",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Branda ve Tente",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Cam",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Cctv",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Cephe Kaplama",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Çati Kaplama",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Çelik İşleri (Çati Ve Cephe )",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Çevre Aydinlatmasi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Çevre Düzenleme + Otopark + Asfalt",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Çit",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Dış Bahçenin Kapatılması",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Dock Leveler",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Duman Tahliye Sistemi revizyonu",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Duman Tahliye Sistemi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Elektrik Proje",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Hafriyat",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Hava Perdesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Havalandırma Sistemi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Havalandirma Tesisati",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Hırsız Güvenlik Alarm Sistem",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Hız Kesici",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"İnce  İnşaat",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"İnce  İnşaat (Otopark)",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"İzolasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Jeneratör",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kaba  İnşaat",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kablo Taşiyicilari",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kablolar",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kapı",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kartlı Geçiş Sistemi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kavşak Projesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kepenk",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Kış Bahçesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Klima",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Mağaza Duvar",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Mazgal",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Mekanik Proje",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Merdiven",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Mimari Proje",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Oda",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Oda Yenilemesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Og Trafo",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Proje Ruhsat Harci",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Rampa düzenlemesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Rooftop Cihazı",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Seramik",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Sihhi Tesisat",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Statik Proje",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Sundurma",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Tel Örgü",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Temel İslahı",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Tesisat",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Topraklama Ve Yildirimdan Korunma",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Totem + Logo",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Tv",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Wc",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Yalıtım",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Yangin İhbar",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Yangin Tesisati",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Yürüyen Merdiven - Yol Revizyonu",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Zemin",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Zemin ve Duvar Kaplama",
+			"Weight":1
+		},
+		{
+			"ParentName":"İnşaat",
+			"ComponentName":"Diğer - İnşaat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Metal Raf (Mağaza)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Metal Raf (Depo)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Metal Aksesuar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Aydınlatma Çadırı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Ahşap Dekorasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Kullanım Ekipmanları",
+			"Weight":1
+		},
+		{
+			"ParentName":"Endirekt Satınalma",
+			"ComponentName":"Diğer - Endirekt Satınalma",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Kolon - Duvar Giydirme",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Yönlendirici Görseller (POS & POP & FM1)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Diğer - Pazarlama",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Dış mekan Pano&Billboard",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Mağaza açılış&revamp iletişimi çalışmaları",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Dijital sinyalizasyonlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pazarlama",
+			"ComponentName":"Açılış Organizasyonu/PR",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Yatırım_Kalemleri.subsets/Yatırım Kalemleri N.json"
+	]
+}

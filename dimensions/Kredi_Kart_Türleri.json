@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kredi_Kart_Türleri",
+	"Hierarchies@Code.links":
+	[
+		"Kredi_Kart_Türleri.hierarchies/Kredi_Kart_Türleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kredi_Kart_Türleri')/Hierarchies('Kredi_Kart_Türleri')"
+	}
+}

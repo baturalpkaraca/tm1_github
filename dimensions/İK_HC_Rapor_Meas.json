@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_HC_Rapor_Meas",
+	"Hierarchies@Code.links":
+	[
+		"İK_HC_Rapor_Meas.hierarchies/İK_HC_Rapor_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_HC_Rapor_Meas')/Hierarchies('İK_HC_Rapor_Meas')"
+	}
+}

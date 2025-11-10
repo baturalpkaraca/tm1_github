@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Arge_Tanım_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Arge_Tanım_Meas.hierarchies/Arge_Tanım_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Arge_Tanım_Meas')/Hierarchies('Arge_Tanım_Meas')"
+	}
+}

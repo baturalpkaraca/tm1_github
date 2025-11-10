@@ -1,0 +1,44 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Sarf_Malzeme_Meas",
+	"Elements":
+	[
+		{
+			"Name":"MM",
+			"Type":"String"
+		},
+		{
+			"Name":"MM Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Malzeme Adı",
+			"Type":"String"
+		},
+		{
+			"Name":"Birim",
+			"Type":"String"
+		},
+		{
+			"Name":"Para Birimi",
+			"Type":"String"
+		},
+		{
+			"Name":"Orjinal Para Birimi - Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar - TL",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kanuni_Karşılık_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Kanuni_Karşılık_Meas.hierarchies/Kanuni_Karşılık_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kanuni_Karşılık_Meas')/Hierarchies('Kanuni_Karşılık_Meas')"
+	}
+}

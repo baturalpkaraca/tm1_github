@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Depolama_Personel_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Depolama_Personel_Meas.hierarchies/Depolama_Personel_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Depolama_Personel_Meas')/Hierarchies('Depolama_Personel_Meas')"
+	}
+}

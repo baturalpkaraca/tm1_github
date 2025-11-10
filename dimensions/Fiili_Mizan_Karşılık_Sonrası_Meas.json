@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Fiili_Mizan_Karşılık_Sonrası_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Fiili_Mizan_Karşılık_Sonrası_Meas.hierarchies/Fiili_Mizan_Karşılık_Sonrası_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Fiili_Mizan_Karşılık_Sonrası_Meas')/Hierarchies('Fiili_Mizan_Karşılık_Sonrası_Meas')"
+	}
+}

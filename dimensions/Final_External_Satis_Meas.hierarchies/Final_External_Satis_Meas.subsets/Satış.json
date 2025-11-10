@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Satış",
+	"Expression":"{[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Handyman Sales],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Handyman Margin],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Kiosk Sales],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Kiosk Sales Margin],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Mobil Ticari],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Mobil Ticari Margin],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[3P Satış],[Final_External_Satis_Meas].[Final_External_Satis_Meas].[3P Margin],DRILLDOWNMEMBER({[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Toplam SMM]} , {[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Toplam SMM]} , RECURSIVE),DRILLDOWNMEMBER({[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Toplam Satış]} , {[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Toplam Satış]} , RECURSIVE),DRILLDOWNMEMBER({[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Toplam Cash Margin]} , {[Final_External_Satis_Meas].[Final_External_Satis_Meas].[Toplam Cash Margin]} , RECURSIVE)}"
+}

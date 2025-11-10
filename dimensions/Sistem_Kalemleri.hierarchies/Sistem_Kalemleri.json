@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Sistem_Kalemleri",
+	"Elements":
+	[
+		{
+			"Name":"IFRS Senaryo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ana Senaryo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ana Senaryo - Bütçe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ana Senaryo - Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ana Dönem",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

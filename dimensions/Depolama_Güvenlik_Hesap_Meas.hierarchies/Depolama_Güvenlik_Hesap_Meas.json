@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Güvenlik_Hesap_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

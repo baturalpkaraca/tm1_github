@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Vergi_Ertelenen_Detay",
+	"Hierarchies@Code.links":
+	[
+		"Vergi_Ertelenen_Detay.hierarchies/Vergi_Ertelenen_Detay.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Vergi_Ertelenen_Detay')/Hierarchies('Vergi_Ertelenen_Detay')"
+	}
+}

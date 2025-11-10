@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Duran_Varlık_Sınıfları",
+	"Hierarchies@Code.links":
+	[
+		"Duran_Varlık_Sınıfları.hierarchies/Duran_Varlık_Sınıfları.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Duran_Varlık_Sınıfları')/Hierarchies('Duran_Varlık_Sınıfları')"
+	}
+}

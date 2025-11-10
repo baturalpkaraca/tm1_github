@@ -1,0 +1,69 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Kiralık_Ekipman_Tipi",
+	"Elements":
+	[
+		{
+			"Name":"Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Manlift",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Transpalet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Reach Truck",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İstif Aracı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Manlift",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Forklift",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Transpalet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Reach Truck",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"İstif Aracı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Diğer",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

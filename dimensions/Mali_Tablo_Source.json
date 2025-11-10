@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Mali_Tablo_Source",
+	"Hierarchies@Code.links":
+	[
+		"Mali_Tablo_Source.hierarchies/Mali_Tablo_Source.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Mali_Tablo_Source')/Hierarchies('Mali_Tablo_Source')"
+	}
+}

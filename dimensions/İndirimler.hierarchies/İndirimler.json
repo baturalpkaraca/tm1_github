@@ -1,0 +1,375 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İndirimler",
+	"Elements":
+	[
+		{
+			"Name":"Toplam İndirim",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Paro İndirimleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Ticari",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Retail",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Komisyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Usta",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KoçAilem",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hopi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paro Diğer 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer İndirimler",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Retail Diğer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kategori",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Markdown",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"SKT İNDİRİMİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ETIKET HATASI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DEFOLU ÜRÜN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FiYAT GARANTİSİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SERİ SONU",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PARO SISTEM HATASI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İADE FİYAT FARKI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EN UCUZU FİX (TUTAR)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EN UCUZU FİX (%10)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TEŞHİR İNDİRİMİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marka İşbirliği",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koçailem PARO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel PARO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel (SAP)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Flextra Puan",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WEB indirimleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"INDIRIM URUNU",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MERKEZ TALIMAT URUN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MERKEZ TALIMATI TUT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koç firmalarına yapılan sap üzerinden tanımlı indrimler ZOTO, ZKOÇ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari olarak anlaşılan kurumsal firmalara tanımlanmış olan indirimler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ŞOK USTA KART",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paro Diğer 3",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam İndirim",
+			"ComponentName":"Paro İndirimleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam İndirim",
+			"ComponentName":"Diğer İndirimler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Ticari",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Retail",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Komisyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Usta",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"KoçAilem",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Personel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Hopi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Diğer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Paro Diğer 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Paro İndirimleri",
+			"ComponentName":"Paro Diğer 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Retail Diğer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Kategori",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Markdown",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Diğer 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Diğer 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Diğer 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Marka İşbirliği",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Koçailem PARO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Personel PARO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Personel (SAP)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Flextra Puan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"WEB indirimleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"INDIRIM URUNU",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"MERKEZ TALIMAT URUN",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"MERKEZ TALIMATI TUT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Koç firmalarına yapılan sap üzerinden tanımlı indrimler ZOTO, ZKOÇ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"Ticari olarak anlaşılan kurumsal firmalara tanımlanmış olan indirimler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Diğer İndirimler",
+			"ComponentName":"ŞOK USTA KART",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"SKT İNDİRİMİ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"ETIKET HATASI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"DEFOLU ÜRÜN",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"FiYAT GARANTİSİ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"SERİ SONU",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"PARO SISTEM HATASI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"İADE FİYAT FARKI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"EN UCUZU FİX (TUTAR)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"EN UCUZU FİX (%10)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Markdown",
+			"ComponentName":"TEŞHİR İNDİRİMİ",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

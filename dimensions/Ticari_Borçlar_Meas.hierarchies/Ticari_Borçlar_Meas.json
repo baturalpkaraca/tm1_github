@@ -1,0 +1,84 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Ticari_Borçlar_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Stok ve Siparişler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"K.V. Ticari Borçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DBS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok (ort.)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alım - 12 Aylık",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMM - 12 Aylık",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Borçlar (ort.)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BGS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok ve Siparişler - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok ve Siparişler - rYTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alım - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alım - rYTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMM - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMM - rYTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"K.V. Ticari Borçlar - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"K.V. Ticari Borçlar - rYTD",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

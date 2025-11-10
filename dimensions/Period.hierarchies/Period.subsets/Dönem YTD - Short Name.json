@@ -1,0 +1,44 @@
+{
+	"@type":"Subset",
+	"Name":"Dönem YTD - Short Name",
+	"Alias":"Short Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-01-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-02-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-03-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-04-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-05-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-06-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-07-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-08-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-09-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-10-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-11-YTD')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2026-12-YTD')"
+		}
+	]
+}

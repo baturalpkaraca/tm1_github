@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Enerji_Kalemleri",
+	"Hierarchies@Code.links":
+	[
+		"Enerji_Kalemleri.hierarchies/Enerji_Kalemleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Enerji_Kalemleri')/Hierarchies('Enerji_Kalemleri')"
+	}
+}

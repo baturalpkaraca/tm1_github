@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Toplam Unvan",
+	"Alias":"Name",
+	"Expression":"{{DISTINCT({DESCENDANTS([Unvanlar].[Unvanlar].[TOPLAM])})}}"
+}

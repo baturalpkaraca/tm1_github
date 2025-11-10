@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_HC_Cinsiyet",
+	"Elements":
+	[
+		{
+			"Name":"Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kadın",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Erkek",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Kadın",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Erkek",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

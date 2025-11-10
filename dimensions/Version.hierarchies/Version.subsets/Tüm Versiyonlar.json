@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Tüm Versiyonlar",
+	"Alias":"Name",
+	"Expression":"{HIERARCHIZE(EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0) , {[Version].[Version].[Fiili]} , ALL))}"
+}

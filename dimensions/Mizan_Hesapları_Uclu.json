@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Mizan_Hesapları_Uclu",
+	"Hierarchies@Code.links":
+	[
+		"Mizan_Hesapları_Uclu.hierarchies/Mizan_Hesapları_Uclu.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Mizan_Hesapları_Uclu')/Hierarchies('Mizan_Hesapları_Uclu')"
+	}
+}

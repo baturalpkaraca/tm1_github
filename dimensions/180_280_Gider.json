@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"180_280_Gider",
+	"Hierarchies@Code.links":
+	[
+		"180_280_Gider.hierarchies/180_280_Gider.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('180_280_Gider')/Hierarchies('180_280_Gider')"
+	}
+}

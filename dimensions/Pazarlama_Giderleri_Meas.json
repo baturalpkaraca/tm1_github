@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Pazarlama_Giderleri_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Pazarlama_Giderleri_Meas.hierarchies/Pazarlama_Giderleri_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Pazarlama_Giderleri_Meas')/Hierarchies('Pazarlama_Giderleri_Meas')"
+	}
+}

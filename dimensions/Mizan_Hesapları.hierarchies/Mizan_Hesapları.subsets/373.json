@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"373",
+	"Expression":"{TM1FILTERBYPATTERN(TM1FILTERBYLEVEL(TM1SUBSETALL([Mizan_Hesapları].[Mizan_Hesapları]) , 0) , \"373*\")}"
+}

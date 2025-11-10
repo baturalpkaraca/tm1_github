@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Version_Report",
+	"Elements":
+	[
+		{
+			"Name":"Fiili",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2024",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 5+7 2024",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 9+3 2024",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 3+9 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 5+7 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast 9+3 2025",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Version_Report.subsets/Ana Senaryo.json",
+		"Version_Report.subsets/Fiili + Ana Senaryo.json"
+	]
+}

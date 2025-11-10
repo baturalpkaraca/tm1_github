@@ -1,0 +1,49 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Yatırım - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Yatırım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ekonomik Ömür - Kanuni",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ekonomik Ömür - UMS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisman - Kanuni",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisman - UMS",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Yatırım - Final",
+			"ComponentName":"Yatırım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yatırım - Final",
+			"ComponentName":"Yatırım - Düzeltme",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

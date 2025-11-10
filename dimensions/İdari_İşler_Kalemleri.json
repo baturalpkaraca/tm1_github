@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İdari_İşler_Kalemleri",
+	"Hierarchies@Code.links":
+	[
+		"İdari_İşler_Kalemleri.hierarchies/İdari_İşler_Kalemleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İdari_İşler_Kalemleri')/Hierarchies('İdari_İşler_Kalemleri')"
+	}
+}

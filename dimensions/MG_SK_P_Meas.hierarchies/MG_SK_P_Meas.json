@@ -1,0 +1,77 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MG_SK_P_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Handyman Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman Sales - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman Sales - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Satış - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Satış - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Satış - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Satış - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Satış - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Satış - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Margin",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"MG_SK_P_Meas.subsets/Item.json",
+		"MG_SK_P_Meas.subsets/Satış.json",
+		"MG_SK_P_Meas.subsets/TRX.json"
+	]
+}

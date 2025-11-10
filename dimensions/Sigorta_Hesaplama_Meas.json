@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Sigorta_Hesaplama_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Sigorta_Hesaplama_Meas.hierarchies/Sigorta_Hesaplama_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Sigorta_Hesaplama_Meas')/Hierarchies('Sigorta_Hesaplama_Meas')"
+	}
+}

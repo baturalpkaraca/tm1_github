@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Arge_Amortisman_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Arge_Amortisman_Meas.hierarchies/Arge_Amortisman_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Arge_Amortisman_Meas')/Hierarchies('Arge_Amortisman_Meas')"
+	}
+}

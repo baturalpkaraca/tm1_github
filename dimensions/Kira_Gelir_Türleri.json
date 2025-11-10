@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kira_Gelir_Türleri",
+	"Hierarchies@Code.links":
+	[
+		"Kira_Gelir_Türleri.hierarchies/Kira_Gelir_Türleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kira_Gelir_Türleri')/Hierarchies('Kira_Gelir_Türleri')"
+	}
+}

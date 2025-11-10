@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Personel N",
+	"Expression":"{EXCEPT(DISTINCT({[Depolama_Personel_Güvenlik_Tipi].[Depolama_Personel_Güvenlik_Tipi].[Toplam Personel],DESCENDANTS([Depolama_Personel_Güvenlik_Tipi].[Depolama_Personel_Güvenlik_Tipi].[Toplam Personel] , 99 , LEAVES)}) , {[Depolama_Personel_Güvenlik_Tipi].[Depolama_Personel_Güvenlik_Tipi].[Toplam Personel]})}"
+}

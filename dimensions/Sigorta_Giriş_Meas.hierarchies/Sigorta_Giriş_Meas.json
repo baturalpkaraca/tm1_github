@@ -1,0 +1,44 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Sigorta_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Sigorta Tipleri",
+			"Type":"String"
+		},
+		{
+			"Name":"Dağıtım Anahtarı",
+			"Type":"String"
+		},
+		{
+			"Name":"MM",
+			"Type":"String"
+		},
+		{
+			"Name":"MM Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Poliçe Başlangıç",
+			"Type":"String"
+		},
+		{
+			"Name":"Poliçe Bitiş",
+			"Type":"String"
+		},
+		{
+			"Name":"Prim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Artış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final Prim",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

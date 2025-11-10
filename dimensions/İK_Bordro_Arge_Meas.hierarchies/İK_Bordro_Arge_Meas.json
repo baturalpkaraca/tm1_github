@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Bordro_Arge_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Birim Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

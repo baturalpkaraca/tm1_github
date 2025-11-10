@@ -1,0 +1,65 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Satış_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Alış Nakliye Gideri / Net Ciro %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alış Nakliye Gideri - Manuel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alış Nakliye Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate / Net Ciro %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate - Manuel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage / Net Ciro %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage - Manuel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Rebate - Final",
+			"ComponentName":"Rebate",
+			"Weight":1
+		},
+		{
+			"ParentName":"Rebate - Final",
+			"ComponentName":"Rebate - Düzeltme",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

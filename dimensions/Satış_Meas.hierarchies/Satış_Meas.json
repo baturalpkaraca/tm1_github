@@ -1,0 +1,153 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Satış_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Net Ciro (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yarı Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paro Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Paro İndirim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Yarı Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Paro İndirim - Dağıtım Öncesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Diğer İndirim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Yarı Gross Ciro Diğer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam İndirim",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Paro İndirim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer İndirim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alış Nakliye Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Alış Nakliye",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Net Ciro Alış Nakliye",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alış Nakliye Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yarı Buying Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Buying Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Net Ciro Rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Shrinkage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"yh_Net Ciro Shrinkage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Yarı Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Yarı Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Usta Yarı Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Yarı Buying Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Yarı Buying Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Yarı Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam İndirim",
+			"ComponentName":"Paro İndirim",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam İndirim",
+			"ComponentName":"Diğer İndirim",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

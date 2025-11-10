@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Yatırım_Giriş_Detay",
+	"Hierarchies@Code.links":
+	[
+		"Yatırım_Giriş_Detay.hierarchies/Yatırım_Giriş_Detay.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Yatırım_Giriş_Detay')/Hierarchies('Yatırım_Giriş_Detay')"
+	}
+}

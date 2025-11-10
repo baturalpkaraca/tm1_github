@@ -1,0 +1,239 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Report_PL_Plan_Meas",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL_Y-1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"N_LFL_Y-2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL_Y-2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"N_LFL_Y-1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Total Tahmin Aylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Sales Tahmin Aylar %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Tahmin Aylar TL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Tahmin Ay %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Tahmin Ay Sales % Dif",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Tahmin Aylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Tahmin Aylar Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Tahmin Aylar Difference",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Tahmin Aylar Growth %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Tahmin Aylar Sales % Diff.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-2 Actual Tahmin Aylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-2 Actual Tahmin Aylar Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Fiili Aylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Fiili Aylar Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Fiili Aylar Difference",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Fiili Aylar Growth %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Fiili Aylar Sales % Diff.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-2 Actual Fiili Aylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-2 Actual Fiili Aylar Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Total Fiili Aylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Sales Fiili Aylar %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Fiili Aylar TL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Fiili Ay %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Fiili Ay Sales % Dif",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Fiili Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Tahmin Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Fiili Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Tahmin Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget TL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast vs Budget Sales % Diff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Diff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Growth %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-1 Actual Sales % Diff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-2 Actual Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Y-2 Actual Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Base TOTAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Base Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Difference",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Growth %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales % Diff.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Actual TOTAL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Actual Sales %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Non-LFL",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Report_PL_Plan_Meas.subsets/LFL.json"
+	]
+}

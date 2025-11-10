@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Detay_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Tangible / Intangible",
+			"Type":"String"
+		},
+		{
+			"Name":"Yasal Ömrü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Ömrü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BS Duran Varlık Hesabı",
+			"Type":"String"
+		},
+		{
+			"Name":"BS Amortisman Hesabı",
+			"Type":"String"
+		},
+		{
+			"Name":"PL Amortisman Hesabı",
+			"Type":"String"
+		},
+		{
+			"Name":"Ömür Kira Süresine Bağlı?",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

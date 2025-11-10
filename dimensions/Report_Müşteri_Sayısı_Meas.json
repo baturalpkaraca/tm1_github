@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Report_Müşteri_Sayısı_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Report_Müşteri_Sayısı_Meas.hierarchies/Report_Müşteri_Sayısı_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Report_Müşteri_Sayısı_Meas')/Hierarchies('Report_Müşteri_Sayısı_Meas')"
+	}
+}

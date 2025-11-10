@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_Kıdem_Karşılık_Fiili_Meas",
+	"Hierarchies@Code.links":
+	[
+		"İK_Kıdem_Karşılık_Fiili_Meas.hierarchies/İK_Kıdem_Karşılık_Fiili_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_Kıdem_Karşılık_Fiili_Meas')/Hierarchies('İK_Kıdem_Karşılık_Fiili_Meas')"
+	}
+}

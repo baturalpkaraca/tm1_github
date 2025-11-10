@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Personel_Hesap_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

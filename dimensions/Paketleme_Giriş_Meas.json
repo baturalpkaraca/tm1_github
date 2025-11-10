@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Paketleme_Giriş_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Paketleme_Giriş_Meas.hierarchies/Paketleme_Giriş_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Paketleme_Giriş_Meas')/Hierarchies('Paketleme_Giriş_Meas')"
+	}
+}

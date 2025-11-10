@@ -1,0 +1,55 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Seyahat_Giderleri",
+	"Elements":
+	[
+		{
+			"Name":"Yurtiçi",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Yurtdışı",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Avrupa",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uzak Doğu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Küçükşehir",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Büyükşehir",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Yurtiçi",
+			"ComponentName":"Küçükşehir",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yurtiçi",
+			"ComponentName":"Büyükşehir",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yurtdışı",
+			"ComponentName":"Avrupa",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yurtdışı",
+			"ComponentName":"Uzak Doğu",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

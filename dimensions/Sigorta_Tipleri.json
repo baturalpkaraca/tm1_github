@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Sigorta_Tipleri",
+	"Hierarchies@Code.links":
+	[
+		"Sigorta_Tipleri.hierarchies/Sigorta_Tipleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Sigorta_Tipleri')/Hierarchies('Sigorta_Tipleri')"
+	}
+}

@@ -1,0 +1,160 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Mağaza_Performans_Raporu_Meas",
+	"Elements":
+	[
+		{
+			"Name":"MM",
+			"Type":"String"
+		},
+		{
+			"Name":"Format",
+			"Type":"String"
+		},
+		{
+			"Name":"Mağaza",
+			"Type":"String"
+		},
+		{
+			"Name":"KM",
+			"Type":"String"
+		},
+		{
+			"Name":"Mağaza Adı",
+			"Type":"String"
+		},
+		{
+			"Name":"OPENNING DATE",
+			"Type":"String"
+		},
+		{
+			"Name":"SQM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NET SALES",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"total sales per sqm",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OPCO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OPCO %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA BÜTÇE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA DIFF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA DIFF Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA+WCAP COST",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA+WCAP COST %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PBT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PBT %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- rent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- rent %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"rent bütçe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"rent diff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"total staff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"total staff bütçe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"total staff diff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Staf Cost/Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"rent Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"rent diff Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"total staff Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"total staff diff Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WCAP COST",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"STOK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yüzde",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Staff Cost/Sqm",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

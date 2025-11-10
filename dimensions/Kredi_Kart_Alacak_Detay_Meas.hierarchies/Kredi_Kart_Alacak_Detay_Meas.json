@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Kredi_Kart_Alacak_Detay_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Collection Ratio",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Collection",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

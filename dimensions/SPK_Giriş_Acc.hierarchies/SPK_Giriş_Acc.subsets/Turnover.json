@@ -1,0 +1,190 @@
+{
+	"@type":"Subset",
+	"Name":"Turnover",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('IAS39 for T/R')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth. T/R (exc. 108)')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly B2B Sales')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth. T/R (exc. 108) - Avg')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly B2B Sales - Sum')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Turnover rate - T/R')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Turnover days - T/R')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('IAS39 for CCR')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Credit Card Rec.')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly Sales (exc. B2B)')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Credit Card Rec. - Avg')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly Sales (exc. B2B) - Sum')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Turnover rate - CCR')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Turnover days - CCR')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('IAS39 for T/P')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('T/P')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Stock')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly COGS')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly COGS - Sum')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('T/P - Avg')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('T/P - Purchases')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Turnover rate - T/P')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Turnover days - T/P')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TR - Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TR - Turnover Days')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TR - Interest Rate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TR - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TR - Net Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TR - Discount Balance - Negative YTD')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('CCR - Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('CCR - Turnover Days')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('CCR - Interest Rate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('CCR - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('CCR - Net Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('CCR - Discount Balance - Negative YTD')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TP - Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TP - Turnover Days')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TP - Interest Rate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TP - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TP - Net Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('TP - Discount Balance - Negative YTD')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Sales - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('B2B - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth.S - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Sales - Discount Balance - Negative YTD')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('B2B - Discount Balance - Negative YTD')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth.S - Discount Balance - Negative YTD')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('B2B - Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('B2B - Turnover Days')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('B2B - Interest Rate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('B2B - Net Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth.S - Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth.S - Turnover Days')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth.S - Interest Rate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Oth.S - Net Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - Turnover Days')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - Interest Rate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - Discount Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - Net Balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - Discount Balance - Negative YTD')"
+		}
+	]
+}

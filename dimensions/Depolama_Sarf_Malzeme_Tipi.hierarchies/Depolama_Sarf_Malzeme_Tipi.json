@@ -1,0 +1,252 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Sarf_Malzeme_Tipi",
+	"Elements":
+	[
+		{
+			"Name":"Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"17 MICRON STRETCH (6)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"45*40 KOLİ BANDI ŞEFFAF (96)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"90 MİCRON 110 CM SHRINK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ BASKILI KOLİ 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ KOLİ NO:13 DS 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ KOLİ NO:14",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ KOLİ NO:15",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ KOLİ NO:16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KOÇTAŞ YENİ KOLİ NO:17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TERMAL ETİKET",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"A4 YAZICI KAĞIDI(1 Koli=5 PKT)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SEPET GRİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BALONLU NAYLON",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İrsaliye",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"cepcik",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"17 MICRON STRETCH (6)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"45*40 KOLİ BANDI ŞEFFAF (96)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"90 MİCRON 110 CM SHRINK",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ BASKILI KOLİ 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ KOLİ NO:13 DS 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ KOLİ NO:14",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ KOLİ NO:15",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ KOLİ NO:16",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"KOÇTAŞ YENİ KOLİ NO:17",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"TERMAL ETİKET",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"A4 YAZICI KAĞIDI(1 Koli=5 PKT)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"SEPET GRİ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"BALONLU NAYLON",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"İrsaliye",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"cepcik",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Depolama_Sarf_Malzeme_Tipi.subsets/N.json"
+	]
+}

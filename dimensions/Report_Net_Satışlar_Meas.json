@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Report_Net_Satışlar_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Report_Net_Satışlar_Meas.hierarchies/Report_Net_Satışlar_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Report_Net_Satışlar_Meas')/Hierarchies('Report_Net_Satışlar_Meas')"
+	}
+}

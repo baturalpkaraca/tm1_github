@@ -1,0 +1,915 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Proje",
+	"Elements":
+	[
+		{
+			"Name":"Toplam Proje",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Proje 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 13",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 14",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 15",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 19",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 20",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 21",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 23",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 24",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 25",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 26",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 27",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 28",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 29",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 30",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 31",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 32",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 33",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 34",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 35",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 36",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 37",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 38",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 39",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 40",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 41",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 42",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 43",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 44",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 45",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 46",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 47",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 48",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 49",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 50",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 51",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 52",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 53",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 54",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 55",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 56",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 57",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 58",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 59",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 60",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 61",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 62",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 63",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 64",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 65",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 66",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 67",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 68",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 69",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 70",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 71",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 72",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 73",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 74",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 75",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 76",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 77",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 78",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 79",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 80",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 81",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 82",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 83",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 84",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 85",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 86",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 87",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 88",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 89",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 90",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 91",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 92",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 93",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 94",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 95",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 96",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 97",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 98",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 99",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Proje 100",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 13",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 14",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 15",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 16",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 17",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 18",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 19",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 20",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 21",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 22",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 23",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 24",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 25",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 26",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 27",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 28",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 29",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 30",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 31",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 32",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 33",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 34",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 35",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 36",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 37",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 38",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 39",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 40",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 41",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 42",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 43",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 44",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 45",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 46",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 47",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 48",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 49",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 50",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 51",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 52",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 53",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 54",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 55",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 56",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 57",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 58",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 59",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 60",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 61",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 62",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 63",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 64",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 65",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 66",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 67",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 68",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 69",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 70",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 71",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 72",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 73",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 74",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 75",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 76",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 77",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 78",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 79",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 80",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 81",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 82",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 83",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 84",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 85",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 86",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 87",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 88",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 89",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 90",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 91",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 92",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 93",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 94",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 95",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 96",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 97",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 98",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 99",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Proje",
+			"ComponentName":"Proje 100",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

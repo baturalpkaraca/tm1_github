@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Masraf Merkezi N",
+	"Alias":"Code - Name",
+	"Expression":"{ORDER(EXCEPT(DISTINCT({[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[All Cost Centers],DESCENDANTS([Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[All Cost Centers] , 99 , LEAVES)}) , {[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[All Cost Centers]}) , IIF([Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"Code - Name\")=\"\", [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"Code - Name\")) , BASC)}"
+}

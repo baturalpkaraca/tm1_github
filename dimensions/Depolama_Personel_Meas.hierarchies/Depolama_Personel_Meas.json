@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Personel_Meas",
+	"Elements":
+	[
+		{
+			"Name":"MM Depo & 5001",
+			"Type":"String"
+		},
+		{
+			"Name":"MM Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Personel Tipi Açıklama",
+			"Type":"String"
+		},
+		{
+			"Name":"Birim Maliyet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"HC/Saat",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

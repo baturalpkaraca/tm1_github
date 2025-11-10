@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_Bordro_Kalemleri",
+	"Hierarchies@Code.links":
+	[
+		"İK_Bordro_Kalemleri.hierarchies/İK_Bordro_Kalemleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_Bordro_Kalemleri')/Hierarchies('İK_Bordro_Kalemleri')"
+	}
+}

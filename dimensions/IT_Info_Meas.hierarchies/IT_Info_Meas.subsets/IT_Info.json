@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"IT_Info",
+	"Expression":"{{[IT_Info_Meas].[IT_Info_Meas].MEMBERS}}"
+}

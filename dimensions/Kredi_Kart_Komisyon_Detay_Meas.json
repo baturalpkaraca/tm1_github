@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kredi_Kart_Komisyon_Detay_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Kredi_Kart_Komisyon_Detay_Meas.hierarchies/Kredi_Kart_Komisyon_Detay_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kredi_Kart_Komisyon_Detay_Meas')/Hierarchies('Kredi_Kart_Komisyon_Detay_Meas')"
+	}
+}

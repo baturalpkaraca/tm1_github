@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Total Records",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Records')/Hierarchies('Records')/Elements('Total Records')"
+		}
+	]
+}

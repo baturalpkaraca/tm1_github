@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Kredi_Faiz_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Kredi_Faiz_Meas.hierarchies/Kredi_Faiz_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Kredi_Faiz_Meas')/Hierarchies('Kredi_Faiz_Meas')"
+	}
+}

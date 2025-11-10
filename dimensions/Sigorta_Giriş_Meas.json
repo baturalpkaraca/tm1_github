@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Sigorta_Giriş_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Sigorta_Giriş_Meas.hierarchies/Sigorta_Giriş_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Sigorta_Giriş_Meas')/Hierarchies('Sigorta_Giriş_Meas')"
+	}
+}

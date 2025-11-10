@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Ana Senaryo",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version_Report')/Hierarchies('Version_Report')/Elements('Forecast 9+3 2025')"
+		}
+	]
+}

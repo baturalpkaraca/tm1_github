@@ -1,0 +1,68 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Depolama_Kira_Giderleri_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Kapanış Tutarı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Para Birimi",
+			"Type":"String"
+		},
+		{
+			"Name":"Sabit/Oran",
+			"Type":"String"
+		},
+		{
+			"Name":"Oran Seçimi",
+			"Type":"String"
+		},
+		{
+			"Name":"Oran %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manuel Oran Açıklaması",
+			"Type":"String"
+		},
+		{
+			"Name":"Değişim ayı",
+			"Type":"String"
+		},
+		{
+			"Name":"Kira Ciro %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Artış Tutarı (Sabit için)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Kira",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Kira (TL)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Kira (TRY)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Kira (USD)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Kira (EUR)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Kira (GBP)",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

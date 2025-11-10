@@ -1,0 +1,200 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İdari_İşler_Kalemleri",
+	"Elements":
+	[
+		{
+			"Name":"Güvenlik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Güvenlik Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Güvenlik Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Güvenlik Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Güvenlik Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Güvenlik Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Güvenlik Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hammaliye",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Hammaliye Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Hammaliye Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Hammaliye Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Hammaliye Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Hammaliye Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Hammaliye Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift Hammaliye Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift Hammaliye Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift Hammaliye Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bölge Müdürü Fark Tutarı (Hammaliye)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temizlik Malzemesi ve Kimyasal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temizlik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Temizlik Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Temizlik Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vasıfsız Temizlik Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Temizlik Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Temizlik Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şef Temizlik Mesai Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bölge Müdürü Fark Tutarı (Temizlik)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Çay Şeker Su Bardak Karıştırıcı",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Çay",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Şeker",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Su",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bardak",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Karıştırıcı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yemek",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Taşeron Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Setcard Kullanan Kişi Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yemek Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çalışılan Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Servis",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam idari İşler",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam Çay Şeker Su Bardak Karıştırıcı",
+			"ComponentName":"Çay",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Çay Şeker Su Bardak Karıştırıcı",
+			"ComponentName":"Şeker",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Çay Şeker Su Bardak Karıştırıcı",
+			"ComponentName":"Su",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Çay Şeker Su Bardak Karıştırıcı",
+			"ComponentName":"Bardak",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Çay Şeker Su Bardak Karıştırıcı",
+			"ComponentName":"Karıştırıcı",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

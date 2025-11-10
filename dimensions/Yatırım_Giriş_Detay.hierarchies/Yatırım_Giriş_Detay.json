@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Giriş_Detay",
+	"Elements":
+	[
+		{
+			"Name":"STAT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

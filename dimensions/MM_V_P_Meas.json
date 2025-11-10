@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"MM_V_P_Meas",
+	"Hierarchies@Code.links":
+	[
+		"MM_V_P_Meas.hierarchies/MM_V_P_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MM_V_P_Meas')/Hierarchies('MM_V_P_Meas')"
+	}
+}

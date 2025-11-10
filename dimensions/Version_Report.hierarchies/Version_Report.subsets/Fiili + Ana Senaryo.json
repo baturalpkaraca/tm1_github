@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Fiili + Ana Senaryo",
+	"Expression":"{[Version_Report].[Version_Report].[Fiili],TM1SubsetToSet([Version_Report].[Version_Report] , \"Ana Senaryo\" , \"public\")}"
+}

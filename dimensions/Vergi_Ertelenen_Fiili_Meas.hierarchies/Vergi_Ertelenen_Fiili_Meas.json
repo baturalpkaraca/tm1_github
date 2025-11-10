@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Vergi_Ertelenen_Fiili_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustment",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Amount - Final",
+			"ComponentName":"Amount",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amount - Final",
+			"ComponentName":"Adjustment",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,60 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Vergi_Kalemleri",
+	"Elements":
+	[
+		{
+			"Name":"Inventory (NRV)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Slow Moving",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate in Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IFRS 16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tangible ass.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intangible ass.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ETB",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 (TR)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IAS39 (TP)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Unused vac.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PARO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lawsuit prov.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Geçici Farklar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,309 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Amortisman_Fiili_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Kanuni Yatırım - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kanuni Yatırım - Mevcut",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Yatırım - Devir",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Yatırım - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Yatırım - Transfer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Yatırım - Çıkış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Yatırım - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"UMS Yatırım - Mevcut",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Yatırım - Devir",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Yatırım - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Yatırım - Transfer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Yatırım - Çıkış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Yatırım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım - Çıkış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kanuni Amortisman - Mevcut",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Devir",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Transfer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Çıkış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Final",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"UMS Amortisman - Mevcut",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Devir",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Transfer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Çıkış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Final - YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kanuni Amortisman - Mevcut - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Devir - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Düzeltme - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kanuni Amortisman - Çıkış - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Final - YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"UMS Amortisman - Mevcut - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Devir - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Düzeltme - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UMS Amortisman - Çıkış - YTD",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Kanuni Yatırım - Final",
+			"ComponentName":"Kanuni Yatırım - Mevcut",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Yatırım - Final",
+			"ComponentName":"Kanuni Yatırım - Devir",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Yatırım - Final",
+			"ComponentName":"Kanuni Yatırım - Düzeltme",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Yatırım - Final",
+			"ComponentName":"Kanuni Yatırım - Transfer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Yatırım - Final",
+			"ComponentName":"Kanuni Yatırım - Çıkış",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Yatırım - Final",
+			"ComponentName":"UMS Yatırım - Mevcut",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Yatırım - Final",
+			"ComponentName":"UMS Yatırım - Devir",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Yatırım - Final",
+			"ComponentName":"UMS Yatırım - Düzeltme",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Yatırım - Final",
+			"ComponentName":"UMS Yatırım - Transfer",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Yatırım - Final",
+			"ComponentName":"UMS Yatırım - Çıkış",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yatırım - Final",
+			"ComponentName":"Yatırım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yatırım - Final",
+			"ComponentName":"Yatırım - Çıkış",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final",
+			"ComponentName":"Kanuni Amortisman - Mevcut",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final",
+			"ComponentName":"Kanuni Amortisman - Devir",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final",
+			"ComponentName":"Kanuni Amortisman - Düzeltme",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final",
+			"ComponentName":"Kanuni Amortisman - Transfer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final",
+			"ComponentName":"Kanuni Amortisman - Çıkış",
+			"Weight":-1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final",
+			"ComponentName":"UMS Amortisman - Mevcut",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final",
+			"ComponentName":"UMS Amortisman - Devir",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final",
+			"ComponentName":"UMS Amortisman - Düzeltme",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final",
+			"ComponentName":"UMS Amortisman - Transfer",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final",
+			"ComponentName":"UMS Amortisman - Çıkış",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final - YTD",
+			"ComponentName":"Kanuni Amortisman - Mevcut - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final - YTD",
+			"ComponentName":"Kanuni Amortisman - Devir - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final - YTD",
+			"ComponentName":"Kanuni Amortisman - Düzeltme - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kanuni Amortisman - Final - YTD",
+			"ComponentName":"Kanuni Amortisman - Çıkış - YTD",
+			"Weight":-1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final - YTD",
+			"ComponentName":"UMS Amortisman - Mevcut - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final - YTD",
+			"ComponentName":"UMS Amortisman - Devir - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final - YTD",
+			"ComponentName":"UMS Amortisman - Düzeltme - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"UMS Amortisman - Final - YTD",
+			"ComponentName":"UMS Amortisman - Çıkış - YTD",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":[]
+}

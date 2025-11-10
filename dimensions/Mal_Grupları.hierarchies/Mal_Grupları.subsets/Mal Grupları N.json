@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Mal Grupları N",
+	"Alias":"Mal Grubu İsmi",
+	"Expression":"{TM1FILTERBYLEVEL(TM1SUBSETALL([Mal_Grupları].[Mal_Grupları]) , 0)}"
+}

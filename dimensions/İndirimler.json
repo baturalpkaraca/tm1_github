@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İndirimler",
+	"Hierarchies@Code.links":
+	[
+		"İndirimler.hierarchies/İndirimler.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İndirimler')/Hierarchies('İndirimler')"
+	}
+}

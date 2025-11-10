@@ -1,0 +1,141 @@
+{
+	"@type":"Hierarchy",
+	"Name":"IT_Account",
+	"Elements":
+	[
+		{
+			"Name":"Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Yazılım Bakım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Genel Danışmanlık",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Altyapı Tamir ve Bakım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yönetilen Hizmetler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mobil Telefon Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Data Hatları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sabit Telefon Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Network Altyapı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yardım Masası ve Destek",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IT Sarf ve Diğer Giderler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Son kullanıcı donanım tamir bakım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uygulama Kiralama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cloud Hizmetler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ERP Danışmanlık",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Yazılım Bakım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Genel Danışmanlık",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Altyapı Tamir ve Bakım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Yönetilen Hizmetler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Mobil Telefon Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Data Hatları",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Sabit Telefon Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Network Altyapı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Yardım Masası ve Destek",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"IT Sarf ve Diğer Giderler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Son kullanıcı donanım tamir bakım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Uygulama Kiralama",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"Cloud Hizmetler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam",
+			"ComponentName":"ERP Danışmanlık",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"LFL_Info",
+	"Hierarchies@Code.links":
+	[
+		"LFL_Info.hierarchies/LFL_Info.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('LFL_Info')/Hierarchies('LFL_Info')"
+	}
+}

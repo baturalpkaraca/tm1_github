@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MM_V_P_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Açık / Kapalı",
+			"Type":"String"
+		},
+		{
+			"Name":"LFL / Non-LFL",
+			"Type":"String"
+		},
+		{
+			"Name":"MP GMV (3P) Y.Gross Ciro",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P commission income Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P other marketing income Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P commission income amount (Excl. VAT)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P other marketing income amount (Excl. VAT)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P commission income amount (Incl. VAT)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P other marketing income amount (Incl. VAT)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P delivery cost (kdv dahil)",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

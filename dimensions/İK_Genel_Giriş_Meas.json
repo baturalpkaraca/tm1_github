@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_Genel_Giriş_Meas",
+	"Hierarchies@Code.links":
+	[
+		"İK_Genel_Giriş_Meas.hierarchies/İK_Genel_Giriş_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_Genel_Giriş_Meas')/Hierarchies('İK_Genel_Giriş_Meas')"
+	}
+}

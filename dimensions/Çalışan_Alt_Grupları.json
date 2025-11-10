@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Çalışan_Alt_Grupları",
+	"Hierarchies@Code.links":
+	[
+		"Çalışan_Alt_Grupları.hierarchies/Çalışan_Alt_Grupları.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Çalışan_Alt_Grupları')/Hierarchies('Çalışan_Alt_Grupları')"
+	}
+}

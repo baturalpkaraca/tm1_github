@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Depolama_Sarf_Malzeme_Hesap_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Depolama_Sarf_Malzeme_Hesap_Meas.hierarchies/Depolama_Sarf_Malzeme_Hesap_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Depolama_Sarf_Malzeme_Hesap_Meas')/Hierarchies('Depolama_Sarf_Malzeme_Hesap_Meas')"
+	}
+}

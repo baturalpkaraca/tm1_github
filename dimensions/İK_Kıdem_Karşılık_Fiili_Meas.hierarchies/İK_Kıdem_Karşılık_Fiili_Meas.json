@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Kıdem_Karşılık_Fiili_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

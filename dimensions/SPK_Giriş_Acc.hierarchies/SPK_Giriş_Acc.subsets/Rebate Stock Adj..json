@@ -1,0 +1,70 @@
+{
+	"@type":"Subset",
+	"Name":"Rebate Stock Adj.",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - month')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('COGS - cumulative')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('PY Period End Stocks')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Stocks End')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Purchases')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Purchase Consignment %')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Consignment _ purchases')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Purchases (Exc. Consingment)')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Monthly Rebate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate - Cumulative')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate Consignment %')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Consignment _ rebate')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate (Exc. Consingment)')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('% of Rebates in Total Purch. (Exc. Cons.)')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate in Stocks')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate in stock opening balance')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate in stock adjustment')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('% of Rebates in Total Purch. (oran düzeltme)')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('% of Rebates in Total Purch. (final oran )')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Final Rebate in Stocks')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')/Hierarchies('SPK_Giriş_Acc')/Elements('Rebate in stock adjustment (Final)')"
+		}
+	]
+}

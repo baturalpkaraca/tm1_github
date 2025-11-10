@@ -1,0 +1,76 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Genel_Parametre_Kalemleri",
+	"Elements":
+	[
+		{
+			"Name":"Tamamlayıcı Sağlık Sigortası Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çay Fişi Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ayni Yardım Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kasa Tazminatı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İzin Harçlığı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yakacak Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bayram Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı İlköğretim Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı Lise Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı Yüksekokul Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çocuk Yardımı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Flextra Şirket Katkı Payı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koç Ailem Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koç Topluluğu Spor Kulübü Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağazalar Sosyal Aktivite ve Taşınma Masrafları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kadın Personel Oranı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yıllık Mağaza Prim Tutarı",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

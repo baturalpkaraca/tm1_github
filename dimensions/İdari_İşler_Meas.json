@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İdari_İşler_Meas",
+	"Hierarchies@Code.links":
+	[
+		"İdari_İşler_Meas.hierarchies/İdari_İşler_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İdari_İşler_Meas')/Hierarchies('İdari_İşler_Meas')"
+	}
+}

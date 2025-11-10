@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Sistem_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Sistem_Meas.hierarchies/Sistem_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Sistem_Meas')/Hierarchies('Sistem_Meas')"
+	}
+}

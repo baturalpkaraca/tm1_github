@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Arge_Tanım_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Aktifleşme Dönemi",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

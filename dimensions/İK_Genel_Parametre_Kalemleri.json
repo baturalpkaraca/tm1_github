@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"İK_Genel_Parametre_Kalemleri",
+	"Hierarchies@Code.links":
+	[
+		"İK_Genel_Parametre_Kalemleri.hierarchies/İK_Genel_Parametre_Kalemleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('İK_Genel_Parametre_Kalemleri')/Hierarchies('İK_Genel_Parametre_Kalemleri')"
+	}
+}

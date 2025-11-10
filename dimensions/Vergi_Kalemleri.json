@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Vergi_Kalemleri",
+	"Hierarchies@Code.links":
+	[
+		"Vergi_Kalemleri.hierarchies/Vergi_Kalemleri.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Vergi_Kalemleri')/Hierarchies('Vergi_Kalemleri')"
+	}
+}

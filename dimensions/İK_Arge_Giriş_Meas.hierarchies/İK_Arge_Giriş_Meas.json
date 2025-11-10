@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Arge_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Çalışan Sayısı",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

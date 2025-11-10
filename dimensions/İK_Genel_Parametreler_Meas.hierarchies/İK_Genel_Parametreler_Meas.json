@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Genel_Parametreler_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Part Time İçin Birim Fiyat Hesaplansın mı?",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

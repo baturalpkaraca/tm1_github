@@ -1,0 +1,64 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Genel_Giderler_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Final Tutar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Düzeltme",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hesaplanan Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manuel Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Açılış Öncesi Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Tutar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Amount Cost",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Final Tutar",
+			"ComponentName":"Hesaplanan Tutar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Tutar",
+			"ComponentName":"Manuel Tutar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Tutar",
+			"ComponentName":"Düzeltme",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"Final Tutar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"Açılış Öncesi Tutar",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

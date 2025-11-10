@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Records N",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Records].[Records]) , 0)}}"
+}

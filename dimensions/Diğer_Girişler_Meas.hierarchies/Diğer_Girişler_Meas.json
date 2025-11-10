@@ -1,0 +1,145 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Diğer_Girişler_Meas",
+	"Elements":
+	[
+		{
+			"Name":"6490100025 (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490100024(Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490100025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490100024",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kur Farkı Gelir Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6460100003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6460100006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6460100002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kur Farkı Gider Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6560100004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6560100006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6560100002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490000001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer(6590000001)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490209098",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490209099",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6490309099",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6890126401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6590000001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(6590000001)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6790300001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temettü",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temettü (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faiz Geliri TL (6420202001)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faiz Geliri EUR (6420201002)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faiz Geliri USD (6420201001)",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Kur Farkı Gelir Toplam",
+			"ComponentName":"6460100003",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kur Farkı Gelir Toplam",
+			"ComponentName":"6460100006",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kur Farkı Gelir Toplam",
+			"ComponentName":"6460100002",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kur Farkı Gider Toplam",
+			"ComponentName":"6560100004",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kur Farkı Gider Toplam",
+			"ComponentName":"6560100006",
+			"Weight":1
+		},
+		{
+			"ParentName":"Kur Farkı Gider Toplam",
+			"ComponentName":"6560100002",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

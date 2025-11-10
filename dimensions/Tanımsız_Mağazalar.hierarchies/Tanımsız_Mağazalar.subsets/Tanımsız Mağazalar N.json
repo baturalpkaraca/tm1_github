@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Tanımsız Mağazalar N",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Tanımsız_Mağazalar].[Tanımsız_Mağazalar]) , 0)}}"
+}

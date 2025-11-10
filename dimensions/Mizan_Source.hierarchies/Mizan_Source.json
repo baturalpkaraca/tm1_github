@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Mizan_Source",
+	"Elements":
+	[
+		{
+			"Name":"Vergi Düzeltmesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Diğer Düzeltmeler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Özsermaye Düzeltmesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AVM Cost Düzeltmesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sistemden Gelen Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Karşılık Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar - Nihai",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"Item",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Handyman Sales - Item')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('3P Satış - Item')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Perakende Satış - Item')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Ticari Satış - Item')"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MM_V_P_Fiili_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Açılış Tarihi",
+			"Type":"String"
+		},
+		{
+			"Name":"Kapanış Tarihi",
+			"Type":"String"
+		},
+		{
+			"Name":"Mağaza Türü",
+			"Type":"String"
+		},
+		{
+			"Name":"Metrekare",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL / Non-LFL",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

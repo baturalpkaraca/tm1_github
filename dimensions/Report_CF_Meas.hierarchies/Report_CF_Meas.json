@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Report_CF_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Tutar\\10^3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Önceki Ay Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Change",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar\\10^6",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

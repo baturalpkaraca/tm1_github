@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"SPK_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

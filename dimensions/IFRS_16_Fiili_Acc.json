@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"IFRS_16_Fiili_Acc",
+	"Hierarchies@Code.links":
+	[
+		"IFRS_16_Fiili_Acc.hierarchies/IFRS_16_Fiili_Acc.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('IFRS_16_Fiili_Acc')/Hierarchies('IFRS_16_Fiili_Acc')"
+	}
+}

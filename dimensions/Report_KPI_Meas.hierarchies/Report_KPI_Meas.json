@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Report_KPI_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Monthly",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"YTD",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Masraf Merkezi Code N",
+	"Expression":"{ORDER(TM1FILTERBYLEVEL(TM1SUBSETALL([Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]) , 0) , [Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\") , BASC)}"
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"TB",
+	"Alias":"Kod - İsim",
+	"Expression":"{DRILLDOWNMEMBER(DRILLDOWNMEMBER({[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[TB]} , {[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[TB]} , RECURSIVE) , {[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[Varlıklar]})}"
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Yatırım_Amortisman_Fiili_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Yatırım_Amortisman_Fiili_Meas.hierarchies/Yatırım_Amortisman_Fiili_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Yatırım_Amortisman_Fiili_Meas')/Hierarchies('Yatırım_Amortisman_Fiili_Meas')"
+	}
+}

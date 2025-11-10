@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Depolama_Diğer_Giderler_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Depolama_Diğer_Giderler_Meas.hierarchies/Depolama_Diğer_Giderler_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Depolama_Diğer_Giderler_Meas')/Hierarchies('Depolama_Diğer_Giderler_Meas')"
+	}
+}

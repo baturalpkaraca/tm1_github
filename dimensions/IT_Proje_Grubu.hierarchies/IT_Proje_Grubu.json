@@ -1,0 +1,882 @@
+{
+	"@type":"Hierarchy",
+	"Name":"IT_Proje_Grubu",
+	"Elements":
+	[
+		{
+			"Name":"Tüm Proje Grupları",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Access Point",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Airwatch",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AppStore",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Arcon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Autoreplenishment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Awards",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Backup",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Barkod Printer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Business Applications",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Call Center",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CDN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Change Auditor",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Checkpoint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cloud Santral",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cloud Usage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Codacy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dameware",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Data Recovery",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DevSecOps",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dot Matrix Printer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dynatrace",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"E-Arşiv Kontor",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"E-Güven",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"E-İrsaliye",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"E-Mutabakat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Equaltrack",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"E-WayBill",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Field Hardware Contract",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Firewall",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixed Telephony",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GAL SSO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GitHub",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Güvenlik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hand Held",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hosting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hyper-V",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Inovasyon Portal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intellij",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"JDA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kamera",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KoçHub",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Learning Hub",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Load Balancer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Local Wide Area Network",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağaza Açılış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manage Engine",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"McAfee",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Microsoft",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mobile Telephony",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NacSoc",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Nessus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Network Infrastructure Elements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Network Storage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oracle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PC Peripherals",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PDKS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personal Supports",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"POS Till",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Price Elasticity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Printer Peripherals",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Projection",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PRTG",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ranorex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RND",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Route",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ruckus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Santral",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP BO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Car",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP CRM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP ERP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP eWM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Hybris",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Max Attention",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Netweaver",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Real Estate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAP Talep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Satellite Telephony",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Security",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ServiceNow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sorwe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Success Factors",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Symantec",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tablet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Test",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tibco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TM1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Training",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UPS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Web",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Web Site",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WebTools",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Worksafe",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Access Point",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Airwatch",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"AppStore",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Arcon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Autoreplenishment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Awards",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Backup",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Barkod Printer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Business Applications",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Call Center",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"CDN",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Change Auditor",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Checkpoint",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Cloud Santral",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Cloud Usage",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Codacy",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Dameware",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Data Recovery",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"DevSecOps",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Dot Matrix Printer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Dynatrace",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"E-Arşiv Kontor",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"EBA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"E-Güven",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"E-İrsaliye",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"E-Mutabakat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Equaltrack",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"E-WayBill",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Field Hardware Contract",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Firewall",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Fixed Telephony",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"GAL SSO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"GitHub",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Güvenlik",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Hand Held",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Hosting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Hyper-V",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Inovasyon Portal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Intellij",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"JDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Kamera",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Kiosk",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"KoçHub",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Learning Hub",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Load Balancer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Local Wide Area Network",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Mağaza Açılış",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Manage Engine",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"McAfee",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Microsoft",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Mobile Telephony",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"NacSoc",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Nessus",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Network Infrastructure Elements",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Network Storage",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Oracle",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"PC Peripherals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"PDKS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Personal Supports",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"POS Till",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Price Elasticity",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Printer Peripherals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Projection",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"PRTG",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Ranorex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"RND",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Route",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Ruckus",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Santral",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP BO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP Car",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP CRM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP ERP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP eWM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP Hybris",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP Max Attention",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP Netweaver",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP Real Estate",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"SAP Talep",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Satellite Telephony",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Security",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"ServiceNow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Sorwe",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Success Factors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Symantec",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Tablet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Test",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Tibco",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"TM1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Training",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"UPS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Web",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Web Site",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"WebTools",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tüm Proje Grupları",
+			"ComponentName":"Worksafe",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"IT_Proje_Grubu.subsets/Proje Grupları N.json"
+	]
+}

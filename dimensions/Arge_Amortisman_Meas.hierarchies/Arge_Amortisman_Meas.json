@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Arge_Amortisman_Meas",
+	"Elements":
+	[
+		{
+			"Name":"UMS Amortisman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"258",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"263",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Harcama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisman",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

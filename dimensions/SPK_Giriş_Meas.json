@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"SPK_Giriş_Meas",
+	"Hierarchies@Code.links":
+	[
+		"SPK_Giriş_Meas.hierarchies/SPK_Giriş_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('SPK_Giriş_Meas')/Hierarchies('SPK_Giriş_Meas')"
+	}
+}

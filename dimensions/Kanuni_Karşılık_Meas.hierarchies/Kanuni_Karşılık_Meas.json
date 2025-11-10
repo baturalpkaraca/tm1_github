@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Kanuni_Karşılık_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Borç Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alacak Tutar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

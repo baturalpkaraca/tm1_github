@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Depo_Ekipman_Tipi",
+	"Hierarchies@Code.links":
+	[
+		"Depo_Ekipman_Tipi.hierarchies/Depo_Ekipman_Tipi.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Depo_Ekipman_Tipi')/Hierarchies('Depo_Ekipman_Tipi')"
+	}
+}

@@ -1,0 +1,1147 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Report_KPI",
+	"Elements":
+	[
+		{
+			"Name":"Net Sales SPK Koçtaş Stores (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Sales SPK Fix Stores (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ciro Kira Farkı (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Kira Gideri (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam TL Kira Gideri (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ücretsiz Nakliye Giderleri/ Toplam Satış",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Ücretsiz Nakliye Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Satışlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama personel sayısı (Merkez) (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama personel sayısı (Mağaza) (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Personel Sayısı (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Personel Başına Satış (LFL Mağaza)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"LFL Satışlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ORTALAMA DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ÖZSERMAYE-NET KAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Dev. Ed. Yat. - Özsermaye ile finanse edilen",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Dev. Ed. Yat. - Finansal borç ile finanse edilen",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ORTALAMA DÜZELTİLMİŞ ÖZSERMAYE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ÖZSERMAYE MALİYETİ ORANI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ÖZSERMAYE MALİYETİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EKONOMİK KÂR-ZARAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dev. Ed. Yat. - Özsermaye ile finanse edilen",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dev. Ed. Yat. - Finansal borç ile finanse edilen",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"DÜZELTİLMİŞ NET KÂR-ZARAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ORTALAMA ÖZSERMAYE-NET KAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ORTALAMA İŞTİRAKLER",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uzun vadeli finansal yatırımlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yapılmakta olan yatırımlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Verilen avanslar-sabit kıymetler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kontrol gücü olmayan paylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net dönem karı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İştirak satış karları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temettü gelirleri (Koç Topluluk içi)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temettü gelirleri (Koç Topluluk dışı)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İştiraklerin kar/zararındaki paylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İş Ortaklıklarının kar/zararındaki paylar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İştirak / Bağlı Ortaklık satış zararları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV (Baz) (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Özkaynaklar toplamı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cari Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faaliyet Karı (MIS)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Nakit (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Nitelikli Avans (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama 1 aya kadar olan kredi kartı alacakları (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Kısa vadeli krediler (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Uzun vadeli krediler (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Kredi faiz karşılığı (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Net Finansal Borç (düzeltilmiş)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Finansal Aktifler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Nakit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare  (toplam)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare başına satış (toplam)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare başına satış (toplam) (rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare verisi (Koçtaş)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare başına satış (Koçtaş)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Nitelikli Avans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare başına satış (Koçtaş) (rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare verisi (Fix)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Metrekare başına satış (Fix)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Metrekare verisi (Koçtaş)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Metrekare başına satış (Koçtaş)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Metrekare verisi (Fix)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Metrekare başına satış (Fix)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Metrekare verisi (Koçtaş+Fix)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Metrekare başına satış (Koçtaş+Fix)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Finansal Borç (Düzeltilmiş) / EBITDA  (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Finansal Borç (Düzeltilmiş)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate/ alım (rolling) (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alış Nakliye Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alıs nakliye / net ciro (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Satışlar (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMM (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MIS Faaliyet Karı (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisman (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDAR (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alım (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Satışlar Koçtaş (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MIS Faaliyet Karı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Brüt Kar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock transfer cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok düzeltme toplam",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok Karşılığı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faaliyet Karı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDAR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VÖK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Kar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ekonomik Kar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Brüt Kar Marjı (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash Margin (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock transfer cost (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate / Net satış (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rebate / Alım (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok düzeltme toplam /Net satış (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage / Net satış (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok Karşılığı marj (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faaliyet Kar (MIS) Marjı (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA Marjı (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDAR Marjı (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VÖK Marjı (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Kar Marjı (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Masraflar (amortisman hariç)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel Masrafları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faaliyet Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dönem Sonu Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dönem Sonu Personel Sayısı (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Personel Gideri / Ortalama Personel Sayısı (Mağaza)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Ortalama personel sayısı (Mağaza)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Personel Gideri (Mağaza)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Personel Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Merkez Ortalama Personel Sayısı / Toplam  Ortalama Personel Sayısı",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Merkez Ortalama Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Mağaza Kira Gideri/Toplam Mağaza Satış",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam Mağaza Kira Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Mağaza Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(Kırtasiye + PTT + Ulaşım + Seyahat Giderleri) / Ortalama Çalışan Sayısı",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kırtasiye + PTT + Ulaşım + Seyahat Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam  Ortalama Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Personel Gideri / Ortalama Personel Sayısı (Merkez)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Ortalama personel sayısı (Merkez)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Personel Gideri (Merkez)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dönem Sonu EFT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dönem Sonu EFT (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama EFT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Masraflar (amort.hariç) / Satışlar (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel Masrafları / Satışlar (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira giderleri/ Satışlar (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Faaliyet Giderleri / Satışlar (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dövizli Kira Toplam / Kira Toplam (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ay No (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Aktifler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Özkaynaklar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net İşletme Sermayesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Alacaklar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok ve Siparişler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Borçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net İşletme Sermayesi Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alacak Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Borç Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Net İşletme Sermayesi / Satışlar (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım Harcamaları (TL)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yatırım / Amortisman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Finansal Borç",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finansal Aktifler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Nakit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Nitelikli Avans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama 1 aya kadar olan kredi kartı alacakları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Finansal Borçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Kısa vadeli krediler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Uzun vadeli krediler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Kredi faiz karşılığı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Uzun Vadeli Borçlanma Oranı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Net Finansal Borç",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1 aya kadar olan kredi kartı alacakları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"KPI3802 - Finansal Borçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kısa vadeli krediler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uzun vadeli krediler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kredi faiz karşılığı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Finansal Borç / EBITDA  (Rolling)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uzun Vadeli Borçlanma Oranı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Satışlar Koçtaş",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Borç",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alınan sipariş avansı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Alacaklar Ortalama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stok Ortalama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Borç Ortalama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net İşletme Sermayesi Ortalama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alınan sipariş avansı Ortalama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Satış (Bütçe)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Satış (Baz)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam satış büyümesi  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam LFL büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL mağazalar büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koçtaş Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koçtaş Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Koçtaş büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fix Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fix Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL Fix büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Web LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Web LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LFL web büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koçtaş+Fix Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koçtaş+Fix Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koçtaş+Fix Mağazalar LFL büyüme (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı (Bütçe)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı (Baz)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Toplam Büyüme (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Toplam LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Toplam LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Toplam LFL büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı LFL mağazalar büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Koçtaş Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Koçtaş Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı LFL Koçtaş büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Fix Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Fix Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı LFL Fix büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Web LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Web LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı LFL web büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Koçtaş+Fix Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Koçtaş+Fix Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Sayısı Koçtaş+Fix Mağazalar LFL büyüme (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV (Bütçe)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV (Baz)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Toplam Büyüme (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Toplam LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Toplam LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Toplam LFL büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV LFL mağazalar büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Koçtaş Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Koçtaş Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV LFL Koçtaş büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Fix Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Fix Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV LFL Fix büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Web LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Web LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV LFL web büyüme  (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Koçtaş+Fix Mağazalar LFL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Koçtaş+Fix Mağazalar LFLP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ATV Koçtaş+Fix Mağazalar LFL büyüme (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8080400001 All Stores (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8080400001 B2B (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama m2 (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8080100001 All Stores (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8080100001 B2B (Calc)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Elektrik Kullanımı (kwh)/Toplam Ortalama m2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Doğalgaz Kullanımı (m3)/Toplam Ortalama m2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Tamir Bakım ve Onarım Gideri / Toplam Satış",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Tamir Bakım ve Onarım Gideri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Depolama ve Lojistik Merkezi Giderleri/Toplam Satış",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Depolama ve Lojistik Merkezi Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Pazarlama Giderleri/Toplam Satış",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam Pazarlama Giderleri",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Ücretsiz Nakliye Giderleri/ Toplam Satış",
+			"ComponentName":"Ücretsiz Nakliye Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ücretsiz Nakliye Giderleri/ Toplam Satış",
+			"ComponentName":"Satışlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ortalama Personel Başına Satış (LFL Mağaza)",
+			"ComponentName":"LFL Satışlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ortalama Personel Başına Satış (LFL Mağaza)",
+			"ComponentName":"Ortalama Personel Sayısı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Personel Gideri / Ortalama Personel Sayısı (Mağaza)",
+			"ComponentName":"Ortalama personel sayısı (Mağaza)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Personel Gideri / Ortalama Personel Sayısı (Mağaza)",
+			"ComponentName":"Toplam Personel Gideri (Mağaza)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merkez Ortalama Personel Sayısı / Toplam  Ortalama Personel Sayısı",
+			"ComponentName":"Merkez Ortalama Personel Sayısı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merkez Ortalama Personel Sayısı / Toplam  Ortalama Personel Sayısı",
+			"ComponentName":"Toplam  Ortalama Personel Sayısı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Mağaza Kira Gideri/Toplam Mağaza Satış",
+			"ComponentName":"Toplam Mağaza Kira Gideri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Mağaza Kira Gideri/Toplam Mağaza Satış",
+			"ComponentName":"Toplam Mağaza Satış",
+			"Weight":1
+		},
+		{
+			"ParentName":"(Kırtasiye + PTT + Ulaşım + Seyahat Giderleri) / Ortalama Çalışan Sayısı",
+			"ComponentName":"Kırtasiye + PTT + Ulaşım + Seyahat Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"(Kırtasiye + PTT + Ulaşım + Seyahat Giderleri) / Ortalama Çalışan Sayısı",
+			"ComponentName":"Toplam  Ortalama Personel Sayısı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Personel Gideri / Ortalama Personel Sayısı (Merkez)",
+			"ComponentName":"Ortalama personel sayısı (Merkez)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Personel Gideri / Ortalama Personel Sayısı (Merkez)",
+			"ComponentName":"Toplam Personel Gideri (Merkez)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tamir Bakım ve Onarım Gideri / Toplam Satış",
+			"ComponentName":"Tamir Bakım ve Onarım Gideri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tamir Bakım ve Onarım Gideri / Toplam Satış",
+			"ComponentName":"Satışlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Depolama ve Lojistik Merkezi Giderleri/Toplam Satış",
+			"ComponentName":"Net Depolama ve Lojistik Merkezi Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Depolama ve Lojistik Merkezi Giderleri/Toplam Satış",
+			"ComponentName":"Satışlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Pazarlama Giderleri/Toplam Satış",
+			"ComponentName":"Toplam Pazarlama Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Pazarlama Giderleri/Toplam Satış",
+			"ComponentName":"Satışlar",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

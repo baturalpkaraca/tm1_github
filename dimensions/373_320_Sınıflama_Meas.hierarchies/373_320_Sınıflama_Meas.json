@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"373_320_Sınıflama_Meas",
+	"Elements":
+	[
+		{
+			"Name":"373-320 Sınıflama Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"373-320 Sınıflama Vergi Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Açıklama",
+			"Type":"String"
+		},
+		{
+			"Name":"Grup",
+			"Type":"String"
+		},
+		{
+			"Name":"Enflasyon Hesabı mı?",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

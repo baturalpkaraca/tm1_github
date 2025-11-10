@@ -1,0 +1,691 @@
+{
+	"@type":"Hierarchy",
+	"Name":"PL_Acc",
+	"Elements":
+	[
+		{
+			"Name":"PL",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Buying margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stock transfer cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Product discounts given",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Supplier rebates",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Delivery",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shrinkage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Distribution costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P commission income (kdv dahil)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P other marketing income (kdv dahil)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P other delivery income (kdv dahil)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL NET SALES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3P delivery cost (kdv dahil)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Store costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"- staff (Payroll)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- staff (exc. Payroll)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- term. benefit provision",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- bonus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- rent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- operating leases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- repairs and maintenance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- IT maintenance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- retail asset depreciation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- retail asset profit/(loss) on sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- credit card charges",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- utilities",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- printing and stationery",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- communications",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- travel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- cleaning",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- security",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- insurance exp.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- external services",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- call center expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- rental car expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- packaging expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- advertisement, environment taxes and fees",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- management and consultancy expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- Tax, Duty and Fees",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- Guarantee Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- Used material from stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- other costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- porterage expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"- external services (forklift)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marketing costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Operations contribution",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Central costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IT costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regional costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R&D Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Retail Operating Profit - Before Pre-openning",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net pre-opening costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Licence fees",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RETAIL OPERATING PROFIT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rent received external",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other operations income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL OPERATING PROFIT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"External interest received",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Short&Long term interest paid",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Given Exchange Rate Difference",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest element of finance leases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Financial Expense",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PROFIT BEFORE TAXATION",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PROFIT AFTER TAXATION",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GMV (kdv hariç)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MP GMV (3P)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NET SALES",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MP revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EBITDA",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"PL",
+			"ComponentName":"GMV (kdv hariç)",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"MP revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"TOTAL NET SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Net margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Store costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Marketing costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Total costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Operations contribution",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Central costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"IT costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Regional costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"R&D Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Retail Operating Profit - Before Pre-openning",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Net pre-opening costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Licence fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"RETAIL OPERATING PROFIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Rent received external",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Other operations income",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"TOTAL OPERATING PROFIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"External interest received",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Short&Long term interest paid",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Given Exchange Rate Difference",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Interest element of finance leases",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Other Financial Expense",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Net interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"PROFIT BEFORE TAXATION",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"PROFIT AFTER TAXATION",
+			"Weight":1
+		},
+		{
+			"ParentName":"PL",
+			"ComponentName":"EBITDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"3P commission income (kdv dahil)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"3P other marketing income (kdv dahil)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"3P other delivery income (kdv dahil)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"3P delivery cost (kdv dahil)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Buying margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Stock transfer cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Product discounts given",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Supplier rebates",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Delivery",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Shrinkage",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net margin",
+			"ComponentName":"Distribution costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NET SALES",
+			"ComponentName":"MP revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NET SALES",
+			"ComponentName":"NET SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- staff (Payroll)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- staff (exc. Payroll)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- term. benefit provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- bonus",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- rent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- operating leases",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- repairs and maintenance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- IT maintenance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- retail asset depreciation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- retail asset profit/(loss) on sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- credit card charges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- utilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- printing and stationery",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- communications",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- cleaning",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- security",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- insurance exp.",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- external services",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- call center expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- rental car expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- packaging expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- advertisement, environment taxes and fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- management and consultancy expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- Tax, Duty and Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- Guarantee Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- Used material from stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- other costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- porterage expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Store costs",
+			"ComponentName":"- external services (forklift)",
+			"Weight":1
+		},
+		{
+			"ParentName":"GMV (kdv hariç)",
+			"ComponentName":"MP GMV (3P)",
+			"Weight":1
+		},
+		{
+			"ParentName":"GMV (kdv hariç)",
+			"ComponentName":"NET SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"MP revenue",
+			"ComponentName":"3P commission income (kdv dahil)",
+			"Weight":1
+		},
+		{
+			"ParentName":"MP revenue",
+			"ComponentName":"3P other marketing income (kdv dahil)",
+			"Weight":1
+		},
+		{
+			"ParentName":"MP revenue",
+			"ComponentName":"3P other delivery income (kdv dahil)",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"PL_Acc.subsets/PL.json"
+	]
+}

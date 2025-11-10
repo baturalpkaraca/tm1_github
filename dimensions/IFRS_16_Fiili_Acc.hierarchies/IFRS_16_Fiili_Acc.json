@@ -1,0 +1,263 @@
+{
+	"@type":"Hierarchy",
+	"Name":"IFRS_16_Fiili_Acc",
+	"Elements":
+	[
+		{
+			"Name":"252 - VKH Toplam",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"I252060101 - Varlık Kullanım Hakkı Binalar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I252060102 - Varlık Kullanım Hakkı Araçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I252060103 - Varlık Kullanım Hakkı Ekipmanlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"256 - BİRİKMİŞ AMORTİSMANLAR (-) VKH",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"I257060101 - Birikmiş Amortismanlar Binalar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I257060102 - Birikmiş Amortismanlar Araçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I257060103 - Birikmiş Amortismanlar Ekipmanlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"309 - KISA VADELİ KİRA YÜKÜMLÜLÜĞÜ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"409 - UZUN VADELİ KİRA YÜKÜMLÜLÜĞÜ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"I814010201 - Cari yıl amortismanı binalar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I814010202 - Cari yıl amortismanı araçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I814010203 - Cari yıl amortismanı ekipmanlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Araç kira giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift kira giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"632 - GENEL YÖNETİM GİDERLERİ",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"I814010201 - Cari yıl amortismanı binalar-632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I814010202 - Cari yıl amortismanı araçlar-632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I814010203 - Cari yıl amortismanı ekipmanlar-632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira giderleri-632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Araç kira giderleri-632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forklift kira giderleri-632",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"646 - KAMBİYO KARLARI",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"I646020001 - Finansal Kiralama Kur değerleme geliri binalar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I646020002 - Finansal Kiralama Kur değerleme geliri araçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I646020003 - Finansal Kiralama Kur değerleme geliri ekipmanlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"656 - KAMBİYO ZARARLARI",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"I656020001 - Finansal Kiralama Kur değerleme gideri binalar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I656020002 - Finansal Kiralama Kur değerleme gideri araçlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"I656020003 - Finansal Kiralama Kur değerleme gideri ekipmanlar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"660 - KISA VADELİ FİNANSMAN GİDERİ",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"252 - VKH Toplam",
+			"ComponentName":"I252060101 - Varlık Kullanım Hakkı Binalar",
+			"Weight":1
+		},
+		{
+			"ParentName":"252 - VKH Toplam",
+			"ComponentName":"I252060102 - Varlık Kullanım Hakkı Araçlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"252 - VKH Toplam",
+			"ComponentName":"I252060103 - Varlık Kullanım Hakkı Ekipmanlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"256 - BİRİKMİŞ AMORTİSMANLAR (-) VKH",
+			"ComponentName":"I257060101 - Birikmiş Amortismanlar Binalar",
+			"Weight":1
+		},
+		{
+			"ParentName":"256 - BİRİKMİŞ AMORTİSMANLAR (-) VKH",
+			"ComponentName":"I257060102 - Birikmiş Amortismanlar Araçlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"256 - BİRİKMİŞ AMORTİSMANLAR (-) VKH",
+			"ComponentName":"I257060103 - Birikmiş Amortismanlar Ekipmanlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"ComponentName":"I814010201 - Cari yıl amortismanı binalar",
+			"Weight":1
+		},
+		{
+			"ParentName":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"ComponentName":"I814010202 - Cari yıl amortismanı araçlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"ComponentName":"I814010203 - Cari yıl amortismanı ekipmanlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"ComponentName":"Kira giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"ComponentName":"Araç kira giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"631 - PAZARLAMA SATIŞ DAĞITIM GİDERİ",
+			"ComponentName":"Forklift kira giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"632 - GENEL YÖNETİM GİDERLERİ",
+			"ComponentName":"I814010201 - Cari yıl amortismanı binalar-632",
+			"Weight":1
+		},
+		{
+			"ParentName":"632 - GENEL YÖNETİM GİDERLERİ",
+			"ComponentName":"I814010202 - Cari yıl amortismanı araçlar-632",
+			"Weight":1
+		},
+		{
+			"ParentName":"632 - GENEL YÖNETİM GİDERLERİ",
+			"ComponentName":"I814010203 - Cari yıl amortismanı ekipmanlar-632",
+			"Weight":1
+		},
+		{
+			"ParentName":"632 - GENEL YÖNETİM GİDERLERİ",
+			"ComponentName":"Kira giderleri-632",
+			"Weight":1
+		},
+		{
+			"ParentName":"632 - GENEL YÖNETİM GİDERLERİ",
+			"ComponentName":"Araç kira giderleri-632",
+			"Weight":1
+		},
+		{
+			"ParentName":"632 - GENEL YÖNETİM GİDERLERİ",
+			"ComponentName":"Forklift kira giderleri-632",
+			"Weight":1
+		},
+		{
+			"ParentName":"646 - KAMBİYO KARLARI",
+			"ComponentName":"I646020001 - Finansal Kiralama Kur değerleme geliri binalar",
+			"Weight":1
+		},
+		{
+			"ParentName":"646 - KAMBİYO KARLARI",
+			"ComponentName":"I646020002 - Finansal Kiralama Kur değerleme geliri araçlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"646 - KAMBİYO KARLARI",
+			"ComponentName":"I646020003 - Finansal Kiralama Kur değerleme geliri ekipmanlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"656 - KAMBİYO ZARARLARI",
+			"ComponentName":"I656020001 - Finansal Kiralama Kur değerleme gideri binalar",
+			"Weight":1
+		},
+		{
+			"ParentName":"656 - KAMBİYO ZARARLARI",
+			"ComponentName":"I656020002 - Finansal Kiralama Kur değerleme gideri araçlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"656 - KAMBİYO ZARARLARI",
+			"ComponentName":"I656020003 - Finansal Kiralama Kur değerleme gideri ekipmanlar",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,86 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Paketleme_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Malzeme Adı",
+			"Type":"String"
+		},
+		{
+			"Name":"Birim",
+			"Type":"String"
+		},
+		{
+			"Name":"Para Birimi",
+			"Type":"String"
+		},
+		{
+			"Name":"Orjinal Para Birimi - Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tutar - TL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam %",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Fix Depo Payı %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Web Payı %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Payı %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"!!!Uyarı!!!",
+			"Type":"String"
+		},
+		{
+			"Name":"Fix Depo Tutarı (TL)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Web Tutarı (TL)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Tutarı (TL)",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam %",
+			"ComponentName":"Fix Depo Payı %",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam %",
+			"ComponentName":"Web Payı %",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam %",
+			"ComponentName":"Kiosk Payı %",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

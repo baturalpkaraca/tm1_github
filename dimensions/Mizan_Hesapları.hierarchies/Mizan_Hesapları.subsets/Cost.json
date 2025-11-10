@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Cost",
+	"Alias":"Hesap Kodu - İsim",
+	"Expression":"{DRILLDOWNMEMBER({[Mizan_Hesapları].[Mizan_Hesapları].[COST]} , {[Mizan_Hesapları].[Mizan_Hesapları].[COST]} , RECURSIVE)}"
+}

@@ -1,0 +1,204 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Genel_Giriş_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Çalışan Sayısı (Prim İçin)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tamamlayıcı Sağlık Sigortasından Yararlanan Kişi Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tamamlayıcı Sağlık Sigortası Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tamamlayıcı Sağlık Sigortası",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşten Ayrılan Kişi Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saatlik Brüt Ücret",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fazla Mesai Saati",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşten Ayrılanların Fazla Mesai Karş.",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşten Ayrılanların Senelik İzin Ödemesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Senelik İzin Öd. Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yol Yardımı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Görev Tazminatı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ayni Yardım Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ayni Yardım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kaza Tazminatı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kasa Tazminatı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kasa Tazminatı Alacak Kişi Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çocuk Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çocuk Yardımı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çocuk Yardımı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Günlük Brüt Ücret",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Resmi Tatillerdeki Çalışma Gün Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Resmi Tatilde Çalışacak Personel Oranı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Resmi Tatillerdeki Çalışma Ücreti",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı İlköğretim Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı Lise Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı Yüksekokul Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı İlköğretim Alacak Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı Lise Alacak Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı Yüksekokul Alacak Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tahsil Yardımı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bayram Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bayram",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İzin Harçlığı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İzin Harçlığı Alan Personel Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İzin Harçlığı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yakacak Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yakacak",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İkramiye",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Brüt Ücret",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çalışan Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ortalama Ücret",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Flextra Şirket Katkı Payı Birim Fiyat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Flextra Şirket Katkı Payı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koç Ailem Brüt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Koç Topluluğu Spor Kulübü Brüt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Flextra Kişi Sayısı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EFT Sayısı",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

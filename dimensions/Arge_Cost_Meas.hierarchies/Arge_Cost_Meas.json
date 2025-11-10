@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Arge_Cost_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_HC_Rapor_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Kişi Sayısı",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

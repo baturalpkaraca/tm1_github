@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İdari_İşler_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Toplam Tutar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Düzeltme",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"Tutar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"Düzeltme",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Ana Versiyon",
+	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Version]) , [Sistem].([Sistem_Kalemleri].[Ana Versiyon],[Sistem_Meas].[Değer]))}"
+}

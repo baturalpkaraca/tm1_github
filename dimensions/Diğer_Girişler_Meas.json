@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Diğer_Girişler_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Diğer_Girişler_Meas.hierarchies/Diğer_Girişler_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Diğer_Girişler_Meas')/Hierarchies('Diğer_Girişler_Meas')"
+	}
+}

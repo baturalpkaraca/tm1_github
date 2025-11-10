@@ -1,0 +1,31 @@
+{
+	"@type":"Subset",
+	"Name":"Satış",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Handyman Sales')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Handyman Margin')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('3P Satış')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('3P Margin')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Perakende Satış')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Perakende Margin')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Ticari Satış')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')/Hierarchies('MG_SK_P_Meas')/Elements('Ticari Margin')"
+		}
+	]
+}

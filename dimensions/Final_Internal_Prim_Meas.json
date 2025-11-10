@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Final_Internal_Prim_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Final_Internal_Prim_Meas.hierarchies/Final_Internal_Prim_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Final_Internal_Prim_Meas')/Hierarchies('Final_Internal_Prim_Meas')"
+	}
+}

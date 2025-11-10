@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Fiili_Tanımsız_Mağazalar_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"IT_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

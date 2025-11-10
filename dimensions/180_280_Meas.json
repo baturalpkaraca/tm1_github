@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"180_280_Meas",
+	"Hierarchies@Code.links":
+	[
+		"180_280_Meas.hierarchies/180_280_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('180_280_Meas')/Hierarchies('180_280_Meas')"
+	}
+}

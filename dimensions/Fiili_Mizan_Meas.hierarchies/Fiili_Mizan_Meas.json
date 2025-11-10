@@ -1,0 +1,55 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Fiili_Mizan_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Borç Bakiyesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Alacak Bakiyesi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net - YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Borç - YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Alacak - YTD",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Net",
+			"ComponentName":"Borç Bakiyesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net",
+			"ComponentName":"Alacak Bakiyesi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net - YTD",
+			"ComponentName":"Borç - YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net - YTD",
+			"ComponentName":"Alacak - YTD",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

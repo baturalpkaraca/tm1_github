@@ -1,0 +1,55 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_Proje_Kalemleri",
+	"Elements":
+	[
+		{
+			"Name":"Toplam İK Birim",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Eğitim",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşe Alım",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Assesment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İK Operasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İç İletişim",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam İK Birim",
+			"ComponentName":"İK Operasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam İK Birim",
+			"ComponentName":"İç İletişim",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam İK Birim",
+			"ComponentName":"İşe Alım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam İK Birim",
+			"ComponentName":"Assesment",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

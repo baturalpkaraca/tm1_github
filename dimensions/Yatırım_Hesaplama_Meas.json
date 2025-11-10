@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Yatırım_Hesaplama_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Yatırım_Hesaplama_Meas.hierarchies/Yatırım_Hesaplama_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Yatırım_Hesaplama_Meas')/Hierarchies('Yatırım_Hesaplama_Meas')"
+	}
+}

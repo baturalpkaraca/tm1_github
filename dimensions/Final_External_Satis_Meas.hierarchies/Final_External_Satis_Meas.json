@@ -1,0 +1,243 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Final_External_Satis_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Handyman Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman Sales - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman Sales - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Sales - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Sales - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kiosk Sales Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mobil Ticari",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mobil Ticari - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mobil Ticari - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mobil Ticari Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Satış - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Satış - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3P Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam SMM",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Perakende SMM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari SMM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam SMM - Item",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam SMM - TRX",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam Satış",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Perakende Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Satış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Satış - Item",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam Satış - TRX",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam Cash Margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Perakende Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende SMM - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari SMM - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende SMM - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari SMM - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Satış - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Satış - Item",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Perakende Satış - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari Satış - TRX",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ustabilir Satış",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam SMM",
+			"ComponentName":"Perakende SMM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam SMM",
+			"ComponentName":"Ticari SMM",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam SMM - Item",
+			"ComponentName":"Perakende SMM - Item",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam SMM - Item",
+			"ComponentName":"Ticari SMM - Item",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam SMM - TRX",
+			"ComponentName":"Perakende SMM - TRX",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam SMM - TRX",
+			"ComponentName":"Ticari SMM - TRX",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış",
+			"ComponentName":"Perakende Satış",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış",
+			"ComponentName":"Ticari Satış",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış",
+			"ComponentName":"Ustabilir Satış",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış - Item",
+			"ComponentName":"Perakende Satış - Item",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış - Item",
+			"ComponentName":"Ticari Satış - Item",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış - TRX",
+			"ComponentName":"Perakende Satış - TRX",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Satış - TRX",
+			"ComponentName":"Ticari Satış - TRX",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Cash Margin",
+			"ComponentName":"Perakende Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Cash Margin",
+			"ComponentName":"Ticari Margin",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Final_External_Satis_Meas.subsets/Item.json",
+		"Final_External_Satis_Meas.subsets/Satış.json",
+		"Final_External_Satis_Meas.subsets/TRX.json"
+	]
+}

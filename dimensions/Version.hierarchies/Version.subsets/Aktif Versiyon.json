@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Aktif Versiyon",
+	"Expression":"{EXCEPT(DISTINCT({[Version].[Version].[Aktif],DESCENDANTS([Version].[Version].[Aktif] , 99 , LEAVES)}) , {[Version].[Version].[Aktif]})}"
+}

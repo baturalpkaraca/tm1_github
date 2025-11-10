@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"İK_HC_Unvan",
+	"Elements":
+	[
+		{
+			"Name":"TOPLAM",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"YÖNETİCİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AYLIK ÜCRETLİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAAT ÜCRETLİ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SEZONLUK",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOPLAM",
+			"ComponentName":"YÖNETİCİ",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOPLAM",
+			"ComponentName":"AYLIK ÜCRETLİ",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOPLAM",
+			"ComponentName":"SAAT ÜCRETLİ",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOPLAM",
+			"ComponentName":"SEZONLUK",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

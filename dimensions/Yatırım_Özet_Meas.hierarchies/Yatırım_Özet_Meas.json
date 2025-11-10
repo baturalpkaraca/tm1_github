@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Yatırım_Özet_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Önceki Dönem",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Devir Amortisman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yeni Giriş - Yatırım & Amortisman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Transfer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Çıkış",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kontrol",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

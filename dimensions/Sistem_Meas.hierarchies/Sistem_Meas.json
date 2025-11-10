@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Sistem_Meas",
+	"Elements":
+	[
+		{
+			"Name":"Değer",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

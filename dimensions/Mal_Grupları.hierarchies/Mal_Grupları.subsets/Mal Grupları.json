@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Mal Grupları",
+	"Alias":"Mal Grubu İsmi",
+	"Expression":"{DRILLDOWNMEMBER({[Mal_Grupları].[Mal_Grupları].[Koçtaş Kategori Toplam]} , {[Mal_Grupları].[Mal_Grupları].[Koçtaş Kategori Toplam]} , RECURSIVE)}"
+}

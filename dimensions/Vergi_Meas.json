@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Vergi_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Vergi_Meas.hierarchies/Vergi_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Vergi_Meas')/Hierarchies('Vergi_Meas')"
+	}
+}
