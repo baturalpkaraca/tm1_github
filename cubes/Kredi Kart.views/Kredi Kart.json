@@ -1,0 +1,36 @@
+{
+	"@type":"MDXView",
+	"Name":"Kredi Kart",
+	"MDX@Code.link":"Kredi Kart.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Period].[Period]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Bankalar].[Bankalar]" : 
+			{
+				"Expression" : "{[Bankalar].[Bankalar].MEMBERS}"
+			},
+			"[Kredi_Kart_Türleri].[Kredi_Kart_Türleri]" : 
+			{
+				"Expression" : "{[Kredi_Kart_Türleri].[Kredi_Kart_Türleri].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Aktif Versiyon"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Bankalar].[Bankalar]" : false,
+			"[Kredi_Kart_Meas].[Kredi_Kart_Meas]" : false,
+			"[Kredi_Kart_Türleri].[Kredi_Kart_Türleri]" : false,
+			"[Period].[Period]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

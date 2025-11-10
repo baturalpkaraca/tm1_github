@@ -1,0 +1,28 @@
+#region Prolog
+
+if (SCAN( 'Forecast', pVersiyon ) <> 0);
+    ExecuteProcess( 'Load_Actual_Depolama_Elektrik', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Depolama_Hesaplama_Mağaza_Dağıtım', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Diğer_Girişler', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Enerji', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Genel_Giderler', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_IK_Kıdem_Karşılık', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_IK_Proje', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Kira', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Kredi_Kart', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Paketleme', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Pazarlama', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Satış', 'pVersiyon', pVersiyon );
+    #ExecuteProcess( 'Load_Actual_External_Satış','pVersion', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Seyahat', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_SPK_Giriş_Plan', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_SPK_Giriş_Plan_IFRS_16', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Ticari_Alacaklar', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Ticari_Borçlar', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_PL', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Mali_Tablo', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Yatırım_Amortisman', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Yatırım_Amortisman_Çıkış', 'pVersiyon', pVersiyon );
+    ExecuteProcess( 'Load_Actual_Yatırım_Arge_Amortisman', 'pVersiyon', pVersiyon );
+endif;
+#endregion

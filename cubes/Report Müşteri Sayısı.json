@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Report Müşteri Sayısı",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version_Report')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Report_Müşteri_Sayısı_Meas')"
+		}
+	],
+	"Rules@Code.link":"Report Müşteri Sayısı.rules",
+	"Views@Code.links":[]
+}

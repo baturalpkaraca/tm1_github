@@ -1,0 +1,51 @@
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+# Kanuni Amortisman
+# Ocak ayları için aylık
+#Forecast 9+3 2025 ve sonrası için.
+['Amortisman - Kanuni'] =
+	N: IF ( ATTRN( 'Period', DB( 'V', !Version, 'Plan Start Date' ), 'Index' ) >= 46 & SUBST(!Period, 6, 2) @= '01',
+			['Yatırım - Final'] \ ['Ekonomik Ömür - Kanuni'] / (13-ATTRN('Period', !Period, 'Month Number In Year')), CONTINUE);
+
+['Amortisman - Kanuni'] =
+	N: IF ( SUBST(!Period, 6, 2) @= '01',
+			['Yatırım - Final'] \ ['Ekonomik Ömür - Kanuni'] * 2 / (13-ATTRN('Period', !Period, 'Month Number In Year')), CONTINUE);
+
+# Diğer aylar için YTD
+#Forecast 9+3 2025 ve sonrası için.
+['Amortisman - Kanuni'] = 
+    N: IF( ATTRN( 'Period', DB( 'V', !Version, 'Plan Start Date' ), 'Index' ) >= 46 , 
+       ['Yatırım - Final'] \ ['Ekonomik Ömür - Kanuni'] / (13-ATTRN('Period', !Period, 'Month Number In Year')) +
+	   DB('Yatırım', !Departmanlar, !Yatırım_Kalemleri, !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri,
+					 !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Amortisman - Kanuni'), CONTINUE );
+
+['Amortisman - Kanuni'] =
+	N: ['Yatırım - Final'] \ ['Ekonomik Ömür - Kanuni'] * 2 / (13-ATTRN('Period', !Period, 'Month Number In Year')) +
+	   DB('Yatırım', !Departmanlar, !Yatırım_Kalemleri, !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri,
+					 !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Amortisman - Kanuni');
+
+# UMS Amortisman
+# Ocak ayları için aylık
+['Amortisman - UMS'] =
+	N: IF ( SUBST(!Period, 6, 2) @= '01', ['Yatırım - Final'] \ ['Ekonomik Ömür - UMS'] \ 12, CONTINUE);
+
+# Diğer aylar için YTD
+['Amortisman - UMS'] =
+	N: ['Yatırım - Final'] \ ['Ekonomik Ömür - UMS'] \ 12
+	 + DB('Yatırım', !Departmanlar, !Yatırım_Kalemleri, !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri,
+					 !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Amortisman - UMS');
+
+FEEDERS;
+['Aktif', {'Yatırım - Final', 'Ekonomik Ömür - Kanuni'}] => ['Amortisman - Kanuni'];
+['Aktif', {'Yatırım - Final', 'Ekonomik Ömür - UMS'}] => ['Amortisman - UMS'];
+
+# Yatırım - Amortisman küpü için feeder
+['Aktif', 'Yatırım'] => DB('Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, 'Yatırım');
+
+['Aktif', 'Amortisman - Kanuni'] => DB('Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, 'Kanuni Amortisman - Mevcut');
+
+['Aktif', 'Amortisman - UMS'] => DB('Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, 'UMS Amortisman - Mevcut');
+
+['Aktif', 'Departman Toplam', 'Toplam Yatırım', 'Toplam Duran Varlık', 'All Cost Centers', 'Yatırım - Final'] => DB( 'KDV', !Version, !Period, 'Capex' );

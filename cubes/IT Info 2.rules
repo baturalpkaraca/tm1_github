@@ -1,0 +1,24 @@
+SKIPCHECK;
+
+['Bütçe Tutarı (TRY)'] = N: IF( DB( 'IT Info 2', !Records, !Year, 'Para Birimi' ) @= 'USD', 
+  ['Bütçe Tutarı (Kendi Para Birimi)'] * DB( 'IT Assumptions', 'USD', !Year, 'Ortalama Kur' ), CONTINUE );
+
+['Bütçe Tutarı (TRY)'] = N: IF( DB( 'IT Info 2', !Records, !Year, 'Para Birimi' ) @= 'EUR', 
+  ['Bütçe Tutarı (Kendi Para Birimi)'] * DB( 'IT Assumptions', 'EUR', !Year, 'Ortalama Kur' ), CONTINUE );
+
+['Bütçe Tutarı (TRY)'] = N: IF( DB( 'IT Info 2', !Records, !Year, 'Para Birimi' ) @= 'GBP', 
+  ['Bütçe Tutarı (Kendi Para Birimi)'] * DB( 'IT Assumptions', 'GBP', !Year, 'Ortalama Kur' ), CONTINUE );
+
+['Bütçe Tutarı (TRY)'] = N: IF( DB( 'IT Info 2', !Records, !Year, 'Para Birimi' ) @= 'TRY', 
+  ['Bütçe Tutarı (Kendi Para Birimi)'], CONTINUE );
+
+['3+9 Bütçe Tutarı (TRY)'] = N: ['Bütçe Tutarı (TRY)'] + ['3+9 Bütçe Tasarruf Tutarı (TRY)'];
+['5+7 Bütçe Tutarı (TRY)'] = N: ['3+9 Bütçe Tutarı (TRY)'] + ['5+7 Bütçe Tasarruf Tutarı (TRY)'];
+['9+3 Bütçe Tutarı (TRY)'] = N: ['5+7 Bütçe Tutarı (TRY)'] + ['9+3 Bütçe Tasarruf Tutarı (TRY)'];
+
+FEEDERS;
+
+[{'Bütçe Tutarı (Kendi Para Birimi)', 'Bütçe Tutarı (TRY)', '3+9 Bütçe Tasarruf Tutarı (TRY)'}] => ['3+9 Bütçe Tutarı (TRY)'];
+[{'Bütçe Tutarı (Kendi Para Birimi)', '3+9 Bütçe Tutarı (TRY)', '5+7 Bütçe Tasarruf Tutarı (TRY)'}] => ['5+7 Bütçe Tutarı (TRY)'];
+[{'Bütçe Tutarı (Kendi Para Birimi)', '5+7 Bütçe Tutarı (TRY)', '9+3 Bütçe Tasarruf Tutarı (TRY)'}] => ['9+3 Bütçe Tutarı (TRY)'];
+  

@@ -1,0 +1,27 @@
+{
+	"@type":"MDXView",
+	"Name":"SPK Giriş",
+	"MDX@Code.link":"SPK Giriş.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[SPK_Giriş_Meas].[SPK_Giriş_Meas]" : 
+			{
+				"Expression" : "{[SPK_Giriş_Meas].[SPK_Giriş_Meas].MEMBERS}"
+			},
+			"[Version_Actual].[Version_Actual]" : 
+			{
+				"Expression" : "{[Version_Actual].[Version_Actual].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Period].[Period]" : false,
+			"[SPK_Giriş_Acc].[SPK_Giriş_Acc]" : false,
+			"[SPK_Giriş_Meas].[SPK_Giriş_Meas]" : false,
+			"[Version_Actual].[Version_Actual]" : false
+		}
+	}
+}

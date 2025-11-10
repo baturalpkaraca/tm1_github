@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Ticari Alacaklar",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mali_Tablo_Tipleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Ticari_Alacaklar_Meas')"
+		}
+	],
+	"Rules@Code.link":"Ticari Alacaklar.rules",
+	"Views@Code.links":[]
+}

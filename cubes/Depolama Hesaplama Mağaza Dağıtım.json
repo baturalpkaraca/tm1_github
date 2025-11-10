@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Hesaplama Mağaza Dağıtım",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Dağıtım_Detay')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Hesaplama_Mağaza_Dağıtım_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Hesaplama Mağaza Dağıtım.rules",
+	"Views@Code.links":[]
+}

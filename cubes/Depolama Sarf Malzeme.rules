@@ -1,0 +1,37 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+['MM Name'] = S: DB( '}ElementAttributes_Masraf_Kar_Merkezleri', DB( 'Depolama Sarf Malzeme', !Records, !Version, 'MM'  ), 'Name'  );
+
+[ 'Tutar' ] =  N: [ 'Orjinal Para Birimi - Birim Fiyat' ] * [ 'Adet' ];
+
+[ 'Tutar - TL' ] =  N: 
+	[ 'Tutar' ] * IF(DB('Depolama Sarf Malzeme', !Records, !Version, 'Para Birimi') @= 'USD', 
+    DB('V_P', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-12', 'Yıllık Ortalama Kur - USD'), 
+    IF(DB('Depolama Sarf Malzeme', !Records, !Version, 'Para Birimi') @= 'EUR', 
+    DB('V_P', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-12', 'Yıllık Ortalama Kur - EUR'), 
+    IF(DB('Depolama Sarf Malzeme', !Records, !Version, 'Para Birimi') @= 'GBP', 
+    DB('V_P', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-12', 'Yıllık Ortalama Kur - GBP'), 
+    IF(DB('Depolama Sarf Malzeme', !Records, !Version, 'Para Birimi') @= 'TL', 1, CONTINUE))));
+
+[ 'Total Records', 'Malzeme Adı' ] =  S: 
+	IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Total Records', 'Birim' ] =  S: 
+	IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Total Records', 'Para Birimi' ] =  S: 
+	IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Total Records', 'MM' ] =  S: 
+	IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+FEEDERS;
+
+['Aktif', 'Adet' ] => [ 'Tutar' ], [ 'Tutar - TL' ];
+
+['Tutar - TL'] => DB( 'Depolama Sarf Malzeme (Hesap)', DB('Depolama Sarf Malzeme', !Records, !Version, 'MM'), 
+DB('Depolama Sarf Malzeme', !Records, !Version, 'Malzeme Adı'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4), 'Amount'  );
+
+# ['Aktif', 'Tutar - TL' ] => DB('Depolama Hesaplama', 'Sarf Malzemesi', !4_Yıllar, !5_Versiyon, 'Toplam 5001');

@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Genel Giderler - Sorumluluk Eşleme",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('Genel_Giderler_Sorumluluk_Eşleme')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Genel_Giderler_Sorumluluk_Eşleme_Meas')"
+		}
+	],
+	"Views@Code.links":[]
+}

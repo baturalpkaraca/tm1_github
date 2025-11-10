@@ -1,0 +1,18 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Amount' ] = N: IF(!Masraf_Kar_Merkezleri @<> '5340000',
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'Net Ciro') \ DB('Satış', 'Koçtaş Total', !Version, SUBST( !Period, 1, 4 ), 'Net Ciro') *
+    DB('Depolama Sarf Malzeme', !Records, !Version, 'Tutar - TL' ),
+    (DB('Depolama Sarf Malzeme', !Records, !Version, 'Tutar - TL' ) *
+    DB('Satış', '5340000', !Version, !Period, 'Net Ciro') \ DB('Satış', '5340000', !Version, SUBST( !Period, 1, 4 ), 'Net Ciro') +
+    DB('Depolama Sarf Malzeme', !Records, !Version, 'Tutar - TL' ) *
+    DB('Satış', '5340000', !Version, !Period, 'Net Ciro') \ DB('Satış', '5340000', !Version, SUBST( !Period, 1, 4 ), 'Net Ciro')));
+
+FEEDERS;
+
+['Aktif', '5340000', 'Toplam', 'Total Records', 'Amount'] => DB( 'Depolama Hesaplama', 'Sarf Malzemesi', !Version, !Period, 'Toplam 5001'  );
+
+['Aktif', {'3340002', '3340010', '3340015', '3350000', '3340007', '3340008', '5340300', '1345000'}, 'Toplam', 'Total Records', 'Amount'] => 
+DB( 'Depolama Hesaplama Mağaza Dağıtım', !Masraf_Kar_Merkezleri, 'Sarf Malzemesi', !Version, !Period, 'Amount'  );

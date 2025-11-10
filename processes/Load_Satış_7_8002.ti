@@ -1,0 +1,253 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'Final External Satis';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName|'_'|pPeriod;
+
+v_DimSourceName1 = 'Mal_Grupları';
+v_DimSourceName2 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName3 = 'Day';
+v_DimSourceName4 = 'Version';
+v_DimSourceName5 = 'Final_External_Satis_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName5 = v_DimSourceName5|'_'|v_ViewSourceName|'_'|pPeriod;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5, v_SubSourceName5)=1);
+    SUBSETDESTROY(v_DimSourceName5, v_SubSourceName5); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 1);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_DimSourceName1|'].[Koçtaş Kategori Toplam]},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX(v_SubSourceName1, MDX1, 0);
+SubsetMDXSet(v_DimSourceName1, v_SubSourceName1, '' );
+
+SubsetCreate(v_DimSourceName2, v_SubSourceName2, 0);
+SubsetElementInsert(v_DimSourceName2, v_SubSourceName2, '8340200', 1);
+
+MDX3 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_DimSourceName3|'].['|pPeriod|']},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX (v_SubSourceName3, MDX3,0 );
+SubsetMDXSet(v_DimSourceName3, v_SubSourceName3, '' );
+
+SubsetCreate(v_DimSourceName4, v_SubSourceName4, 0);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, pVersiyon, 1);
+
+SubsetCreate(v_DimSourceName5, v_SubSourceName5, 0);
+SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, 'Ticari Satış', 1);
+SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, 'Ticari Margin', 1);
+
+SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, 'Ticari Satış - Item', 1);
+SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, 'Ticari Satış - TRX', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName5, v_SubSourceName5);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+
+#******* Target Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeName = 'Final External Satis';
+v_ViewName = 'VZO'|'_'|v_CubeName|'_'|vProcessName|'_'|pPeriod;
+
+v_Dim1Name = 'Mal_Grupları';
+v_Dim2Name = 'Masraf_Kar_Merkezleri';
+v_Dim3Name = 'Day';
+v_Dim4Name = 'Version';
+v_Dim5Name = 'Final_External_Satis_Meas';
+
+v_Subs1Name = v_Dim1Name|'_'|v_ViewName|'_'|pPeriod;
+v_Subs2Name = v_Dim2Name|'_'|v_ViewName|'_'|pPeriod;
+v_Subs3Name = v_Dim3Name|'_'|v_ViewName|'_'|pPeriod;
+v_Subs4Name = v_Dim4Name|'_'|v_ViewName|'_'|pPeriod;
+v_Subs5Name = v_Dim5Name|'_'|v_ViewName|'_'|pPeriod;
+
+IF(VIEWEXISTS(v_CubeName, v_ViewName)=1);
+    VIEWDESTROY(v_CubeName, v_ViewName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_Dim1Name, v_Subs1Name)=1);
+    SUBSETDESTROY(v_Dim1Name, v_Subs1Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim2Name, v_Subs2Name)=1);
+    SUBSETDESTROY(v_Dim2Name, v_Subs2Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim3Name, v_Subs3Name)=1);
+    SUBSETDESTROY(v_Dim3Name, v_Subs3Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim4Name, v_Subs4Name)=1);
+    SUBSETDESTROY(v_Dim4Name, v_Subs4Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim5Name, v_Subs5Name)=1);
+    SUBSETDESTROY(v_Dim5Name, v_Subs5Name);
+ENDIF;
+
+VIEWCREATE(v_CubeName, v_ViewName);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({['|v_Dim1Name|'].[Koçtaş Kategori Toplam]},ALL,RECURSIVE)},0)}';
+SUBSETCREATEBYMDX(v_Subs1Name, MDX1, 0);
+SubsetMDXSet(v_Dim1Name, v_Subs1Name, '' );
+
+MDX2 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_Dim2Name|'])},0)}';
+SUBSETCREATEBYMDX(v_Subs2Name, MDX2, 0);
+SubsetMDXSet(v_Dim2Name, v_Subs2Name, '' );
+
+MDX3 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_Dim3Name|'].['|pPeriod|']},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX(v_Subs3Name, MDX3, 0);
+SubsetMDXSet(v_Dim3Name, v_Subs3Name, '' );
+
+SubsetCreate(v_Dim4Name, v_Subs4Name, 0);
+SubsetElementInsert(v_Dim4Name, v_Subs4Name, pVersiyon, 1);
+
+SubsetCreate(v_Dim5Name, v_Subs5Name, 0);
+SubsetElementInsert(v_Dim5Name, v_Subs5Name, 'Mobil Ticari', 1);
+SubsetElementInsert(v_Dim5Name, v_Subs5Name, 'Mobil Ticari Margin', 1);
+
+SubsetElementInsert(v_Dim5Name, v_Subs5Name, 'Mobil Ticari - Item', 1);
+SubsetElementInsert(v_Dim5Name, v_Subs5Name, 'Mobil Ticari - TRX', 1);
+
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+
+ViewZeroOut(v_CubeName, v_ViewName);
+
+MDX = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ [Masraf_Kar_Merkezleri].[All Cost Centers]},ALL,RECURSIVE)}, 0)}';
+SubsetCreatebyMDX( 'Temp '|pPeriod, MDX, 0 );
+SubsetMDXSet( 'Masraf_Kar_Merkezleri', 'Temp '|pPeriod, '' );
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+vToplamMM = CellGetN( 'MM_V_P', 'All Cost Centers', pVersiyon, SUBST( Day, 1, 7 ), '8002' );
+vToplamMM_Item = CellGetN( 'MM_V_P', 'All Cost Centers', pVersiyon, SUBST( Day, 1, 7 ), '8002 - Item' );
+vToplamMM_TRX = CellGetN( 'MM_V_P', 'All Cost Centers', pVersiyon, SUBST( Day, 1, 7 ), '8002 - TRX' );
+
+Size = SubsetGetSize('Masraf_Kar_Merkezleri', 'Temp '|pPeriod);
+i=1;
+
+While(i <= Size);
+
+    vMM = SubsetGetElementName('Masraf_Kar_Merkezleri', 'Temp '|pPeriod, i);
+
+    vMM_Amount = CellGetN( 'MM_V_P', vMM, pVersiyon, SUBST( Day, 1, 7 ), '8002' );
+    vMM_Amount_Item = CellGetN( 'MM_V_P', vMM, pVersiyon, SUBST( Day, 1, 7 ), '8002 - Item' );
+    vMM_Amount_TRX = CellGetN( 'MM_V_P', vMM, pVersiyon, SUBST( Day, 1, 7 ), '8002 - TRX' );
+
+    vOran = vMM_Amount \ vToplamMM;
+    vOran_Item = vMM_Amount_Item \ vToplamMM_Item;
+    vOran_TRX = vMM_Amount_TRX \ vToplamMM_TRX;
+
+    if (Final_External_Satis_Meas @= 'Ticari Satış');    
+        CellPutN( Value * vOran , 'Final External Satis', Mal_Grubu, vMM, Day, pVersiyon, 'Mobil Ticari' ) ;      
+    elseif (Final_External_Satis_Meas @= 'Ticari Margin');
+        CellPutN( Value * vOran , 'Final External Satis', Mal_Grubu, vMM, Day, pVersiyon, 'Mobil Ticari Margin' ) ; 
+    endif;
+
+    if (Final_External_Satis_Meas @= 'Ticari Satış - Item');    
+        CellPutN( Value * vOran_Item , 'Final External Satis', Mal_Grubu, vMM, Day, pVersiyon, 'Mobil Ticari - Item' ) ;      
+    endif;
+
+    if (Final_External_Satis_Meas @= 'Ticari Satış - TRX');    
+        CellPutN( Value * vOran_TRX , 'Final External Satis', Mal_Grubu, vMM, Day, pVersiyon, 'Mobil Ticari - TRX' ) ;      
+    endif;
+
+    i=i+1;   
+
+end;    
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+IF(SUBSETEXISTS('Masraf_Kar_Merkezleri','Temp '|pPeriod)=1);
+    SUBSETDESTROY('Masraf_Kar_Merkezleri','Temp '|pPeriod); 
+ENDIF;
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5,v_SubSourceName5)=1);
+    SUBSETDESTROY(v_DimSourceName5,v_SubSourceName5); 
+ENDIF;
+
+###---Target View Destroy----###
+
+IF(VIEWEXISTS(v_CubeName, v_ViewName)=1);
+    VIEWDESTROY(v_CubeName,v_ViewName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_Dim1Name,v_Subs1Name)=1);
+    SUBSETDESTROY(v_Dim1Name,v_Subs1Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim2Name,v_Subs2Name)=1);
+    SUBSETDESTROY(v_Dim2Name,v_Subs2Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim3Name,v_Subs3Name)=1);
+    SUBSETDESTROY(v_Dim3Name,v_Subs3Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim4Name,v_Subs4Name)=1);
+    SUBSETDESTROY(v_Dim4Name,v_Subs4Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim5Name,v_Subs5Name)=1);
+    SUBSETDESTROY(v_Dim5Name,v_Subs5Name); 
+ENDIF;
+#endregion

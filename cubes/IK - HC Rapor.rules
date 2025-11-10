@@ -1,0 +1,62 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'YÖNETİCİ', 'Kişi Sayısı' ] =  N: 
+	IF(!İK_HC_Cinsiyet @= 'Erkek', (DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Genel Müdür', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Genel Müdür Yardımcısı', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Grup Müdürü', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Direktör', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Müdür', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Bölge Müdürü 1', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Mağaza Müdürü', 'Full Time', !Version, !Period, 'Çalışan Sayısı')) * 
+    (1 - DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  )), 
+    (DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Genel Müdür', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Genel Müdür Yardımcısı', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Grup Müdürü', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Direktör', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Müdür', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Bölge Müdürü 1', 'Full Time', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Mağaza Müdürü', 'Full Time', !Version, !Period, 'Çalışan Sayısı')) * 
+    DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  ));
+
+[ 'AYLIK ÜCRETLİ', 'Kişi Sayısı' ] =  N: 
+	IF(!İK_HC_Cinsiyet @= 'Erkek', (DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Mağaza Unvan', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Mağaza Müdürü', 'Full Time', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Part Time', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Sezonluk', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Stajyer Mağaza', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Eleman', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Yönetici', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Merkez Uzman', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Merkez Uzman Yardımcısı', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Üst Düzey Asistanı', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Operatör', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı')) * 
+    (1 - DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  )), 
+    (DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Mağaza Unvan', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Mağaza Müdürü', 'Full Time', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Part Time', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Sezonluk', !Version, !Period, 'Çalışan Sayısı') - 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Stajyer Mağaza', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Eleman', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Yönetici', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Merkez Uzman', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Merkez Uzman Yardımcısı', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Üst Düzey Asistanı', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı') + 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Operatör', 'TOPLAM ÇALIŞAN ALT GRUP', !Version, !Period, 'Çalışan Sayısı')) * 
+    DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  ));
+
+[ 'SAAT ÜCRETLİ', 'Kişi Sayısı' ] =  N: 
+	IF(!İK_HC_Cinsiyet @= 'Erkek', DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Part Time', !Version, !Period, 'Çalışan Sayısı') * 
+    (1 - DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  )), 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Part Time', !Version, !Period, 'Çalışan Sayısı') * 
+    DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  ));
+
+[ 'SEZONLUK', 'Kişi Sayısı' ] =  N: 
+	IF(!İK_HC_Cinsiyet @= 'Erkek', DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Sezonluk', !Version, !Period, 'Çalışan Sayısı') * 
+    (1 - DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  )), 
+    DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, 'Toplam Müşteri Danışmanı', 'Sezonluk', !Version, !Period, 'Çalışan Sayısı') * 
+    DB( 'IK - Genel Parametreler', 'Kadın Personel Oranı', !Version, 'Tutar'  ));
+
+FEEDERS;
+

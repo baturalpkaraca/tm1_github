@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"MM_V_P Fiili",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MM_V_P_Fiili_Meas')"
+		}
+	],
+	"Rules@Code.link":"MM_V_P Fiili.rules",
+	"Views@Code.links":[]
+}

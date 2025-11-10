@@ -1,0 +1,7 @@
+SKIPCHECK;
+
+['Fiili'] = N: IF( DB( '373 - 320 Sınıflama', !Mizan_Hesapları, !Version_Actual, !Period, 'Enflasyon Hesabı mı?' ) @= 'YES', 0, CONTINUE );
+
+FEEDERS;
+
+['Fiili', 'Net - YTD'] => DB( 'Fiili Mizan Karşılık Sonrası', !Mizan_Hesapları, 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount'  );

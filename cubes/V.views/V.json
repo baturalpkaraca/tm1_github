@@ -1,0 +1,15 @@
+{
+	"@type":"MDXView",
+	"Name":"V",
+	"MDX@Code.link":"V.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : {},
+		"ExpandAboves" : 
+		{
+			"[V_Meas].[V_Meas]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

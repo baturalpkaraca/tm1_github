@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Kira",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Kira_Meas')"
+		}
+	],
+	"Rules@Code.link":"Kira.rules",
+	"Views@Code.links":
+	[
+		"Kira.views/Kira.json"
+	]
+}

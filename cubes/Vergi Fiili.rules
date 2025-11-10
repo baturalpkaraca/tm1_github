@@ -1,0 +1,87 @@
+SKIPCHECK;
+
+[ 'Fiili', 'Term Ben. - Store' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', 
+  DB('Fiili', '6540300001', 'All Stores + B2B + MP + U', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık') + 
+  DB('Fiili', '6540300001', 'AVM', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık'), 
+  DB('Fiili', '6540300001', 'All Stores + B2B + MP + U', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık') + 
+  DB('Fiili', '6540300001', 'AVM', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık') + 
+  DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'PrevMonth'), 'Term Ben. - Store'));
+
+[ 'Fiili', 'Term Ben. - Central' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', 
+  DB('Fiili', '6540300001', 'Head Office', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık'), 
+  DB('Fiili', '6540300001', 'Head Office', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık') + 
+  DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'PrevMonth'), !Vergi_Meas));
+
+[ 'Fiili', 'Term Ben. - DC' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', 
+  DB('Fiili', '6540300001', 'Depo', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık'), 
+  DB('Fiili', '6540300001', 'Depo', !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık') + 
+  DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'PrevMonth'), !Vergi_Meas));
+
+[ 'Fiili', '81017' ] =  N: 
+  IF(NUMBR( SUBST(!Period, 1, 4) ) >= 2025, 
+  DB( 'Fiili', 'Tax, Duty and Fees', 'All Cost Centers', !Version_Actual, !Period, 'Karşılık Sonrası - YTD'  ) + 
+  DB( 'Fiili', '8101100001', 'All Cost Centers', !Version_Actual, !Period, 'Karşılık Sonrası - YTD'  ), CONTINUE);
+
+[ 'Fiili', '81017' ] =  N: DB( 'Fiili', 'Tax, Duty and Fees', 'All Cost Centers', !Version_Actual, !Period, 'Karşılık Sonrası - YTD'  );
+
+[ 'Fiili', 'PL Profit' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', 
+  DB( 'PL Fiili', 'PROFIT BEFORE TAXATION', 'All Cost Centers', !Version_Actual, !Period, 'Amount' ), CONTINUE);
+
+[ 'Fiili', 'PL Profit' ] =  N: 
+	DB( 'PL Fiili', 'PROFIT BEFORE TAXATION', 'All Cost Centers', !Version_Actual, !Period, 'Amount' ) + 
+  DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'PrevMonth'), 'PL Profit');
+
+[ 'Fiili', 'Total KKEG + ETB' ] =  N: 
+	[ 'Total Term Ben.' ] + [ '81017' ];
+
+[ 'Fiili', 'KKEG + PL Profit' ] =  N: 
+	[ 'Total KKEG + ETB' ] + [ 'PL Profit' ];
+
+[ 'Fiili', 'KKEG ArGe - Final' ] =  N: 
+	[ 'KKEG ArGe - Adjustment' ] + [ 'KKEG ArGe' ];
+
+[ 'Fiili', 'Current Tax' ] =  N: 
+	IF(([ 'KKEG + PL Profit' ] - [ 'KKEG ArGe - Final' ]) > 0, 
+  ([ 'KKEG + PL Profit' ] - [ 'KKEG ArGe - Final' ]) * DB('V_P Fiili', !Version_Actual, !Period, 'Current Tax' ), CONTINUE);
+
+[ 'Fiili', 'Current Tax' ] =  N: 
+	IF(([ 'KKEG + PL Profit' ] - [ 'KKEG ArGe - Final' ]) > 0, 
+  ([ 'KKEG + PL Profit' ] - [ 'KKEG ArGe - Final' ]) * DB('V_P Fiili', !Version_Actual, !Period, 'Current Tax' ), 0);
+
+[ 'Fiili', 'Monthly PL Charge' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'Current Tax' ], CONTINUE);
+
+[ 'Fiili', 'Monthly PL Charge' ] =  N: 
+	[ 'Current Tax' ] - DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'PrevMonth'), 'Current Tax');
+
+FEEDERS;
+
+[ 'Fiili', 'Term Ben. - Store' ] => DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), !Vergi_Meas);
+
+[ 'Fiili', 'Term Ben. - Central' ] => DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), !Vergi_Meas);
+
+[ 'Fiili', 'Term Ben. - DC' ] => DB('Vergi Fiili', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), !Vergi_Meas);
+
+[ 'Fiili', 'Total Term Ben.' ] => [ 'Total KKEG + ETB' ];
+
+[ 'Fiili', 'Total KKEG + ETB' ] => [ 'KKEG + PL Profit' ];
+
+[ 'Fiili', 'KKEG ArGe' ] => [ 'Current Tax' ];
+
+[ 'Fiili', 'KKEG ArGe - Final' ] => [ 'Current Tax' ];
+
+[ 'Fiili', 'KKEG + PL Profit' ] => [ 'Current Tax' ];
+
+[ 'Fiili', 'Current Tax' ] => [ 'Monthly PL Charge' ];
+
+[ 'Fiili', { 'KKEG ArGe - Adjustment', 'KKEG ArGe' } ] => [ 'KKEG ArGe - Final' ];
+
+# Mali Tablolar için feeder
+
+# [ 'Fiili', 'Monthly PL Charge' ] => DB('Mali Tablolar', 'Tax', '9340002', !Version_Actual, !Period, 'Amount');
+
+# [ 'Fiili', 'Monthly PL Charge' ] => DB('Mali Tablolar', 'Tax', '9349999', !Version_Actual, !Period, 'Amount');

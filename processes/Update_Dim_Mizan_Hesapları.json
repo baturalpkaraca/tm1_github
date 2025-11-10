@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"Update_Dim_Mizan_Hesapları",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Update_Dim_Mizan_Hesapları.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForClient":"Mizan_Hesapları:Mizan_Hesapları",
+		"dataSourceNameForServer":"Mizan_Hesapları:Mizan_Hesapları",
+		"subset":"Mizan Hesapları N"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"Mizan_Hesap",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

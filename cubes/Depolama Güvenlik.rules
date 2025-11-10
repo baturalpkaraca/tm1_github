@@ -1,0 +1,51 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'MM Name' ] =  S: DB('}ElementAttributes_Masraf_Kar_Merkezleri', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), 'Name');
+
+[ 'Total Records', 'MM Depo & 5001' ] =  S: IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Total Records', 'Personel Tipi Açıklama' ] =  S: IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Maliyet' ] = [ 'Birim Maliyet - Aylık' ] * [ 'HC/Saat' ];
+
+FEEDERS;
+
+['Aktif' , 'Birim Maliyet - Aylık' ] => [ 'Maliyet' ];
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Oca' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-01', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Şub' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-02', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Mar' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-03', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Nis' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-04', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'May' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-05', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Haz' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-06', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Tem' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-07', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Ağu' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-08', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Eyl' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-09', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Eki' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-10', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Kas' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-11', 'Amount');
+
+['Aktif', { 'Birim Maliyet - Aylık', 'Ara' } ] => 
+DB('Depolama Güvenlik (Hesap)', DB('Depolama Güvenlik', !Records, !Version, 'MM Depo & 5001'), DB('Depolama Güvenlik', !Records, !Version, 'Personel Tipi Açıklama'), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-12', 'Amount');

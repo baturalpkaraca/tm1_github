@@ -1,0 +1,194 @@
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+[ {'Net Ciro', 'Rebate', 'Paro İndirim', 'Shrinkage', 'Alış Nakliye Gideri', 'Buying Margin', 'Diğer İndirim'} ] = N: 
+    IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', STET, CONTINUE);
+
+#Forecast Formülleri Başlangıç
+
+[ { 'Paro Oran', 'Diğer Oran', 'Alış Nakliye Oran', 'Rebate Oran', 'Shrinkage Oran' } ] =  N: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 0, CONTINUE);
+
+#Forecast Formülleri Bitiş
+
+#Region Paro İndirim
+# Paro için yardımcı hesaplamalar
+
+[ 'yh_Paro İndirim' ] =  N: IF([ 'Paro Oran' ] <> 0, [ 'Yarı Gross Ciro' ] * [ 'Paro Oran' ], CONTINUE);
+
+[ 'yh_Yarı Gross Ciro' ] =  N: IF([ 'Paro Oran' ] = 0, [ 'Yarı Gross Ciro' ], 0);
+
+[ 'Paro İndirim - Dağıtım Öncesi' ] =  N: 0;
+
+# Paro İndirim dağıtımı
+
+[ 'Paro İndirim' ] =  N: IF([ 'Paro Oran' ] <> 0, [ 'Yarı Gross Ciro' ] * [ 'Paro Oran' ], CONTINUE);
+
+[ 'Paro İndirim' ] =  N: IF([ 'Paro Oran' ] = 0, 
+  (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Yarı Gross Ciro') \ 
+   DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Yarı Gross Ciro')) * 
+  (DB('Indirim', 'Paro İndirimleri', !Version, !Period, 'İndirim Tutarı') - 
+   DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Paro İndirim')), 0);
+
+#Endregion
+#Region Diğer İndirim
+# Diğer indirim için yardımcı hesaplamalar
+
+[ 'yh_Diğer İndirim' ] =  N: IF([ 'Diğer Oran' ] <> 0, [ 'Yarı Gross Ciro' ] * [ 'Diğer Oran' ], 0);
+
+[ 'yh_Yarı Gross Ciro Diğer' ] =  N: IF([ 'Diğer Oran' ] = 0, [ 'Yarı Gross Ciro' ], 0);
+
+# Diğer İndirim dağıtımı
+
+[ 'Diğer İndirim' ] =  N: IF([ 'Diğer Oran' ] <> 0, [ 'Yarı Gross Ciro' ] * [ 'Diğer Oran' ], CONTINUE);
+
+[ 'Diğer İndirim' ] =  N: IF([ 'Diğer Oran' ] = 0 & ELISANC('Masraf_Kar_Merkezleri', 'B2C', !Masraf_Kar_Merkezleri) = 1,
+  (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Yarı Gross Ciro') \ 
+   DB('Satış', 'B2C', !Version, !Period, 'yh_Yarı Gross Ciro Diğer')) * 
+  (DB('Indirim', 'WEB indirimleri', !Version, !Period, 'İndirim Tutarı') - 
+   DB('Satış', 'B2C', !Version, !Period, 'yh_Diğer İndirim')), CONTINUE);
+
+[ 'Diğer İndirim' ] =  N: IF([ 'Diğer Oran' ] = 0, 
+  (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Yarı Gross Ciro') \ 
+  (DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Yarı Gross Ciro Diğer') -
+   DB('Satış', 'B2C', !Version, !Period, 'yh_Yarı Gross Ciro Diğer'))) * 
+  (DB('Indirim', 'Diğer İndirimler', !Version, !Period, 'İndirim Tutarı') - 
+   DB('Indirim', 'WEB indirimleri', !Version, !Period, 'İndirim Tutarı') -
+  (DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Diğer İndirim') -
+   DB('Satış', 'B2C', !Version, !Period, 'yh_Diğer İndirim'))), 0);
+
+#Endregion
+#Region Alış Nakliye Gider
+# Alış Nakliye için yardımcı hesaplamalar
+
+[ 'yh_Alış Nakliye' ] =  N: IF([ 'Alış Nakliye Oran' ] <> 0, [ 'Net Ciro' ] * [ 'Alış Nakliye Oran' ], 0);
+
+[ 'yh_Net Ciro Alış Nakliye' ] =  N: IF([ 'Alış Nakliye Oran' ] = 0, [ 'Net Ciro' ], 0);
+
+# Alış Nakliye Gider dağıtımı
+
+[ 'Alış Nakliye Gideri' ] =  N: 
+	IF([ 'Alış Nakliye Oran' ] <> 0, [ 'Net Ciro' ] * [ 'Alış Nakliye Oran' ], CONTINUE);
+
+[ 'Alış Nakliye Gideri' ] =  N: 
+	IF([ 'Alış Nakliye Oran' ] = 0, 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro') \ 
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Net Ciro Alış Nakliye')) * 
+    (DB('Satış - Genel', !Version, !Period, 'Alış Nakliye Gideri') - 
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Alış Nakliye')), 0);
+
+#Endregion
+#Region Rebate
+# Rebate için yardımcı hesaplamalar
+
+[ 'yh_Rebate' ] =  N: IF([ 'Rebate Oran' ] <> 0, [ 'Net Ciro' ] * [ 'Rebate Oran' ], 0);
+
+[ 'yh_Net Ciro Rebate' ] =  N: IF([ 'Rebate Oran' ] = 0, [ 'Net Ciro' ], 0);
+
+# Rebate dağıtımı
+
+[ 'Rebate' ] =  N: IF([ 'Rebate Oran' ] <> 0, [ 'Net Ciro' ] * [ 'Rebate Oran' ], CONTINUE);
+
+[ 'Rebate' ] =  N: IF([ 'Rebate Oran' ] = 0, (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro') \ 
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Net Ciro Rebate')) * 
+    (DB('Satış - Genel', !Version, !Period, 'Rebate - Final') - 
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Rebate')), 0);
+
+#Endregion
+#Region Shrinkage
+# Shrinkage için yardımcı hesaplamalar
+
+[ 'yh_Shrinkage' ] =  N: IF([ 'Shrinkage Oran' ] <> 0, IF(DB( 'MM_V', !Masraf_Kar_Merkezleri, !Version, 'Mağaza Türü'  ) @= 'Depo', 
+    [ 'Net Ciro', 'Koçtaş Total' ] * [ 'Shrinkage Oran' ], [ 'Net Ciro' ] * [ 'Shrinkage Oran' ]), 0);
+
+[ 'yh_Net Ciro Shrinkage' ] =  N: IF([ 'Shrinkage Oran' ] = 0, [ 'Net Ciro' ], 0);
+
+# Shrinkage dağıtımı
+
+[ 'Shrinkage' ] =  N: IF([ 'Shrinkage Oran' ] <> 0, IF(DB( 'MM_V', !Masraf_Kar_Merkezleri, !Version, 'Mağaza Türü'  ) @= 'Depo', 
+    [ 'Net Ciro', 'Koçtaş Total' ] * [ 'Shrinkage Oran' ], [ 'Net Ciro' ] * [ 'Shrinkage Oran' ]), CONTINUE);
+
+# [ 'Shrinkage' ] =  N: 
+# 	IF([ 'Shrinkage Oran' ] = 0, (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro') \ 
+#     DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Net Ciro Shrinkage')) * 
+#     (DB('Satış - Genel', !Version, !Period, 'Shrinkage') - 
+#     DB('Satış', 'Koçtaş Total', !Version, !Period, 'yh_Shrinkage')), 0);
+
+#Endregion
+# Net ciro
+[ 'Net Ciro' ] =  N: [ 'Yarı Gross Ciro' ] - [ 'Paro İndirim' ];
+
+# Buying Marging
+[ 'Buying Margin' ] =  N: [ 'Yarı Buying Margin' ] - [ 'Alış Nakliye Gideri' ] + [ 'Diğer İndirim' ];
+
+[ 'Net Ciro (Calc)' ] =  N: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', [ 'Net Ciro' ], CONTINUE);
+
+FEEDERS;
+
+['Aktif', 'Net Ciro' ] => [ 'Yarı Gross Ciro' ], [ 'Alış Nakliye Gideri' ], [ 'Rebate' ], [ 'Shrinkage' ], [ 'Net Ciro (Calc)' ];
+
+['Aktif', 'Net Ciro', 'Koçtaş Total' ] => [ 'Shrinkage' ];
+
+['Aktif', 'Paro İndirim' ] => [ 'Yarı Gross Ciro' ], [ 'yh_Alış Nakliye' ], [ 'yh_Net Ciro Alış Nakliye' ], [ 'yh_Rebate' ], [ 'yh_Net Ciro Rebate' ], [ 'yh_Shrinkage' ], [ 'yh_Net Ciro Shrinkage' ];
+
+['Aktif', 'Buying Margin' ] => [ 'Yarı Buying Margin' ];
+
+['Aktif', 'Diğer İndirim' ] => [ 'Yarı Buying Margin' ];
+
+['Aktif', 'Alış Nakliye Gideri' ] => [ 'Yarı Buying Margin' ];
+
+['Aktif', 'Yarı Gross Ciro' ] => [ 'yh_Paro İndirim' ], [ 'yh_Yarı Gross Ciro' ], [ 'yh_Diğer İndirim' ], [ 'yh_Yarı Gross Ciro Diğer' ], [ 'Paro İndirim' ], [ 'Diğer İndirim' ], [ 'Net Ciro' ];
+
+['Aktif', 'Shrinkage Oran' ] => [ 'yh_Shrinkage' ], [ 'Shrinkage' ];
+
+['Aktif', 'Yarı Buying Margin' ] => [ 'Buying Margin' ];
+  
+#Satış - Genel için feeder
+['Aktif', 'Net Ciro' ] => DB( 'Satış Giriş', !Version, !Period, 'Rebate'  );
+
+['Aktif', 'Shrinkage' ] => DB( 'Satış Giriş', !Version, !Period, 'Shrinkage');
+
+['Aktif', 'Alış Nakliye Gideri' ] => DB( 'Satış Giriş', !Version, !Period, 'Alış Nakliye Gideri');
+
+['Aktif', 'Rebate' ] => DB( 'Satış Giriş', !Version, !Period, 'Rebate');
+
+##Kredi Kart Komisyon Detay için feeder
+['Aktif', 'Net Ciro', 'Masraf_Kar_Merkezleri':'Koçtaş'] => DB( 'Kredi Kart - Komisyon Detay', 'BigBox', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+['Aktif', 'Net Ciro', '5340000'] => DB( 'Kredi Kart - Komisyon Detay', 'Web', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+['Aktif', 'Net Ciro', '1345000'] => DB( 'Kredi Kart - Komisyon Detay', 'B2B', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+['Aktif', 'Net Ciro', '5340100'] => DB( 'Kredi Kart - Komisyon Detay', 'B2B - 5002 Projeler', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+['Aktif', 'Net Ciro', 'Fix'] => DB( 'Kredi Kart - Komisyon Detay', 'Fix', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+['Aktif', 'Net Ciro', 'Ustabilir'] => DB( 'Kredi Kart - Komisyon Detay', 'Ustabilir', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+['Aktif', 'Net Ciro', '8340200'] => DB( 'Kredi Kart - Komisyon Detay', 'Mobil Ticari', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+
+# Mali tablolar için feeder
+['Aktif', 'Net Ciro' ] => DB( 'PL', 'NET SALES', 'Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Toplam İndirim' ] => DB( 'PL', 'Product discounts given', 'Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ); 
+  
+['Aktif', 'Buying Margin' ] => DB( 'PL', 'Buying margin', 'Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ); 
+
+['Aktif', 'Rebate' ] => DB( 'PL', 'Supplier rebates', 'Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ); 
+
+['Aktif', 'Shrinkage' ] => DB( 'PL', 'Shrinkage', 'Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ); 
+
+['Aktif', 'Paro İndirim' ] => DB( 'Genel Giderler', '6110103001', !Masraf_Kar_Merkezleri, 'Mali İşler - Finans', !Version, !Period, 'Amount Cost' );
+['Aktif', 'Diğer İndirim' ] => DB( 'Genel Giderler', '6110101001', !Masraf_Kar_Merkezleri, 'Mali İşler - Finans', !Version, !Period, 'Amount Cost' );
+  
+# Kira küpü için feeder
+['Aktif', 'Net Ciro' ] => DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro');
+
+# Paketleme küpü için feeder
+['Aktif', 'Kiosk Yarı Gross Ciro'] => DB( 'Paketleme Hesaplama', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+  
+#Mali Tablo için feeder
+['Aktif', 'All Cost Centers', 'Rebate' ] => DB( 'Mali Tablo', '181', 'Satış', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', 'Net Ciro' ] => DB( 'Mali Tablo', '600', 'Satış', !Version, !Period, 'Movement' );
+['Aktif', '1345002', 'Net Ciro' ] => DB( 'Mali Tablo', '601', 'Satış', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', 'Toplam İndirim' ] => DB( 'Mali Tablo', '611', 'Satış', !Version, !Period, 'Movement' );
+
+#Ticari Alacaklar feeder
+['Aktif', 'All Cost Centers', 'Net Ciro'] => DB( 'Ticari Alacaklar', 'Kanuni', !Version, !Period, 'Satış - Aylık' );
+['Aktif', 'All Cost Centers', 'Net Ciro'] => DB( 'Ticari Alacaklar', 'SPK', !Version, !Period, 'Satış - Aylık' );

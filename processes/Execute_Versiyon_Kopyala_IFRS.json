@@ -1,0 +1,21 @@
+{
+	"@type":"Process",
+	"Name":"Execute_Versiyon_Kopyala_IFRS",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Execute_Versiyon_Kopyala_IFRS.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"p_TVersion",
+			"Prompt":"Arşivlemek istediğiniz versiyonu giriniz: Örn: Aralık (1.Kapanış) 2024",
+			"Value":"Aralık (1.Kapanış) 2024",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

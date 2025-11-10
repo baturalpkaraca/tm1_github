@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Kredi Kart - Komisyon Detay",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Satis_Kanali')"
+		},
+		{
+			"@id":"Dimensions('Bankalar')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Kredi_Kart_Komisyon_Detay_Meas')"
+		}
+	],
+	"Rules@Code.link":"Kredi Kart - Komisyon Detay.rules",
+	"Views@Code.links":
+	[
+		"Kredi Kart - Komisyon Detay.views/Kredi Kart - Komisyon Detay.json"
+	]
+}

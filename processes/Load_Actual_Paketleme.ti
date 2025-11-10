@@ -1,0 +1,182 @@
+#region Prolog
+
+CubeName = 'Paketleme Hesaplama';
+CubeSetLogChanges (CubeName, 0);
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'Fiili';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName;
+
+v_DimSourceName1 = 'Mizan_Hesapları';
+v_DimSourceName2 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName3 = 'Version_Actual';
+v_DimSourceName4 = 'Period';
+v_DimSourceName5 = 'Fiili_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName;
+v_SubSourceName5 = v_DimSourceName5|'_'|v_ViewSourceName;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5, v_SubSourceName5)=1);
+    SUBSETDESTROY(v_DimSourceName5, v_SubSourceName5); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 1);
+
+SubsetCreate(v_DimSourceName1, v_SubSourceName1, 0);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, '8180900001', 1);
+
+MDX2 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName2|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName2, MDX2, 0);
+
+SubsetCreate(v_DimSourceName3, v_SubSourceName3, 0);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'Fiili', 1);
+
+sYear = SUBST(pVersiyon, LONG(pVersiyon)-4+1, 4);
+MDX4 = '{FILTER(TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({[Period].['|sYear|']} , ALL , RECURSIVE) , 0) , [V_P].([Version].['|pVersiyon|'],[V_P_Meas].[Actual - Plan]) = "Actual")}';
+SUBSETCREATEBYMDX (v_SubSourceName4, MDX4, 0);
+
+SubsetCreate(v_DimSourceName5, v_SubSourceName5, 0);
+SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, 'Karşlılık Sonrası - Aylık', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName5, v_SubSourceName5);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+
+#******* Target Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeName = 'Paketleme Hesaplama';
+v_ViewName = 'VZO'|'_'|v_CubeName|'_'|vProcessName;
+
+v_Dim1Name = 'Masraf_Kar_Merkezleri';
+v_Dim2Name = 'Version';
+v_Dim3Name = 'Period';
+v_Dim4Name = 'Paketleme_Hesaplama_Meas';
+
+v_Subs1Name = v_Dim1Name|'_'|v_ViewName;
+v_Subs2Name = v_Dim2Name|'_'|v_ViewName;
+v_Subs3Name = v_Dim3Name|'_'|v_ViewName;
+v_Subs4Name = v_Dim4Name|'_'|v_ViewName;
+
+IF(VIEWEXISTS(v_CubeName, v_ViewName)=1);
+    VIEWDESTROY(v_CubeName, v_ViewName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_Dim1Name, v_Subs1Name)=1);
+    SUBSETDESTROY(v_Dim1Name, v_Subs1Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim2Name, v_Subs2Name)=1);
+    SUBSETDESTROY(v_Dim2Name, v_Subs2Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim3Name, v_Subs3Name)=1);
+    SUBSETDESTROY(v_Dim3Name, v_Subs3Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim4Name, v_Subs4Name)=1);
+    SUBSETDESTROY(v_Dim4Name, v_Subs4Name);
+ENDIF;
+
+VIEWCREATE(v_CubeName, v_ViewName);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_Dim1Name|'])},0)}';
+SUBSETCREATEBYMDX(v_Subs1Name, MDX1, 0);
+
+SubsetCreate(v_Dim2Name, v_Subs2Name, 0);
+SubsetElementInsert(v_Dim2Name, v_Subs2Name, pVersiyon, 1);
+
+MDX3 = '{FILTER(TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({[Period].['|sYear|']} , ALL , RECURSIVE) , 0) , [V_P].([Version].['|pVersiyon|'],[V_P_Meas].[Actual - Plan]) = "Actual")}';
+SUBSETCREATEBYMDX(v_Subs3Name, MDX3, 0);
+
+SubsetCreate(v_Dim4Name, v_Subs4Name, 0);
+SubsetElementInsert(v_Dim4Name, v_Subs4Name, 'Amount', 1);
+
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+
+ViewZeroOut(v_CubeName, v_ViewName);
+#endregion
+#region Data
+
+CellIncrementN( Value, 'Paketleme Hesaplama', Masraf_Kar_Merkezleri, pVersiyon, Period, 'Amount' );
+#endregion
+#region Epilog
+
+CubeName = 'Paketleme Hesaplama';
+CubeSetLogChanges(CubeName, 1);
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5,v_SubSourceName5)=1);
+    SUBSETDESTROY(v_DimSourceName5,v_SubSourceName5); 
+ENDIF;
+
+###---Target View Destroy----###
+
+IF(VIEWEXISTS(v_CubeName, v_ViewName)=1);
+    VIEWDESTROY(v_CubeName,v_ViewName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_Dim1Name, v_Subs1Name)=1);
+    SUBSETDESTROY(v_Dim1Name, v_Subs1Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim2Name, v_Subs2Name)=1);
+    SUBSETDESTROY(v_Dim2Name, v_Subs2Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim3Name, v_Subs3Name)=1);
+    SUBSETDESTROY(v_Dim3Name, v_Subs3Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim4Name, v_Subs4Name)=1);
+    SUBSETDESTROY(v_Dim4Name, v_Subs4Name);
+ENDIF;
+#endregion

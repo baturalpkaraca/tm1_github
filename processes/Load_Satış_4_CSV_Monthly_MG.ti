@@ -1,0 +1,156 @@
+#region Prolog
+
+CubeName = 'MG_SK_P';
+CubeSetLogChanges (CubeName, 0);
+
+#******* Target Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeName = 'MG_SK_P';
+v_ViewName = 'VZO'|'_'|v_CubeName|'_'|vProcessName;
+
+v_Dim1Name = 'Mal_Grupları';
+v_Dim2Name = 'Satis_Kanali';
+v_Dim3Name = 'Version';
+v_Dim4Name = 'Period';
+v_Dim5Name = 'MG_SK_P_Meas';
+
+v_Subs1Name = v_Dim1Name|'_'|v_ViewName;
+v_Subs2Name = v_Dim2Name|'_'|v_ViewName;
+v_Subs3Name = v_Dim3Name|'_'|v_ViewName;
+v_Subs4Name = v_Dim4Name|'_'|v_ViewName;
+v_Subs5Name = v_Dim5Name|'_'|v_ViewName;
+
+IF(VIEWEXISTS(v_CubeName, v_ViewName)=1);
+    VIEWDESTROY(v_CubeName, v_ViewName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_Dim1Name, v_Subs1Name)=1);
+    SUBSETDESTROY(v_Dim1Name, v_Subs1Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim2Name, v_Subs2Name)=1);
+    SUBSETDESTROY(v_Dim2Name, v_Subs2Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim3Name, v_Subs3Name)=1);
+    SUBSETDESTROY(v_Dim3Name, v_Subs3Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim4Name, v_Subs4Name)=1);
+    SUBSETDESTROY(v_Dim4Name, v_Subs4Name);
+ENDIF;
+IF(SUBSETEXISTS(v_Dim5Name, v_Subs5Name)=1);
+    SUBSETDESTROY(v_Dim5Name, v_Subs5Name);
+ENDIF;
+
+VIEWCREATE(v_CubeName, v_ViewName);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_Dim1Name|'])},0)}';
+SUBSETCREATEBYMDX(v_Subs1Name, MDX1, 0);
+
+MDX2 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_Dim2Name|'])},0)}';
+SUBSETCREATEBYMDX(v_Subs2Name, MDX2, 0);
+
+SubsetCreate(v_Dim3Name, v_Subs3Name, 0);
+SubsetElementInsert(v_Dim3Name, v_Subs3Name, pVersion, 1);
+
+sYear = SUBST(pVersion, LONG(pVersion)-4+1, 4);
+MDX4 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_Dim4Name|'].['|sYear|']},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX (v_Subs4Name, MDX4,0 );
+
+MDX5 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_Dim5Name|'])},0)}';
+SUBSETCREATEBYMDX(v_Subs5Name, MDX5, 0);
+
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN(v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+
+ViewZeroOut(v_CubeName, v_ViewName);
+#endregion
+#region Data
+
+if (Ay @= '1'); 
+    Ay = '01'; 
+endif;
+if (Ay @= '2'); 
+    Ay = '02'; 
+endif;
+if (Ay @= '3'); 
+    Ay = '03'; 
+endif;
+if (Ay @= '4'); 
+    Ay = '04'; 
+endif;
+if (Ay @= '5'); 
+    Ay = '05'; 
+endif;
+if (Ay @= '6'); 
+    Ay = '06'; 
+endif;
+if (Ay @= '7'); 
+    Ay = '07'; 
+endif;
+if (Ay @= '8'); 
+    Ay = '08'; 
+endif;
+if (Ay @= '9'); 
+    Ay = '09'; 
+endif;
+
+vPeriod = sYear|'-'|Ay;
+
+IF(Satis_Kanali @= 'B2C');
+    Satis_Kanali = 'Web';
+Endif;
+
+IF(Satis_Kanali @= 'Projeler');
+    Satis_Kanali = 'B2B - 5002 Projeler';
+Endif;
+
+CellIncrementN(RetailSales, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Perakende Satış');
+CellIncrementN(RetailMargin, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Perakende Margin');
+CellIncrementN(CommSales, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Ticari Satış');
+CellIncrementN(CommMargin, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Ticari Margin');
+CellIncrementN(HandySales, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Handyman Sales');
+CellIncrementN(HandyMargin, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Handyman Margin');
+CellIncrementN(MarketplaceSales, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, '3P Satış');
+CellIncrementN(MarketplaceMargin, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, '3P Margin');
+
+CellIncrementN(RetailItem, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Perakende Satış - Item');
+CellIncrementN(CommItem, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Ticari Satış - Item');
+CellIncrementN(HandyItem, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Handyman Sales - Item');
+CellIncrementN(MarketplaceItem, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, '3P Satış - Item');
+
+CellIncrementN(RetailTRX, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Perakende Satış - TRX');
+CellIncrementN(CommTRX, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Ticari Satış - TRX');
+CellIncrementN(HandyTRX, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, 'Handyman Sales - TRX');
+CellIncrementN(MarketplaceTRX, 'MG_SK_P', Mal_Grubu, Satis_Kanali, pVersion, vPeriod, '3P Satış - TRX');
+#endregion
+#region Epilog
+
+CubeName = 'MG_SK_P';
+CubeSetLogChanges(CubeName, 1);
+
+###---Target View Destroy----###
+
+IF(VIEWEXISTS(v_CubeName, v_ViewName)=1);
+    VIEWDESTROY(v_CubeName,v_ViewName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_Dim1Name,v_Subs1Name)=1);
+    SUBSETDESTROY(v_Dim1Name,v_Subs1Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim2Name,v_Subs2Name)=1);
+    SUBSETDESTROY(v_Dim2Name,v_Subs2Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim3Name,v_Subs3Name)=1);
+    SUBSETDESTROY(v_Dim3Name,v_Subs3Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim4Name,v_Subs4Name)=1);
+    SUBSETDESTROY(v_Dim4Name,v_Subs4Name); 
+ENDIF;
+IF(SUBSETEXISTS(v_Dim5Name,v_Subs5Name)=1);
+    SUBSETDESTROY(v_Dim5Name,v_Subs5Name); 
+ENDIF;
+#endregion

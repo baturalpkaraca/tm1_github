@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Satış Giriş",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Satış_Giriş_Meas')"
+		}
+	],
+	"Rules@Code.link":"Satış Giriş.rules",
+	"Views@Code.links":[]
+}

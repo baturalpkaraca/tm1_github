@@ -1,0 +1,23 @@
+{
+	"@type":"MDXView",
+	"Name":"Fiili Mizan",
+	"MDX@Code.link":"Fiili Mizan.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Version_Actual].[Version_Actual]" : 
+			{
+				"Expression" : "{[Version_Actual].[Version_Actual].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Fiili_Mizan_Meas].[Fiili_Mizan_Meas]" : false,
+			"[Mizan_Hesapları].[Mizan_Hesapları]" : false,
+			"[Period].[Period]" : false,
+			"[Version_Actual].[Version_Actual]" : false
+		}
+	}
+}

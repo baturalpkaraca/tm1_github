@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Mağaza Performans Raporu",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Mağaza_Performans_Raporu_Meas')"
+		}
+	],
+	"Rules@Code.link":"Mağaza Performans Raporu.rules",
+	"Views@Code.links":[]
+}

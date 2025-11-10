@@ -1,0 +1,187 @@
+SKIPCHECK;
+
+[ 'Fiili' ] =  N: IF( SUBST( !Period, 1, 4 ) @= '2022', STET, CONTINUE );
+
+##STAT MALİYET
+[ 'Fiili', 'STAT Maliyet', 'Devreden' ] =  N: 
+	DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, ATTRS('Period', !Period, 'PYLastMonth'), 'Net');
+
+[ 'Fiili', 'STAT Maliyet', 'Çıkış' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT', !Version_Actual, !Period, 'Çıkışlar Maliyet');
+
+[ 'Fiili', 'STAT Maliyet', 'Giriş', '258', '9347777' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT', !Version_Actual, !Period, 'Giriş Maliyet') - DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, !Period, 'Transfer') + DB('Fiili Mizan Karşılık Sonrası', '2580209999', 'Tutar - Nihai', !Version_Actual, !Period, 'Amount');
+
+[ 'Fiili', 'STAT Maliyet', 'Giriş' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT', !Version_Actual, !Period, 'Giriş Maliyet') - DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, !Period, 'Transfer');
+
+[ 'Fiili', '9347777', '258', 'STAT Maliyet', 'Transfer' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, '263', 'STAT', !Version_Actual, !Period, 'Aktifleştirme') * -1;
+
+[ 'Fiili', '9347777', '263', 'STAT Maliyet', 'Transfer' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, '263', 'STAT', !Version_Actual, !Period, 'Aktifleştirme');
+
+##STAT AMORTİSMAN
+[ 'Fiili', 'STAT Amortisman', 'Devreden' ] =  N: 
+	DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Amortisman', !Version_Actual, ATTRS('Period', !Period, 'PYLastMonth'), 'Net');
+
+[ 'Fiili', 'STAT Amortisman', 'Giriş' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT', !Version_Actual, !Period, 'Dönem Amoritsmanı');
+
+[ 'Fiili', 'STAT Amortisman', 'Çıkış' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT', !Version_Actual, !Period, 'Amortisman Çıkışlar') * -1;
+
+##IFRS MALİYET
+[ 'Fiili', 'IFRS Maliyet', 'Devreden' ] =  N: 
+	DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, ATTRS('Period', !Period, 'PYLastMonth'), 'Net');
+
+[ 'Fiili', 'IFRS Maliyet', 'Devreden' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS', !Version_Actual, !Period, 'Devreden Maliyet');
+
+[ 'Fiili', 'IFRS Maliyet', 'Çıkış' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS', !Version_Actual, !Period, 'Çıkışlar Maliyet');
+
+[ 'Fiili', 'IFRS Maliyet', 'Giriş', '258', '9347777' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS', !Version_Actual, !Period, 'Giriş Maliyet') - DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, !Period, 'Transfer') + DB('Fiili Mizan Karşılık Sonrası', '2580209999', 'Tutar - Nihai', !Version_Actual, !Period, 'Amount');
+
+[ 'Fiili', 'IFRS Maliyet', 'Giriş' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS', !Version_Actual, !Period, 'Giriş Maliyet') - DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, !Period, 'Transfer');
+
+[ 'Fiili', '9347777', '258', 'IFRS Maliyet', 'Transfer' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, '263', 'IFRS', !Version_Actual, !Period, 'Aktifleştirme') * -1;
+
+[ 'Fiili', '9347777', '263', 'IFRS Maliyet', 'Transfer' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, '263', 'IFRS', !Version_Actual, !Period, 'Aktifleştirme');
+
+##IFRS AMORTİSMAN
+[ 'Fiili', 'IFRS Amortisman', 'Devreden' ] =  N: 
+	DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Amortisman', !Version_Actual, ATTRS('Period', !Period, 'PYLastMonth'), 'Net');
+
+[ 'Fiili', 'IFRS Amortisman', 'Giriş' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS', !Version_Actual, !Period, 'Dönem Amoritsmanı');
+
+[ 'Fiili', 'IFRS Amortisman', 'Çıkış' ] =  N: 
+	DB('Yatırım Giriş Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS', !Version_Actual, !Period, 'Amortisman Çıkışlar') * -1;
+
+FEEDERS;
+
+[ 'Fiili', 'STAT Maliyet', 'Net' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Devreden');
+
+[ 'Fiili', 'STAT Maliyet', 'Transfer' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, !Period, 'Giriş');
+
+[ 'Fiili', 'IFRS Maliyet', 'Net' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Devreden');
+
+[ 'Fiili', 'IFRS Maliyet', 'Transfer' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, !Period, 'Giriş');
+
+[ 'Fiili', 'STAT Amortisman', 'Net' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Amortisman', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Devreden');
+
+[ 'Fiili', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Amortisman', !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Devreden');
+
+#Yatırım-Amortisman Küpü için Feederlar
+
+[ 'Fiili', 'STAT Amortisman', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Mevcut');
+
+[ 'Fiili', 'STAT Amortisman', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Mevcut');
+
+[ 'Fiili', 'STAT Amortisman', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Çıkış');
+
+[ 'Fiili', 'STAT Amortisman', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Çıkış');
+
+[ 'Fiili', 'STAT Amortisman', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Devir');
+
+[ 'Fiili', 'STAT Amortisman', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Devir');
+
+[ 'Fiili', 'STAT Amortisman', 'Net' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Devir');
+
+[ 'Fiili', 'STAT Amortisman', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Transfer');
+
+[ 'Fiili', 'STAT Amortisman', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Transfer');
+
+[ 'Fiili', 'IFRS Amortisman', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Amortisman - Mevcut');
+
+[ 'Fiili', 'IFRS Amortisman', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Amortisman - Mevcut');
+
+[ 'Fiili', 'IFRS Amortisman', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Amortisman - Çıkış');
+
+[ 'Fiili', 'IFRS Amortisman', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Amortisman - Çıkış');
+
+[ 'Fiili', 'IFRS Amortisman', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Amortisman - Devir');
+
+[ 'Fiili', 'IFRS Amortisman', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Amortisman - Devir');
+
+[ 'Fiili', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Amortisman - Devir');
+
+[ 'Fiili', 'IFRS Amortisman', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Amortisman - Transfer');
+
+[ 'Fiili', 'IFRS Amortisman', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Amortisman - Transfer');
+
+[ 'Fiili', 'STAT Maliyet', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Yatırım - Mevcut');
+
+[ 'Fiili', 'STAT Maliyet', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Yatırım - Mevcut');
+
+[ 'Fiili', 'STAT Maliyet', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Yatırım - Çıkış');
+
+[ 'Fiili', 'STAT Maliyet', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Yatırım - Çıkış');
+
+[ 'Fiili', 'STAT Maliyet', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Yatırım - Devir');
+
+[ 'Fiili', 'STAT Maliyet', 'Net' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Yatırım - Devir');
+
+[ 'Fiili', 'STAT Maliyet', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Yatırım - Devir');
+
+[ 'Fiili', 'STAT Maliyet', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Yatırım - Transfer');
+
+[ 'Fiili', 'STAT Maliyet', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Yatırım - Transfer');
+
+[ 'Fiili', 'IFRS Maliyet', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Yatırım - Mevcut');
+
+[ 'Fiili', 'IFRS Maliyet', 'Giriş' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Yatırım - Mevcut');
+
+[ 'Fiili', 'IFRS Maliyet', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Yatırım - Çıkış');
+
+[ 'Fiili', 'IFRS Maliyet', 'Çıkış' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Yatırım - Çıkış');
+
+[ 'Fiili', 'IFRS Maliyet', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Yatırım - Devir');
+
+[ 'Fiili', 'IFRS Maliyet', 'Net' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Yatırım - Devir');
+
+[ 'Fiili', 'IFRS Maliyet', 'Devreden' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Yatırım - Devir');
+
+[ 'Fiili', 'IFRS Maliyet', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'UMS Yatırım - Transfer');
+
+[ 'Fiili', 'IFRS Maliyet', 'Transfer' ] => DB('Yatırım Amortisman Fiili', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'UMS Yatırım - Transfer');
+
+##Yatırım- Mizan Kontrol Küpü için Feederlar
+
+[ 'Fiili', 'Koçtaş Total', '254', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '257', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '255', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '257', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '260', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '261', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '262', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '263', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '264', 'STAT Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', 'STAT Maliyet', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', 'Toplam Duran Varlık', !Version_Actual, !Period, 'Yatırım STAT');
+
+[ 'Fiili', 'Koçtaş Total', '254', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '257', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', '255', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '257', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', '264', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '257', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', '260', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', '261', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', '262', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', '263', 'IFRS Amortisman', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', '268', !Version_Actual, !Period, 'Yatırım IFRS');
+
+[ 'Fiili', 'Koçtaş Total', 'IFRS Maliyet', 'Net' ] => DB('Yatırım Mizan Kontrol Fiili', 'Toplam Duran Varlık', !Version_Actual, !Period, 'Yatırım IFRS');
+

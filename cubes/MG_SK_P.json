@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"MG_SK_P",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mal_Grupları')"
+		},
+		{
+			"@id":"Dimensions('Satis_Kanali')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MG_SK_P_Meas')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MG_SK_P.views/MG_SK_P.json"
+	]
+}

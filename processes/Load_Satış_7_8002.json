@@ -1,0 +1,83 @@
+{
+	"@type":"Process",
+	"Name":"Load_Satış_7_8002",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Load_Satış_7_8002.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Final External Satis",
+		"dataSourceNameForServer":"Final External Satis",
+		"view":"View1"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersiyon",
+			"Prompt":"Versiyon seçiniz: ",
+			"Value":"Budget 2024",
+			"Type":"String"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"Dönem seçiniz:",
+			"Value":"2024-01",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"Mal_Grubu",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Masraf_Kar_Merkezleri",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Day",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Version",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Final_External_Satis_Meas",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

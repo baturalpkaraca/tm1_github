@@ -1,0 +1,22 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+['Hesaplanan Tutar'] = N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[ 'kw' ] =  N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[ 'Birim Fiyat' ] =  N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[ 'Birim Fiyat' ] =  C: [ 'Hesaplanan Tutar' ] \ [ 'kw' ];
+
+[ 'Hesaplanan Tutar' ] =  N: [ 'Birim Fiyat' ] * [ 'kw' ];
+
+FEEDERS;
+
+['Aktif', 'Birim Fiyat' ] => [ 'Hesaplanan Tutar' ];
+
+['Aktif', '5340000', 'Final Tutar (TL)'] => DB( 'Depolama Hesaplama', '410-1 Elektrik', !Version, !Period, 'Toplam 5001'  );
+
+['Aktif', {'3340002', '3340010', '3340015', '3350000', '3340007', '3340008', '5340300', '1345000'}, 'Final Tutar (TL)'] => 
+DB( 'Depolama Hesaplama Mağaza Dağıtım', !Masraf_Kar_Merkezleri, '410-1 Elektrik', !Version, !Period, 'Amount'  );

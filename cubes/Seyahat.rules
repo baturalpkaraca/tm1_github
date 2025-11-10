@@ -1,0 +1,75 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+['Tutar'] = N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[  ] =  S: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', '', CONTINUE);
+
+[ {'Birim Fiyat', 'Kişi Adeti', 'Adet'} ] =  N: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 0, CONTINUE);
+
+
+[ 'Konaklama', 'Küçükşehir', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0, DB( 'V_P', !Version, !Period, 'Yurtiçi Konaklama' ), CONTINUE);
+
+[ 'Konaklama', 'Büyükşehir', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0, DB( 'V_P', !Version, !Period, 'Yurtiçi Konaklama - Büyükşehir' ), CONTINUE);
+
+[ 'Konaklama', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0 & ELISANC('Seyahat_Giderleri', 'Yurtdışı', !Seyahat_Giderleri) = 1, DB( 'V_P', !Version, !Period, 'Yurtdışı Konaklama'), 0);
+
+
+[ 'Uçuş', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0 & ELISANC('Seyahat_Giderleri', 'Yurtiçi', !Seyahat_Giderleri) = 1, DB( 'V_P', !Version, !Period, 'Yurtiçi Uçuş'), CONTINUE);
+
+[ 'Uçuş', 'Avrupa', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0, DB( 'V_P', !Version, !Period, 'Yurtdışı Uçuş'), 0);
+
+[ 'Uçuş', 'Uzak Doğu', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0, DB( 'V_P', !Version, !Period, 'Yurtdışı Uçuş - Uzakdoğu'), 0);
+
+
+[ 'Seyahat Yemek', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0 & ELISANC('Seyahat_Giderleri', 'Yurtiçi', !Seyahat_Giderleri) = 1, DB( 'V_P', !Version, !Period, 'Yurtiçi Seyahat Yemek'), CONTINUE);
+
+[ 'Seyahat Yemek', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0 & ELISANC('Seyahat_Giderleri', 'Yurtdışı', !Seyahat_Giderleri) = 1, DB( 'V_P', !Version, !Period, 'Yurtdışı Seyahat Yemek'), 0);
+
+
+[ 'Şehir İçi Ulaşım', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0 & ELISANC('Seyahat_Giderleri', 'Yurtiçi', !Seyahat_Giderleri) = 1, DB( 'V_P', !Version, !Period, 'Yurtiçi Şehiriçi Yol Giderleri'), CONTINUE);
+
+[ 'Şehir İçi Ulaşım', 'Birim Fiyat' ] =  N: IF(['Adet'] <> 0 & ELISANC('Seyahat_Giderleri', 'Yurtdışı', !Seyahat_Giderleri) = 1, DB( 'V_P', !Version, !Period, 'Yurtdışı Şehiriçi Yol Giderleri'), 0);
+
+
+[ 'Açıklama' ] = S: IF(DTYPE('Seyahat_Giderleri', !Seyahat_Giderleri) @= 'C', '', CONTINUE);
+
+#Arşive çekilince sil.
+[ {'Budget 2025', 'Forecast 9+3 2025'}, 'Uyarı' ] =  S: 
+	IF(DB( 'Seyahat', !Masraf_Kar_Merkezleri, !Departmanlar, !Seyahat_Gider_Detayları, !Seyahat_Giderleri, !Version, !Period, 'Açıklama') @= ''
+	& DB( 'Seyahat', !Masraf_Kar_Merkezleri, !Departmanlar, !Seyahat_Gider_Detayları, !Seyahat_Giderleri, !Version, !Period, 'Birim Fiyat') <> 0
+	& DB( 'Seyahat', !Masraf_Kar_Merkezleri, !Departmanlar, !Seyahat_Gider_Detayları, !Seyahat_Giderleri, !Version, !Period, 'Adet') <> 0, 'Açıklama Alanını doldurunuz.', '');
+
+#Arşive çekilince sil.
+[ {'Budget 2025', 'Forecast 9+3 2025'}, 'Tutar' ] =  N: IF(DB( 'Seyahat', !Masraf_Kar_Merkezleri, !Departmanlar, !Seyahat_Gider_Detayları, !Seyahat_Giderleri, !Version, !Period, 'Uyarı') @= '', 
+    [ 'Birim Fiyat' ] * [ 'Adet' ] * [ 'Kişi Adeti' ], 0);
+
+[ 'Tutar' ] =  N: [ 'Birim Fiyat' ] * [ 'Adet' ] * [ 'Kişi Adeti' ];
+
+FEEDERS;
+
+['Aktif', 'Adet' ] => [ 'Tutar' ];
+
+#Arşive çekilince sil.
+[{'Budget 2025', 'Forecast 9+3 2025'}, 'Birim Fiyat' ] => [ 'Uyarı' ];
+
+#Region Genel Giderler Küpü için Feederlar
+['Aktif', 'Konaklama', 'Yurtiçi', 'Tutar' ] => DB('Genel Giderler', '8102701002', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Konaklama', 'Yurtdışı', 'Tutar' ] => DB('Genel Giderler', '8102701003', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Uçuş', 'Yurtiçi', 'Tutar' ] => DB('Genel Giderler', '8102702002', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Uçuş', 'Yurtdışı', 'Tutar' ] => DB('Genel Giderler', '8102702003', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Seyahat Yemek', 'Yurtiçi', 'Tutar' ] => DB('Genel Giderler', '8102704001', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Seyahat Yemek', 'Yurtdışı', 'Tutar' ] => DB('Genel Giderler', '8102704003', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Şehir İçi Ulaşım', 'Yurtiçi', 'Tutar' ] => DB('Genel Giderler', '8102707003', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif', 'Şehir İçi Ulaşım', 'Yurtdışı', 'Tutar' ] => DB('Genel Giderler', '8102707005', !Masraf_Kar_Merkezleri, !Departmanlar, !Version, !Period, 'Hesaplanan Tutar');

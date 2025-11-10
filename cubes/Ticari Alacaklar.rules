@@ -1,0 +1,148 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+#[  ] = N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[ {'SPK', 'Gün Hesabı'}, 'Satış - Aylık' ] =  N: 
+(-DB('Mali Tablo', '600', 'SPK', !Version, !Period, 'Movement') - 
+  DB('Mali Tablo', '601', 'SPK', !Version, !Period, 'Movement') - 
+  DB('Mali Tablo', '602', 'SPK', !Version, !Period, 'Movement') - 
+  DB('Mali Tablo', '610', 'SPK', !Version, !Period, 'Movement') - 
+  DB('Mali Tablo', '611', 'SPK', !Version, !Period, 'Movement')) +
+(-DB('Mali Tablo', '600', 'SPK', !Version, !Period, 'Adjustment') - 
+  DB('Mali Tablo', '601', 'SPK', !Version, !Period, 'Adjustment') - 
+  DB('Mali Tablo', '602', 'SPK', !Version, !Period, 'Adjustment') - 
+  DB('Mali Tablo', '610', 'SPK', !Version, !Period, 'Adjustment') - 
+  DB('Mali Tablo', '611', 'SPK', !Version, !Period, 'Adjustment'));
+
+[ 'Satış - Aylık' ] =  N: 
+	DB('Satış', 'All Cost Centers', !Version, !Period, 'Net Ciro');
+
+[ 'Satış - YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'Satış - Aylık' ], [ 'Satış - Aylık' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Satış - YTD'));
+
+[ 'Satış - rYTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '12', [ 'Satış - Aylık' ], [ 'Satış - Aylık' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'NextMonth'), 'Satış - rYTD'));
+
+[ 'Satış - 12 Aylık' ] =  N: 
+	[ 'Satış - YTD' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'LYNextMonth'), 'Satış - rYTD');
+
+[ 'Kanuni', 'Kredi Kartı Alacakları' ] =  N: 
+	DB('Mali Tablo', '108', 'Total Source', !Version, !Period, 'Closing');
+
+[ 'SPK', 'Kredi Kartı Alacakları' ] =  N: 
+	DB('Mali Tablo', '108', 'SPK', !Version, !Period, 'Closing');
+
+[ 'Gün Hesabı', 'Kredi Kartı Alacakları' ] =  N: 
+	DB('Mali Tablo', '108', 'SPK', !Version, !Period, 'Closing');
+
+[ 'SPK', 'K.V. Ticari Alacaklar' ] =  N: 
+	DB('Mali Tablo', '120', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '121', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '123', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '125', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '128', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '129', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '131', 'SPK', !Version, !Period, 'Closing');
+
+[ 'Gün Hesabı', 'K.V. Ticari Alacaklar' ] =  N: 
+	DB('Mali Tablo', '120', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '121', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '123', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '125', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '128', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '129', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '131', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '231', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '340', 'SPK', !Version, !Period, 'Closing');
+
+[ 'K.V. Ticari Alacaklar - YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'K.V. Ticari Alacaklar' ], [ 'K.V. Ticari Alacaklar' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'PrevMonth'), 'K.V. Ticari Alacaklar - YTD'));
+
+[ 'K.V. Ticari Alacaklar - rYTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '12', [ 'K.V. Ticari Alacaklar' ], [ 'K.V. Ticari Alacaklar' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'NextMonth'), 'K.V. Ticari Alacaklar - rYTD'));
+
+# '121', '123', '125', '126', '128', '129', '136' hesapların toplam bakiyesinden küçük ise uyarı vermeli
+[ 'Kanuni', 'K.V. Ticari Alacaklar - KONTROL' ] =  S: 
+	IF([ 'K.V. Ticari Alacaklar' ] < DB('Mali Tablo', '121', 'Kanuni', !Version, !Period, 'Closing') + DB('Mali Tablo', '123', 'Kanuni', !Version, !Period, 'Closing') + DB('Mali Tablo', '125', 'Kanuni', !Version, !Period, 'Closing') + DB('Mali Tablo', '126', 'Kanuni', !Version, !Period, 'Closing') + DB('Mali Tablo', '128', 'Kanuni', !Version, !Period, 'Closing') + DB('Mali Tablo', '129', 'Kanuni', !Version, !Period, 'Closing') + DB('Mali Tablo', '136', 'Kanuni', !Version, !Period, 'Closing'), 'UYARI!', '');
+
+[ 'SPK', 'K.V. Ticari Alacaklar - KONTROL' ] =  S: 
+	IF([ 'K.V. Ticari Alacaklar' ] < DB('Mali Tablo', '121', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '123', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '125', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '126', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '128', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '129', 'SPK', !Version, !Period, 'Closing') + DB('Mali Tablo', '136', 'SPK', !Version, !Period, 'Closing'), 'UYARI!', '');
+
+[ 'KK Alacakları + Ticari Alacaklar' ] =  N: 
+	([ 'Kredi Kartı Alacakları' ] + [ 'K.V. Ticari Alacaklar' ]);
+
+[ 'KK Alacakları + Ticari Alacaklar - YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'KK Alacakları + Ticari Alacaklar' ], [ 'KK Alacakları + Ticari Alacaklar' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'PrevMonth'), 'KK Alacakları + Ticari Alacaklar - YTD'));
+
+[ 'KK Alacakları + Ticari Alacaklar - rYTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '12', [ 'KK Alacakları + Ticari Alacaklar' ], [ 'KK Alacakları + Ticari Alacaklar' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'NextMonth'), 'KK Alacakları + Ticari Alacaklar - rYTD'));
+
+[ 'KK Alacakları + Ticari Alacaklar (ort.)' ] =  N: 
+	([ 'KK Alacakları + Ticari Alacaklar - YTD' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'LYNextMonth'), 'KK Alacakları + Ticari Alacaklar - rYTD')) / 12;
+
+[ 'Ticari Alacaklar (ort.)' ] =  N: 
+	([ 'K.V. Ticari Alacaklar - YTD' ] + DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, !Version, ATTRS('Period', !Period, 'LYNextMonth'), 'K.V. Ticari Alacaklar - rYTD')) / 12;
+
+# Gün hesaplamaları
+
+[ 'TahGS' ] =  N: 
+	[ 'KK Alacakları + Ticari Alacaklar (ort.)' ] \ [ 'Satış - 12 Aylık' ] * 365;
+
+[ 'Ticari alacak TGS' ] =  N: 
+	[ 'Ticari Alacaklar (ort.)' ] \ [ 'Satış - 12 Aylık' ] * 365;
+
+[ 'KK alacak GS' ] =  N: 
+	[ 'TahGS' ] - [ 'Ticari alacak TGS' ];
+
+FEEDERS;
+
+[ 'Aktif', 'Satış - Aylık' ] => [ 'Satış - YTD' ];
+
+[ 'Aktif', 'Satış - Aylık' ] => [ 'Satış - rYTD' ];
+
+[ 'Aktif', 'Satış - YTD' ] => [ 'Satış - 12 Aylık' ];
+
+[ 'Aktif', 'Satış - rYTD' ] => [ 'Satış - 12 Aylık' ];
+
+[ 'Aktif', 'Kredi Kartı Alacakları' ] => [ 'KK Alacakları + Ticari Alacaklar' ];
+
+[ 'Aktif', 'K.V. Ticari Alacaklar' ] => [ 'KK Alacakları + Ticari Alacaklar' ];
+
+[ 'Aktif', 'K.V. Ticari Alacaklar' ] => [ 'K.V. Ticari Alacaklar - YTD' ];
+
+[ 'Aktif', 'K.V. Ticari Alacaklar' ] => [ 'K.V. Ticari Alacaklar - rYTD' ];
+
+[ 'Aktif', 'K.V. Ticari Alacaklar - YTD' ] => [ 'Ticari Alacaklar (ort.)' ];
+
+[ 'Aktif', 'K.V. Ticari Alacaklar - rYTD' ] => [ 'Ticari Alacaklar (ort.)' ];
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar' ] => [ 'KK Alacakları + Ticari Alacaklar - YTD' ];
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar' ] => [ 'KK Alacakları + Ticari Alacaklar - rYTD' ];
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar - YTD' ] => [ 'KK Alacakları + Ticari Alacaklar (ort.)' ];
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar - rYTD' ] => [ 'KK Alacakları + Ticari Alacaklar (ort.)' ];
+
+[ 'Aktif', 'Satış - 12 Aylık' ] => [ 'TahGS' ];
+
+[ 'Aktif', 'Satış - 12 Aylık' ] => [ 'Ticari alacak TGS' ];
+
+[ 'Aktif', 'TahGS' ] => [ 'KK alacak GS' ];
+
+[ 'Aktif', 'Kanuni', 'K.V. Ticari Alacaklar' ] => DB('Mali Tablo', '120', 'Ticari Alacaklar', !Version, !Period, 'Movement');
+
+#Wcap Özet Küpü Feeder
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'KK Alacakları + Ticari Alacaklar', 'Budget');
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'KK Alacakları + Ticari Alacaklar', 'Forecast');
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'KK Alacakları + Ticari Alacaklar', 'Budget.');
+
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'TahGS','Budget');
+
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'TahGS','Forecast');
+
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'TahGS','Budget.');
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'KK Alacakları + Ticari Alacaklar', 'Actual.');
+
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'KK Alacakları + Ticari Alacaklar', 'Forecast.');
+
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'TahGS', 'Actual.');
+
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet', !Mali_Tablo_Tipleri , !Version, !Period, 'TahGS', 'Forecast.');
+
+#Wcap Özet Fiili Küpü Feeder
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet Fiili', !Mali_Tablo_Tipleri , 'Fiili', !Period, 'KK Alacakları + Ticari Alacaklar', 'Budget');
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet Fiili', !Mali_Tablo_Tipleri , 'Fiili', !Period, 'TahGS','Budget');
+[ 'Aktif', 'KK Alacakları + Ticari Alacaklar'] => DB('Wcap Özet Fiili', !Mali_Tablo_Tipleri , 'Fiili', !Period, 'KK Alacakları + Ticari Alacaklar', 'Forecast.');
+[ 'Aktif', 'TahGS'] => DB('Wcap Özet Fiili', !Mali_Tablo_Tipleri , 'Fiili', !Period, 'TahGS', 'Forecast.');

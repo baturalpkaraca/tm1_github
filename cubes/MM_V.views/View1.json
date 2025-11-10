@@ -1,0 +1,19 @@
+{
+	"@type":"MDXView",
+	"Name":"View1",
+	"MDX@Code.link":"View1.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : "Code - Name"
+		},
+		"ContextSets" : {},
+		"ExpandAboves" : 
+		{
+			"[MM_V_Meas].[MM_V_Meas]" : false,
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

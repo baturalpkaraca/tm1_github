@@ -1,0 +1,63 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ '8140203001', 'Amount' ] =  N: DB( 'Arge - Amortisman', !İK_Arge_Projeleri, !Version, !Period, 'Amortisman' );
+
+[ '8040101001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Brüt Ücret (Arge)', !İK_Arge_Projeleri, 'Toplam Mağaza Unvan', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar') - 
+    DB('IK - Bordro Arge', 'Brüt Ücret (Arge)', !İK_Arge_Projeleri, 'Stajyer Mağaza', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040102001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Brüt Ücret (Arge)', !İK_Arge_Projeleri, 'Toplam Merkez Unvan', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar') - 
+  DB('IK - Bordro Arge', 'Brüt Ücret (Arge)', !İK_Arge_Projeleri, 'Stajyer Merkez', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040103001 - STAJYER AYLIKLARI', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Brüt Ücret (Arge)', !İK_Arge_Projeleri, 'Stajyer Merkez', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar') + 
+  DB('IK - Bordro Arge', 'Brüt Ücret (Arge)', !İK_Arge_Projeleri, 'Stajyer Mağaza', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040204001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'İkramiye (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040205001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'İzin Harçlığı (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040206001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Bayram (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040207001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Yakacak (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040210001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'SGK İşveren (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8040213001', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'İşsizlik İşveren (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ '8060800001 - SPOR VE SAİR SOSYAL GİDERLER', 'Amount' ] =  N: 
+	IF(DB( 'IK - Arge Giriş', !İK_Arge_Projeleri, !Version, !Period, 'Çalışan Sayısı' ) = 0, 0, CONTINUE);
+
+[ '8060800001 - SPOR VE SAİR SOSYAL GİDERLER', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Ayni Yemek Yardımı (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar') + 
+  (DB( 'IK_MM_V_P', '9347777', !Version, !Period, 'SPOR VE SAİR SOSYAL GİDERLER' ) * 
+   DB( 'IK - Arge Giriş', !İK_Arge_Projeleri, !Version, !Period, 'Çalışan Sayısı' ) \ 
+   DB( 'IK - Arge Giriş', 'İK_Arge_Projeleri':'Toplam', !Version, !Period, 'Çalışan Sayısı' ));
+
+[ '8060800002 - YOL YARDIMI', 'Amount' ] =  N: 
+	DB('IK - Bordro Arge', 'Ayni Yol Yardımı (Arge)', !İK_Arge_Projeleri, 'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', !Version, !Period, 'Tutar');
+
+[ 'Amount' ] =  N: 
+  IF(SUBST(!Mizan_Hesapları, 1, 1) @= '8', 
+  DB('Genel Giderler', !Mizan_Hesapları, '9347777', 'Departman Toplam', !Version, !Period, 'Final Tutar') * 
+  DB( 'IK - Arge Giriş', !İK_Arge_Projeleri, !Version, !Period, 'Çalışan Sayısı' ) \ 
+  DB( 'IK - Arge Giriş', 'İK_Arge_Projeleri':'Toplam', !Version, !Period, 'Çalışan Sayısı' ), CONTINUE);
+
+FEEDERS;
+
+['Aktif', 'Expense Accounts (Excl. Depreciation)', 'Amount'] => DB( 'Arge - Amortisman', !İK_Arge_Projeleri, !Version, !Period, 'Tutar' );
+
+['Aktif', 'Ar-Ge Projeleri', 'Amount'] => DB( 'Arge - Vergi', !Mizan_Hesapları, DB( 'Arge - Mevzuat Kırılımı', !Mizan_Hesapları, '9347777', !Version, 'Mevzuat Kırılımı' ), !Version, !Period, 'Amount' );
+
+# ['Aktif', 'Tax, Duty and Fees', 'Non-Arge', 'Amount'] => DB( 'Vergi', !Version, !Period, '81017' );
+
+['Aktif', 'İK_Arge_Projeleri':'Toplam', 'Amount'] => DB( 'Genel Giderler', !Mizan_Hesapları, '9347777', 'IT', !Version, !Period, 'Amount Cost' );

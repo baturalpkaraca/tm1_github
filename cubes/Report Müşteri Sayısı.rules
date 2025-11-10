@@ -1,0 +1,5 @@
+SKIPCHECK;
+
+FEEDERS;
+  
+[ {'Müşteri Sayısı', 'Perakende Müşteri Sayısı', 'Ticari Müşteri Sayısı','Ziyaretçi', 'Perakende Ziyaretçi', 'Ticari Ziyaretçi'} ] => DB( 'Report Net Satışlar', !Masraf_Kar_Merkezleri, 'Toplam LFL', !Version_Report, !Period, !Report_Müşteri_Sayısı_Meas );

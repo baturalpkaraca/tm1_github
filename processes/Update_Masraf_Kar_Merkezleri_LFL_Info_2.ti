@@ -1,0 +1,121 @@
+#region Prolog
+
+CubeName = 'MM_V_P';
+CubeSetLogChanges (CubeName, 0);
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'MM_V_P';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName;
+
+v_DimSourceName1 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName2 = 'Version';
+v_DimSourceName3 = 'Period';
+v_DimSourceName4 = 'MM_V_P_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 0);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName1|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName1, MDX1, 0);
+
+SubsetCreate(v_DimSourceName2, v_SubSourceName2, 0);
+SubsetElementInsert(v_DimSourceName2, v_SubSourceName2, pVersion, 1);
+
+sYear = SUBST(pVersion, LONG(pVersion)-4+1, 4);
+MDX3 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_DimSourceName3|'].['|sYear|']},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX (v_SubSourceName3, MDX3, 0);
+
+SubsetCreate(v_DimSourceName4, v_SubSourceName4, 0);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'LFL / Non-LFL', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+#endregion
+#region Data
+
+if (Value @= ''); 
+    CellPutS( 'KAPALI', 'MM_V_P', Masraf_Kar_Merkezleri, pVersion, Period, 'LFL / Non-LFL' ); 
+endif;
+
+if (Masraf_Kar_Merkezleri @= '1345000' %
+    Masraf_Kar_Merkezleri @= '1345002' %
+    Masraf_Kar_Merkezleri @= '4011000' %
+    Masraf_Kar_Merkezleri @= '5011000' %
+    Masraf_Kar_Merkezleri @= '5012000' %
+    Masraf_Kar_Merkezleri @= '5340000' %
+    Masraf_Kar_Merkezleri @= '5340100' %
+    Masraf_Kar_Merkezleri @= '5340300' %
+    Masraf_Kar_Merkezleri @= '5340500' %
+    Masraf_Kar_Merkezleri @= '5340800' %
+    Masraf_Kar_Merkezleri @= '5480000' %
+    Masraf_Kar_Merkezleri @= '1340201' % 
+    Masraf_Kar_Merkezleri @= '1340301' %
+    Masraf_Kar_Merkezleri @= '2350301' %
+    Masraf_Kar_Merkezleri @= '9340009' %
+    Masraf_Kar_Merkezleri @= '9340009_Eski' %
+    Masraf_Kar_Merkezleri @= '8340200' %
+    Masraf_Kar_Merkezleri @= '6340000');
+    CellPutS( 'LFL', 'MM_V_P', Masraf_Kar_Merkezleri, pVersion, Period, 'LFL / Non-LFL' );  
+endif;
+#endregion
+#region Epilog
+
+CubeName = 'MM_V_P';
+CubeSetLogChanges(CubeName, 1);
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+
+ExecuteProcess( 'Update_Masraf_Kar_Merkezleri_LFL_Info_3', 'pVersion', pVersion );
+#endregion

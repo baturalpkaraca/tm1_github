@@ -1,0 +1,172 @@
+#region Prolog
+
+CubeName = 'IK - Genel Giriş';
+CubeSetLogChanges (CubeName, 0);
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'IK - Genel Giriş';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName;
+
+v_DimSourceName1 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName2 = 'Unvanlar';
+v_DimSourceName3 = 'Çalışan_Alt_Grupları';
+v_DimSourceName4 = 'Version';
+v_DimSourceName5 = 'Period';
+v_DimSourceName6 = 'İK_Genel_Giriş_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName;
+v_SubSourceName5 = v_DimSourceName5|'_'|v_ViewSourceName;
+v_SubSourceName6 = v_DimSourceName6|'_'|v_ViewSourceName;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5, v_SubSourceName5)=1);
+SUBSETDESTROY(v_DimSourceName5, v_SubSourceName5); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName6, v_SubSourceName6)=1);
+SUBSETDESTROY(v_DimSourceName6, v_SubSourceName6); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 1);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName1|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName1, MDX1, 0);
+
+MDX2 = '{TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({['|v_DimSourceName2|'].[TOPLAM (Stajyersiz)]} , ALL , RECURSIVE) , 0)}';
+SUBSETCREATEBYMDX(v_SubSourceName2, MDX2, 0);
+
+MDX3 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName3|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName3, MDX3, 0);
+
+SubsetCreate(v_DimSourceName4, v_SubSourceName4, 0);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Budget 2025', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Forecast 3+9 2025', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Forecast 5+7 2025', 1);
+
+# SubsetCreate(v_DimSourceName5, v_SubSourceName5, 0);
+# SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, pPeriod, 1);
+
+MDX5 = '{TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({['|v_DimSourceName5|'].['|pPeriod|']} , ALL , RECURSIVE) , 0)}';
+SUBSETCREATEBYMDX(v_SubSourceName5, MDX5, 0);
+
+SubsetCreate(v_DimSourceName6, v_SubSourceName6, 0);
+SubsetElementInsert(v_DimSourceName6, v_SubSourceName6, 'Çalışan Sayısı', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName5, v_SubSourceName5);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName6, v_SubSourceName6);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+
+##ODBC Bağlantısı
+ODBCOpen('PA', 'pawuser', 'p(>.z28n)Uk7');
+ODBCOutPut('PA', 'TRUNCATE TABLE tm1satis.dbo.TM1_HRBUDGET;');
+
+vSQL = '';
+vRecordtoAdd = '';
+vRecord = 0;
+vExportForEveryxRecords = 950;
+#endregion
+#region Data
+
+# Tüm harfleri büyük yap
+vVersiyon = UPPER(Version);
+vAlt_Grup = UPPER(Alt_Grup);
+
+nPozisyon = SCAN(' ', vVersiyon);
+nPozisyon2 = SCAN(' ', vAlt_Grup);
+
+WHILE (nPozisyon > 0);
+   vVersiyon = INSRT('_', vVersiyon, nPozisyon);
+   vVersiyon = DELET(vVersiyon, nPozisyon + 1, 1);
+   nPozisyon = SCAN(' ', vVersiyon);
+END;
+
+WHILE (nPozisyon2 > 0);
+   vAlt_Grup = INSRT('_', vAlt_Grup, nPozisyon2);
+   vAlt_Grup = DELET(vAlt_Grup, nPozisyon2 + 1, 1);
+   nPozisyon2 = SCAN(' ', vAlt_Grup);
+END;
+
+IF( vSQL @= '');
+    vSQL = 'INSERT INTO [tm1satis].[dbo].[TM1_HRBUDGET] (MASRAF_YERI, TAKVIM_AYI, VERSIYON, UNVAN, UNVAN_TEXT, VALUE, ALT_GRUP) VALUES';
+ENDIF;
+
+vRecordToAdd = '('''|Masraf_Kar_Merkezleri|''', '''|Period|''', '''|vVersiyon|''', '''|ATTRS( 'Unvanlar', Unvanlar, 'Unvan Kod' )|''', '''|Unvanlar|''', '|NumberToString( Value )|', '''|vAlt_Grup|''')'; 
+
+vSQL = vSQL | IF( vRecord > 0 , ',', '') | vRecordToAdd ;
+
+IF( vRecord = vExportForEveryxRecords );
+    ODBCOutPut('PA', vSQL);
+    vSQL = '';
+    vRecord = 0;
+ELSE;
+    vRecord = vRecord + 1;
+ENDIF;
+#endregion
+#region Epilog
+
+IF( vSQL @<> '');
+    ODBCOutput('PA', vSQL);
+ENDIF;
+
+ODBCClose ('PA');
+
+CubeName = 'IK - Genel Giriş';
+CubeSetLogChanges(CubeName, 1);
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5,v_SubSourceName5)=1);
+SUBSETDESTROY(v_DimSourceName5,v_SubSourceName5); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName6,v_SubSourceName6)=1);
+SUBSETDESTROY(v_DimSourceName6,v_SubSourceName6); 
+ENDIF;
+#endregion

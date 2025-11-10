@@ -1,0 +1,28 @@
+SKIPCHECK;
+
+['Fiili', 'Dummy', 'Borç Tutar'] = N: DB( 'Kanuni Karşılık', !Mizan_Hesapları, !Records, !Version_Actual, !Period, 'Borç Tutar'  );
+['Fiili', 'Dummy', 'Alacak Tutar'] = N: DB( 'Kanuni Karşılık', !Mizan_Hesapları, !Records, !Version_Actual, !Period, 'Alacak Tutar'  );
+
+['Fiili', 'Borç Tutar'] = N: IF( DB( 'Kanuni Karşılık', !Mizan_Hesapları, !Records, !Version_Actual, !Period, 'Borç Tutar'  ) <> 0, ['Tutar'], CONTINUE );
+
+['Fiili', 'Alacak Tutar'] = N: IF( DB( 'Kanuni Karşılık', !Mizan_Hesapları, !Records, !Version_Actual, !Period, 'Alacak Tutar'  ) <> 0, ['Tutar'], CONTINUE );
+
+FEEDERS;
+
+['Fiili', 'Tutar'] => ['Borç Tutar'], ['Alacak Tutar'];
+
+['Fiili', 'Total Records', 'Borç Tutar'] => DB( 'Fiili', !Mizan_Hesapları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Karşılık Tutar - YTD'  );
+['Fiili', 'Total Records', 'Alacak Tutar'] => DB( 'Fiili', !Mizan_Hesapları, !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Karşılık Tutar - YTD'  );
+
+#Yatırım Amortisman Feederları.  
+['Fiili', '8140105001', 'Records':'25', 'Tutar'] => DB('Yatırım Amortisman Fiili', '255', !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Mevcut');
+['Fiili', '8140105001', 'Records':'25', 'Tutar'] => DB('Yatırım Amortisman Fiili', '255', !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Mevcut');
+
+['Fiili', '8140204001', 'Records':'26', 'Tutar'] => DB('Yatırım Amortisman Fiili', '264', !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Mevcut');
+['Fiili', '8140204001', 'Records':'26', 'Tutar'] => DB('Yatırım Amortisman Fiili', '264', !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Mevcut');
+
+['Fiili', '8140201001', 'Records':'27', 'Tutar'] => DB('Yatırım Amortisman Fiili', '260', !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Mevcut');
+['Fiili', '8140201001', 'Records':'27', 'Tutar'] => DB('Yatırım Amortisman Fiili', '260', !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Mevcut');
+
+['Fiili', '8140203001', 'Records':'28', 'Tutar'] => DB('Yatırım Amortisman Fiili', '263', !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Kanuni Amortisman - Mevcut');
+['Fiili', '8140203001', 'Records':'28', 'Tutar'] => DB('Yatırım Amortisman Fiili', '263', !Masraf_Kar_Merkezleri, !Version_Actual, ATTRS('Period', !Period, 'NextMonth'), 'Kanuni Amortisman - Mevcut');

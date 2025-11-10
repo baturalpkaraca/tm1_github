@@ -1,0 +1,41 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ '6490100024(Calc)' ] = N: IF (SUBST(!Period, 6, 2) @= '01', ['6490100024'], ['6490100024'] + 
+    DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period',!Period,'PrevMonth'),  '6490100024(Calc)'));
+
+[ '6490100025(Calc)' ] = N: IF (SUBST(!Period, 6, 2) @= '01', ['6490100025'], ['6490100025'] + 
+    DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period',!Period,'PrevMonth'),  '6490100025(Calc)'));
+
+[ '6890126401' ] =  N:
+    DB( 'Yatırım Amortisman', 'Toplam Duran Varlık', !Masraf_Kar_Merkezleri, !Version, !Period, 'Yatırım - Çıkış'  ) + 
+    DB( 'Yatırım Amortisman', 'Toplam Duran Varlık', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kanuni Amortisman - Çıkış'  );
+
+FEEDERS;
+
+['Aktif', '6490100024'] => [ '6490100024(Calc)' ];
+['Aktif', '6490100025'] => [ '6490100025(Calc)' ]; 
+  
+['Aktif', '6490100024(Calc)'] => DB( 'Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period',!Period,'NextMonth'), !Diğer_Girişler_Meas );
+['Aktif', '6490100025(Calc)'] => DB( 'Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period',!Period,'NextMonth'), !Diğer_Girişler_Meas );  
+  
+['Aktif', {'6590000001', '(6590000001)', 'Diğer(6590000001)'} ] => DB( 'Genel Giderler', '6590000001', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Amount Cost' );
+['Aktif', {'6490209098', '6490209099', '6490309099','6890126401', '6790300001', '6490000001', '6460100003', '6560100004','6460100006','6560100006','6460100002','6560100002'} ] => DB( 'Genel Giderler', !Diğer_Girişler_Meas, !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Amount Cost' );
+  
+['Aktif', {'6490209098', '6490209099', '6490309099', '6890126401', '6790300001' , '6490000001'} ] => DB( 'PL', 'Other operations income', 'Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+['Aktif', {'Faiz Geliri EUR (6420201002)', 'Faiz Geliri TL (6420202001)', 'Faiz Geliri USD (6420201001)'} ] => DB( 'PL', 'External interest received', 'Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+['Aktif', {'6460100003', '6560100004', '6460100006', '6560100006', '6460100002' , '6560100002'} ] => DB( 'PL', 'Given Exchange Rate Difference', 'Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+['Aktif', {'6490100024', '6490100025'} ] => DB( 'PL', 'Other Financial Expense', 'Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'All Cost Centers', 'Kur Farkı Gelir Toplam' ] => DB( 'Mali Tablo', '646', 'Diğer Girişler', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', 'Kur Farkı Gider Toplam' ] => DB( 'Mali Tablo', '656', 'Diğer Girişler', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', {'6490209098', '6490209099', '6490309099', '6490100024', '6490100025', '6490000001'} ] => DB( 'Mali Tablo', '649', 'Diğer Girişler', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', '6790300001' ] => DB( 'Mali Tablo', '679', 'Diğer Girişler', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', '6890126401' ] => DB( 'Mali Tablo', '689', 'Diğer Girişler', !Version, !Period, 'Movement' );  
+
+  ['Aktif', 'All Cost Centers', {'6460100003', '6560100004'} ] => DB( 'Mali Tablo', 'KGK.T0780101', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', 'All Cost Centers', {'6460100003', '6560100004'} ] => DB( 'Mali Tablo', 'KGK.T0790101', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', '9349999', '6460100002' ] => DB( 'Mali Tablo', 'KGK.T0800201', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', '9349999', '6560100002' ] => DB( 'Mali Tablo', 'KGK.T0810201', 'KGK', !Version, !Period, 'Opening' );  
+['Aktif', 'Koçtaş Total', {'6490100024 (Calc)', '6490100025 (Calc)'} ] => DB( 'Mali Tablo', 'KGK.T08005', 'KGK', !Version, !Period, 'Opening' );

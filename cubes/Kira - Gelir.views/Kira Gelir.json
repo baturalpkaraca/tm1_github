@@ -1,0 +1,41 @@
+{
+	"@type":"MDXView",
+	"Name":"Kira Gelir",
+	"MDX@Code.link":"Kira Gelir.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : "Code - Name"
+		},
+		"ContextSets" : 
+		{
+			"[Kira_Gelir_Türleri].[Kira_Gelir_Türleri]" : 
+			{
+				"Expression" : "{[Kira_Gelir_Türleri].[Kira_Gelir_Türleri].MEMBERS}"
+			},
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Records].[Records]" : 
+			{
+				"Expression" : "{[Records].[Records].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Kira_Gelir_Meas].[Kira_Gelir_Meas]" : false,
+			"[Kira_Gelir_Türleri].[Kira_Gelir_Türleri]" : false,
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : false,
+			"[Period].[Period]" : false,
+			"[Records].[Records]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

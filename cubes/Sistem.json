@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"Sistem",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Sistem_Kalemleri')"
+		},
+		{
+			"@id":"Dimensions('Sistem_Meas')"
+		}
+	],
+	"Views@Code.links":[]
+}

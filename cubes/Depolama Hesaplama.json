@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Hesaplama",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Depolama_Dağıtım_Detay')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Hesaplama_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Hesaplama.rules",
+	"Views@Code.links":[]
+}

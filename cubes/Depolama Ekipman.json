@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Ekipman",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Ekipman_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Ekipman.rules",
+	"Views@Code.links":[]
+}

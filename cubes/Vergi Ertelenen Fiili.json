@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Vergi Ertelenen Fiili",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Vergi_Kalemleri')"
+		},
+		{
+			"@id":"Dimensions('Vergi_Ertelenen_Detay')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Vergi_Ertelenen_Fiili_Meas')"
+		}
+	],
+	"Rules@Code.link":"Vergi Ertelenen Fiili.rules",
+	"Views@Code.links":[]
+}

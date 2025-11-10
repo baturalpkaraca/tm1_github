@@ -1,0 +1,49 @@
+{
+	"@type":"MDXView",
+	"Name":"IK - Bordro",
+	"MDX@Code.link":"IK - Bordro.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : "Code - Name",
+			"[Unvanlar].[Unvanlar]" : "Name",
+			"[Çalışan_Alt_Grupları].[Çalışan_Alt_Grupları]" : "Name",
+			"[İK_Bordro_Kalemleri].[İK_Bordro_Kalemleri]" : "Name"
+		},
+		"ContextSets" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : 
+			{
+				"Expression" : "{[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri].[All Cost Centers]}"
+			},
+			"[Unvanlar].[Unvanlar]" : 
+			{
+				"Expression" : "{[Unvanlar].[Unvanlar].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Aktif Versiyon"
+			},
+			"[Çalışan_Alt_Grupları].[Çalışan_Alt_Grupları]" : 
+			{
+				"Expression" : "{[Çalışan_Alt_Grupları].[Çalışan_Alt_Grupları].MEMBERS}"
+			},
+			"[İK_Bordro_Meas].[İK_Bordro_Meas]" : 
+			{
+				"Expression" : "{[İK_Bordro_Meas].[İK_Bordro_Meas].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : false,
+			"[Period].[Period]" : false,
+			"[Unvanlar].[Unvanlar]" : false,
+			"[Version].[Version]" : false,
+			"[Çalışan_Alt_Grupları].[Çalışan_Alt_Grupları]" : false,
+			"[İK_Bordro_Kalemleri].[İK_Bordro_Kalemleri]" : false,
+			"[İK_Bordro_Meas].[İK_Bordro_Meas]" : false
+		}
+	}
+}

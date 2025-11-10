@@ -1,0 +1,48 @@
+#region Prolog
+
+pVersion = 'Budget 2025';
+pMM = '2160100';
+pTargetMM = 'x';
+
+y = SubsetGetSize( '}Cubes', 'x' );
+i = 1;
+while( i <= y );
+    vCube = SubsetGetElementName( '}Cubes', 'x', i );
+    ExecuteProcess('}bedrock.cube.data.copy',
+                   'pLogOutput',1,
+                   'pStrictErrorHandling',0,
+                   'pCube',vCube,
+                   'pSrcView','',
+                   'pTgtView','',
+                   'pFilter','Masraf_Kar_Merkezleri ¦ '|pMM|' & Version ¦ '|pVersion|'',
+                   'pFilterParallel','',
+                   'pParallelThreads',0,
+                   'pEleMapping','Masraf_Kar_Merkezleri ¦ '|pMM|' -> '|pTargetMM|' ',
+                   'pMappingDelim','->',
+                   'pDimDelim','&',
+                   'pEleStartDelim','¦',
+                   'pEleDelim','+++',
+                   'pFactor',1,
+                   'pSuppressConsol',1,
+                   'pSuppressConsolStrings',1,
+                   'pSuppressRules',0,
+                   'pSuppressZero',1,
+                   'pCumulate',0,
+                   'pZeroTarget',1,
+                   'pZeroSource',1,
+                   'pTemp',1,
+                   'pCubeLogging',0,
+                   'pSandbox','',
+                   'pFile',0,
+                   'pDelim',',',
+                   'pQuote','"',
+                   'pDecimalSeparator','.',
+                   'pThousandSeparator',',',
+                   'pSubN',0,
+                   'pThreadMode',0,
+                   'pThreadControlFile','',
+                   'pMaxWaitSeconds',1800); 
+    i = i + 1; 
+end;
+
+#endregion

@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Arge - Tanım",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('İK_Arge_Projeleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Arge_Tanım_Meas')"
+		}
+	],
+	"Views@Code.links":[]
+}

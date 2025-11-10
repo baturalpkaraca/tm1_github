@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Kira - Gelir",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Kira_Gelir_Türleri')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Kira_Gelir_Meas')"
+		}
+	],
+	"Rules@Code.link":"Kira - Gelir.rules",
+	"Views@Code.links":
+	[
+		"Kira - Gelir.views/Kira Gelir.json"
+	]
+}

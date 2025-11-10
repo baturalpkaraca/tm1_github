@@ -1,0 +1,81 @@
+SKIPCHECK;
+
+# [ 'Net Sales Kanuni' ] = N: DB( 'PL', 'NET SALES', 'Total Source', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Amount' );
+
+#LFL
+[ 'Net Sales SPK', 'LFL' ] = N: IF( DB( 'V_P', !Version_Report, !Period, 'Actual - Plan' ) @= 'Actual' & DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'LFL',     
+    DB( 'PL', 'NET SALES', 'Total Source', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Amount' ) \ 
+    DB( 'PL', 'NET SALES', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount' ) * 
+    IF( SUBST( !Period, 6, 2 ) @= '01',     
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing' )), 
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing' )) - 
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ))) , CONTINUE );
+
+[ 'Net Sales SPK', 'LFL' ] = N: IF( DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'LFL',
+    DB( 'PL', 'NET SALES', 'Total Source', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Amount' ) \ 
+    DB( 'PL', 'NET SALES', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount' ) * 
+   ((- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Movement' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Movement' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Movement' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Movement' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Movement' )) +
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Adjustment' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Adjustment' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Adjustment' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Adjustment' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Adjustment' ))), CONTINUE);
+
+#Non-LFL
+[ 'Net Sales SPK', 'Non-LFL' ] = N: IF( DB( 'V_P', !Version_Report, !Period, 'Actual - Plan' ) @= 'Actual' & DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'Non-LFL',      
+    DB( 'PL', 'NET SALES', 'Total Source', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Amount' ) \ 
+    DB( 'PL', 'NET SALES', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount' ) * 
+    IF( SUBST( !Period, 6, 2 ) @= '01',     
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing' )), 
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing' )) - 
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing' ))), CONTINUE );
+
+[ 'Net Sales SPK', 'Non-LFL' ] = N: IF( DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'Non-LFL',
+    DB( 'PL', 'NET SALES', 'Total Source', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Amount' ) \ 
+    DB( 'PL', 'NET SALES', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount' ) * 
+   ((- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Movement' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Movement' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Movement' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Movement' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Movement' )) +
+   (- DB( 'Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Adjustment' ) + 
+    - DB( 'Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Adjustment' ) +
+    - DB( 'Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Adjustment' ) +
+    - DB( 'Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Adjustment' ) +
+    - DB( 'Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Adjustment' ))), CONTINUE );
+
+[ 'SQM', 'LFL' ] = N: IF( DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Açık / Kapalı' ) @= 'AÇIK' & DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'LFL', DB( 'MM_V', !Masraf_Kar_Merkezleri, !Version_Report, 'Metrekare' ), CONTINUE );
+[ 'SQM', 'Non-LFL' ] = N: IF( DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'Açık / Kapalı' ) @= 'AÇIK' & DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'Non-LFL', DB( 'MM_V', !Masraf_Kar_Merkezleri, !Version_Report, 'Metrekare' ), CONTINUE );
+
+[ {'Müşteri Sayısı', 'Perakende Müşteri Sayısı', 'Ticari Müşteri Sayısı', 'Ziyaretçi', 'Perakende Ziyaretçi', 'Ticari Ziyaretçi'}, 'LFL'] = N: IF( DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'LFL', DB( 'Report Müşteri Sayısı', !Masraf_Kar_Merkezleri, !Version_Report, !Period, !Report_Net_Satışlar_Meas ), CONTINUE );
+[ {'Müşteri Sayısı', 'Perakende Müşteri Sayısı', 'Ticari Müşteri Sayısı', 'Ziyaretçi', 'Perakende Ziyaretçi', 'Ticari Ziyaretçi'}, 'Non-LFL'] = N: IF( DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version_Report, !Period, 'LFL / Non-LFL' ) @= 'Non-LFL', DB( 'Report Müşteri Sayısı', !Masraf_Kar_Merkezleri, !Version_Report, !Period, !Report_Net_Satışlar_Meas ), CONTINUE );
+
+FEEDERS;

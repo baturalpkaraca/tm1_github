@@ -1,0 +1,54 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Ekipman Kiralama Bedeli' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'MM')
+	& ATTRN('Period', DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Sözleşme Bitiş Tarihi'), 'Index') >= ATTRN('Period', !Period, 'Index')
+	& !Kiralık_Ekipman_Tipi @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Ekipman Tipi'), 
+    DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Aylık Kira Bedeli') * 
+    IF(DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'USD', 
+    DB( 'V_P', !Version, !Period, 'Ortalama Kur - USD'), 1) * 
+    IF(DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'EUR', DB( 'V_P', !Version, !Period, 'Ortalama Kur - EUR'), 1) * 
+    IF(DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'GBP', DB( 'V_P', !Version, !Period, 'Ortalama Kur - GBP'), 1), CONTINUE);
+
+[ 'Ekipman Kiralama Bedeli' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'MM')
+	& ATTRN('Period', DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Sözleşme Bitiş Tarihi'), 'Index') < ATTRN('Period', !Period, 'Index')
+	& !Kiralık_Ekipman_Tipi @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Ekipman Tipi'), 
+    DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Yeni Ekipman Aylık Kira Bedeli') * 
+    IF(DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'USD', DB( 'V_P', !Version, !Period, 'Ortalama Kur - USD'), 1) * 
+    IF(DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'EUR', DB( 'V_P', !Version, !Period, 'Ortalama Kur - EUR'), 1) * 
+    IF(DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'GBP', DB( 'V_P', !Version, !Period, 'Ortalama Kur - GBP'), 1), CONTINUE);
+
+[ 'Periyodik Malzeme Gideri' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'MM')
+	& !Kiralık_Ekipman_Tipi @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Ekipman Tipi'), 
+    DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Periyodik Malzeme Yıllık') \ 12, CONTINUE);
+
+[ 'Periyodik İşçilik Gideri' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'MM')
+	& !Kiralık_Ekipman_Tipi @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Ekipman Tipi'), 
+    DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Periyodik İşçilik Yıllık') \ 12, CONTINUE);
+
+[ 'Arızi Malzeme Gideri' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'MM')
+	& !Kiralık_Ekipman_Tipi @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Ekipman Tipi'), 
+    DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Arızi Malzeme Yıllık') \ 12, CONTINUE);
+
+[ 'Arızi İşçilik Gideri' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'MM')
+	& !Kiralık_Ekipman_Tipi @= DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Ekipman Tipi'), 
+    DB( 'Kiralık Ekipman Giriş', !Records, !Version, 'Arızi İşçilik Yıllık') \ 12, CONTINUE);
+
+FEEDERS;
+
+['Aktif', 'Ekipman Kiralama Bedeli' ] => DB('Kiralık Ekipman Giriş', !Records, !Version, 'Yıllık Kira Maliyeti');
+
+['Aktif', 'Kiralık_Ekipman_Tipi':'Toplam', 'Total Records', 'Periyodik Malzeme Gideri'] => DB( 'Genel Giderler', '8081000005', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Kiralık_Ekipman_Tipi':'Toplam', 'Total Records', 'Periyodik İşçilik Gideri'] => DB( 'Genel Giderler', '8081000006', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Kiralık_Ekipman_Tipi':'Toplam', 'Total Records', 'Arızi Malzeme Gideri'] => DB( 'Genel Giderler', '8081000007', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Kiralık_Ekipman_Tipi':'Toplam', 'Total Records', 'Arızi İşçilik Gideri'] => DB( 'Genel Giderler', '8081000008', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Kiralık_Ekipman_Tipi':'Toplam', 'Total Records', 'Ekipman Kiralama Bedeli'] => DB( 'Genel Giderler', '8081000002', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+

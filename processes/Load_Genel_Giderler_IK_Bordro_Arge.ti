@@ -1,0 +1,216 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CubeName = 'Genel Giderler';
+CubeSetLogChanges (CubeName, 0);
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'IK - Bordro Arge';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName;
+
+v_DimSourceName1 = 'İK_Bordro_Kalemleri_Arge';
+v_DimSourceName2 = 'İK_Arge_Projeleri';
+v_DimSourceName3 = 'Unvanlar';
+v_DimSourceName4 = 'Çalışan_Alt_Grupları';
+v_DimSourceName5 = 'Version';
+v_DimSourceName6 = 'Period';
+v_DimSourceName7 = 'İK_Bordro_Arge_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName;
+v_SubSourceName5 = v_DimSourceName5|'_'|v_ViewSourceName;
+v_SubSourceName6 = v_DimSourceName6|'_'|v_ViewSourceName;
+v_SubSourceName7 = v_DimSourceName7|'_'|v_ViewSourceName;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5, v_SubSourceName5)=1);
+    SUBSETDESTROY(v_DimSourceName5, v_SubSourceName5); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName6, v_SubSourceName6)=1);
+    SUBSETDESTROY(v_DimSourceName6, v_SubSourceName6); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName7, v_SubSourceName7)=1);
+    SUBSETDESTROY(v_DimSourceName7, v_SubSourceName7); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 1);
+
+SubsetCreate(v_DimSourceName1, v_SubSourceName1, 0);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'Brüt Ücret (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'İkramiye (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'İzin Harçlığı (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'Bayram (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'Yakacak (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'SGK İşveren (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'İşsizlik İşveren (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'Ayni Yemek Yardımı (Arge)', 1);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'Ayni Yol Yardımı (Arge)', 1);
+
+SubsetCreate(v_DimSourceName2, v_SubSourceName2, 0);
+SubsetElementInsert(v_DimSourceName2, v_SubSourceName2, 'Toplam', 1);
+
+SubsetCreate(v_DimSourceName3, v_SubSourceName3, 0);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'Stajyer Mağaza', 1);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'Stajyer Merkez', 1);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'Toplam Mağaza Unvan', 1);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'Toplam Merkez Unvan', 1);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'TOPLAM', 1);
+
+SubsetCreate(v_DimSourceName4, v_SubSourceName4, 0);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'TOPLAM', 1);
+
+SubsetCreate(v_DimSourceName5, v_SubSourceName5, 0);
+SubsetElementInsert(v_DimSourceName5, v_SubSourceName5, pVersiyon, 1);
+
+sYear = SUBST(pVersiyon, LONG(pVersiyon)-4+1, 4);
+MDX6 = '{FILTER(TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({[Period].['|sYear|']} , ALL , RECURSIVE) , 0) , [V_P].([Version].['|pVersiyon|'],[V_P_Meas].[Actual - Plan]) = "Plan")}';
+SUBSETCREATEBYMDX (v_SubSourceName6, MDX6, 0 );
+
+SubsetCreate(v_DimSourceName7, v_SubSourceName7, 0);
+SubsetElementInsert(v_DimSourceName7, v_SubSourceName7, 'Tutar', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName5, v_SubSourceName5);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName6, v_SubSourceName6);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName7, v_SubSourceName7);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+if (İK_Bordro_Kalemleri @= 'Brüt Ücret (Arge)' & Unvanlar @= 'Toplam Mağaza Unvan'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040101001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if( İK_Bordro_Kalemleri @= 'Brüt Ücret (Arge)' & Unvanlar @= 'Stajyer Mağaza' );
+    CellIncrementN( Value * -1, 'Genel Giderler', '8040101001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Brüt Ücret (Arge)' & Unvanlar @= 'Toplam Merkez Unvan'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040102001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' );
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Brüt Ücret (Arge)' & Unvanlar @= 'Stajyer Merkez'); 
+    CellIncrementN( Value * -1, 'Genel Giderler', '8040102001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Brüt Ücret (Arge)' & Unvanlar @= 'Stajyer Mağaza'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040103001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' );
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Brüt Ücret (Arge)' & Unvanlar @= 'Stajyer Merkez'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040103001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'İkramiye (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040204001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'İzin Harçlığı (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040205001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'İzin Harçlığı (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040203001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Bayram (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040206001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Yakacak (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040207001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;  
+
+if (İK_Bordro_Kalemleri @= 'SGK İşveren (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040210001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'İşsizlik İşveren (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8040213001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Ayni Yemek Yardımı (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8060800001', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+
+if (İK_Bordro_Kalemleri @= 'Ayni Yol Yardımı (Arge)' & Unvanlar @= 'TOPLAM'); 
+    CellIncrementN( Value, 'Genel Giderler', '8060800002', '9347777', 'İnsan Kaynakları', pVersiyon, Period, 'Hesaplanan Tutar' ); 
+endif;
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CubeName = 'Genel Giderler';
+CubeSetLogChanges(CubeName, 1);
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName5,v_SubSourceName5)=1);
+    SUBSETDESTROY(v_DimSourceName5,v_SubSourceName5); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName6,v_SubSourceName6)=1);
+    SUBSETDESTROY(v_DimSourceName6,v_SubSourceName6); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName7,v_SubSourceName7)=1);
+    SUBSETDESTROY(v_DimSourceName7,v_SubSourceName7); 
+ENDIF;
+#endregion

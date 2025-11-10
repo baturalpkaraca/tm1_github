@@ -1,0 +1,25 @@
+{
+	"@type":"Cube",
+	"Name":"Alış Nakliye",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Alış_Nakliye_Meas')"
+		}
+	],
+	"Rules@Code.link":"Alış Nakliye.rules",
+	"Views@Code.links":
+	[
+		"Alış Nakliye.views/View1.json",
+		"Alış Nakliye.views/Alış Nakliye.json"
+	]
+}

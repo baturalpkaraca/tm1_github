@@ -1,0 +1,41 @@
+#region Prolog
+
+ODBCOpen('PA', 'pawuser', 'p(>.z28n)Uk7');
+
+ODBCOutPut('PA', 'TRUNCATE TABLE tm1satis.dbo.FINAL_EXTERNAL_BW_YENI');
+ODBCOutPut('PA', 'TRUNCATE TABLE tm1satis.dbo.OTHER_EXTERNAL_BW_YENI');
+
+#ODBCOutPut('PA', 'DELETE FROM TM1satis.dbo.FINAL_EXTERNAL_BW_YENI WHERE GUN LIKE ''2025-05%'' OR GUN LIKE ''2025-06%'' OR GUN LIKE ''2025-09%'' OR GUN LIKE ''2025-10%'' ');
+#ODBCOutPut('PA', 'DELETE FROM TM1satis.dbo.OTHER_EXTERNAL_BW_YENI WHERE TARIH LIKE ''2025-09%'' ');
+
+ODBCClose('PA');
+
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-01' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-02' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-03' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-04' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-05' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-06' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-07' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-08' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-09' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-10' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-11' );
+RunProcess( 'Export_BW_Final_External_Satis', 'pVersiyon', pVersiyon, 'pPeriod', '2025-12' );
+#endregion
+#region Epilog
+
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-01' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-02' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-03' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-04' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-05' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-06' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-07' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-08' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-09' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-10' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-11' );
+RunProcess( 'Export_BW_Final_External_Satis_2', 'pVersiyon', pVersiyon, 'pPeriod', '2025-12' );
+
+#endregion

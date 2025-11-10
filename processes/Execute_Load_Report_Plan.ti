@@ -1,0 +1,22 @@
+#region Prolog
+
+if( DimensionElementExists( 'Version_Report', pVersiyon ) = 0 );
+    DimensionElementInsertDirect( 'Version_Report', '', pVersiyon, 'N' );
+endif;
+
+ExecuteProcess( 'Load_Report_Cost_Actual_IFRS', 'pPeriod', pPeriod);
+ExecuteProcess( 'Load_Report_Cost_Actual', 'pVersiyon', pVersiyon);
+ExecuteProcess( 'Load_Report_Cost_Plan', 'pVersiyon', pVersiyon);
+
+ExecuteProcess( 'Load_Report_PL_Actual_IFRS', 'pPeriod', pPeriod);
+ExecuteProcess( 'Load_Report_PL_Actual', 'pVersiyon', pVersiyon);
+ExecuteProcess( 'Load_Report_PL_Plan', 'pVersiyon', pVersiyon);
+
+ExecuteProcess( 'Load_Report_Satış', 'pPeriod', pPeriod, 'pVersiyon', pVersiyon);
+ExecuteProcess( 'Load_Report_MM_V_P', 'pPeriod', pPeriod, 'pVersiyon', pVersiyon);
+#endregion
+#region Epilog
+
+# CubeProcessFeeders( 'Report Cost Plan' );
+# CubeProcessFeeders( 'Report PL Plan' );
+#endregion

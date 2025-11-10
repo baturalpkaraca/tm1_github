@@ -1,0 +1,18 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+['MM Name'] = S: DB( '}ElementAttributes_Masraf_Kar_Merkezleri', DB( 'Depolama Personel', !Records, !Version, !Period, 'MM Depo & 5001' ), 'Name'  );
+
+[ 'Total Records', 'MM Depo & 5001' ] =  S: IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Total Records', 'Personel Tipi Açıklama' ] =  S: IF(DTYPE(!Records, 'Total Records') @= 'C', '', '');
+
+[ 'Birim Maliyet ' ] =  C: ConsolidatedAvg(2, 'Depolama Personel', !Records, !Version, !Period, 'Birim Maliyet');
+
+[ 'HC/Saat' ] =  C: DB( 'Depolama Personel (Hesap)', 'All Cost Centers', 'Toplam Personel', !Records, !Version, !Period, 'Amount'  );
+
+FEEDERS;
+
+['Aktif', { 'Birim Maliyet', 'HC/Saat' } ] => 
+DB('Depolama Personel (Hesap)', DB('Depolama Personel', !Records, !Version, 'Opening '|SUBST(!Period, 1, 4), 'MM Depo & 5001'), DB('Depolama Personel', !Records, !Version, 'Opening '|SUBST(!Period, 1, 4), 'Personel Tipi Açıklama'), !Records, !Version, !Period, 'Amount');

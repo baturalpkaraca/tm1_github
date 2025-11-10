@@ -1,0 +1,5 @@
+SKIPCHECK;
+
+FEEDERS;
+
+['Koçtaş Kategori Toplam'] => DB( 'Prim Reyon', !Final_Internal_Prim_Meas, 'No Day', !Masraf_Kar_Merkezleri, SUBST( !Day, 1, 7 ), 'Amount'  );

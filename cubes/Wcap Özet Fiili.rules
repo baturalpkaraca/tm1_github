@@ -1,0 +1,108 @@
+SKIPCHECK;
+
+############################# Actual #############################################
+
+[ 'Kanuni', 'Actual.', 'Stok' ] =  N: 
+	DB('Ticari Borçlar Fiili', 'Kanuni', !Version_Actual, !Period, 'Stok ve Siparişler');
+
+[ 'SPK', 'Actual.', 'Stok' ] =  N: 
+	DB('Ticari Borçlar Fiili', 'SPK', !Version_Actual, !Period, 'Stok ve Siparişler');
+
+[ 'Actual.', 'KK Alacakları + Ticari Alacaklar' ] =  N: 
+	DB('Ticari Alacaklar Fiili', !Mali_Tablo_Tipleri, !Version_Actual, !Period, 'KK Alacakları + Ticari Alacaklar');
+
+[ 'Kanuni', 'Actual.', 'Ticari Borç' ] =  N: 
+	- DB('Ticari Borçlar Fiili', 'Kanuni', !Version_Actual, !Period, 'K.V. Ticari Borçlar');
+
+[ 'SPK', 'Actual.', 'Ticari Borç' ] =  N: 
+	- DB('Ticari Borçlar Fiili', 'SPK', !Version_Actual, !Period, 'K.V. Ticari Borçlar');
+
+[ 'Kanuni', 'Actual.', 'SGS' ] =  N: 
+	DB('Ticari Borçlar Fiili', 'Kanuni', !Version_Actual, !Period, 'SGS');
+
+[ 'SPK', 'Actual.', 'SGS' ] =  N: 
+	DB('Ticari Borçlar Fiili', 'SPK', !Version_Actual, !Period, 'SGS');
+
+[ 'Kanuni', 'Actual.', 'TahGS' ] =  N: 
+	DB('Ticari Alacaklar Fiili', !Mali_Tablo_Tipleri, !Version_Actual, !Period, 'TahGS');
+
+[ 'SPK', 'Actual.', 'TahGS' ] =  N: 
+	DB('Ticari Alacaklar Fiili', 'Gün Hesabı', !Version_Actual, !Period, 'TahGS');
+
+[ 'Kanuni', 'Actual.', 'BGS' ] =  N: 
+	- DB('Ticari Borçlar Fiili', 'Kanuni', !Version_Actual, !Period, 'BGS');
+
+[ 'SPK', 'Actual.', 'BGS' ] =  N: 
+	- DB('Ticari Borçlar Fiili', 'Gün Hesabı', !Version_Actual, !Period, 'BGS');
+
+############################# Forecast. ##########################################
+
+[ 'Kanuni', 'Forecast.', 'Stok' ] =  N: 
+    DB( 'Ticari Borçlar', !Mali_Tablo_Tipleri, DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'Stok ve Siparişler' );
+
+[ 'SPK', 'Forecast.', 'Stok' ] =  N: 
+	DB('Ticari Borçlar', 'SPK', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'Stok ve Siparişler');
+
+[ 'Forecast.', 'KK Alacakları + Ticari Alacaklar' ] =  N: 
+	DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'KK Alacakları + Ticari Alacaklar');
+
+[ 'Kanuni', 'Forecast.', 'Ticari Borç' ] =  N: 
+	- DB('Ticari Borçlar', 'Kanuni', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'K.V. Ticari Borçlar');
+
+[ 'SPK', 'Forecast.', 'Ticari Borç' ] =  N: 
+	- DB('Ticari Borçlar', 'SPK', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'K.V. Ticari Borçlar');
+
+[ 'Kanuni', 'Forecast.', 'SGS' ] =  N: 
+	DB('Ticari Borçlar', 'Kanuni', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'SGS');
+
+[ 'SPK', 'Forecast.', 'SGS' ] =  N: 
+	DB('Ticari Borçlar', 'SPK', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'SGS');
+
+[ 'Kanuni', 'Forecast.', 'TahGS' ] =  N: 
+	DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'TahGS');
+
+[ 'SPK', 'Forecast.', 'TahGS' ] =  N: 
+	DB('Ticari Alacaklar', 'Gün Hesabı', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'TahGS');
+
+[ 'Kanuni', 'Forecast.', 'BGS' ] =  N: 
+	- DB('Ticari Borçlar', 'Kanuni', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'BGS');
+
+[ 'SPK', 'Forecast.', 'BGS' ] =  N: 
+	- DB('Ticari Borçlar', 'Gün Hesabı', DB( 'Sistem', 'Ana Senaryo - Forecast', 'Değer' ), !Period, 'BGS');
+
+############################# Budget ##########################################
+
+[ 'Kanuni', 'Budget', 'Stok' ] =  N: 
+	DB( 'Ticari Borçlar', !Mali_Tablo_Tipleri, DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'Stok ve Siparişler' );
+
+[ 'SPK', 'Budget', 'Stok' ] =  N: 
+	DB('Ticari Borçlar', 'SPK', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'Stok ve Siparişler');
+
+[ 'Budget', 'KK Alacakları + Ticari Alacaklar' ] =  N: 
+	DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'KK Alacakları + Ticari Alacaklar');
+
+[ 'Kanuni', 'Budget', 'Ticari Borç' ] =  N: 
+	- DB('Ticari Borçlar', 'Kanuni', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'K.V. Ticari Borçlar');
+
+[ 'SPK', 'Budget', 'Ticari Borç' ] =  N: 
+	- DB('Ticari Borçlar', 'SPK', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'K.V. Ticari Borçlar');
+
+[ 'Kanuni', 'Budget', 'SGS' ] =  N: 
+	DB('Ticari Borçlar', 'Kanuni', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'SGS');
+
+[ 'SPK', 'Budget', 'SGS' ] =  N: 
+	DB('Ticari Borçlar', 'SPK', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'SGS');
+
+[ 'Kanuni', 'Budget', 'TahGS' ] =  N: 
+	DB('Ticari Alacaklar', !Mali_Tablo_Tipleri, DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'TahGS');
+
+[ 'SPK', 'Budget', 'TahGS' ] =  N: 
+	DB('Ticari Alacaklar', 'Gün Hesabı', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'TahGS');
+
+[ 'Kanuni', 'Budget', 'BGS' ] =  N: 
+	- DB('Ticari Borçlar', 'Kanuni', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'BGS');
+
+[ 'SPK', 'Budget', 'BGS' ] =  N: 
+	- DB('Ticari Borçlar', 'Gün Hesabı', DB( 'Sistem', 'Ana Senaryo - Bütçe', 'Değer' ), !Period, 'BGS');
+
+FEEDERS;

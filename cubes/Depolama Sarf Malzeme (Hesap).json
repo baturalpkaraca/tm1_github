@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Sarf Malzeme (Hesap)",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Sarf_Malzeme_Tipi')"
+		},
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Sarf_Malzeme_Hesap_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Sarf Malzeme (Hesap).rules",
+	"Views@Code.links":[]
+}

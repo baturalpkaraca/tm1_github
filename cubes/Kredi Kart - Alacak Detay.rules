@@ -1,0 +1,335 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Collection', 'P01' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P02' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P03' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P04' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P05' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P06' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P02' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '02', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P03' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '02', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P04' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '02', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P05' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '02', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P06' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '02', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P07' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '02', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P03' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '03', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P04' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '03', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P05' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '03', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P06' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '03', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P07' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '03', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P08' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '03', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P04' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '04', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P05' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '04', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P06' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '04', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P07' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '04', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P08' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '04', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P09' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '04', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P05' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '05', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P06' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '05', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P07' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '05', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P08' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '05', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P09' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '05', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P10' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '05', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P06' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '06', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P07' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '06', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P08' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '06', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P09' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '06', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P10' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '06', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P11' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '06', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P07' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '07', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P08' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '07', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P09' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '07', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P10' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '07', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P11' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '07', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P12' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '07', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+5'), CONTINUE);
+
+[ 'Collection', 'P08' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '08', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P09' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '08', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P10' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '08', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P11' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '08', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P12' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '08', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+4'), CONTINUE);
+
+[ 'Collection', 'P09' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '09', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P10' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '09', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P11' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '09', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P12' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '09', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+3'), CONTINUE);
+
+[ 'Collection', 'P10' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '10', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P11' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '10', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P12' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '10', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+2'), CONTINUE);
+
+[ 'Collection', 'P11' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '11', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection', 'P12' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '11', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P+1'), CONTINUE);
+
+[ 'Collection', 'P12' ] =  N: 
+	IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= ''
+	& DB('V_P', !Version, ATTRS('Period', !Period, 'PrevMonth'), 'Actual - Plan') @= 'Evet'
+	& SUBST(!Period, 6, 2) @= '12', DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P'), CONTINUE);
+
+[ 'Collection Ratio', 'P Total' ] =  C: 
+	IF(DTYPE('Period', !Period) @= 'C', 0, CONTINUE);
+
+[ 'Collection Ratio', { 'P01', 'P02', 'P03', 'P04', 'P05' }, 'Banka Giriş' ] =  N: 
+	IF(SUBST(!Period, 1, 7) @= 'Opening', STET, CONTINUE);
+
+[ 'Collection Ratio', 'P06', 'Banka Giriş' ] =  N: 
+	IF(SUBST(!Period, 1, 7) @= 'Opening', 1 - [ 'Collection Ratio', 'P01' ] - [ 'Collection Ratio', 'P02' ] - [ 'Collection Ratio', 'P03' ] - [ 'Collection Ratio', 'P04' ] - [ 'Collection Ratio', 'P05' ], CONTINUE);
+
+[ 'Collection Ratio', { 'P07', 'P08', 'P09', 'P10', 'P11', 'P12' }, 'Banka Giriş' ] =  N: 
+	IF(SUBST(!Period, 1, 7) @= 'Opening', 0, CONTINUE);
+
+[ 'Collection Ratio', 'Banka Giriş' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Kredi Kart - Alacak Detay', 'Banka Giriş', !Version, 'Opening '| ATTRS( 'Period', !Period, 'Year' ), !P_Period, 'Collection Ratio'), CONTINUE);
+
+[ 'Collection Ratio', 'Banka Giriş' ] =  N: 
+	DB('Kredi Kart - Alacak Detay', 'Banka Giriş', !Version, ATTRS('Period', !Period, 'PrevMonth'), ATTRS('P_Period', !P_Period, 'PrevMonth'), 'Collection Ratio');
+
+[ 'Collection Ratio' ] =  N: 
+	IF(!Bankalar @<> 'Banka Giriş', [ 'Collection Ratio', 'Banka Giriş' ], CONTINUE);
+
+[ 'Collection' ] =  N: 
+	DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'Remaining Collection from P-1') * [ 'Collection Ratio' ];
+
+FEEDERS;
+
+[ 'Aktif', 'Collection Ratio', 'Opening 2025' ] => [ '2025-01' ];
+[ 'Aktif', 'Collection Ratio', 'Opening 2026' ] => [ '2026-01' ];
+[ 'Aktif', 'Collection Ratio', 'Opening 2027' ] => [ '2027-01' ];  
+[ 'Aktif', 'Collection Ratio', 'Opening 2028' ] => [ '2028-01' ];
+[ 'Aktif', 'Collection Ratio', 'Opening 2029' ] => [ '2029-01' ];
+[ 'Aktif', 'Collection Ratio', 'Opening 2030' ] => [ '2030-01' ];
+  
+[ 'Aktif', 'Collection Ratio', 'P05', 'Banka Giriş' ] => [ 'Collection Ratio', 'P06', 'Banka Giriş' ];
+
+[ 'Aktif', 'Collection Ratio', 'Banka Giriş' ] => DB('Kredi Kart - Alacak Detay', 'Banka Giriş', !Version, ATTRS('Period', !Period, 'NextMonth'), ATTRS('P_Period', !P_Period, 'NextMonth'), 'Collection Ratio');
+
+[ 'Aktif', 'Banka Giriş' ] => [ 'Akbank' ], [ 'Garanti' ], [ 'İşbankası' ], [ 'Hsbc' ], [ 'Finansbank' ], [ 'Yapı Kredi' ], [ 'Halkbank' ], [ 'Banka8' ], [ 'Banka9' ], [ 'Banka10' ];
+
+[ 'Aktif', 'Collection Ratio' ] => [ 'Collection' ];
+
+#Kredi Kart küpü için feeder
+
+[ 'Aktif', 'Collection', 'P Total' ] => DB('Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'P');
+  
+[ 'Aktif', 'Banka Giriş', 'P01', 'Collection Ratio' ] => DB( 'SPK Giriş Plan', '108', !Version, !Period, 'Amount' );

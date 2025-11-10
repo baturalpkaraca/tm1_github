@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Sarf Malzeme",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Sarf_Malzeme_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Sarf Malzeme.rules",
+	"Views@Code.links":[]
+}

@@ -1,0 +1,52 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Rebate' ] =  N: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 
+    DB( 'Satış', 'Koçtaş Total', !Version, !Period, 'Rebate'  ), CONTINUE);
+    
+[ 'Shrinkage' ] =  N: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'Shrinkage'), CONTINUE);
+
+[ 'Alış Nakliye Gideri' ] =  N: 
+	IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 
+    DB('Satış', 'Koçtaş Total', !Version, !Period, 'Alış Nakliye Gideri'), CONTINUE);
+
+[  ] =  N: IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 0, CONTINUE);
+
+##Forecast Bitiş
+
+# Oran girildi ise (net ciro) * (oran)
+[ 'Alış Nakliye Gideri' ] =  N: IF([ 'Alış Nakliye Gideri / Net Ciro %' ] <> 0, 
+    DB('Satış', 'All Cost Centers', !Version, !Period, 'Net Ciro') * [ 'Alış Nakliye Gideri / Net Ciro %' ], CONTINUE);
+
+# Oran girilmedi ise manuel tutara eşit
+[ 'Alış Nakliye Gideri' ] =  N: [ 'Alış Nakliye Gideri - Manuel' ];
+
+# Oran girildi ise (net ciro) * (oran)
+[ 'Rebate' ] =  N: IF([ 'Rebate / Net Ciro %' ] <> 0, 
+    DB('Satış', 'All Cost Centers', !Version, !Period, 'Net Ciro') * [ 'Rebate / Net Ciro %' ], CONTINUE);
+
+# Oran girilmedi ise manuel tutara eşit
+[ 'Rebate' ] =  N: IF([ 'Rebate - Manuel' ] <> 0, [ 'Rebate - Manuel' ], CONTINUE);
+
+# Oran girildi ise (net ciro) * (oran)
+[ 'Shrinkage' ] =  N: IF([ 'Shrinkage / Net Ciro %' ] <> 0, 
+    DB('Satış', 'All Cost Centers', !Version, !Period, 'Net Ciro') * [ 'Shrinkage / Net Ciro %' ], CONTINUE);
+
+# Oran girilmedi ise manuel tutara eşit
+[ 'Shrinkage' ] =  N: [ 'Shrinkage - Manuel' ];
+
+FEEDERS;
+
+['Aktif', 'Rebate / Net Ciro %' ] => [ 'Rebate' ];
+
+['Aktif', 'Rebate - Manuel' ] => [ 'Rebate' ];
+
+['Aktif', 'Rebate' ] => [ 'Rebate - Final' ];
+
+['Aktif', 'Shrinkage / Net Ciro %' ] => [ 'Shrinkage' ];
+
+['Aktif', 'Alış Nakliye Gideri / Net Ciro %' ] => [ 'Alış Nakliye Gideri' ];

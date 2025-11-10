@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Arge - Cost",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('İK_Arge_Projeleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Arge_Cost_Meas')"
+		}
+	],
+	"Rules@Code.link":"Arge - Cost.rules",
+	"Views@Code.links":[]
+}

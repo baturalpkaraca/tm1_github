@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Pazarlama",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Pazarlama_Gider_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Pazarlama_Giderleri_Meas')"
+		}
+	],
+	"Rules@Code.link":"Pazarlama.rules",
+	"Views@Code.links":[]
+}

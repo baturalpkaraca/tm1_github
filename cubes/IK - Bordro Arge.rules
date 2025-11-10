@@ -1,0 +1,144 @@
+SKIPCHECK;
+
+[] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Tutar' ] =  N: 
+	IF(ELPAR('İK_Bordro_Kalemleri_Arge', !İK_Bordro_Kalemleri_Arge, 1) @= 'Toplam Maliyet',
+    DB( 'IK - Genel Giriş', '9347777', !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, !İK_Bordro_Kalemleri_Arge  ) *
+    DB( 'IK - Arge Giriş', !İK_Arge_Projeleri, !Version, !Period, 'Çalışan Sayısı'  ) \
+    DB( 'IK - Arge Giriş', 'Toplam', !Version, !Period, 'Çalışan Sayısı'  ), CONTINUE);
+
+[ 'Prim (Arge)', 'Tutar' ] =  N: 
+	[ 'Prim' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü'  ) * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'Ayni Yol Yardımı (Arge)', 'Tutar' ] =  N: 
+	[ 'Yol Yardımı' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'Ayni Yemek Yardımı (Arge)', 'Tutar' ] =  N: 
+	[ 'Ayni Yardım' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'Bayram (Arge)', 'Tutar' ] =  N: 
+	[ 'Bayram' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'İzin Harçlığı (Arge)', 'Tutar' ] =  N: 
+	[ 'İzin Harçlığı' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'Yakacak (Arge)', 'Tutar' ] =  N: 
+	[ 'Yakacak' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'İkramiye (Arge)', 'Tutar' ] =  N: 
+	[ 'İkramiye' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'Brüt Ücret (Arge)', 'Tutar' ] =  N: 
+	[ 'Brüt Ücret' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'Arge SGK Matrah', 'Tutar' ] =  N: 
+	[ 'Brüt Ücret' ] \ DB( 'IK_V_P', !Version, !Period, 'Çalışma Günü') * DB( 'IK_V_P', !Version, !Period, 'Arge Günü');
+
+[ 'SGK Matrah', 'Tutar' ] =  N: 
+	[ 'Toplam Maliyet' ] - [ 'Çocuk Yardımı' ] - [ 'Arge SGK Matrah' ];
+
+[ 'SGK İşveren', 'Tutar' ] =  N: 
+	[ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'SGK İşveren %');
+
+[ 'İşsizlik İşveren', 'Tutar' ] =  N: 
+	[ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'İşsizlik İşveren %');
+
+[ 'SGK İşçi', 'Tutar' ] =  N: 
+	[ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'SGK İşçi %');
+
+[ 'İşsizlik İşçi', 'Tutar' ] =  N: 
+	[ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'İşsizlik İşçi %');
+
+### Teşvik için kalem olmadığından Teşvik 3 klullnıldı, kendi elemanı eklenebilir.
+
+[ 'Hazine Teşvik', 'Tutar' ] =  N: 
+	[ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Teşvik 5 %');
+
+[ 'SGK İşveren (Arge)', 'Tutar' ] =  N: 
+	[ 'Arge SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Arge SGK İşveren %');
+
+[ 'İşsizlik İşveren (Arge)', 'Tutar' ] =  N: 
+	[ 'Arge SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Arge İşsizlik İşveren %');
+
+[ 'SGK İşçi (Arge)', 'Tutar' ] =  N: 
+	[ 'Arge SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Arge SGK İşçi %');
+
+[ 'İşsizlik İşçi (Arge)', 'Tutar' ] =  N: 
+	[ 'Arge SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Arge İşsizlik İşçi %');
+
+[ 'Hazine Teşvik (Arge)', 'Tutar' ] =  N: 
+	[ 'Arge SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Arge Hazine Teşvik');
+
+[ 'Terkin Edilen İşv. Payı', 'Tutar' ] =  N: 
+	[ 'SGK İşveren (Arge)' ] * DB( 'IK_V_P', !Version, !Period, 'SGK Teşvik Oranı %');
+
+[ 'Arge Gelir Vergisi', 'Tutar' ] =  N: 
+	[ 'Toplam Maliyet (Arge)' ] * DB( 'IK_V_P', !Version, !Period, 'Arge Gelir Vergisi %');
+
+[ 'Terkin Edilen Gelir Vergisi', 'Tutar' ] =  N: 
+	([ 'Arge Gelir Vergisi' ] - [ 'Asgari Geçim İndirimi' ]) * DB( 'IK_V_P', !Version, !Period, 'Arge Teşvik Oranı %');
+
+FEEDERS;
+
+['Aktif', 'Prim' ] => [ 'Prim (Arge)' ];
+
+['Aktif', 'Yol Yardımı' ] => [ 'Ayni Yol Yardımı (Arge)' ];
+
+['Aktif', 'Ayni Yardım' ] => [ 'Ayni Yemek Yardımı (Arge)' ];
+
+['Aktif', 'Bayram' ] => [ 'Bayram (Arge)' ];
+
+['Aktif', 'İzin Harçlığı' ] => [ 'İzin Harçlığı (Arge)' ];
+
+['Aktif', 'Yakacak' ] => [ 'Yakacak (Arge)' ];
+
+['Aktif', 'İkramiye' ] => [ 'İkramiye (Arge)' ];
+
+['Aktif', 'Brüt Ücret' ] => [ 'Brüt Ücret (Arge)' ], [ 'Arge SGK Matrah' ];
+
+['Aktif', 'Toplam Maliyet' ] => [ 'SGK Matrah' ];
+
+['Aktif', 'Çocuk Yardımı' ] => [ 'SGK Matrah' ];
+
+['Aktif', 'Arge SGK Matrah' ] => [ 'SGK Matrah' ];
+
+['Aktif', 'SGK Matrah' ] => [ 'SGK İşveren' ], [ 'İşsizlik İşveren' ], [ 'İşsizlik İşçi' ], [ 'Hazine Teşvik' ];
+
+['Aktif', 'Arge SGK Matrah' ] => [ 'SGK İşveren (Arge)' ], [ 'İşsizlik İşveren (Arge)' ], [ 'SGK İşçi (Arge)' ], [ 'İşsizlik İşçi (Arge)' ], [ 'Hazine Teşvik (Arge)' ];
+ 
+['Aktif', 'SGK İşveren (Arge)' ] => [ 'Terkin Edilen İşv. Payı' ];
+
+['Aktif', 'Toplam Maliyet (Arge)' ] => [ 'Arge Gelir Vergisi' ];
+
+['Aktif', 'Arge Gelir Vergisi' ] => [ 'Terkin Edilen Gelir Vergisi' ];
+
+['Aktif', 'Asgari Geçim İndirimi' ] => [ 'Terkin Edilen Gelir Vergisi' ];
+
+['Aktif', 'Tutar' ] => DB( 'IK - Bordro', !İK_Bordro_Kalemleri_Arge, '9347777', !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, 'Tutar EFT'  );
+
+#Arge Cost küpü feedarları.
+['Aktif', 'Brüt Ücret (Arge)', 'Toplam Mağaza Unvan', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040101001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+['Aktif', 'Brüt Ücret (Arge)', 'Stajyer Mağaza', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040101001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Brüt Ücret (Arge)', 'Toplam Merkez Unvan', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040102001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+['Aktif', 'Brüt Ücret (Arge)', 'Stajyer Merkez', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040102001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Brüt Ücret (Arge)', 'Stajyer Merkez', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040103001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+['Aktif', 'Brüt Ücret (Arge)', 'Stajyer Mağaza', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040103001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'İkramiye (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040204001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+  
+['Aktif', 'İzin Harçlığı (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040205001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Bayram (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040206001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Yakacak (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040207001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'SGK İşveren (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040210001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'İşsizlik İşveren (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8040213001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Ayni Yemek Yardımı (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8060800001', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'Ayni Yol Yardımı (Arge)', 'Unvanlar':'TOPLAM', 'Çalışan_Alt_Grupları':'TOPLAM', 'Tutar'] => DB( 'Arge - Cost', '8060800002', !İK_Arge_Projeleri, !Version, !Period, 'Amount' );

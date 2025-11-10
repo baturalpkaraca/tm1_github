@@ -1,0 +1,77 @@
+{
+	"@type":"Process",
+	"Name":"Load_Actual_Mali_Tablo",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Load_Actual_Mali_Tablo.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Mali Tablo Fiili",
+		"dataSourceNameForServer":"Mali Tablo Fiili",
+		"view":"View1"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersiyon",
+			"Prompt":"Versiyon seçiniz:",
+			"Value":"Forecast 3+9 2024",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"Hesap",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Mali_Tablo_Tipi",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Version",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Period",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Meas",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

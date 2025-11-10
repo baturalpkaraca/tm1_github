@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Kredi Kart",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Kredi_Kart_Türleri')"
+		},
+		{
+			"@id":"Dimensions('Bankalar')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Kredi_Kart_Meas')"
+		}
+	],
+	"Rules@Code.link":"Kredi Kart.rules",
+	"Views@Code.links":
+	[
+		"Kredi Kart.views/Kredi Kart.json"
+	]
+}

@@ -1,0 +1,182 @@
+SKIPCHECK;
+
+[ 'Beginning Cash', 'Tutar' ] =  N: 
+DB('Mali Tablo', '100', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '102', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing');
+
+[ 'Operating profit', 'Tutar' ] =  N: 
+IF(SUBST(!Period, 6, 2) @= '01', (DB('Mali Tablo', 'SPK.T060', 'SPK', !Version_Report, !Period, 'Closing') + 
+(DB('Mali Tablo', 'SPK.T06', 'SPK', !Version_Report, !Period, 'Closing') - 
+DB('Mali Tablo', 'SPK.T060', 'SPK', !Version_Report, !Period, 'Closing')) + 
+DB('Mali Tablo', 'SPK.T075', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', 'SPK.T076', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', 'SPK.T077', 'SPK', !Version_Report, !Period, 'Closing')), CONTINUE);
+
+[ 'Operating profit', 'Tutar' ] =  N: 
+(DB('Mali Tablo', 'SPK.T060', 'SPK', !Version_Report, !Period, 'Closing') + 
+(DB('Mali Tablo', 'SPK.T06', 'SPK', !Version_Report, !Period, 'Closing') - 
+DB('Mali Tablo', 'SPK.T060', 'SPK', !Version_Report, !Period, 'Closing')) + 
+DB('Mali Tablo', 'SPK.T075', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', 'SPK.T076', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', 'SPK.T077', 'SPK', !Version_Report, !Period, 'Closing')) - 
+(DB('Mali Tablo', 'SPK.T060', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+(DB('Mali Tablo', 'SPK.T06', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') - 
+DB('Mali Tablo', 'SPK.T060', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing')) + 
+DB('Mali Tablo', 'SPK.T075', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', 'SPK.T076', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', 'SPK.T077', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'));
+
+[ 'Depreciation', 'Tutar' ] =  N: 
+(DB('Yatırım Arge - Amortisman', 'Toplam Duran Varlık', 'Koçtaş Total', !Version_Report, !Period, 'UMS Amortisman - Mevcut') + 
+DB('Yatırım Arge - Amortisman', 'Toplam Duran Varlık', 'Koçtaş Total', !Version_Report, !Period, 'UMS Amortisman - Devir') + 
+DB('Yatırım Arge - Amortisman', 'Toplam Duran Varlık', 'Koçtaş Total', !Version_Report, !Period, 'UMS Amortisman - Düzeltme'));
+
+[ 'Capital spending', 'Tutar' ] =  N: 
+- DB('Yatırım Amortisman', 'Toplam Duran Varlık', 'Koçtaş Total', !Version_Report, !Period, 'Yatırım');
+
+[ 'Working Capital Change', 'Tutar' ] =  N: 
+((DB('Mali Tablo', '108', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '120', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '121', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '123', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '125', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '128', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '129', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '131', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '153', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '154', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '157', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '159', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '320', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '321', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '323', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '324', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '326', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '329', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '331', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '340', 'SPK', !Version_Report, !Period, 'Closing')) - 
+(DB('Mali Tablo', '108', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '120', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '121', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '123', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '125', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '128', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '129', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '131', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '153', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '154', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '157', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '159', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '320', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '321', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '323', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '324', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '326', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '329', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '331', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '340', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) * -1;
+
+[ 'New Debt', 'Tutar' ] =  N: 
+DB('Kredi Faiz', 'Total Records', !Version_Report, !Period, 'Tutar (Calc)');
+
+[ 'Debt Payments', 'Tutar' ] =  N: 
+((DB('Mali Tablo', '300', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '303', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '304', 'SPK', !Version_Report, !Period, 'Closing')) - 
+(DB('Mali Tablo', '300', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '303', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '304', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing')) + 
+(DB('Mali Tablo', '400', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '405', 'SPK', !Version_Report, !Period, 'Closing')) - 
+(DB('Mali Tablo', '400', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '405', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) *  - 1 - [ 'New Debt', 'Tutar' ];
+
+[ 'Interest payments', 'Tutar' ] =  N: 
+IF(SUBST(!Period, 6, 2) @= '01'
+& SCAN('Forecast', !Version_Report) <> 0
+& DB('V_P', !Version_Report, !Period, 'Actual - Plan') @= 'Actual', 
+(DB('SPK Giriş Plan', '37308 / 300 Reclass', !Version_Report, ATTRS( 'Period', !Period, 'PYLastMonth' ), 'Amount') - 
+(DB('Genel Giderler', 'Bank Interest Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') - 
+DB('Genel Giderler', 'Bank Interest Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Amount Cost')) * -1 - 
+DB('SPK Giriş Plan', '37308 / 300 Reclass', !Version_Report, !Period, 'Amount')) * -1, CONTINUE);
+
+[ 'Interest payments', 'Tutar' ] =  N: 
+(DB('Genel Giderler', 'Bank Interest Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') - 
+(DB('SPK Giriş Plan', '37308 / 300 Reclass', !Version_Report, !Period, 'Amount') - 
+DB('SPK Giriş Plan', '37308 / 300 Reclass', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Amount'))) * -1;
+
+[ 'Other Financial Expense 1', 'Tutar' ] =  N: 
+IF(SUBST(!Period, 6, 2) @= '01', 
+(DB('Genel Giderler', 'Other Financial Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') + 
+DB('Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost')) * -1 + 
+DB('PL', 'Given Exchange Rate Difference', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount') + 
+DB('Mali Tablo', 'SPK.T080', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', 'SPK.T081', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Genel Giderler', 'Other Financial Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') + 
+DB('Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') + 
+DB('PL', 'Given Exchange Rate Difference', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount') * -1 + 
+DB('Genel Giderler', 'Bank Interest Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost'), CONTINUE);
+
+[ 'Other Financial Expense 1', 'Tutar' ] =  N: 
+(DB('Genel Giderler', 'Other Financial Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') + 
+DB('Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost')) * -1 + 
+DB('PL', 'Given Exchange Rate Difference', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount') + 
+(DB('Mali Tablo', 'SPK.T080', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', 'SPK.T081', 'SPK', !Version_Report, !Period, 'Closing')) - 
+(DB('Mali Tablo', 'SPK.T080', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', 'SPK.T081', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing')) +
+DB('Genel Giderler', 'Other Financial Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') + 
+DB('Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost') + 
+DB('PL', 'Given Exchange Rate Difference', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount') * -1 + 
+DB('Genel Giderler', 'Bank Interest Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost');
+
+[ 'Dividends Paid', 'Tutar' ] =  N: 
+DB('Diğer Girişler', 'Koçtaş Total', !Version_Report, !Period, 'Temettü') * -1;
+
+[ 'Other CF', 'Tutar' ] =  N: 
+(DB('Mali Tablo', '100', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '102', 'SPK', !Version_Report, !Period, 'Closing')) - 
+(DB('Mali Tablo', '100', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+DB('Mali Tablo', '102', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+[ 'Depreciation', 'Tutar' ] + [ 'Working Capital Change', 'Tutar' ] + [ 'Capital spending', 'Tutar' ] +
+[ 'Operating profit', 'Tutar' ] + [ 'New Debt', 'Tutar' ] + [ 'Debt Payments', 'Tutar' ] + 
+[ 'Interest payments', 'Tutar' ] + [ 'Dividends Paid', 'Tutar' ] + [ 'Other Financial Expense 1', 'Tutar' ]);
+
+[ 'Ending Cash', 'Tutar' ] =  N: 
+DB('Mali Tablo', '100', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '102', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Financial Debt', 'Tutar' ] =  N: 
+(DB('Mali Tablo', '300', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '303', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '304', 'SPK', !Version_Report, !Period, 'Closing')) * -1 + 
+(DB('Mali Tablo', '400', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '405', 'SPK', !Version_Report, !Period, 'Closing')) * -1;
+
+[ 'Advanced Payment for Rent', 'Tutar' ] =  N: 
+DB('180 - 280', 'Total Records', 'Toplam 180', 'Peşin ödenen kira', !Version_Report, SUBST(ATTRS('Period', !Period, 'Short Name'), 1, 3)) + 
+DB('180 - 280', 'Total Records', 'Toplam 280', 'Peşin ödenen kira', !Version_Report, SUBST(ATTRS('Period', !Period, 'Short Name'), 1, 3));
+
+[ 'Net Financial Debt', 'Tutar' ] =  N: 
+[ 'Financial Debt', 'Tutar' ] - [ 'Ending Cash', 'Tutar' ] - [ 'Advanced Payment for Rent', 'Tutar' ];
+
+['Net Financial Debt/EBITDA'] = N: 
+  DB('Report KPI', 'Net Finansal Borç (Düzeltilmiş) / EBITDA  (Rolling)', 'SPK', !Version_Report, !Period, 'YTD');
+
+[ 'Net Debt', 'Tutar' ] =  N: 
+(DB('Mali Tablo', '300', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '303', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '304', 'SPK', !Version_Report, !Period, 'Closing')) * -1 + 
+(DB('Mali Tablo', '400', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '405', 'SPK', !Version_Report, !Period, 'Closing')) * -1 - 
+DB('Mali Tablo', '100', 'SPK', !Version_Report, !Period, 'Closing') -
+DB('Mali Tablo', '102', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Check 4', 'Tutar' ] =  N: 
+DB('Mali Tablo', '100', 'SPK', !Version_Report, !Period, 'Closing') + 
+DB('Mali Tablo', '102', 'SPK', !Version_Report, !Period, 'Closing') - [ 'Ending Cash', 'Tutar' ];
+
+[ 'Check 5', 'Tutar' ] =  N: 
+([ 'Net Debt', 'Tutar' ] - [ 'Advanced Payment for Rent', 'Tutar' ] - [ 'Net Financial Debt', 'Tutar' ]);
+
+FEEDERS;

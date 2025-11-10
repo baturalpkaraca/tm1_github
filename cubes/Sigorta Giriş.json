@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Sigorta Giriş",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Sigorta_Giriş_Meas')"
+		}
+	],
+	"Rules@Code.link":"Sigorta Giriş.rules",
+	"Views@Code.links":
+	[
+		"Sigorta Giriş.views/View1.json"
+	]
+}

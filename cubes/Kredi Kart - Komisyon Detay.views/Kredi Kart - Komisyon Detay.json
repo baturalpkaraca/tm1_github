@@ -1,0 +1,36 @@
+{
+	"@type":"MDXView",
+	"Name":"Kredi Kart - Komisyon Detay",
+	"MDX@Code.link":"Kredi Kart - Komisyon Detay.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Satis_Kanali].[Satis_Kanali]" : "Name"
+		},
+		"ContextSets" : 
+		{
+			"[Bankalar].[Bankalar]" : 
+			{
+				"Expression" : "{[Bankalar].[Bankalar].MEMBERS}"
+			},
+			"[Satis_Kanali].[Satis_Kanali]" : 
+			{
+				"Expression" : "{[Satis_Kanali].[Satis_Kanali].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Aktif Versiyon"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Bankalar].[Bankalar]" : false,
+			"[Kredi_Kart_Komisyon_Detay_Meas].[Kredi_Kart_Komisyon_Detay_Meas]" : false,
+			"[Period].[Period]" : false,
+			"[Satis_Kanali].[Satis_Kanali]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

@@ -1,0 +1,96 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+#Update
+# Budget 2025 Arşive çekilince bu satırı sil.
+[ 'Kiralama Bedeli', 'Budget 2025' ] =  N: 
+	IF(NUMBR(SUBST ( !Version, LONG ( !Version ) -4 +1, 4)) >= 2025, 
+    IF([ 'Kiralama Bedeli Aşım Öncesi' ] > 35000, 35000, [ 'Kiralama Bedeli Aşım Öncesi' ]), CONTINUE);
+
+[ 'Kiralama Bedeli' ] =  N: 
+	IF(NUMBR(SUBST ( !Version, LONG ( !Version ) -4 +1, 4)) >= 2025, 
+    IF([ 'Kiralama Bedeli Aşım Öncesi' ] > 37000, 37000, [ 'Kiralama Bedeli Aşım Öncesi' ]), CONTINUE);
+#Update
+
+[ 'Kiralama Bedeli' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM')
+	& ATTRN('Period', DB('Kiralık Araç Giriş', !Records, !Version, 'Sözleşme Bitimi'), 'Index') >= ATTRN('Period', !Period, 'Index'), 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Aylık Kira Bedeli') * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'USD', DB( 'V_P', !Version, !Period, 'Ortalama Kur - USD'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'EUR', DB( 'V_P', !Version, !Period, 'Ortalama Kur - EUR'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'GBP', DB( 'V_P', !Version, !Period, 'Ortalama Kur - GBP'), 1), CONTINUE);
+
+[ 'Kiralama Bedeli' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM')
+	& ATTRN('Period', DB('Kiralık Araç Giriş', !Records, !Version, 'Sözleşme Bitimi'), 'Index') < ATTRN('Period', !Period, 'Index'), 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Yeni Araç Aylık Kira Bedeli') * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'USD', DB( 'V_P', !Version, !Period, 'Ortalama Kur - USD'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'EUR', DB( 'V_P', !Version, !Period, 'Ortalama Kur - EUR'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'GBP', DB( 'V_P', !Version, !Period, 'Ortalama Kur - GBP'), 1), CONTINUE);
+
+#Update
+# Budget 2025 Arşive çekilince bu satırı sil.
+[ 'Limit Aşım Tutarı', 'Budget 2025' ] =  N: 
+	IF(NUMBR(SUBST ( !Version, LONG ( !Version ) -4 +1, 4)) >= 2025, 
+    IF(DB('Kiralık Araç (Hesap)', !Masraf_Kar_Merkezleri, !Records, !Version, !Period, 'Kiralama Bedeli Aşım Öncesi') > 35000, [ 'Kiralama Bedeli Aşım Öncesi' ] - 35000, 0), CONTINUE);
+
+[ 'Limit Aşım Tutarı' ] =  N: 
+	IF(NUMBR(SUBST ( !Version, LONG ( !Version ) -4 +1, 4)) >= 2025, 
+    IF(DB('Kiralık Araç (Hesap)', !Masraf_Kar_Merkezleri, !Records, !Version, !Period, 'Kiralama Bedeli Aşım Öncesi') > 37000, [ 'Kiralama Bedeli Aşım Öncesi' ] - 37000, 0), CONTINUE);
+#Update
+
+[ 'Kiralama Bedeli Aşım Öncesi' ] =  N: 
+    IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM')
+	& ATTRN('Period', DB('Kiralık Araç Giriş', !Records, !Version, 'Sözleşme Bitimi'), 'Index') >= ATTRN('Period', !Period, 'Index')
+	& ATTRN('Period', !Period, 'Index') >= ATTRN('Period', DB('Kiralık Araç Giriş', !Records, !Version, 'Sözleşme Başlangıç Tarihi'), 'Index'), 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Aylık Kira Bedeli') * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'USD', DB( 'V_P', !Version, !Period, 'Ortalama Kur - USD'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'EUR', DB( 'V_P', !Version, !Period, 'Ortalama Kur - EUR'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Mevcut') @= 'GBP', DB( 'V_P', !Version, !Period, 'Ortalama Kur - GBP'), 1), CONTINUE);
+
+[ 'Kiralama Bedeli Aşım Öncesi' ] =  N: 
+    IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM')
+	& ATTRN('Period', DB('Kiralık Araç Giriş', !Records, !Version, 'Sözleşme Bitimi'), 'Index') < ATTRN('Period', !Period, 'Index'), 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Yeni Araç Aylık Kira Bedeli') * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'USD', DB( 'V_P', !Version, !Period, 'Ortalama Kur - USD'), 1) * 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'EUR', 
+    DB( 'V_P', !Version, !Period, 'Ortalama Kur - EUR'), 1) * IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Para Birimi Yeni') @= 'GBP', 
+    DB( 'V_P', !Version, !Period, 'Ortalama Kur - GBP'), 1), CONTINUE);
+
+[ 'Yakıt Maliyeti' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM'), 
+    IF(DB('Kiralık Araç Giriş', !Records, !Version, 'Yakıt Tipi') @= 'Benzin', DB( 'V_P', !Version, !Period, 'Benzin Litre'  ) * 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Aylık Yakıt Litre Hakkı'), DB( 'V_P', !Version, !Period, 'Diesel Litre') * 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Aylık Yakıt Litre Hakkı')), CONTINUE);
+
+[ 'Diğer Maliyet' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM'), 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Yıllık Diğer Maliyeti') \ 12, CONTINUE);
+
+[ 'Otoyol/Köprü/Otopark Maliyeti' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= DB('Kiralık Araç Giriş', !Records, !Version, 'MM'), 
+    DB('Kiralık Araç Giriş', !Records, !Version, 'Otoyol/Köprü/Otopark') \ 12, CONTINUE);
+
+FEEDERS;
+
+['Aktif', 'Kiralama Bedeli' ] => DB('Kiralık Araç Giriş', !Records, !Version, 'Yıllık Kira Maliyeti');
+
+['Aktif', 'Yakıt Maliyeti' ] => DB('Kiralık Araç Giriş', !Records, !Version, 'Yıllık Yakıt Maliyeti');
+
+['Aktif', 'Kiralama Bedeli Aşım Öncesi' ] => [ 'Limit Aşım Tutarı' ], [ 'Kiralama Bedeli' ];
+
+['Aktif', 'Total Records', 'Yakıt Maliyeti'] => DB( 'Genel Giderler', '8102501001', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Diğer Maliyet'] => DB( 'Genel Giderler', '8102502001', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Kiralama Bedeli'] => DB( 'Genel Giderler', '8102505001', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Otoyol/Köprü/Otopark Maliyeti'] => DB( 'Genel Giderler', '8102503001', !Masraf_Kar_Merkezleri, 'İdari İşler', !Version, !Period, 'Hesaplanan Tutar' );
+
+['Aktif', 'Total Records', 'Yakıt Maliyeti'] => DB( 'Genel Giderler', '8101700003', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Diğer Maliyet'] => DB( 'Genel Giderler', '8101700003', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Limit Aşım Tutarı'] => DB( 'Genel Giderler', '8101700003', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Otoyol/Köprü/Otopark Maliyeti'] => DB( 'Genel Giderler', '8101700003', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+
+['Aktif', 'Total Records', 'Yakıt Maliyeti'] => DB( 'Genel Giderler', '8101700004', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Diğer Maliyet'] => DB( 'Genel Giderler', '8101700004', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Limit Aşım Tutarı'] => DB( 'Genel Giderler', '8101700004', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Records', 'Otoyol/Köprü/Otopark Maliyeti'] => DB( 'Genel Giderler', '8101700004', !Masraf_Kar_Merkezleri, 'Mali İşler - Kira Yatırım', !Version, !Period, 'Hesaplanan Tutar' );

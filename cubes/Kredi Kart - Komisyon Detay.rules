@@ -1,0 +1,59 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[  ] =  N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+['Banka Giriş', 'Net Ciro', 'BigBox'] = N: DB( 'Satış', 'Koçtaş', !Version, !Period, 'Net Ciro' );
+['Banka Giriş', 'Net Ciro', 'Web'] = N: DB( 'Satış', '5340000', !Version, !Period, 'Net Ciro' );
+['Banka Giriş', 'Net Ciro', 'B2B'] = N: DB( 'Satış', '1345000', !Version, !Period, 'Net Ciro' );
+['Banka Giriş', 'Net Ciro', 'B2B - 5002 Projeler'] = N: DB( 'Satış', '5340100', !Version, !Period, 'Net Ciro' );
+['Banka Giriş', 'Net Ciro', 'Fix'] = N: DB( 'Satış', 'Fix', !Version, !Period, 'Net Ciro' );
+['Banka Giriş', 'Net Ciro', 'Marketplace'] = N: DB( 'MM_V_P', 'All Cost Centers', !Version, !Period, 'MP GMV (3P) Y.Gross Ciro' );
+['Banka Giriş', 'Net Ciro', 'Ustabilir'] = N: DB( 'Satış', 'Ustabilir', !Version, !Period, 'Net Ciro' );
+['Banka Giriş', 'Net Ciro', 'Mobil Ticari'] = N: DB( 'Satış', '8340200', !Version, !Period, 'Net Ciro' );
+
+['Banka Giriş', 'KDV Dahil Ciro'] = N: ['Net Ciro'] * (1 + ['KDV Oranı']);
+
+['Banka Giriş', 'Ciro Nakit Oranı'] = N: 1 - ['Ciro Kredi Kartı Oranı'];
+
+['Banka Giriş', 'Kredi Kartı Taksitli Oranı'] = N: 1 - ['Kredi Kartı Peşin Oranı'];
+
+['Banka Giriş', 'Kredi Kartı Peşin Tutar'] = N: (['KDV Dahil Ciro'] * ['Ciro Kredi Kartı Oranı']) * ['Kredi Kartı Peşin Oranı'];
+
+['Banka Giriş', 'Kredi Kartı Taksitli Tutar'] = N: (['KDV Dahil Ciro'] * ['Ciro Kredi Kartı Oranı']) * ['Kredi Kartı Taksitli Oranı'];
+
+['Kredi Kartı Peşin Tutar'] = N: ['Banka Giriş', 'Kredi Kartı Peşin Tutar'] * DB( 'Kredi Kart', 'Peşin', !Bankalar, !Version, !Period, 'Bank Sales Ratio' );
+
+['Kredi Kartı Taksitli Tutar'] = N: ['Banka Giriş', 'Kredi Kartı Taksitli Tutar'] * DB( 'Kredi Kart', 'Taksit', !Bankalar, !Version, !Period, 'Bank Sales Ratio' );
+
+['Banka Giriş', 'Kredi Kartı Peşin Komisyon Tutarı'] = N: DB( 'Kredi Kart - Komisyon Detay', !Satis_Kanali, 'Toplam', !Version, !Period, 'Kredi Kartı Peşin Komisyon Tutarı' );
+
+['Banka Giriş', 'Kredi Kartı Taksitli Komisyon Tutarı'] = N: DB( 'Kredi Kart - Komisyon Detay', !Satis_Kanali, 'Toplam', !Version, !Period, 'Kredi Kartı Taksitli Komisyon Tutarı' );
+
+# Budget 2025 Arşive çekilince bu satırı sil.
+[{'Bigbox', 'Ustabilir'}, 'Budget 2025'] = N: STET;
+
+['Kredi Kartı Peşin Komisyon Tutarı'] = N: DB( 'Kredi Kart - Komisyon Detay', !Satis_Kanali, !Bankalar, !Version, !Period, 'Kredi Kartı Peşin Tutar' ) * DB( 'Kredi Kart', 'Peşin', !Bankalar, !Version, !Period, 'Bank Commission Ratio' );
+
+['Kredi Kartı Taksitli Komisyon Tutarı'] = N: DB( 'Kredi Kart - Komisyon Detay', !Satis_Kanali, !Bankalar, !Version, !Period, 'Kredi Kartı Taksitli Tutar' ) * DB( 'Kredi Kart', 'Taksit', !Bankalar, !Version, !Period, 'Bank Commission Ratio' );
+
+FEEDERS;
+
+['Aktif', 'Banka Giriş', 'KDV Oranı'] => ['KDV Dahil Ciro'];  
+  
+['Aktif', 'Banka Giriş', 'Ciro Kredi Kartı Oranı'] => ['Ciro Nakit Oranı'];
+  
+['Aktif', 'Banka Giriş', 'Kredi Kartı Peşin Oranı'] => ['Kredi Kartı Taksitli Oranı'], ['Kredi Kartı Peşin Tutar'], ['Kredi Kartı Taksitli Tutar'], ['Kredi Kartı Peşin Komisyon Tutarı'], ['Kredi Kartı Taksitli Komisyon Tutarı'];
+
+['Aktif', 'Total Satış Kanalı', 'Toplam Kredi Kartı Tutarı'] => DB( 'Kredi Kart', 'Peşin Taksit Toplam', !Bankalar, !Version, !Period, 'Addition from Sales' );
+['Aktif', 'Total Satış Kanalı', 'Toplam Kredi Kartı Tutarı'] => DB( 'Kredi Kart', 'Kredi Kart', !Bankalar, !Version, !Period, 'Addition from Sales' );
+#Genel Giderler Feedarları.  
+['Aktif', 'Total Satış Kanalı', 'Akbank', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161524601', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'Garanti', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161526201', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'İşbankası', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161526401', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'Hsbc', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161512301', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'FinansBank', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161521111', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'Yapı Kredi', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161526701', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'HalkBank', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161521201', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Total Satış Kanalı', 'Banka8', 'Toplam Komisyon Tutarı'] => DB( 'Genel Giderler', '8161510001', 'All Cost Centers', 'Mali İşler - Finans', !Version, !Period, 'Hesaplanan Tutar' );

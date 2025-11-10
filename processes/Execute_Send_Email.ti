@@ -1,0 +1,22 @@
+#region Prolog
+
+sQuote = CHAR( 39 );
+sScript = '..\Script\email.ps1';
+sEmailTo = sQuote | 'Mustafa Batur Alp KARACA <mkaraca@ereteam.com>' | sQuote;
+
+sEmailSubject = ''| pProcessName |' Aktarımı.';
+sEmailBody = 'Aktarım tamamlandı '| pPeriod |'.';
+
+sCommand = 'Powershell ';
+sCommand = sCommand | sScript | ' ';
+sCommand = sCommand | '-emailTo ' | sEmailTo | ' ';
+sCommand = sCommand | '-emailSubject ' | sQuote | sEmailSubject  | sQuote | ' ';
+sCommand = sCommand | '-emailBody ' | sQuote | sEmailBody | sQuote | ' ';
+
+nWait = 0;
+
+ExecuteCommand( sCommand, nWait );
+#endregion
+#region Epilog
+
+#endregion

@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Report PL Plan",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PL_Acc')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version_Report')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Report_PL_Plan_Meas')"
+		}
+	],
+	"Rules@Code.link":"Report PL Plan.rules",
+	"Views@Code.links":[]
+}

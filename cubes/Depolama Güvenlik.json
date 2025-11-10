@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Güvenlik",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Güvenlik_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Güvenlik.rules",
+	"Views@Code.links":[]
+}

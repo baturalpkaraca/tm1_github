@@ -1,0 +1,70 @@
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+#Eğitim
+['Eğitim', 'Kişibaşı Maliyet'] = N: ['Sınıf Maliyeti'] \ ['Sınıf Kişi Sayısı'];
+
+# ['Eğitim', 'Toplam Bütçe - Eğitim'] = N: ['Sınıf Maliyeti'] * ['Sınıf Sayısı'];
+
+['Eğitim', 'Merkez Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Merkez',
+  ['Sınıf Maliyeti'] * ['Sınıf Sayısı'], CONTINUE);
+
+['Eğitim', 'Mağaza Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Mağaza+Fix',
+  ['Sınıf Maliyeti'] * ['Sınıf Sayısı'], CONTINUE);
+
+['Eğitim', 'Mağaza Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Merkez', 0, CONTINUE);
+
+['Eğitim', 'Merkez Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Mağaza+Fix', 0, CONTINUE);
+
+#İşe Alım
+['İşe Alım', 'Merkez Tutar'] = N: ['Birim Fiyat (Merkez)'] * ['Kişi Sayısı (Merkez)'];
+['İşe Alım', 'Mağaza Tutar'] = N: ['Birim Fiyat (Mağaza)'] * ['Kişi Sayısı (Mağaza)'];
+
+#İç İletişim
+['İç İletişim', 'Birim Maliyet'] = N: ['Toplam Bütçe - İç İletişim'] \ ['Hedef Kitle Sayısı'];
+
+['İç İletişim', 'Merkez Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Merkez',
+  ['Hedef Kitle Sayısı'] * ['Birim Maliyet'], CONTINUE);
+
+['İç İletişim', 'Mağaza Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Mağaza+Fix',
+  ['Hedef Kitle Sayısı'] * ['Birim Maliyet'], CONTINUE);
+
+['İç İletişim', 'Mağaza Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Merkez', 0, CONTINUE);
+
+['İç İletişim', 'Merkez Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Masraf Merkezi') @= 'Mağaza+Fix', 0, CONTINUE);
+
+#İK Uygulamaları
+['İK Operasyon', 'Masraf Merkezi'] = S: 'Tüm Çalışanlar';
+
+['İK Operasyon', {'Birim Fiyat (Mağaza)', 'Kişi Sayısı (Mağaza)'}] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Bütçe Kalemi') @= 'Üst Düzey Yöneticiler Toplantısı Organizasyon Bedeli',
+  0 ,CONTINUE);
+
+['İK Operasyon', 'Merkez Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Bütçe Kalemi') @= 'Üst Düzey Yöneticiler Toplantısı Organizasyon Bedeli',
+  ['Birim Fiyat (Merkez)'] * ['Kişi Sayısı (Merkez)'], CONTINUE);
+['İK Operasyon', 'Mağaza Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Bütçe Kalemi') @= 'Üst Düzey Yöneticiler Toplantısı Organizasyon Bedeli',
+  0 ,CONTINUE);
+
+['İK Operasyon', 'Merkez Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Bütçe Kalemi') @<> 'Üst Düzey Yöneticiler Toplantısı Organizasyon Bedeli',
+  ['Birim Fiyat (Merkez)'] * ['Kişi Sayısı (Merkez)'], CONTINUE);
+
+['İK Operasyon', 'Mağaza Tutar'] = N: IF(DB( 'IK - Proje Giriş', !İK_Proje_Kalemleri, !İK_Proje, !Version, 'Bütçe Kalemi') @<> 'Üst Düzey Yöneticiler Toplantısı Organizasyon Bedeli',
+  ['Birim Fiyat (Mağaza)'] * ['Kişi Sayısı (Mağaza)'], CONTINUE);
+
+
+FEEDERS;
+
+['Aktif', 'Eğitim', 'Sınıf Kişi Sayısı'] => ['Kişibaşı Maliyet'];
+['Aktif', 'Eğitim', 'Sınıf Sayısı'] => ['Merkez Tutar'], ['Tutar'];
+# ['Aktif', 'Sınıf Sayısı'] => ['Toplam Bütçe - Eğitim']
+
+['Aktif', 'İşe Alım', 'Kişi Sayısı (Merkez)'] => ['Merkez Tutar'];
+['Aktif', 'İşe Alım', 'Kişi Sayısı (Mağaza)'] => ['Mağaza Tutar'];
+
+['Aktif', 'İç İletişim', 'Hedef Kitle Sayısı'] => ['Birim Maliyet'], ['Merkez Tutar'], ['Mağaza Tutar'];
+
+['Aktif', 'İK Operasyon', 'Kişi Sayısı (Merkez)'] => ['Merkez Tutar'];
+['Aktif', 'İK Operasyon', 'Kişi Sayısı (Mağaza)'] => ['Mağaza Tutar'];
+
+#IK Proje küpü feedarları.
+['Aktif', {'Eğitim', 'İşe Alım', 'Assesment', 'İç İletişim', 'İK Operasyon'}, 'Toplam Proje', 'Toplam Tutar'] => DB( 'IK - Proje', !İK_Proje_Kalemleri, 'All Cost Centers', !Version, 'Total Period', 'Tutar'  );

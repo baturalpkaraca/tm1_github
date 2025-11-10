@@ -1,0 +1,12 @@
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+[] = N: IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', 0, CONTINUE);
+
+[] = S: IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', '', CONTINUE);
+
+['MM'] = S: IF(DB( 'Pazarlama Giriş', !Pazarlama_Gider_Hesapları, !Records, !Version, !Period, 'MM (Dağıtım)'  ) @<> '', '', CONTINUE);
+            
+FEEDERS;
+            

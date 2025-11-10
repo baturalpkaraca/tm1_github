@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Arge - Mevzuat Kırılımı",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Arge_Mevzuat_Kırılımı_Meas')"
+		}
+	],
+	"Rules@Code.link":"Arge - Mevzuat Kırılımı.rules",
+	"Views@Code.links":[]
+}

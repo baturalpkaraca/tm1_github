@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"Execute_Send_Email",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Execute_Send_Email.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pPeriod",
+			"Prompt":"Period",
+			"Value":"2025",
+			"Type":"String"
+		},
+		{
+			"Name":"pProcessName",
+			"Prompt":"Prosess Name",
+			"Value":"BW",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

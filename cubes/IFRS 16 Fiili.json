@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"IFRS 16 Fiili",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('IFRS_16_Fiili_Acc')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('IFRS_16_Fiili_Meas')"
+		}
+	],
+	"Rules@Code.link":"IFRS 16 Fiili.rules",
+	"Views@Code.links":[]
+}

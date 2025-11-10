@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"SPK Giriş Plan",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('SPK_Giriş_Acc')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('SPK_Giriş_Plan_Meas')"
+		}
+	],
+	"Rules@Code.link":"SPK Giriş Plan.rules",
+	"Views@Code.links":[]
+}

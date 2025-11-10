@@ -1,0 +1,156 @@
+#region Prolog
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'Final Internal Prim';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName|'_'|pPeriod;
+
+v_DimSourceName1 = 'Mal_Grupları';
+v_DimSourceName2 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName3 = 'Day';
+v_DimSourceName4 = 'Final_Internal_Prim_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName|'_'|pPeriod;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName|'_'|pPeriod;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 1);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_DimSourceName1|'].[Koçtaş Kategori Toplam]},ALL,RECURSIVE)}, 1)}';
+SUBSETCREATEBYMDX(v_SubSourceName1, MDX1, 0);
+SubsetMDXSet(v_DimSourceName1, v_SubSourceName1, '' );
+
+MDX2 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName2|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName2, MDX2, 0);
+SubsetMDXSet(v_DimSourceName2, v_SubSourceName2, '' );
+
+MDX3 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_DimSourceName3|'].['|pPeriod|']},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX (v_SubSourceName3, MDX3, 0 );
+SubsetMDXSet(v_DimSourceName3, v_SubSourceName3, '' );
+
+SubsetCreate(v_DimSourceName4, v_SubSourceName4, 0);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Perakende Satış', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Perakende Margin', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Ticari Satış', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Ticari Margin', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Mobil Ticari', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Mobil Ticari Margin', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, '3P Satış', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, '3P Margin', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Kiosk Sales', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Handyman Sales', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+
+ODBCOpen('PA', 'pawuser', 'p(>.z28n)Uk7');
+ODBCOutPut('PA', 'TRUNCATE TABLE tm1satis.dbo.INTERNAL_BUTCE_HEDEF');
+
+vSQL = '';
+vRecordtoAdd = '';
+vRecord = 0;
+vExportForEveryxRecords = 950;
+#endregion
+#region Data
+
+vGun = SUBST(Gun, 1, 4)|'-'|SUBST(Gun, 6, 2)|'-'|SUBST(Gun , 9, 2);
+
+IF(Parametre@='Perakende Satış' % Parametre@='Kiosk Sales' % Parametre@='Handyman Sales');
+    sParam='PS' ;
+ELSEIF(Parametre@='Perakende Margin');  
+    sParam='PCM';
+ELSEIF(Parametre@='Ticari Satış');
+    sParam='TS' ;
+ELSEIF(Parametre@='Ticari Margin');  
+    sParam='TCM';
+ELSEIF(Parametre@='Mobil Ticari');
+    sParam='MT' ;
+ELSEIF(Parametre@='Mobil Ticari Margin');
+    sParam='MTM' ;
+ELSEIF(Parametre@='3P Satış');
+    sParam='K3P' ;
+ELSEIF(Parametre@='3P Margin');
+    sParam='K3PM' ;  
+ENDIF;
+
+IF( vSQL @= '');
+    vSQL = 'INSERT INTO tm1satis.dbo.INTERNAL_BUTCE_HEDEF(MAGAZA ,REYON, TARIH, BUTCETIPI, value, USTA_BUTCE, KIOSK_BUTCE) VALUES';
+ENDIF;
+
+if (Parametre @= 'Handyman Sales'); 
+    vRecordToAdd = '('''|ATTRS( 'Masraf_Kar_Merkezleri', Magaza, 'Kar Merkezi Code' )|''', '''|Reyon|''', '''|vGun|''', '''|sParam|''', '|NumbertoStringEx(0,'0.000000','.','')|', '|NumbertoStringEx(Value,'0.000000','.','')|', '|NumbertoStringEx(0,'0.000000','.','')|'  )'; 
+elseif (Parametre @= 'Kiosk Sales');
+    vRecordToAdd = '('''|ATTRS( 'Masraf_Kar_Merkezleri', Magaza, 'Kar Merkezi Code' )|''', '''|Reyon|''', '''|vGun|''', '''|sParam|''', '|NumbertoStringEx(0,'0.000000','.','')|', '|NumbertoStringEx(0,'0.000000','.','')|', '|NumbertoStringEx(Value,'0.000000','.','')|'  )'; 
+else;
+    vRecordToAdd = '('''|ATTRS( 'Masraf_Kar_Merkezleri', Magaza, 'Kar Merkezi Code' )|''', '''|Reyon|''', '''|vGun|''', '''|sParam|''', '|NumbertoStringEx(Value,'0.000000','.','')|', '|NumbertoStringEx(0,'0.000000','.','')|', '|NumbertoStringEx(0,'0.000000','.','')|'  )'; 
+endif;
+
+vSQL = vSQL | IF( vRecord > 0 , ',', '') | vRecordToAdd ;
+
+IF( vRecord = vExportForEveryxRecords );
+    ODBCOutPut('PA', vSQL);
+    vSQL = '';
+    vRecord = 0;
+ELSE;
+    vRecord = vRecord + 1;
+ENDIF;
+#endregion
+#region Epilog
+
+IF( vSQL @<> '');
+    ODBCOutput('PA', vSQL);
+ENDIF;
+
+ODBCClose('PA');
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+ExecuteProcess( 'Execute_Send_Email', 'pPeriod', pPeriod, 'pProcessName', vProcessName );
+#endregion

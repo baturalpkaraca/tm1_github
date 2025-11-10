@@ -1,0 +1,72 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+[] = S: IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+# Henüz açılmamış mağazalar
+['Açık / Kapalı']=
+	S: IF (DayNo( ATTRS('Period', !Period, 'FirstDay')) < DAYNO(DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Açılış Tarihi (yyyy-mm-dd)')), 'KAPALI', CONTINUE);
+
+# Kapanmış mağazalar
+['Açık / Kapalı']=
+	S: IF ( DayNo( ATTRS('Period', !Period, 'FirstDay')) >= DAYNO(DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Kapanış Tarihi  (yyyy-mm-dd)')), 'KAPALI', CONTINUE);
+
+# Hem açılış hem de kapanış tarihi boş ise ve mağaza türü Koçtaş ise
+['Açık / Kapalı']= S: 
+    IF ( DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Açılış Tarihi (yyyy-mm-dd)') @= ''
+    & DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Kapanış Tarihi  (yyyy-mm-dd)') @= ''
+    & DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Mağaza Türü') @= 'Koçtaş', 'KAPALI', CONTINUE);
+
+# Hem açılış hem de kapanış tarihi boş ise ve mağaza türü Fix ise
+['Açık / Kapalı']= S: 
+    IF ( DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Açılış Tarihi (yyyy-mm-dd)') @= ''
+    & DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Kapanış Tarihi  (yyyy-mm-dd)') @= ''
+    & DB('MM_V', !Masraf_Kar_Merkezleri, !Version, 'Mağaza Türü') @= 'Fix', 'KAPALI', CONTINUE);
+
+# Kalan masraf merkezleri AÇIK olarak değerlendirilecektir
+['Açık / Kapalı'] = S: IF( SUBST( !Period, 1, 7 ) @= 'Opening', DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version, ATTRS( 'Period', !Period, 'Year' )|'-01', !MM_V_P_Meas ), 'AÇIK' );
+
+[ 'AVM_Depr_Beylikduzu', 'LFL / Non-LFL'] =	S: DB( 'MM_V_P', '1340301', !Version, !Period, !MM_V_P_Meas );
+[ 'AVM_Depr_Yenibosna', 'LFL / Non-LFL'] = S: DB( 'MM_V_P', '1340201', !Version, !Period, !MM_V_P_Meas );
+[ 'AVM_Depr_Karsiyaka', 'LFL / Non-LFL'] = S: DB( 'MM_V_P', '2350301', !Version, !Period, !MM_V_P_Meas );
+
+#3P Fiilileri
+['3P delivery cost (kdv dahil)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Actual', 
+      DB( 'PL', '3P delivery cost (kdv dahil)', 'Total Source', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ), CONTINUE );
+
+['3P other marketing income amount (Incl. VAT)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Actual', 
+      DB( 'PL', '3P other marketing income (kdv dahil)', 'Total Source', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ), CONTINUE );
+
+# ['3P commission income amount (Incl. VAT)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Actual', 
+#       DB( 'PL', '3P commission income (kdv dahil)', 'Total Source', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ), CONTINUE );
+
+# ['MP GMV (3P) Y.Gross Ciro'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Actual', 
+#       DB( 'PL', 'MP GMV (3P)', 'Total Source', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' ), CONTINUE );
+
+#Satış Modülü
+['3P commission income amount (Excl. VAT)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Plan', ['MP GMV (3P) Y.Gross Ciro'] * ['3P commission income Rate'], CONTINUE );
+
+['3P other marketing income amount (Excl. VAT)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Plan', ['MP GMV (3P) Y.Gross Ciro'] * ['3P other marketing income Rate'], CONTINUE );
+
+['3P commission income amount (Incl. VAT)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Plan', ['3P commission income amount (Excl. VAT)'] * (1 + DB( 'V_P', !Version, !Period, 'Marketplace KDV Oranı' )), CONTINUE );
+
+['3P other marketing income amount (Incl. VAT)'] = N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan' ) @= 'Plan', ['3P other marketing income amount (Excl. VAT)'] * (1 + DB( 'V_P', !Version, !Period, 'Marketplace KDV Oranı' )), CONTINUE );
+
+FEEDERS;
+
+['Aktif', 'MP GMV (3P) Y.Gross Ciro'] => ['3P commission income amount (Excl. VAT)'], ['3P other marketing income amount (Excl. VAT)'],
+                                         ['3P commission income amount (Incl. VAT)'], ['3P other marketing income amount (Incl. VAT)'];
+
+#Kredi Kart Komisyon Detay Feederları.
+['Aktif', 'All Cost Centers', 'MP GMV (3P) Y.Gross Ciro'] => DB( 'Kredi Kart - Komisyon Detay', 'Marketplace', 'Banka Giriş', !Version, !Period, 'Net Ciro' );
+
+#PL Feederları.  
+[ 'Aktif', 'All Cost Centers', '3P commission income amount (Incl. VAT)' ] => DB( 'PL', '3P commission income (kdv dahil)', 'Marketplace', '5340800', !Version, !Period, 'Amount' ); 
+[ 'Aktif', 'All Cost Centers', '3P delivery cost (kdv dahil)' ] => DB( 'PL', '3P delivery cost (kdv dahil)', 'Marketplace', '5340800', !Version, !Period, 'Amount' ); 
+[ 'Aktif', 'All Cost Centers', '3P other marketing income amount (Incl. VAT)' ] => DB( 'PL', '3P other marketing income (kdv dahil)', 'Marketplace', '5340800', !Version, !Period, 'Amount' ); 
+[ 'Aktif', 'All Cost Centers', 'MP GMV (3P) Y.Gross Ciro' ] => DB( 'PL', 'MP GMV (3P)', 'Marketplace', '5340800', !Version, !Period, 'Amount' );   
+  
+#Mali Tablo Feederları.
+[ 'Aktif', 'All Cost Centers', {'3P commission income amount (Incl. VAT)', '3P other marketing income amount (Incl. VAT)'} ] => DB( 'Mali Tablo', '602', 'Satış', !Version, !Period, 'Movement' );
+[ 'Aktif', 'All Cost Centers', '3P delivery cost (kdv dahil)' ] => DB( 'Mali Tablo', '611', 'Satış', !Version, !Period, 'Movement' );

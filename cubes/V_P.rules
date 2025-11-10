@@ -1,0 +1,41 @@
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+['Enflasyon Oranı % - ÜFE TÜFE ort.'] =
+	N: ( ['Enflasyon Oranı % - TÜFE'] + ['Enflasyon Oranı % - ÜFE'] ) / 2;
+
+[{'Enflasyon Oranı % - TÜFE', 'Enflasyon Oranı % - TÜFE - 12 Aylık', 'Enflasyon Oranı % - ÜFE'}] = N: STET;
+
+['Fiili Sayısı'] = N: IF(DB( 'V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', 1, 0);
+
+[] = N: IF(SCAN('Forecast', !Version) <> 0 & DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', DB('V_P','Fiili', !Period, !V_P_Meas), CONTINUE);
+
+['Plan Start (Calc)']= 
+    N: IF( DB( 'V_P', !Version, !Period, 'Actual - Plan') @= 'Plan' & DB( 'V_P', !Version, ATTRS( 'Period', !Period, 'PrevMonth'  ), 'Actual - Plan') @= 'Actual', 
+           DIMIX( 'Period', !Period), CONTINUE );
+    
+['Kümüle Kredi Faiz %'] = N: ['Aylık Kredi Faiz %'] * 12;    
+
+FEEDERS;
+  
+['Aktif', 'Actual - Plan'] => DB( 'V_P', !Version, ATTRS( 'Period', !Period, 'NextMonth'  ), 'Plan Start (Calc)'  ), ['Fiili Sayısı'];
+
+['Aktif', 'Enflasyon Oranı % - TÜFE'] => ['Enflasyon Oranı % - ÜFE TÜFE ort.'];
+['Aktif', 'Enflasyon Oranı % - ÜFE'] => ['Enflasyon Oranı % - ÜFE TÜFE ort.'];
+
+#Seyahat Feedarları.
+['Aktif', 'Yurtiçi Konaklama'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Konaklama', 'Küçükşehir', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtiçi Konaklama - Büyükşehir'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Konaklama', 'Büyükşehir', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtdışı Konaklama'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Konaklama', 'Yurtdışı', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtiçi Uçuş'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Uçuş', 'Yurtiçi', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtdışı Uçuş'] => DB('Seyahat', 'Koçtaş Total','Departman Toplam', 'Uçuş','Avrupa', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtdışı Uçuş - Uzakdoğu'] => DB('Seyahat', 'Koçtaş Total','Departman Toplam', 'Uçuş','Uzak Doğu', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtiçi Seyahat Yemek'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Seyahat Yemek', 'Yurtiçi', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtdışı Seyahat Yemek'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Seyahat Yemek', 'Yurtdışı', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtiçi Şehiriçi Yol Giderleri'] => DB('Seyahat', 'Koçtaş Total',  'Departman Toplam', 'Şehir İçi Ulaşım', 'Yurtiçi', !Version, !Period, 'Birim Fiyat');
+['Aktif', 'Yurtdışı Şehiriçi Yol Giderleri'] => DB('Seyahat', 'Koçtaş Total', 'Departman Toplam', 'Şehir İçi Ulaşım', 'Yurtdışı', !Version, !Period, 'Birim Fiyat');
+
+['Aktif', 'Libor % - 1 M'] => DB( 'SPK Giriş Plan', 'TR - Interest Rate', !Version, !Period, 'Amount' );
+['Aktif', 'Libor % - 1 M'] => DB( 'SPK Giriş Plan', 'CCR - Interest Rate', !Version, !Period, 'Amount' );
+['Aktif', 'Libor % - 4 M'] => DB( 'SPK Giriş Plan', 'TP - Interest Rate', !Version, !Period, 'Amount' );

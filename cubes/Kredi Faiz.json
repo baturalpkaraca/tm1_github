@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Kredi Faiz",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Kredi_Faiz_Meas')"
+		}
+	],
+	"Rules@Code.link":"Kredi Faiz.rules",
+	"Views@Code.links":
+	[
+		"Kredi Faiz.views/Kredi Faiz.json"
+	]
+}

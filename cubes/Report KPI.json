@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Report KPI",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Report_KPI')"
+		},
+		{
+			"@id":"Dimensions('Mali_Tablo_Tipleri')"
+		},
+		{
+			"@id":"Dimensions('Version_Report')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Report_KPI_Meas')"
+		}
+	],
+	"Rules@Code.link":"Report KPI.rules",
+	"Views@Code.links":[]
+}

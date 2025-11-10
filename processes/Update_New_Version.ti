@@ -1,0 +1,4 @@
+#region Prolog
+
+DimensionElementComponentAddDirect( 'Version', 'Aktif', pVersion, 0 );
+#endregion

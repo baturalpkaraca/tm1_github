@@ -1,0 +1,29 @@
+SKIPCHECK;
+
+FEEDERS;
+
+##STAT MALİYET  
+[ 'Fiili', 'STAT', 'Çıkışlar Maliyet' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, !Period, 'Çıkış');
+
+[ 'Fiili', 'STAT', 'Giriş Maliyet' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, !Period, 'Giriş');
+
+[ 'Fiili', '9347777', '263', 'STAT', 'Aktifleştirme' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, '258', 'STAT Maliyet', !Version_Actual, !Period, 'Transfer'), 
+  DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Maliyet', !Version_Actual, !Period, 'Transfer');
+
+##STAT AMORTİSMAN  
+[ 'Fiili', 'STAT', 'Dönem Amoritsmanı' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Amortisman', !Version_Actual, !Period, 'Giriş');
+
+[ 'Fiili', 'STAT', 'Amortisman Çıkışlar' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'STAT Amortisman', !Version_Actual, !Period, 'Çıkış');
+
+##IFRS MALİYET  
+[ 'Fiili', 'IFRS', 'Çıkışlar Maliyet' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, !Period, 'Çıkış');
+
+[ 'Fiili', 'IFRS', 'Giriş Maliyet' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, !Period, 'Giriş');
+
+[ 'Fiili', '9347777', '263', 'IFRS', 'Aktifleştirme' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, '258', 'IFRS Maliyet', !Version_Actual, !Period, 'Transfer'), 
+  DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Maliyet', !Version_Actual, !Period, 'Transfer');
+
+##IFRS AMORTİSMAN  
+[ 'Fiili', 'IFRS', 'Dönem Amoritsmanı' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Amortisman', !Version_Actual, !Period, 'Giriş');
+
+[ 'Fiili', 'IFRS', 'Amortisman Çıkışlar' ] => DB('Yatırım Hesaplama Fiili', !Masraf_Kar_Merkezleri, !Duran_Varlık_Sınıfları, 'IFRS Amortisman', !Version_Actual, !Period, 'Çıkış');

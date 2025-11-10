@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"Delete_or_Move_MM_Value",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Delete_or_Move_MM_Value.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

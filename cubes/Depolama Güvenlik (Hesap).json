@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Depolama Güvenlik (Hesap)",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Personel_Güvenlik_Tipi')"
+		},
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Depolama_Güvenlik_Hesap_Meas')"
+		}
+	],
+	"Rules@Code.link":"Depolama Güvenlik (Hesap).rules",
+	"Views@Code.links":[]
+}

@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"IK - Genel Giriş",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Unvanlar')"
+		},
+		{
+			"@id":"Dimensions('Çalışan_Alt_Grupları')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('İK_Genel_Giriş_Meas')"
+		}
+	],
+	"Rules@Code.link":"IK - Genel Giriş.rules",
+	"Views@Code.links":
+	[
+		"IK - Genel Giriş.views/View1.json"
+	]
+}

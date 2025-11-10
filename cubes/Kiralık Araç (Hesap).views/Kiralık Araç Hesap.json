@@ -1,0 +1,30 @@
+{
+	"@type":"MDXView",
+	"Name":"Kiralık Araç Hesap",
+	"MDX@Code.link":"Kiralık Araç Hesap.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Version].[Version]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Aktif Versiyon"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Kiralık_Araç_Hesaplama_Meas].[Kiralık_Araç_Hesaplama_Meas]" : false,
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : false,
+			"[Period].[Period]" : false,
+			"[Records].[Records]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

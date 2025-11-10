@@ -1,0 +1,153 @@
+#region Prolog
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'MM_V';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName;
+
+v_DimSourceName1 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName2 = 'Version';
+v_DimSourceName3 = 'MM_V_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 0);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 0);
+
+MDX1 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName1|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName1, MDX1, 0);
+
+SubsetCreate(v_DimSourceName2, v_SubSourceName2, 0);
+SubsetElementInsert(v_DimSourceName2, v_SubSourceName2, pVersion, 1);
+
+SubsetCreate(v_DimSourceName3, v_SubSourceName3, 0);
+SubsetElementInsert(v_DimSourceName3, v_SubSourceName3, 'Mağaza Türü', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+
+#Unwind dimension
+#This snippet is typically done in the Metadata section
+vDimensionUW = 'Masraf_Kar_Merkezleri';
+vIndex = 1;
+vDimSize = DIMSIZ(vDimensionUW);
+WHILE(vIndex < vDimSize);
+vElementUW = DIMNM(vDimensionUW,vIndex);
+vChildSize = ELCOMPN(vDimensionUW,vElementUW);
+WHILE(vChildSize > 0);
+vChildElementUW = ELCOMP(vDimensionUW,vElementUW,vChildSize);
+DIMENSIONELEMENTCOMPONENTDELETE(vDimensionUW, vElementUW, vChildElementUW );
+vChildSize = vChildSize - 1;
+END;
+vIndex = vIndex + 1;
+END;
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores', 'Koçtaş', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores', 'B2C', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores', 'Fix', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş Total', 'All Stores', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş Total', 'Head Office', 1 );
+#Prosesi çalıştırdıktan sonra manuel olarak boyutun içine girip Bölgeleri en aşağı gönder. Head Office'de en altta olmalı.
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Head Office', 'Bölgeler', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş Total', 'Depo', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş Total', 'Marketplace', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş Total', 'B2B', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş Total', 'Ustabilir', 1 );
+#endregion
+#region Metadata
+
+#Mağaza Türü
+
+if (Masraf_Kar_Merkezleri @= 'Dummy'); 
+    ItemSkip;
+endif;
+
+if (Masraf_Kar_Merkezleri @= 'Central'); 
+    ItemSkip;
+endif;
+
+if (Value @<> ''); 
+    DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', Value, Masraf_Kar_Merkezleri, 1 ); 
+else;
+    DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş', Masraf_Kar_Merkezleri, 1 ); 
+endif;
+
+#All Cost Centers
+if (Masraf_Kar_Merkezleri @<> 'AVM_Depr_Beylikduzu' &
+    Masraf_Kar_Merkezleri @<> 'AVM_Depr_Karsiyaka' & 
+    Masraf_Kar_Merkezleri @<> 'AVM_Depr_Yenibosna'); 
+    DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Cost Centers', Masraf_Kar_Merkezleri, 1 );
+endif;
+
+#Central
+if ((Masraf_Kar_Merkezleri @<> '9340001' & Masraf_Kar_Merkezleri @<> '9347777') & Value @= 'Head Office'); 
+    DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Central', Masraf_Kar_Merkezleri, 1 );
+endif;
+#endregion
+#region Epilog
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş + Fix', 'Koçtaş', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş + Fix', 'Fix', 1 );
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş + Web', 'Koçtaş', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'Koçtaş + Web', 'B2C', 1 );
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B', 'All Stores', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B', 'B2B', 1 );
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + MP', 'All Stores', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + MP', 'Marketplace', 1 );
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP', 'All Stores', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP', 'B2B', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP', 'Marketplace', 1 );
+
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', 'All Stores', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', 'B2B', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', 'Marketplace', 1 );
+DimensionElementComponentAddDirect( 'Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', 'Ustabilir', 1 );
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+
+#endregion

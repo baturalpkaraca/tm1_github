@@ -1,0 +1,9 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Mevzuat Kırılımı' ] =  S: 
+	IF(DTYPE('Mizan_Hesapları', !Mizan_Hesapları) @= 'C', '', CONTINUE);
+
+FEEDERS;
+

@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"IT Info 2",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('IT_Info_2_Meas')"
+		}
+	],
+	"Rules@Code.link":"IT Info 2.rules",
+	"Views@Code.links":
+	[
+		"IT Info 2.views/IT Info 2.json"
+	]
+}

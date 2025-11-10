@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Idari Işler",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('İdari_İşler_Kalemleri')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('İdari_İşler_Meas')"
+		}
+	],
+	"Rules@Code.link":"Idari Işler.rules",
+	"Views@Code.links":
+	[
+		"Idari Işler.views/View1.json"
+	]
+}

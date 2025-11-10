@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"KE80 - KSB1 Karşılık",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('KE80 _KSB1_Karşılık_Meas')"
+		}
+	],
+	"Rules@Code.link":"KE80 - KSB1 Karşılık.rules",
+	"Views@Code.links":
+	[
+		"KE80 - KSB1 Karşılık.views/KE80 - KSB1 Karşılık.json"
+	]
+}

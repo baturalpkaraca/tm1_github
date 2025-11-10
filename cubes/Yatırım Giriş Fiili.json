@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Yatırım Giriş Fiili",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Duran_Varlık_Sınıfları')"
+		},
+		{
+			"@id":"Dimensions('Yatırım_Giriş_Detay')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Yatırım_Giriş_Fiili_Meas')"
+		}
+	],
+	"Rules@Code.link":"Yatırım Giriş Fiili.rules",
+	"Views@Code.links":
+	[
+		"Yatırım Giriş Fiili.views/View1.json"
+	]
+}

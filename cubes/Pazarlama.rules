@@ -1,0 +1,5 @@
+SKIPCHECK;
+
+FEEDERS;
+
+['Final Tutar'] => DB( 'Genel Giderler', !Pazarlama_Gider_Hesapları, !Masraf_Kar_Merkezleri, 'Pazarlama', !Version, !Period, 'Hesaplanan Tutar' );

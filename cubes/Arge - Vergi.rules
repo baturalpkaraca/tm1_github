@@ -1,0 +1,25 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Amount' ] =  N: 
+	IF(!Arge_Mevzuat_Kırılımı @= DB('Arge - Mevzuat Kırılımı', !Mizan_Hesapları, '9347777', !Version, 'Mevzuat Kırılımı'), 
+      DB('Arge - Cost', !Mizan_Hesapları, 'Ar-Ge Projeleri', !Version, !Period, 'Amount'), CONTINUE);
+
+[ 'KKE Dışarıdan Sağlanan Fayda' ] =  N: 
+	IF(DB('Arge - Vergi', !Mizan_Hesapları, '750.03 Dışarıdan Sağlanan Fayda ve Hizmetler', !Version, !Period, 'Amount') > 
+      DB('Arge - Vergi', !Mizan_Hesapları, 'Toplam Gider', !Version, !Period, 'Amount') \ 2, 
+      DB('Arge - Vergi', !Mizan_Hesapları, 'Toplam Gider', !Version, !Period, 'Amount') \ 2, CONTINUE);
+
+[ 'Kanunen Kabul Edilen Gider' ] =  N: 
+	IF([ 'KKE Dışarıdan Sağlanan Fayda' ] <> 0, [ 'Toplam Gider' ] - [ '750.03 Dışarıdan Sağlanan Fayda ve Hizmetler' ] + [ 'KKE Dışarıdan Sağlanan Fayda' ], [ 'Toplam Gider' ]);
+
+FEEDERS;
+
+[ 'Toplam Gider' ] => DB('Arge - Vergi', 'Expense Accounts', 'KKE Dışarıdan Sağlanan Fayda', !Version, !Period, 
+                         IF(DB('Arge - Vergi', 'Expense Accounts', '750.03 Dışarıdan Sağlanan Fayda ve Hizmetler', !Version, !Period, 'Amount') > 
+                         DB('Arge - Vergi', 'Expense Accounts', 'Toplam Gider', !Version, !Period, 'Amount') \ 2, 'Amount', ''));
+
+[ 'Toplam Gider' ] => [ 'Kanunen Kabul Edilen Gider' ], [ 'KKE Dışarıdan Sağlanan Fayda' ];
+  
+[ 'Expense Accounts', 'Kanunen Kabul Edilen Gider', 'Amount' ] => DB('Vergi', !Version, !Period, 'KKEG ArGe');

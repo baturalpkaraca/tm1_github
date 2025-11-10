@@ -1,0 +1,5 @@
+SKIPCHECK;
+
+FEEDERS;
+
+[ 'Aktif', 'Amount' ] => DB('PL', 'Stock transfer cost', 'Alış Nakliye', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount');

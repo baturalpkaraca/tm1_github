@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Fiili Mizan Karşılık Sonrası",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mizan_Hesapları')"
+		},
+		{
+			"@id":"Dimensions('Mizan_Source')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Fiili_Mizan_Karşılık_Sonrası_Meas')"
+		}
+	],
+	"Rules@Code.link":"Fiili Mizan Karşılık Sonrası.rules",
+	"Views@Code.links":
+	[
+		"Fiili Mizan Karşılık Sonrası.views/Fiili Mizan Karşılık Sonrası.json"
+	]
+}

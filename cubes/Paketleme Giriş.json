@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Paketleme Giriş",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Paketleme_Giriş_Meas')"
+		}
+	],
+	"Rules@Code.link":"Paketleme Giriş.rules",
+	"Views@Code.links":[]
+}

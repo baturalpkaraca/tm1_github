@@ -1,0 +1,1572 @@
+SKIPCHECK;
+
+[ 'Ay No (Calc)' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', 1, IF(SUBST(!Period, 6, 2) @= '02', 2, IF(SUBST(!Period, 6, 2) @= '03', 3, 
+  IF(SUBST(!Period, 6, 2) @= '04', 4, IF(SUBST(!Period, 6, 2) @= '05', 5, IF(SUBST(!Period, 6, 2) @= '06', 6, 
+  IF(SUBST(!Period, 6, 2) @= '07', 7, IF(SUBST(!Period, 6, 2) @= '08', 8, IF(SUBST(!Period, 6, 2) @= '09', 9, 
+  IF(SUBST(!Period, 6, 2) @= '10', 10, IF(SUBST(!Period, 6, 2) @= '11', 11, 12)))))))))));
+
+[ { 'Ortalama Personel Sayısı', 'Net Finansal Borç / EBITDA  (Rolling)', 'EBITDA (Rolling)', 'Satışlar (Rolling)', 'SMM (Rolling)', 'Ticari Alacaklar Ortalama', 'Stok Ortalama', 'Ticari Borç Ortalama', 'Net İşletme Sermayesi Ortalama', 'Alınan Sipariş Avansı Ortalama', 'Alım (Rolling)', 'Rebate (Rolling)', 'Metrekare başına satış (toplam) (rolling)', 'Metrekare başına satış (Koçtaş) (rolling)', 'Ortalama Nakit', 'Ortalama Nitelikli Avans', 'Ortalama 1 aya kadar olan kredi kartı alacakları', 'Ortalama Kısa vadeli krediler', 'Ortalama Uzun vadeli krediler', 'Ortalama Kredi faiz karşılığı', 'Ortalama EFT' }, { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	0;
+
+[ 'Satışlar', 'Kanuni', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+     DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing'),
+   ((DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing')) -
+  	(DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'))))* -1;
+
+[ 'Satışlar', 'SPK', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+     DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing'),
+   ((DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing')) -
+  	(DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'))))* -1;
+
+[ 'Brüt Kar', 'Kanuni', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	 DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing'),
+   ((DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing')) -
+    (DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing')))) * -1;
+
+[ 'Brüt Kar', 'SPK', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	 DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing'),
+   ((DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing')) -
+    (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing')))) * -1;
+
+[ 'Shrinkage', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+    DB( 'PL', 'Shrinkage', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount' );
+
+[ { 'Stok Karşılığı', 'Ekonomik Kar' }, 'Kanuni' ] =  N: STET;
+
+[ 'Ekonomik Kar', 'SPK', 'YTD' ] =  N: 
+	DB('Report KPI', 'EKONOMİK KÂR-ZARAR', 'Ekonomik Kar Hesaplama', !Version_Report, !Period, 'Monthly');
+
+[ 'Ekonomik Kar', 'SPK', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'Ekonomik Kar', 'YTD' ], CONTINUE);
+
+[ 'Ekonomik Kar', 'SPK', 'Monthly' ] =  N: 
+	[ 'Ekonomik Kar', 'YTD' ] - DB('Report KPI', 'Ekonomik Kar', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'YTD');
+
+[ 'Stok Karşılığı', 'SPK', 'YTD' ] =  N: 
+	- DB( 'SPK Giriş Plan', 'Stock - PL Charge - 621', !Version_Report, !Period, 'Amount' );
+
+[ 'Stok Karşılığı', 'SPK', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'YTD' ], [ 'YTD' ] - DB('Report KPI', !Report_KPI, !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'YTD'));
+
+[ 'Stok düzeltme toplam', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Shrinkage' ] + [ 'Stok Karşılığı' ];
+
+[ 'Rebate', 'SPK', 'Monthly' ] =  N: 
+	(DB('PL', 'Supplier rebates', 'Total Source', 'All Cost Centers', !Version_Report, !Period, 'Amount') - 
+    (DB( 'SPK Giriş Plan', 'Rebate - PL Charge - 621', !Version_Report, !Period, 'Amount' ) - 
+     DB( 'SPK Giriş Plan', 'Rebate - PL Charge - 621', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Amount' )));
+
+[ 'Rebate', 'Kanuni', 'Monthly' ] =  N: 
+    DB( 'PL', 'Supplier rebates', 'Total Source', 'Koçtaş Total', !Version_Report, !Period, 'Amount' );
+
+[ 'Stock transfer cost', 'Monthly', { 'Kanuni', 'SPK' } ] =  N: 
+	DB('PL', 'Stock transfer cost', 'Total Source', 'All Cost Centers', !Version_Report, !Period, 'Amount');
+
+[ 'Cash Margin', 'Monthly', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Brüt Kar' ] - [ 'Stok düzeltme toplam' ] - [ 'Rebate' ] - [ 'Stock transfer cost' ];
+
+[ 'Faaliyet Giderleri', 'Monthly', 'Kanuni' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+ (DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing')) +
+  DB( 'IK_MM_V_P', 'All Cost Centers', !Version_Report, !Period, 'Kıdem Yasal' ) +
+  DB( 'Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ), CONTINUE);
+
+[ 'Faaliyet Giderleri', 'Monthly', 'Kanuni' ] =  N: 
+ (DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing')) -
+ (DB('Mali Tablo', '631', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+  DB('Mali Tablo', '632', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing')) + 
+  DB( 'IK_MM_V_P', 'All Cost Centers', !Version_Report, !Period, 'Kıdem Yasal' ) +
+  DB( 'Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' );
+
+[ 'Faaliyet Giderleri', 'Monthly', 'SPK' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+ (DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing')), CONTINUE);
+
+[ 'Faaliyet Giderleri', 'Monthly', 'SPK' ] =  N: 
+ (DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing')) -
+ (DB('Mali Tablo', '631', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+  DB('Mali Tablo', '632', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'));
+
+[ 'Faaliyet Karı', 'Monthly', 'Kanuni' ] =  N: 
+	[ 'Brüt Kar' ] - [ 'Faaliyet Giderleri' ];
+
+[ 'Faaliyet Karı (MIS)', 'SPK', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	(DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing')) * -1, CONTINUE);
+
+[ 'Faaliyet Karı (MIS)', 'SPK', 'Monthly' ] =  N: 
+   ((DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing')) -
+    (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) * -1;
+
+[ 'Amortisman', 'Monthly', 'Kanuni' ] =  N: 
+	DB( 'Genel Giderler', 'Depreciation', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' );
+
+[ 'Amortisman', 'Monthly', 'SPK' ] =  N: 
+	DB('Report KPI', 'Amortisman', 'Rolling Hesaplamalar SPK', !Version_Report, !Period, 'YTD');
+
+[ 'EBITDA', 'Monthly', 'Kanuni' ] =  N: 
+	DB( 'Genel Giderler', 'Credit Card Commissions', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) + [ 'Amortisman' ] + [ 'Faaliyet Karı' ];
+
+[ 'EBITDA', 'SPK' ] =  N: 
+	[ 'Amortisman' ] + [ 'Faaliyet Karı (MIS)' ];
+
+[ 'Kira Giderleri', 'Monthly', {'Kanuni','SPK'} ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+   (DB('Mali Tablo','KGK.T076.NG16', 'KGK', !Version_Report, !Period, 'Opening') +
+	DB('Mali Tablo','KGK.T077.NG16', 'KGK', !Version_Report, !Period, 'Opening')),
+   (DB('Mali Tablo','KGK.T076.NG16', 'KGK', !Version_Report, !Period, 'Opening') +
+	DB('Mali Tablo','KGK.T077.NG16', 'KGK', !Version_Report, !Period, 'Opening')) -
+   (DB('Mali Tablo','KGK.T076.NG16', 'KGK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Opening') +
+	DB('Mali Tablo','KGK.T077.NG16', 'KGK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Opening'))) * -1;
+
+[ 'EBITDAR', 'Monthly', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'EBITDA' ] + [ 'Kira giderleri' ];
+
+[ 'VÖK', 'Monthly', 'Kanuni' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	(DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'Kanuni', !Version_Report, !Period, 'Closing')) * -1, CONTINUE);
+
+[ 'VÖK', 'Monthly', 'Kanuni' ] =  N: 
+	((DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'Kanuni', !Version_Report, !Period, 'Closing')) -
+    (DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '631', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '632', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '642', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '644', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '646', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '647', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '649', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '654', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '656', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '659', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '660', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '679', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '689', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) * -1;
+
+[ 'VÖK', 'Monthly', 'SPK' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	(DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'SPK', !Version_Report, !Period, 'Closing')) * -1, CONTINUE);
+
+[ 'VÖK', 'Monthly', 'SPK' ] =  N: 
+	((DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'SPK', !Version_Report, !Period, 'Closing')) -
+    (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '642', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '644', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '646', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '647', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '649', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '654', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '656', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '659', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '660', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '679', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '689', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) * -1;
+
+[ 'Net Kar', 'Monthly', 'Kanuni' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	(DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '691', 'Kanuni', !Version_Report, !Period, 'Closing')) * -1, CONTINUE);
+
+[ 'Net Kar', 'Monthly', 'Kanuni' ] =  N: 
+	((DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '691', 'Kanuni', !Version_Report, !Period, 'Closing')) - 
+  	(DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '621', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '631', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '632', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '642', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '644', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '646', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '647', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '649', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '654', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '656', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '659', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '660', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '679', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '689', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '691', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) * -1;
+
+[ 'Net Kar', 'Monthly', 'SPK' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	(DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '691', 'SPK', !Version_Report, !Period, 'Closing')) * -1, CONTINUE);
+
+[ 'Net Kar', 'Monthly', 'SPK' ] =  N: 
+	((DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '642', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '644', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '646', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '647', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '649', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '654', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '656', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '659', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '660', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '679', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '689', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '691', 'SPK', !Version_Report, !Period, 'Closing')) -
+    (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '621', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '631', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '632', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '642', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '644', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '646', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '647', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '649', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '654', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '656', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '659', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '660', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '679', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '689', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+     DB('Mali Tablo', '691', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing'))) * -1;
+
+[ 'Brüt Kar Marjı (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Brüt Kar' ] \ [ 'Satışlar' ];
+
+[ 'Cash Margin (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Cash Margin' ] \ [ 'Satışlar' ];
+
+[ 'Stock transfer cost (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Stock transfer cost' ] \ [ 'Satışlar' ];
+
+[ 'Rebate / Net satış (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Rebate' ] \ [ 'Satışlar' ];
+
+[ 'Rebate / Alım (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Rebate' ] \ [ 'Alım' ];
+
+[ 'Alım', 'Monthly', 'Kanuni' ] =  N: 
+	DB('Ticari Borçlar', 'Kanuni', !Version_Report, !Period, 'Alım');
+
+[ 'Alım', 'Monthly', 'SPK' ] =  N: 
+	DB('Report KPI', 'Alım', 'Rolling Hesaplamalar SPK', !Version_Report, !Period, 'YTD');
+
+[ 'Stok düzeltme toplam /Net satış (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Stok düzeltme toplam' ] \ [ 'Satışlar' ];
+
+[ 'Shrinkage / Net satış (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Shrinkage' ] \ [ 'Satışlar' ];
+
+[ 'Stok Karşılığı marj (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Stok Karşılığı' ] \ [ 'Satışlar' ];
+
+[ 'Faaliyet Kar (MIS) Marjı (%)', 'Kanuni' ] =  N: 
+	[ 'Faaliyet Karı' ] \ [ 'Satışlar' ];
+
+[ 'Faaliyet Kar (MIS) Marjı (%)', 'SPK' ] =  N: 
+	[ 'Faaliyet Karı (MIS)' ] \ [ 'Satışlar' ];
+
+[ 'EBITDA Marjı (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'EBITDA' ] \ [ 'Satışlar' ];
+
+[ 'EBITDAR Marjı (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'EBITDAR' ] \ [ 'Satışlar' ];
+
+[ 'VÖK Marjı (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'VÖK' ] \ [ 'Satışlar' ];
+
+[ 'Net Kar Marjı (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Net Kar' ] \ [ 'Satışlar' ];
+
+[ 'Toplam Masraflar (amortisman hariç)', 'Monthly', 'Kanuni' ] =  N: 
+	[ 'Faaliyet Giderleri' ] - [ 'Amortisman' ];
+
+[ 'Toplam Masraflar (amortisman hariç)', 'Monthly', 'SPK' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+    DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing') - [ 'Amortisman' ], CONTINUE);
+
+[ 'Toplam Masraflar (amortisman hariç)', 'Monthly', 'SPK' ] =  N: 
+   (DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+    DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing'))-
+   (DB('Mali Tablo', '631', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing') + 
+    DB('Mali Tablo', '632', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Closing')) - [ 'Amortisman' ];
+
+[ 'Personel Masrafları', 'Monthly', 'Kanuni' ] =  N: 
+	DB( 'Genel Giderler', 'Staff', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) + 
+  DB( 'Genel Giderler', 'Bonus', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) + 
+  DB( 'IK_MM_V_P', 'All Cost Centers', !Version_Report, !Period, 'Kıdem Yasal' );
+
+# [ 'Personel Masrafları', 'Monthly', 'SPK' ] = N:
+#   (DB('Mali Tablo','KGK.T075.NG0501', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T075.NG0502', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T075.NG0503', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T075.NG0504', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T075.NG0505', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T075.NG0506', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T075.NG0599', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T076.NG0501', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T076.NG0502', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T076.NG0503', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T076.NG0504', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T076.NG0505', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T076.NG0506', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T076.NG0599', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T077.NG0501', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T077.NG0502', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T077.NG0503', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T077.NG0504', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T077.NG0505', 'KGK', !Version_Report, !Period, 'Opening') +	
+#    DB('Mali Tablo','KGK.T077.NG0506', 'KGK', !Version_Report, !Period, 'Opening') +
+#    DB('Mali Tablo','KGK.T077.NG0599', 'KGK', !Version_Report, !Period, 'Opening')) * -1;
+
+[ 'Dönem Sonu Personel Sayısı', { 'Kanuni', 'SPK' } ] =  N: 
+    DB( 'IK - HC Rapor', 'Koçtaş Total', 'TOPLAM', 'Toplam', !Version_Report, !Period, 'Kişi Sayısı' );
+
+[ 'Dönem Sonu Personel Sayısı (Calc)', 'Monthly', { 'Kanuni', 'SPK' } ] =  N: 
+	DB('IK - HC Rapor', 'Koçtaş Total', 'TOPLAM', 'Toplam', !Version_Report, !Period, 'Kişi Sayısı');
+
+[ 'Ortalama Personel Sayısı', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Dönem Sonu Personel Sayısı (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Dönem Sonu EFT', { 'Kanuni', 'SPK' } ] =  N: 
+    DB( 'IK - Genel Giriş', 'Koçtaş Total', 'TOPLAM (Stajyersiz)', 'TOPLAM', !Version_Report, !Period, 'EFT Sayısı' );
+
+[ 'Dönem Sonu EFT (Calc)', 'Monthly', { 'Kanuni', 'SPK' } ] =  N: 
+	DB( 'IK - Genel Giriş', 'Koçtaş Total', 'TOPLAM (Stajyersiz)', 'TOPLAM', !Version_Report, !Period, 'EFT Sayısı' );
+
+[ 'Ortalama EFT', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Dönem Sonu EFT (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Toplam Masraflar (amort.hariç) / Satışlar (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Toplam Masraflar (amortisman hariç)' ] \ [ 'Satışlar' ];
+
+[ 'Personel Masrafları / Satışlar (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Personel Masrafları' ] \ [ 'Satışlar' ];
+
+[ 'Kira giderleri/ Satışlar (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Kira giderleri' ] \ [ 'Satışlar' ];
+
+[ 'Faaliyet Giderleri / Satışlar (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Faaliyet Giderleri' ] \ [ 'Satışlar' ];
+
+[ 'Toplam Aktifler', 'Kanuni' ] =  N: 
+	DB('Mali Tablo', 'Varlıklar', 'Kanuni', !Version_Report, !Period, 'Closing');
+
+[ 'Toplam Aktifler', 'SPK' ] =  N: 
+	DB('Mali Tablo', 'Varlıklar', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Toplam Özkaynaklar', 'Kanuni' ] =  N: 
+	(DB('Mali Tablo', 'Sermaye', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('MaliTablo', 'Gelir/Gider', 'Kanuni', !Version_Report, !Period, 'Closing')) * -1;
+
+[ 'Toplam Özkaynaklar', 'SPK' ] =  N: 
+	(DB('Mali Tablo', 'Sermaye', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', 'Gelir/Gider', 'SPK', !Version_Report, !Period, 'Closing')) * -1;
+
+[ 'Net İşletme Sermayesi', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'W-cap', 'Forecast.'), CONTINUE);
+
+[ 'Net İşletme Sermayesi', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'W-cap', 'Budget');
+
+[ 'Net İşletme Sermayesi', 'SPK' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'W-cap', 'Forecast.'), CONTINUE);
+
+[ 'Net İşletme Sermayesi', 'SPK' ] =  N: 
+	DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'W-cap', 'Budget');
+
+[ 'Ticari Alacaklar', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'KK Alacakları + Ticari Alacaklar', 'Forecast.'), CONTINUE);
+
+[ 'Ticari Alacaklar', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'KK Alacakları + Ticari Alacaklar', 'Budget');
+
+[ 'Ticari Alacaklar', 'SPK' ] =  N: 
+	DB('Mali Tablo', '108', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '120', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '121', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '123', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '125', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '128', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '129', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '131', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '136', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '231', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Stok ve Siparişler', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'Stok', 'Forecast.'), CONTINUE);
+
+[ 'Stok ve Siparişler', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'Stok', 'Budget');
+
+[ 'Stok ve Siparişler', 'SPK' ] =  N: 
+	DB('Mali Tablo', '153', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '154', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '157', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '159', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Ticari Borçlar', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'Ticari Borç', 'Forecast.'), CONTINUE);
+
+[ 'Ticari Borçlar', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'Ticari Borç', 'Budget');
+
+[ 'Ticari Borçlar', 'SPK' ] =  N: 
+	DB('Mali Tablo', '320', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '321', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '323', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '324', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '326', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '329', 'SPK', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '331', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Alacak Gün Sayısı', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'TahGS', 'Forecast.'), CONTINUE);
+
+[ 'Alacak Gün Sayısı', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'TahGS', 'Budget');
+
+[ 'Alacak Gün Sayısı', 'SPK' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'TahGS', 'Forecast.'), CONTINUE);
+
+[ 'Alacak Gün Sayısı', 'SPK' ] =  N: 
+	DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'TahGS', 'Budget');
+
+[ 'Borç Gün Sayısı', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'BGS', 'Forecast.'), CONTINUE);
+
+[ 'Borç Gün Sayısı', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'BGS', 'Budget');
+
+[ 'Borç GünSayısı', 'SPK' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'BGS', 'Forecast.'), CONTINUE);
+
+[ 'Borç Gün Sayısı', 'SPK' ] =  N: 
+	DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'BGS', 'Budget');
+
+[ 'Stok Gün Sayısı', 'Kanuni' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'SGS', 'Forecast.'), CONTINUE);
+
+[ 'Stok Gün Sayısı', 'Kanuni' ] =  N: 
+	DB('Wcap Özet', 'Kanuni', !Version_Report, !Period, 'SGS', 'Budget');
+
+[ 'Stok Gün Sayısı', 'SPK' ] =  N: 
+	IF(SCAN('Forecast', !Version_Report) <> 0, DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'SGS', 'Forecast.'), CONTINUE);
+
+[ 'Stok Gün Sayısı', 'SPK' ] =  N: 
+	DB('Wcap Özet', 'SPK', !Version_Report, !Period, 'SGS', 'Budget');
+
+[ 'Net İşletme Sermayesi Gün Sayısı', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Alacak Gün Sayısı' ] + [ 'Borç Gün Sayısı' ] + [ 'Stok Gün Sayısı' ];
+
+[ 'Ortalama Net İşletme Sermayesi / Satışlar (%)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Net İşletme Sermayesi Ortalama' ] \ [ 'Satışlar (Rolling)' ];
+
+[ 'Ortalama Net İşletme Sermayesi / Satışlar (%)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	[ 'YTD' ];
+
+[ { 'EBITDA (Rolling)', 'Satışlar (Rolling)', 'SMM (Rolling)', 'Ticari Alacaklar Ortalama', 'Stok Ortalama', 'Ticari Borç Ortalama', 'Net İşletme Sermayesi Ortalama', 'Alınan Sipariş Avansı Ortalama', 'Alım (Rolling)', 'Rebate (Rolling)' }, 'Kanuni' ] =  N: 
+	[ 'Rolling Hesaplamalar Kanuni' ];
+
+[ { 'EBITDA (Rolling)', 'Satışlar (Rolling)', 'SMM (Rolling)', 'Ticari Alacaklar Ortalama', 'Stok Ortalama', 'Ticari Borç Ortalama', 'Net İşletme Sermayesi Ortalama', 'Alınan Sipariş Avansı Ortalama', 'Alım (Rolling)', 'Rebate (Rolling)' }, 'SPK' ] =  N: 
+	[ 'Rolling Hesaplamalar SPK' ];
+
+[ 'Yatırım Harcamaları (TL)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	DB('Yatırım Amortisman', 'Toplam Duran Varlık', 'All Cost Centers', !Version_Report, !Period, 'Yatırım');
+
+[ 'Yatırım / Amortisman', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Yatırım Harcamaları (TL)' ] \ [ 'Amortisman' ];
+
+[ 'Kısa vadeli krediler', { 'Kanuni', 'SPK' } ] =  N: 
+	(DB('Mali Tablo', '300', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '303', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '304', 'Kanuni', !Version_Report, !Period, 'Closing')) * -1;
+
+[ 'Uzun vadeli krediler', { 'Kanuni', 'SPK' } ] =  N: 
+	(DB('Mali Tablo', '400', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '405', 'Kanuni', !Version_Report, !Period, 'Closing')) * -1;
+
+[ { 'Kredi faiz karşılığı', '1 aya kadar olan kredi kartı alacakları', 'Nitelikli Avans' }, 'Kanuni' ] =  N: STET;
+
+[ 'Nitelikli Avans', 'SPK' ] =  N: 
+    DB('180 - 280', 'Total Records', 'Toplam 180', 'Peşin ödenen kira', !Version_Report, SUBST(ATTRS('Period', !Period, 'Short Name'), 1, 3)) + 
+    DB('180 - 280', 'Total Records', 'Toplam 280', 'Peşin ödenen kira', !Version_Report, SUBST(ATTRS('Period', !Period, 'Short Name'), 1, 3));
+
+[ 'KPI3802 - Finansal Borçlar', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Kısa vadeli krediler' ] + [ 'Uzun vadeli krediler' ] + [ 'Kredi faiz karşılığı' ];
+
+[ 'Toplam Kira Gideri (Calc)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Final Kira Gideri'), CONTINUE);
+
+[ 'Toplam Kira Gideri (Calc)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	DB('Report KPI', 'Toplam Kira Gideri (Calc)', !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'YTD') + 
+    DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Final Kira Gideri');
+
+[ 'Toplam TL Kira Gideri (Calc)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Kira - Gider', 'All Cost Centers', 'Toplam Kira Gideri', !Version_Report, !Period, 'Hesaplanan Kira (TRY)'), CONTINUE);
+
+[ 'Toplam TL Kira Gideri (Calc)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	DB('Report KPI', 'Toplam TL Kira Gideri (Calc)', !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'YTD') + 
+    DB('Kira - Gider', 'Toplam Kira Gideri', 'All Cost Centers', !Version_Report, !Period, 'Hesaplanan Kira (TRY)');
+
+[ 'Ciro Kira Farkı (Calc)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Ciro Kira Farkı'), CONTINUE);
+
+[ 'Ciro Kira Farkı (Calc)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	DB('Report KPI', 'Ciro Kira Farkı (Calc)', !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'YTD') + 
+    DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Ciro Kira Farkı');
+
+[ 'Dövizli Kira Toplam / Kira Toplam (%)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	(DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Final Kira Gideri') - 
+     DB('Kira - Gider', 'Toplam Kira Gideri', 'All Cost Centers', !Version_Report, !Period, 'Hesaplanan Kira (TRY)') - 
+     DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Ciro Kira Farkı')) \ 
+      DB('Kira', 'All Cost Centers', !Version_Report, !Period, 'Final Kira Gideri');
+
+[ 'Dövizli Kira Toplam / Kira Toplam (%)', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	([ 'Toplam Kira Gideri (Calc)' ] - [ 'Toplam TL Kira Gideri (Calc)' ] - [ 'Ciro Kira Farkı (Calc)' ]) \ [ 'Toplam Kira Gideri (Calc)' ];
+
+[ 'Nakit', { 'Kanuni', 'SPK' } ] =  N: 
+	DB('Mali Tablo', '100', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+    DB('Mali Tablo', '102', 'Kanuni', !Version_Report, !Period, 'Closing');
+
+[ 'Finansal Aktifler', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Nakit' ] + [ 'Nitelikli Avans' ] + [ '1 aya kadar olan kredi kartı alacakları' ];
+
+[ 'Net Finansal Borç (Düzeltilmiş)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'KPI3802 - Finansal Borçlar' ] - [ 'Finansal Aktifler' ];
+
+[ 'Net Finansal Borç (Düzeltilmiş) / EBITDA  (Rolling)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Net Finansal Borç (Düzeltilmiş)' ] \ [ 'EBITDA (Rolling)' ];
+
+[ 'Uzun Vadeli Borçlanma Oranı', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Uzun vadelikrediler' ] \ [ 'KPI3802 - Finansal Borçlar' ];
+
+[ '1 aya kadar olan kredi kartı alacakları', 'SPK' ] =  N: DB( 'SPK Giriş Plan', '102', !Version_Report, !Period, 'Amount' );
+
+[ 'Kredi faiz karşılığı', 'SPK' ] =  N: DB( 'SPK Giriş Plan', '37308 / 300 Reclass', !Version_Report, !Period, 'Amount' );
+
+[ 'Rebate/ alım (rolling) (%)' ] =  N: [ 'Rebate (Rolling)' ] \ [ 'Alım (Rolling)' ];
+
+[ 'Alış Nakliye Gideri', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB('Satış', 'Koçtaş Total', !Version_Report, !Period, 'Alış Nakliye Gideri');
+
+[ 'Alıs nakliye / netciro (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Alış Nakliye Gideri' ] \ [ 'Satışlar' ];
+
+[ 'Net Finansal Borç', { 'Kanuni', 'SPK' } ] =  N: [ 'KPI3802 - FinansalBorçlar' ] - [ 'Nakit' ];
+
+[ 'Net Finansal Borç / EBITDA  (Rolling)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Net Finansal Borç' ] \ [ 'EBITDA (Rolling)' ];
+
+[ 'Cari Oran', 'SPK', 'YTD' ] =  N: 1;
+
+[ 'Toplam Satış (Bütçe)', { 'Kanuni', 'SPK' } ] =  N: [ 'Satışlar' ];
+
+[ 'Toplam Satış (Baz)', 'Kanuni', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+	(DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing')) * -1, CONTINUE);
+
+[ 'Toplam Satış (Baz)', 'Kanuni', 'Monthly' ] =  N: 
+	((DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing')) -
+  	(DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing'))) * -1;
+
+[ 'Toplam Satış (Baz)', 'SPK', 'Monthly' ] =  N: IF(SUBST(!Period, 6, 2) @= '01',
+    (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing')) * -1, CONTINUE);
+
+[ 'Toplam Satış (Baz)', 'SPK', 'Monthly' ] =  N:
+    ((DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Closing')) - 
+    (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing') + 
+     DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS('Period', ATTRS( 'Period', !Period, 'PrevMonth' ), 'PYMonth'), 'Closing'))) * -1;
+
+[ 'Toplam satış büyümesi  (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Toplam Satış (Bütçe)' ] \ [ 'Toplam Satış (Baz)' ]-1;
+
+### LFL
+[ 'Toplam LFL', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'Koçtaş Total', !Version_Report, !Period, 'LFL' );
+
+[ 'Toplam LFL', 'SPK', 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş Total', 'LFL', !Version_Report, !Period, 'Net Sales SPK' );
+
+[ 'Toplam LFLP', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'Koçtaş Total', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'LFL' );
+
+[ 'Toplam LFLP', 'SPK', 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş Total', 'LFL', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'Net Sales SPK' );
+
+[ 'Toplam LFL büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Toplam LFL' ] \ [ 'Toplam LFLP' ] - 1;
+
+[ 'Mağazalar LFL', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'All Stores', !Version_Report, !Period, 'LFL' );
+
+[ 'Mağazalar LFL', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'All Stores', 'LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ 'Mağazalar LFLP', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'All Stores', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'LFL' );
+
+[ 'Mağazalar LFLP', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'All Stores', 'LFL', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'Net Sales SPK');
+
+[ 'LFL mağazalar büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Mağazalar LFL' ] \ [ 'Mağazalar LFLP' ] - 1;
+
+[ 'Koçtaş Mağazalar LFL', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'Koçtaş', !Version_Report, !Period, 'LFL' );
+
+[ 'Koçtaş Mağazalar LFL', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'Koçtaş', 'LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ 'Koçtaş Mağazalar LFLP', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'Koçtaş', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'LFL' );
+
+[ 'Koçtaş Mağazalar LFLP', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'Koçtaş', 'LFL', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'Net Sales SPK');
+
+[ 'LFL Koçtaş büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Koçtaş Mağazalar LFL' ] \ [ 'Koçtaş Mağazalar LFLP' ] - 1;
+
+[ 'Fix Mağazalar LFL', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'Fix', !Version_Report, !Period, 'LFL' );
+
+[ 'Fix Mağazalar LFL', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'Fix', 'LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ 'Fix Mağazalar LFLP', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'Fix', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'LFL' );
+
+[ 'Fix Mağazalar LFLP', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'Fix', 'LFL', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'Net Sales SPK');
+
+[ 'LFL Fix büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Fix Mağazalar LFL' ] \ [ 'Fix Mağazalar LFLP' ] - 1;
+
+[ 'Web LFL', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'B2C', !Version_Report, !Period, 'LFL' );
+
+[ 'Web LFL', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'B2C', 'LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ 'Web LFLP', 'Kanuni', 'Monthly' ] =  N: DB( 'Report PL Plan', 'NET SALES', 'B2C', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'LFL' );
+
+[ 'Web LFLP', 'SPK', 'Monthly' ] =  N: DB('Report Net Satışlar', 'B2C', 'LFL', !Version_Report, ATTRS( 'Period', !Period, 'PYMonth' ), 'Net Sales SPK');
+
+[ 'LFL web büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Web LFL' ] \ [ 'Web LFLP' ] - 1;
+
+[ 'Koçtaş+Fix Mağazalar LFL', { 'Kanuni', 'SPK' } ] =  N: [ 'Koçtaş Mağazalar LFL' ] + [ 'Fix Mağazalar LFL' ];
+
+[ 'Koçtaş+Fix Mağazalar LFLP', { 'Kanuni', 'SPK' } ] =  N: [ 'Koçtaş Mağazalar LFLP' ] + [ 'Fix Mağazalar LFLP' ];
+
+[ 'Koçtaş+Fix Mağazalar LFL büyüme (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Koçtaş+Fix Mağazalar LFL' ] \ [ 'Koçtaş+Fix Mağazalar LFLP' ] - 1;
+
+[ 'Müşteri Sayısı (Bütçe)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş Total', 'Toplam LFL', !Version_Report, !Period, 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı (Baz)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş Total', 'Toplam LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Müşteri Sayısı');
+
+[ 'Müşteri Sayısı Toplam Büyüme (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı (Bütçe)' ] \ [ 'Müşteri Sayısı (Baz)' ]-1;
+
+[ 'Müşteri Sayısı Toplam LFL', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş Total', 'LFL', !Version_Report, !Period, 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı Toplam LFLP', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş Total', 'LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı Toplam LFL büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Toplam LFL' ] \ [ 'Müşteri Sayısı Toplam LFLP' ] - 1;
+
+[ 'Müşteri Sayısı Mağazalar LFL', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'All Stores', 'LFL', !Version_Report, !Period, 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı Mağazalar LFLP', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'All Stores', 'LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı LFL mağazalar büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Mağazalar LFL' ] \ [ 'Müşteri Sayısı Mağazalar LFLP' ] - 1;
+
+[ 'Müşteri Sayısı Koçtaş Mağazalar LFL', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş', 'LFL', !Version_Report, !Period, 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı Koçtaş Mağazalar LFLP', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Koçtaş', 'LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı LFL Koçtaş büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Koçtaş Mağazalar LFL' ] \ [ 'Müşteri Sayısı Koçtaş Mağazalar LFLP' ] - 1;
+
+[ 'Müşteri Sayısı Fix Mağazalar LFL', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Fix', 'LFL', !Version_Report, !Period, 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı Fix Mağazalar LFLP', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'Fix', 'LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı LFL Fix büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Fix Mağazalar LFL' ] \ [ 'Müşteri Sayısı Fix Mağazalar LFLP' ] - 1;
+
+[ 'Müşteri Sayısı Web LFL', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'B2C', 'LFL', !Version_Report, !Period, 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı Web LFLP', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: DB( 'Report Net Satışlar', 'B2C', 'LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Müşteri Sayısı' );
+
+[ 'Müşteri Sayısı LFL web büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Web LFL' ] \ [ 'Müşteri Sayısı Web LFLP' ] - 1;
+
+[ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFL', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Koçtaş Mağazalar LFL' ] + [ 'Müşteri Sayısı Fix Mağazalar LFL' ];
+
+[ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFLP', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Koçtaş Mağazalar LFLP' ] + [ 'Müşteri Sayısı Fix Mağazalar LFLP' ];
+
+[ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFL büyüme (%)', { 'Kanuni', 'SPK' } ] =  N: [ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFL' ] \ [ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFLP' ] - 1;
+
+[ 'ATV (Bütçe)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Satışlar' ] \ [ 'Müşteri Sayısı (Bütçe)' ];
+
+[ 'ATV (Baz) (Calc)', 'Kanuni', 'Monthly' ] =  N: 
+	DB('PL', 'NET SALES', 'Total Source', 'All Cost Centers', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Amount');
+
+[ 'ATV (Baz)', 'Kanuni' ] =  N: 
+	[ 'ATV (Baz) (Calc)' ] \ [ 'Müşteri Sayısı (Baz)' ];
+
+[ 'ATV (Baz) (Calc)', 'SPK', 'Monthly' ] =  N: 
+	DB( 'Report Net Satışlar', 'Koçtaş Total', 'Toplam LFL', !Version_Report, ATTRS('Period', !Period, 'PYMonth'), 'Net Sales SPK');
+
+[ 'ATV (Baz)', 'SPK' ] =  N: 
+	[ 'ATV (Baz) (Calc)' ] \ [ 'Müşteri Sayısı (Baz)' ];
+
+[ 'ATV Toplam Büyüme (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV (Bütçe)' ] \ [ 'ATV (Baz)' ]-1;
+
+[ 'ATV Toplam LFL', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Toplam LFL' ] \ [ 'Müşteri Sayısı Toplam LFL' ];
+
+[ 'ATV Toplam LFLP', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Toplam LFLP' ] \ [ 'Müşteri Sayısı Toplam LFLP' ];
+
+[ 'ATV Toplam LFL büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV Toplam LFL' ] \ [ 'ATV Toplam LFLP' ] - 1;
+
+[ 'ATV Mağazalar LFL', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Mağazalar LFL' ] \ [ 'Müşteri Sayısı Mağazalar LFL' ];
+
+[ 'ATV Mağazalar LFLP', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Mağazalar LFLP' ] \ [ 'Müşteri Sayısı Mağazalar LFLP' ];
+
+[ 'ATV LFL mağazalar büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV Mağazalar LFL' ] \ [ 'ATV Mağazalar LFLP' ] - 1;
+
+[ 'ATV Koçtaş Mağazalar LFL', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Koçtaş Mağazalar LFL' ] \ [ 'Müşteri Sayısı Koçtaş Mağazalar LFL' ];
+
+[ 'ATV Koçtaş Mağazalar LFLP', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Koçtaş Mağazalar LFLP' ] \ [ 'Müşteri Sayısı Koçtaş Mağazalar LFLP' ];
+
+[ 'ATV LFL Koçtaş büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV Koçtaş Mağazalar LFL' ] \ [ 'ATV Koçtaş Mağazalar LFLP' ] - 1;
+
+[ 'ATV Fix Mağazalar LFL', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Fix Mağazalar LFL' ] \ [ 'Müşteri Sayısı Fix Mağazalar LFL' ];
+
+[ 'ATV Fix Mağazalar LFLP', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Fix Mağazalar LFLP' ] \ [ 'Müşteri Sayısı Fix Mağazalar LFLP' ];
+
+[ 'ATV LFL Fix büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV Fix Mağazalar LFL' ] \ [ 'ATV Fix Mağazalar LFLP' ] - 1;
+
+[ 'ATV Web LFL', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Web LFL' ] \ [ 'Müşteri Sayısı Web LFL' ];
+
+[ 'ATV Web LFLP', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Web LFLP' ] \ [ 'Müşteri Sayısı Web LFLP' ];
+
+[ 'ATV LFL web büyüme  (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV Web LFL' ] \ [ 'ATV Web LFLP' ] - 1;
+
+[ 'ATV Koçtaş+Fix Mağazalar LFL', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Koçtaş+Fix Mağazalar LFL' ] \ [ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFL' ];
+
+[ 'ATV Koçtaş+Fix Mağazalar LFLP', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Koçtaş+Fix Mağazalar LFLP' ] \ [ 'Müşteri Sayısı Koçtaş+Fix Mağazalar LFLP' ];
+
+[ 'ATV Koçtaş+Fix Mağazalar LFL büyüme (%)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'ATV Koçtaş+Fix Mağazalar LFL' ] \ [ 'ATV Koçtaş+Fix Mağazalar LFLP' ] - 1;
+
+[ 'Metrekare  (toplam)', { 'Kanuni', 'SPK' } ] =  N: 
+	DB( 'Report Net Satışlar', 'Koçtaş Total', 'Toplam LFL', !Version_Report, !Period, 'SQM Final' );
+
+[ 'Metrekare başına satış (toplam)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Satışlar' ] \ [ 'Metrekare  (toplam)' ];
+
+[ 'Metrekare başına satış (toplam) (rolling)', 'YTD', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Satışlar (Rolling)' ] \ [ 'Metrekare  (toplam)' ];
+
+[ 'Metrekare verisi (Koçtaş)', { 'Kanuni', 'SPK' } ] =  N: 
+	DB( 'Report Net Satışlar', 'Koçtaş', 'Toplam LFL', !Version_Report, !Period, 'SQM Final' );
+
+[ 'Metrekare başına satış (Koçtaş)', 'Kanuni', 'Monthly' ] =  N: 
+	DB('PL', 'NET SALES', 'Total Source', 'Koçtaş', !Version_Report, !Period, 'Amount') \ [ 'Metrekare verisi (Koçtaş)' ];
+
+[ 'Net Sales SPK Koçtaş Stores (Calc)', 'Kanuni', 'Monthly' ] =  N: 
+	DB('PL', 'NET SALES', 'Total Source', 'Koçtaş', !Version_Report, !Period, 'Amount');
+
+[ 'Metrekare başına satış (Koçtaş)', 'Kanuni', 'YTD' ] =  N: 
+	[ 'Net Sales SPK Koçtaş Stores (Calc)' ] \ [ 'Metrekare verisi (Koçtaş)' ];
+
+[ 'Metrekare başına satış (Koçtaş)', 'SPK', 'Monthly' ] =  N: 
+	DB( 'Report Net Satışlar', 'Koçtaş', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK') \ [ 'Metrekare verisi (Koçtaş)' ];
+
+[ 'Net Sales SPK Koçtaş Stores (Calc)', 'SPK', 'Monthly' ] =  N: 
+	DB( 'Report Net Satışlar', 'Koçtaş', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ 'Metrekare başına satış (Koçtaş)', 'SPK', 'YTD' ] =  N: 
+	[ 'Net Sales SPK Koçtaş Stores (Calc)' ] \ [ 'Metrekare verisi (Koçtaş)' ];
+
+[ 'Metrekare başına satış (Koçtaş) (rolling)', 'YTD', { 'Kanuni', 'SPK' } ] =  N: 
+	DB('Report KPI', 'Satışlar Koçtaş (Rolling)', 'Rolling Hesaplamalar SPK', !Version_Report, !Period, 'YTD') \ [ 'Metrekare verisi (Koçtaş)' ];
+
+[ 'Metrekare verisi (Fix)', { 'Kanuni', 'SPK' } ] =  N: 
+	DB( 'Report Net Satışlar', 'Fix', 'Toplam LFL', !Version_Report, !Period, 'SQM Final');
+
+[ 'Metrekare başına satış (Fix)', 'Kanuni', 'Monthly' ] =  N: 
+	DB('PL', 'NET SALES', 'Total Source', 'Fix', !Version_Report, !Period, 'Amount') \ [ 'Metrekare verisi (Fix)' ];
+
+[ 'Net Sales SPK Fix Stores (Calc)', 'Kanuni', 'Monthly' ] =  N: 
+	DB('PL', 'NET SALES', 'Total Source', 'Fix', !Version_Report, !Period, 'Amount');
+
+[ 'Metrekare başına satış (Fix)', 'Kanuni', 'YTD' ] =  N: 
+	[ 'Net Sales SPK Fix Stores (Calc)' ] \ [ 'Metrekare verisi (Fix)' ];
+
+[ 'Metrekare başına satış (Fix)', 'SPK', 'Monthly' ] =  N: 
+	DB( 'Report Net Satışlar', 'Fix', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK') \ [ 'Metrekare verisi (Fix)' ];
+
+[ 'Net Sales SPK Fix Stores (Calc)', 'SPK', 'Monthly' ] =  N: 
+	DB( 'Report Net Satışlar', 'Fix', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ 'Metrekare başına satış (Fix)', 'SPK', 'YTD' ] =  N: 
+	[ 'Net Sales SPK Fix Stores (Calc)' ] \ [ 'Metrekare verisi (Fix)' ];
+
+[ 'LFL Metrekare verisi (Koçtaş)', {'Kanuni', 'SPK'} ] = N: DB( 'Report Net Satışlar', 'Koçtaş', 'LFL', !Version_Report, !Period, 'SQM');
+
+[ 'LFL Metrekare başına satış (Koçtaş)', {'Kanuni', 'SPK'} ] =  N: ['Koçtaş Mağazalar LFL'] \ ['LFL Metrekare verisi (Koçtaş)'];
+
+[ 'LFL Metrekare verisi (Fix)', {'Kanuni', 'SPK'} ] =  N: DB( 'Report Net Satışlar', 'Fix', 'LFL', !Version_Report, !Period, 'SQM');
+
+[ 'LFL Metrekare başına satış (Fix)', {'Kanuni', 'SPK'} ] =  N: ['Fix Mağazalar LFL'] \ ['LFL Metrekare verisi (Fix)'];
+
+[ 'LFL Metrekare verisi (Koçtaş+Fix)', {'Kanuni', 'SPK'} ] =  N: ['LFL Metrekare verisi (Koçtaş)'] + ['LFL Metrekare verisi (Fix)'];
+
+[ 'LFL Metrekare başına satış (Koçtaş+Fix)', {'Kanuni', 'SPK'} ] =  N: ['Koçtaş+Fix Mağazalar LFL'] \ ['LFL Metrekare verisi (Koçtaş+Fix)'];
+
+[ 'Ortalama Nakit (Calc)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: [ 'Nakit' ];
+
+[ 'Ortalama Nakit', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Ortalama Nakit (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama Nitelikli Avans (Calc)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	[ 'Nitelikli Avans' ];
+
+[ 'Ortalama Nitelikli Avans', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Ortalama Nitelikli Avans (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama 1 aya kadar olan kredi kartı alacakları (Calc)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	[ '1 aya kadar olan kredi kartı alacakları' ];
+
+[ 'Ortalama 1 aya kadar olan kredi kartı alacakları', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Ortalama 1 aya kadar olan kredi kartı alacakları (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama Kısa vadeli krediler (Calc)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	[ 'Kısa vadeli krediler' ];
+
+[ 'Ortalama Kısa vadeli krediler', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Ortalama Kısa vadeli krediler (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama Uzun vadeli krediler (Calc)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	[ 'Uzun vadeli krediler' ];
+
+[ 'Ortalama Uzun vadeli krediler', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Ortalama Uzun vadeli krediler (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama Kredi faiz karşılığı (Calc)', { 'Kanuni', 'SPK' }, 'Monthly' ] =  N: 
+	[ 'Kredi faiz karşılığı' ];
+
+[ 'Ortalama Kredi faiz karşılığı', { 'Kanuni', 'SPK' }, 'YTD' ] =  N: 
+	[ 'Ortalama Kredi faiz karşılığı (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama Finansal Borçlar', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Ortalama Kısa vadeli krediler' ] + [ 'Ortalama Uzun vadeli krediler' ] + [ 'Ortalama Kredi faiz karşılığı' ];
+
+[ 'Ortalama Finansal Aktifler', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Ortalama Nakit' ] + [ 'Ortalama Nitelikli Avans' ] + [ 'Ortalama 1 aya kadar olan kredi kartı alacakları' ];
+
+[ 'Ortalama Net Finansal Borç (düzeltilmiş)', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Ortalama Finansal Borçlar' ] - [ 'Ortalama Finansal Aktifler' ];
+
+[ 'Ortalama Uzun Vadeli Borçlanma Oranı', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Ortalama Uzun vadeli krediler' ] \ [ 'Ortalama Finansal Borçlar' ];
+
+[ 'Ortalama Net Finansal Borç', { 'Kanuni', 'SPK' } ] =  N: 
+	[ 'Ortalama Finansal Borçlar' ] - [ 'Ortalama Nakit' ];
+
+## Rolling Kanuni Başlangıç
+[ 'Satışlar', 'Rolling Hesaplamalar Kanuni' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01', 
+   DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing'), 
+ ((DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing')) -
+  (DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing')))) * -1;
+
+[ 'SMM', 'Rolling Hesaplamalar Kanuni' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+  DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing'),
+  DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') -
+  DB('Mali Tablo', '621', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'));
+
+[ 'MIS Faaliyet Karı', 'Rolling Hesaplamalar Kanuni' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+   DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing'),
+  (DB('Mali Tablo', '600', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '621', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '631', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '632', 'Kanuni', !Version_Report, !Period, 'Closing')) - 
+  (DB('Mali Tablo', '600', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '601', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '602', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '610', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '611', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '621', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '631', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '632', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'))) * -1;
+
+[ 'Amortisman', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+   DB( 'Genel Giderler', 'Depreciation', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' );
+
+[ 'Kira', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+    DB( 'Genel Giderler', '8100200001', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) +
+    DB( 'Genel Giderler', '8100200002', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) +
+    DB( 'Genel Giderler', '8100200003', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) +
+    DB( 'Genel Giderler', '8100200004', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) +
+    DB( 'Genel Giderler', '8100200005', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' ) +
+    DB( 'Genel Giderler', '8100200006', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period, 'Amount Cost' );
+
+[ 'EBITDA', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+	[ 'MIS Faaliyet Karı' ] + [ 'Amortisman' ];
+
+[ 'EBITDAR', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+	[ 'EBITDA' ] + [ 'Kira' ];
+
+[ 'Stok', 'Rolling Hesaplamalar Kanuni', 'Monthly' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+   DB('Mali Tablo', '153', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '154', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '157', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '159', 'Kanuni', !Version_Report, !Period, 'Closing'),
+   (DB('Mali Tablo', '153', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '154', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '157', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '159', 'Kanuni', !Version_Report, !Period, 'Closing')) -
+   (DB('Mali Tablo', '153', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '154', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '157', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '159', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing')));
+
+[ 'Alım', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+	[ 'Stok' ] - DB('Report KPI', 'Stok', !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), !Report_KPI_Meas) + [ 'SMM' ];
+
+[ 'Rebate', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+    DB('PL', 'Supplier rebates', 'Total Source', 'All Cost Centers', !Version_Report, !Period, 'Amount');
+
+[ 'Satışlar Koçtaş', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+	DB('PL', 'NET SALES', 'Total Source', 'Koçtaş', !Version_Report, !Period, 'Amount');
+
+[ 'Ticari Alacaklar', 'Rolling Hesaplamalar Kanuni', 'YTD' ] =  N:
+   DB('Mali Tablo', '108', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '120', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '121', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '123', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '125', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '126', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '128', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '129', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '136', 'Kanuni', !Version_Report, !Period, 'Closing');
+
+[ 'Ticari Borç', 'Rolling Hesaplamalar Kanuni', 'YTD' ] =  N:
+  (DB('Mali Tablo', '320', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '321', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '323', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '324', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '326', 'Kanuni', !Version_Report, !Period, 'Closing') + 
+  DB('Mali Tablo', '329', 'Kanuni', !Version_Report, !Period, 'Closing')) * -1;
+
+[ 'Net İşletme Sermayesi', 'Rolling Hesaplamalar Kanuni' ] =  N: 
+	[ 'Ticari Alacaklar' ] + [ 'Stok' ] - [ 'Ticari Borç' ];
+
+[ 'Alınan sipariş avansı', 'Rolling Hesaplamalar Kanuni', 'Monthly' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+    DB('Mali Tablo', '340', 'Kanuni', !Version_Report, !Period, 'Closing'),
+    DB('Mali Tablo', '340', 'Kanuni', !Version_Report, !Period, 'Closing') -
+	DB('Mali Tablo', '340', 'Kanuni', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing')) * -1;
+
+[ { 'Satışlar (Rolling)', 'SMM (Rolling)', 'MIS Faaliyet Karı (Rolling)', 'Amortisman (Rolling)', 'Kira (Rolling)', 'EBITDA (Rolling)', 'EBITDAR (Rolling)', 'Alım (Rolling)', 'Rebate (Rolling)', 'Satışlar Koçtaş (Rolling)' }, 'Rolling Hesaplamalar Kanuni' ] =  N: 
+  DB('Report KPI', !Report_KPI, !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), !Report_KPI_Meas) + 
+  DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-10), !Mali_Tablo_Tipleri, !Version_Report, !Period, !Report_KPI_Meas) - 
+  DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-10), !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PYMonth'), !Report_KPI_Meas);
+
+[ { 'Ticari Alacaklar Ortalama', 'Stok Ortalama', 'Ticari Borç Ortalama', 'Net İşletme Sermayesi Ortalama', 'Alınan sipariş avansı Ortalama' }, 'Rolling Hesaplamalar Kanuni' ] =  N: 
+  (DB('Report KPI', !Report_KPI, !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), !Report_KPI_Meas) * 12 + 
+   DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-9), !Mali_Tablo_Tipleri, !Version_Report, !Period, !Report_KPI_Meas) - 
+   DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-9), !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PYMonth'), !Report_KPI_Meas)) / 12;
+
+## Rolling Kanuni Bitiş## Rolling SPK Başlangıç
+[ 'Satışlar', 'Rolling Hesaplamalar SPK' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+   DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing'), 
+ ((DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing')) -
+  (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing')))) * -1;
+
+[ 'SMM', 'Rolling Hesaplamalar SPK' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+  DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing'),
+  DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') -
+  DB('Mali Tablo', '621', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'));
+
+[ 'Amortisman', 'Rolling Hesaplamalar SPK' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+  DB('Mali Tablo', 'KGK.T076.NG04', 'KGK', !Version_Report, !Period, 'Closing') +
+  DB('Mali Tablo', 'KGK.T077.NG04', 'KGK', !Version_Report, !Period, 'Closing'),
+ (DB('Mali Tablo', 'KGK.T076.NG04', 'KGK', !Version_Report, !Period, 'Closing') +
+  DB('Mali Tablo', 'KGK.T077.NG04', 'KGK', !Version_Report, !Period, 'Closing')) -
+ (DB('Mali Tablo', 'KGK.T076.NG04', 'KGK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') +
+  DB('Mali Tablo', 'KGK.T077.NG04', 'KGK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'))) * -1;
+
+[ 'Kira', 'Rolling Hesaplamalar SPK' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+  DB('Mali Tablo', 'KGK.T076.NG16', 'KGK', !Version_Report, !Period, 'Closing') +
+  DB('Mali Tablo', 'KGK.T077.NG16', 'KGK', !Version_Report, !Period, 'Closing'),
+ (DB('Mali Tablo', 'KGK.T076.NG16', 'KGK', !Version_Report, !Period, 'Closing') +
+  DB('Mali Tablo', 'KGK.T077.NG16', 'KGK', !Version_Report, !Period, 'Closing')) -
+ (DB('Mali Tablo', 'KGK.T076.NG16', 'KGK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') +
+  DB('Mali Tablo', 'KGK.T077.NG16', 'KGK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'))) * -1;
+
+[ 'MIS Faaliyet Karı', 'Rolling Hesaplamalar SPK' ] =  N: IF( SUBST( !Period, 6, 2 ) @= '01',
+   DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing'),
+  (DB('Mali Tablo', '600', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '601', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '602', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '610', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '611', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '621', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '631', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '632', 'SPK', !Version_Report, !Period, 'Closing')) - 
+  (DB('Mali Tablo', '600', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '601', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '602', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '610', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '611', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '621', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '631', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing') + 
+   DB('Mali Tablo', '632', 'SPK', !Version_Report, ATTRS( 'Period', !Period, 'PrevMonth' ), 'Closing'))) * -1;
+
+[ 'EBITDA', 'Rolling Hesaplamalar SPK' ] =  N: 
+	[ 'MIS Faaliyet Karı' ] + [ 'Amortisman' ];
+
+[ 'EBITDAR', 'Rolling Hesaplamalar SPK' ] =  N: 
+	[ 'EBITDA' ] + [ 'Kira' ];
+
+[ 'Alım', 'Rolling Hesaplamalar SPK' ] =  N: 
+	DB('Ticari Borçlar', 'SPK', !Version_Report, !Period, 'Alım') + [ 'Rebate' ];
+
+[ 'Rebate', 'Rolling Hesaplamalar SPK' ] =  N: 
+	DB('PL', 'Supplier rebates', 'Total Source', 'All Cost Centers', !Version_Report, !Period, 'Amount');
+
+[ 'Satışlar Koçtaş', 'Rolling Hesaplamalar SPK' ] =  N: 
+	DB( 'Report Net Satışlar', 'Koçtaş', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK');
+
+[ '1 aya kadar olan kredi kartı alacakları', 'Rolling Hesaplamalar SPK', 'YTD' ] =  N: 
+    DB( 'SPK Giriş Plan', '102', !Version_Report, !Period, 'Amount' );
+
+[ '1 aya kadar olan kredi kartı alacakları' ] =  N: STET;
+
+[ 'Ticari Alacaklar', 'Rolling Hesaplamalar SPK', 'YTD' ] =  N: 
+   DB('Mali Tablo', '108', 'SPK', !Version_Report, !Period, 'Closing') +
+   DB('Mali Tablo', '120', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '121', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '123', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '125', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '128', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '129', 'SPK', !Version_Report, !Period, 'Closing') + 
+   DB('Mali Tablo', '131', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Stok', 'Rolling Hesaplamalar SPK', 'YTD' ] =  N: 
+	(DB('Mali Tablo', '153', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '154', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '157', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '159', 'SPK', !Version_Report, !Period, 'Closing'));
+
+[ 'Ticari Borç', 'Rolling Hesaplamalar SPK', 'YTD' ] =  N: 
+    (DB('Mali Tablo', '320', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '321', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '323', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '324', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '326', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '329', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '331', 'SPK', !Version_Report, !Period, 'Closing') + 
+     DB('Mali Tablo', '340', 'SPK', !Version_Report, !Period, 'Closing')) * -1;
+
+[ 'Net İşletme Sermayesi', 'Rolling Hesaplamalar SPK' ] =  N: 
+	[ 'Ticari Alacaklar' ] + [ 'Stok' ] - [ 'Ticari Borç' ];
+
+[ 'Alınan sipariş avansı', 'Rolling Hesaplamalar SPK', 'YTD' ] =  N: 
+	DB('Mali Tablo', '340', 'SPK', !Version_Report, !Period, 'Closing') * -1;
+
+[ { 'Satışlar (Rolling)', 'SMM (Rolling)', 'MIS Faaliyet Karı (Rolling)', 'Amortisman (Rolling)', 'Kira (Rolling)', 'EBITDA (Rolling)', 'EBITDAR (Rolling)', 'Alım (Rolling)', 'Rebate (Rolling)', 'Satışlar Koçtaş (Rolling)' }, 'Rolling Hesaplamalar SPK' ] =  N: 
+  DB('Report KPI', !Report_KPI, !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), !Report_KPI_Meas) + 
+  DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-10), !Mali_Tablo_Tipleri, !Version_Report, !Period, !Report_KPI_Meas) - 
+  DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-10), !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PYMonth'), !Report_KPI_Meas);
+
+[ { 'Ticari Alacaklar Ortalama', 'Stok Ortalama', 'Ticari Borç Ortalama', 'Net İşletme Sermayesi Ortalama', 'Alınan sipariş avansı Ortalama' }, 'Rolling Hesaplamalar SPK' ] =  N: 
+  (DB('Report KPI', !Report_KPI, !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), !Report_KPI_Meas) * 12 + 
+   DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-9), !Mali_Tablo_Tipleri, !Version_Report, !Period, !Report_KPI_Meas) - 
+   DB('Report KPI', SUBST(!Report_KPI, 1, LONG(!Report_KPI)-9), !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PYMonth'), !Report_KPI_Meas)) / 12;
+
+## Rolling SPK Bitiş## Ekonomik Kar Hesağlama Başlangıç
+[ 'Özkaynaklar toplamı', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+  (-1 * DB('Mali Tablo', 'Sermaye', 'SPK', !Version_Report, !Period, 'Closing') - 
+   DB('Mali Tablo', 'Gelir/Gider', 'SPK', !Version_Report, !Period, 'Closing'));
+
+[ 'Uzun vadeli finansal yatırımlar', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+    DB('Mali Tablo', '245', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Yapılmakta olan yatırımlar', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N:
+	DB('Mali Tablo', '258', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'Net dönem karı', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	- DB('Mali Tablo', 'Gelir/Gider', 'SPK', !Version_Report, !Period, 'Closing');
+
+[ 'ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 1 & SUBST(!Period, 6, 2) @= '12', 
+	[ 'Özkaynaklar toplamı' ] - [ 'Kontrol gücü olmayan paylar' ], CONTINUE);
+
+[ 'ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	[ 'Özkaynaklar toplamı' ] - [ 'Net dönem karı' ] - [ 'Kontrol gücü olmayan paylar' ];
+
+[ 'DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	[ 'Yapılmakta olan yatırımlar' ] + [ 'Verilen avanslar-sabit kıymetler' ];
+
+[ 'Dev. Ed. Yat. - Finansal borç ile finanse edilen', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	[ 'Yapılmakta olan yatırımlar' ] + [ 'Verilen avanslar-sabit kıymetler' ];
+
+[ 'DÜZELTİLMİŞ NET KÂR-ZARAR', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	[ 'Net dönem karı' ] - [ 'İştirak satış karları' ] - [ 'Temettü gelirleri (Koç Topluluk içi)' ] - [ 'Temettü gelirleri (Koç Topluluk dışı)' ] - [ 'İştiraklerin kar/zararındaki paylar' ] - [ 'İş Ortaklıklarının kar/zararındaki paylar' ] - [ 'İştirak / Bağlı Ortaklık satış zararları' ];
+
+[ 'ORTALAMA ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0 & SUBST(!Period, 6, 2) @= '01', 
+  ([ 'ÖZSERMAYE-NET KAR' ] + 
+   DB('Report KPI', 'ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2, CONTINUE);
+
+[ 'ORTALAMA ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0,
+  (([ 'ÖZSERMAYE-NET KAR' ] + 
+    DB('Report KPI', 'ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2 + 
+   DB('Report KPI', 'ORTALAMA ÖZSERMAYE-NET KAR', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly') * ([ 'Ay No (Calc)' ]-1)) \ [ 'Ay No (Calc)' ], 0);
+
+[ 'ORTALAMA İŞTİRAKLER', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', ([ 'Uzun vadeli finansal yatırımlar' ] + 
+    DB('Report KPI', 'Uzun vadeli finansal yatırımlar', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2, CONTINUE);
+
+[ 'ORTALAMA İŞTİRAKLER', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+  (([ 'Uzun vadeli finansal yatırımlar' ] + 
+    DB('Report KPI', 'Uzun vadeli finansal yatırımlar', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2 + 
+   DB('Report KPI', 'ORTALAMA İŞTİRAKLER', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly') * ([ 'Ay No (Calc)' ]-1)) \ [ 'Ay No (Calc)' ];
+
+[ 'ORTALAMA DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0 & SUBST(!Period, 6, 2) @= '01',  ([ 'DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI' ] + 
+    DB('Report KPI', 'DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2, CONTINUE);
+
+[ 'ORTALAMA DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0, 
+  (([ 'DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI' ] + DB('Report KPI', 'DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2 + 
+   DB('Report KPI', 'ORTALAMA DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly') * ([ 'Ay No (Calc)' ]-1)) \ [ 'Ay No (Calc)' ], 0);
+
+[ 'Ortalama Dev. Ed. Yat. - Özsermaye ile finanse edilen', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0 & SUBST(!Period, 6, 2) @= '01', ([ 'Dev. Ed. Yat. - Özsermaye ile finanse edilen' ] + 
+    DB('Report KPI', 'Dev. Ed. Yat. - Özsermaye ile finanse edilen', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2, CONTINUE);
+
+[ 'Ortalama Dev. Ed. Yat. - Özsermaye ile finanse edilen', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0,
+  (([ 'Dev. Ed. Yat. - Özsermaye ile finanse edilen' ] + DB('Report KPI', 'Dev. Ed. Yat. - Özsermaye ile finanse edilen', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2 + 
+   DB('Report KPI', 'Ortalama Dev. Ed. Yat. - Özsermaye ile finanse edilen', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly') * ([ 'Ay No (Calc)' ]-1)) \ [ 'Ay No (Calc)' ], 0);
+
+[ 'Ortalama Dev. Ed. Yat. - Finansal borç ile finanse edilen', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0 & SUBST(!Period, 6, 2) @= '01', ([ 'Dev. Ed. Yat. - Finansal borç ile finanse edilen' ] + 
+    DB('Report KPI', 'Dev. Ed. Yat. - Finansal borç ile finanse edilen', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2, CONTINUE);
+
+[ 'Ortalama Dev. Ed. Yat. - Finansal borç ile finanse edilen', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0,
+  (([ 'Dev. Ed. Yat. - Finansal borç ile finanse edilen' ] + DB('Report KPI', 'Dev. Ed. Yat. - Finansal borç ile finanse edilen', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly')) / 2 + 
+   DB('Report KPI', 'Ortalama Dev. Ed. Yat. - Finansal borç ile finanse edilen', 'Ekonomik Kar Hesaplama', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly') * ([ 'Ay No (Calc)' ]-1)) \ [ 'Ay No (Calc)' ], 0);
+
+[ 'ORTALAMA DÜZELTİLMİŞ ÖZSERMAYE', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+  [ 'ORTALAMA ÖZSERMAYE-NET KAR' ] - [ 'ORTALAMA İŞTİRAKLER' ] - 
+  IF([ 'ORTALAMA DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI' ] \ ABS(([ 'ORTALAMA ÖZSERMAYE-NET KAR' ] - [ 'ORTALAMA İŞTİRAKLER' ])) > 0.2, 
+  [ 'Ortalama Dev. Ed. Yat. - Özsermaye ile finanse edilen ' ], [ 'ORTALAMA DEVAM EDEN YAT.ve VERİLEN SABİT KIYMET AVANSLARI' ]);
+
+[ 'ÖZSERMAYE MALİYETİ', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: 
+	([ 'ORTALAMA DÜZELTİLMİŞ ÖZSERMAYE' ] * [ 'ÖZSERMAYE MALİYETİ ORANI' ]) / 12 * [ 'Ay No (Calc)' ];
+
+[ 'EKONOMİK KÂR-ZARAR', 'Ekonomik Kar Hesaplama', 'Monthly' ] =  N: IF(NUMBR(SUBST(!Version_Report, LONG(!Version_Report)-4+1, 4)) - NUMBR(SUBST(!Period, 1, 4)) = 0,
+  [ 'DÜZELTİLMİŞ NET KÂR-ZARAR' ] - [ 'ÖZSERMAYE MALİYETİ' ], 0);
+
+#LFL 2
+[ 'LFL Satışlar', 'Kritik Performans Göstergeleri', 'Monthly' ] = N: DB( 'Report KPI', 'Mağazalar LFL', 'SPK', !Version_Report, !Period, 'YTD' );
+
+# [ 'Ortalama personel sayısı (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+# 	DB( 'IK - Genel Giriş', 'All Stores', 'TOPLAM (Stajyersiz)', 'TOPLAM', !Version_Report, !Period|'-YTD', 'EFT Sayısı' );
+
+[ 'Ortalama personel sayısı', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	[ 'Ortalama personel sayısı (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Ortalama Personel Başına Satış (LFL Mağaza)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C:
+	['LFL Satışlar'] \ ['Ortalama personel sayısı'] \ ['Ay No (Calc)'];
+
+[ 'Ortalama personel sayısı (Mağaza) (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB( 'IK - Genel Giriş', 'All Stores', 'TOPLAM (Stajyersiz)', 'TOPLAM', !Version_Report, !Period|'-YTD', 'EFT Sayısı' );
+
+[ 'Ortalama personel sayısı (Mağaza)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	[ 'Ortalama personel sayısı (Mağaza) (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Toplam Personel Gideri / Ortalama Personel Sayısı (Mağaza)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Toplam Personel Gideri (Mağaza)' ] \ [ 'Ortalama personel sayısı (Mağaza)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Toplam Personel Gideri (Merkez)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB('Report KPI', 'Personel Masrafları', 'SPK', !Version_Report, !Period, 'YTD') - [ 'Toplam Personel Gideri (Mağaza)' ];
+
+[ 'Ortalama personel sayısı (Merkez) (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB( 'IK - Genel Giriş', 'Head Office', 'TOPLAM (Stajyersiz)', 'TOPLAM', !Version_Report, !Period|'-YTD', 'EFT Sayısı' );
+
+[ 'Ortalama personel sayısı (Merkez)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	[ 'Ortalama personel sayısı (Merkez) (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Toplam Personel Gideri / Ortalama Personel Sayısı (Merkez)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Toplam Personel Gideri (Merkez)' ] \ [ 'Ortalama personel sayısı (Merkez)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Merkez Ortalama Personel Sayısı', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	[ 'Ortalama personel sayısı (Merkez)' ];
+
+[ 'Toplam  Ortalama Personel Sayısı', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	[ 'Ortalama personel sayısı (Mağaza)' ] + [ 'Ortalama personel sayısı (Merkez)' ];
+
+[ 'Merkez Ortalama Personel Sayısı / Toplam  Ortalama Personel Sayısı', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Merkez Ortalama Personel Sayısı' ] \ [ 'Toplam  Ortalama Personel Sayısı' ];
+
+[ 'Ortalama m2 (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Report KPI', 'Metrekare  (toplam)', 'Kanuni', !Version_Report, !Period, 'YTD'), CONTINUE);
+
+[ 'Ortalama m2 (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	(DB('Report KPI', 'Metrekare  (toplam)', 'Kanuni', !Version_Report, !Period, 'YTD') + 
+     DB('Report KPI', 'Ortalama m2 (Calc)', 'Kritik Performans Göstergeleri', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly') * ([ 'Ay No (Calc)' ]-1)) \ [ 'Ay No (Calc)' ];
+
+[ '8080100001 All Stores (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Enerji', '8080100001', 'All Stores', !Version_Report, !Period, 'kw'), CONTINUE);
+
+[ '8080100001 All Stores (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB('Enerji', '8080100001', 'All Stores', !Version_Report, !Period, 'kw') + 
+  DB('Report KPI', '8080100001 All Stores (Calc)', 'Kritik Performans Göstergeleri', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly');
+
+[ '8080100001 B2B (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Enerji', '8080100001', 'B2B', !Version_Report, !Period, 'kw'), CONTINUE);
+
+[ '8080100001 B2B (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB('Enerji', '8080100001', 'B2B', !Version_Report, !Period, 'kw') + 
+  DB('Report KPI', '8080100001 B2B (Calc)', 'Kritik Performans Göstergeleri', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly');
+
+[ 'Toplam Elektrik Kullanımı (kwh)/Toplam Ortalama m2', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	([ '8080100001 B2B (Calc)' ] + [ '8080100001 All Stores (Calc)' ]) \ [ 'Ortalama m2 (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ '8080400001 All Stores (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Enerji', '8080400001', 'All Stores', !Version_Report, !Period, 'm3'), CONTINUE);
+
+[ '8080400001 All Stores (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB('Enerji', '8080400001', 'All Stores', !Version_Report, !Period, 'm3') + 
+  DB('Report KPI', '8080400001 All Stores (Calc)', 'Kritik Performans Göstergeleri', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly');
+
+[ '8080400001 B2B (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB('Enerji', '8080400001', 'B2B', !Version_Report, !Period, 'm3'), CONTINUE);
+
+[ '8080400001 B2B (Calc)', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB('Enerji', '8080400001', 'B2B', !Version_Report, !Period, 'm3') + 
+  DB('8080400001 B2B (Calc)', 'Kritik Performans Göstergeleri', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly');
+
+[ 'Toplam Doğalgaz Kullanımı (m3)/Toplam Ortalama m2', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	([ '8080400001 B2B (Calc)' ] + [ '8080400001 All Stores (Calc)' ]) \ [ 'Ortalama m2 (Calc)' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Satışlar', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	[ 'Satışlar', 'SPK', 'YTD' ];
+
+[ 'Toplam Tamir Bakım ve Onarım Gideri / Toplam Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Tamir Bakım ve Onarım Gideri' ] \ [ 'Satışlar' ];
+
+[ '(Kırtasiye + PTT + Ulaşım + Seyahat Giderleri) / Ortalama Çalışan Sayısı', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Kırtasiye + PTT + Ulaşım + Seyahat Giderleri', 'Kritik Performans Göstergeleri' ] \ [ 'Toplam  Ortalama Personel Sayısı' ] \ [ 'Ay No (Calc)' ];
+
+[ 'Toplam Mağaza Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', DB( 'Report Net Satışlar', 'All Stores', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK'), CONTINUE);
+
+[ 'Toplam Mağaza Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB( 'Report Net Satışlar', 'All Stores', 'Toplam LFL', !Version_Report, !Period, 'Net Sales SPK') + 
+  DB('Report KPI', 'Toplam Mağaza Satış', 'Kritik Performans Göstergeleri', !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'Monthly');
+
+[ 'Toplam Mağaza Kira Gideri/Toplam Mağaza Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Toplam Mağaza Kira Gideri' ] \ [ 'Toplam Mağaza Satış' ];
+
+[ 'Net Depolama ve Lojistik Merkezi Giderleri', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB( 'Genel Giderler', 'COST', 'Depo', 'Departman Toplam', !Version_Report, !Period|'-YTD', 'Amount Cost' ) -
+    DB( 'Genel Giderler', 'Depreciation', 'Depo', 'Departman Toplam', !Version_Report, !Period|'-YTD', 'Amount Cost' ) +
+    DB('Yatırım Amortisman', 'Toplam Duran Varlık', 'Depo', !Version_Report, !Period|'-YTD', 'UMS Amortisman - Mevcut') + 
+    DB('Yatırım Amortisman', 'Toplam Duran Varlık', 'Depo', !Version_Report, !Period|'-YTD', 'UMS Amortisman - Devir') + 
+    DB('Yatırım Amortisman', 'Toplam Duran Varlık', 'Depo', !Version_Report, !Period|'-YTD', 'UMS Amortisman - Düzeltme');
+
+[ 'Net Depolama ve Lojistik Merkezi Giderleri/Toplam Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Net Depolama ve Lojistik Merkezi Giderleri' ] \ [ 'Satışlar' ];
+
+[ 'Toplam Pazarlama Giderleri', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB( 'Genel Giderler', 'Marketing', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period|'-YTD', 'Amount Cost' );
+
+[ 'Toplam Pazarlama Giderleri/Toplam Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Toplam Pazarlama Giderleri' ] \ [ 'Satışlar' ];
+
+[ 'Ücretsiz Nakliye Giderleri', 'Kritik Performans Göstergeleri', 'Monthly' ] =  N: 
+	DB( 'Genel Giderler', 'Sales Transportation Expenses', 'Koçtaş Total', 'Departman Toplam', !Version_Report, !Period|'-YTD', 'Amount Cost' );
+
+[ 'Ücretsiz Nakliye Giderleri/ Toplam Satış', 'Kritik Performans Göstergeleri', 'Monthly' ] =  C: 
+	[ 'Ücretsiz Nakliye Giderleri' ] \ [ 'Satışlar' ];
+
+[ 'YTD' ] =  N: 
+	IF(SUBST(!Period, 6, 2) @= '01', [ 'Monthly' ], DB('Report KPI', !Report_KPI, !Mali_Tablo_Tipleri, !Version_Report, ATTRS('Period', !Period, 'PrevMonth'), 'YTD') + [ 'Monthly' ]);
+
+FEEDERS;

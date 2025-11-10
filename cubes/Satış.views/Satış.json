@@ -1,0 +1,30 @@
+{
+	"@type":"MDXView",
+	"Name":"Satış",
+	"MDX@Code.link":"Satış.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : "Code - Name"
+		},
+		"ContextSets" : 
+		{
+			"[Satış_Meas].[Satış_Meas]" : 
+			{
+				"Expression" : "{[Satış_Meas].[Satış_Meas].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : false,
+			"[Period].[Period]" : false,
+			"[Satış_Meas].[Satış_Meas]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"@type":"MDXView",
+	"Name":"View",
+	"MDX@Code.link":"View.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : {},
+		"ExpandAboves" : 
+		{
+			"[Kiralık_Araç_Giriş_Meas].[Kiralık_Araç_Giriş_Meas]" : false,
+			"[Records].[Records]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

@@ -1,0 +1,34 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Masraf Merkezi Name' ] =  S: DB('}ElementAttributes_Masraf_Kar_Merkezleri', DB( '180 - 280', !Records, !'180_280', !'180_280_Gider', !Version, 'Masraf Merkezi'  ), 'Name');
+
+FEEDERS;
+
+#Mali Tablo Feedarları.
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Jan'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-01', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Feb'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-02', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Mar'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-03', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Apr'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-04', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'May'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-05', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Jun'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-06', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Jul'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-07', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Aug'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-08', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Sep'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-09', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Oct'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-10', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Nov'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-11', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 180', 'Toplam',  'Dec'] => DB( 'Mali Tablo', '180', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-12', 'Movement' );
+
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Jan'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-01', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Feb'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-02', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Mar'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-03', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Apr'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-04', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'May'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-05', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Jun'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-06', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Jul'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-07', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Aug'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-08', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Sep'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-09', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Oct'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-10', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Nov'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-11', 'Movement' );
+['Aktif', 'Total Records', 'Toplam 280', 'Toplam',  'Dec'] => DB( 'Mali Tablo', '280', '180 - 280', !Version, SUBST(!Version, LONG(!Version)-4+1, 4)|'-12', 'Movement' );

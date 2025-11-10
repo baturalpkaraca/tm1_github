@@ -1,0 +1,101 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+[{'Otopark Kira Geliri', 'Hesaplanan Mağaza Kira Geliri', 'Hesaplanan Kira Gideri'}] = N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+['Ciro Kira Farkı']= N: IF(DB( 'V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', 0 ,CONTINUE);
+
+['Net Ciro'] = N: DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro');
+
+['Net Ciro * Ciro Kira Oran'] = N: ['Net Ciro'] * DB('Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Kira Ciro %');
+
+['Aylık Ciro Kira Farkı'] = N: IF( ATTRN( 'Period', DB( 'V', !Version, 'Plan Start Date' ), 'Index' ) >= 49, 
+       ['Net Ciro * Ciro Kira Oran'] - DB('Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (Toplam TRY)'), CONTINUE);
+
+['Aylık Ciro Kira Farkı'] = N: ['Net Ciro * Ciro Kira Oran'] - ['Mağaza + Ortak Gider Kira Gideri'];
+
+['Mağaza + Ortak Gider Kira Gideri'] =
+	N: DB('Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (Toplam TRY)') + 
+       DB('Kira - Gider', 'Ortak Gider', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Ciro Kira Farkı']= 
+     N: IF(SCAN('Forecast', !Version) <> 0 & DB('Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ),'Kapanış Tutarı') = 0 & 
+     DB('Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ),'Kira Ciro %') > 0,
+     ['Net Ciro * Ciro Kira Oran'], CONTINUE);
+
+#Budget 2026 ve sonrası için.
+['Ciro Kira Farkı'] = N: IF(ATTRN( 'Period', DB( 'V', !Version, 'Plan Start Date' ), 'Index' ) >= 49 & 
+    DB( 'Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Aylık - Yıllık Seçim' ) @= 'Yıllık',
+    IF( DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Net Ciro * Ciro Kira Oran')  >
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Mağaza + Ortak Gider Kira Gideri'),
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Aylık Ciro Kira Farkı'), 0), CONTINUE);
+
+['Ciro Kira Farkı'] = N: IF( 
+    DB( 'Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Aylık - Yıllık Seçim' ) @= 'Yıllık' & SUBST( !Period, 6, 2 ) @= '12',
+    IF( DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Net Ciro * Ciro Kira Oran')  >
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Mağaza + Ortak Gider Kira Gideri'),
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Aylık Ciro Kira Farkı'), 0), CONTINUE);
+
+['Ciro Kira Farkı'] = N: IF( 
+    DB( 'Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Aylık - Yıllık Seçim' ) @= 'Aylık',
+    IF( DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro * Ciro Kira Oran')  >
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Mağaza + Ortak Gider Kira Gideri'),
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Aylık Ciro Kira Farkı'), 0), CONTINUE);
+
+['Ciro Kira Farkı'] = N: IF(SCAN('Forecast', !Version) <> 0 & 
+    DB( 'Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Aylık - Yıllık Seçim' ) @<> 'Yıllık',
+    IF( DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Net Ciro * Ciro Kira Oran')  >
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Mağaza + Ortak Gider Kira Gideri'),
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Aylık Ciro Kira Farkı') / 
+    (12 - DB('V_P', !Version, ATTRS('Period', !Period, 'Year'),'Fiili Sayısı')), 0), CONTINUE);
+
+['Ciro Kira Farkı'] = N:
+    IF(DB('Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Kira Türü') @= 'CİRO', 
+    IF(DB('Kira', !Masraf_Kar_Merkezleri, !Version, SUBST( !Period, 1, 4 ), 'Net Ciro * Ciro Kira Oran') > 
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, SUBST( !Period, 1, 4 ), 'Mağaza + Ortak Gider Kira Gideri'), 
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Aylık Ciro Kira Farkı'), 0), CONTINUE);
+
+['Ciro Kira Farkı'] = N: IF ( DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Net Ciro * Ciro Kira Oran')  >
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Mağaza + Ortak Gider Kira Gideri') &
+    DB( 'Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Aylık - Yıllık Seçim' ) @<> 'Yıllık' & 
+    DB( 'Kira - Gider', 'Mağaza Kirası', !Masraf_Kar_Merkezleri, !Version, 'Opening '|ATTRS( 'Period', !Period, 'Year' ), 'Aylık - Yıllık Seçim' ) @<> 'Aylık',
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, ATTRS('Period', !Period, 'Year'), 'Aylık Ciro Kira Farkı') / 12, 0);
+
+['Hesaplanan Kira Gideri'] =
+	N: DB('Kira - Gider', 'Toplam Kira Gideri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+# Kira Geliri Hesaplamaları
+['Otopark Kira Geliri'] = N: DB('Kira - Gelir', 'Otopark', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Hesaplanan Mağaza Kira Geliri'] = N: DB('Kira - Gelir', 'Mağaza', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Hesaplanan Stand Kira Geliri'] = N: DB('Kira - Gelir', 'Stand', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Depo Kira Geliri'] = N: DB('Kira - Gelir', 'Depo', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Hesaplanan Ortak Alan Geliri'] = N: DB('Kira - Gelir', 'Ortak Alan', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Hesaplanan Reklam Payı Geliri'] = N: DB('Kira - Gelir', 'Reklam Payı', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Hesaplanan Baz İstasyonu Geliri'] = N: DB('Kira - Gelir', 'Baz İstasyonu', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+['Hesaplanan ATM Geliri'] = N: DB('Kira - Gelir', 'ATM', !Masraf_Kar_Merkezleri, 'Total Records', !Version, !Period, 'Hesaplanan Kira (Toplam TRY)');
+
+FEEDERS;
+
+['Aktif', 'Hesaplanan Kira Gideri'] => ['Ciro Kira Farkı'], ['Mağaza + Ortak Gider Kira Gideri'], ['Aylık Ciro Kira Farkı'];
+
+['Aktif', 'Net Ciro'] => ['Net Ciro * Ciro Kira Oran'], ['Ciro Kira Farkı'], ['Hesaplanan Kira Gideri'];
+
+['Aktif', 'Düzeltme Kira Gideri'] => DB( 'Genel Giderler', '8100200006', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar' );
+['Aktif', 'Ciro Kira Farkı'] => DB( 'Genel Giderler', '8100200003', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar' );
+
+['Aktif', 'Final Otopark Kira Geliri'] => DB( 'Genel Giderler', '6490100011', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Amount Cost' );
+['Aktif', 'Otopark Hariç Toplam Gelir'] => DB( 'Genel Giderler', '6490100004', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Amount Cost' );
+  
+['Aktif', 'Final Toplam Kira Geliri'] => DB( 'PL', 'Rent received external', 'Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount' );
+
+['Aktif', 'All Cost Centers', {'Final Otopark Kira Geliri', 'Otopark Hariç Toplam Gelir'}] => DB( 'Mali Tablo', '649', 'Kira', !Version, !Period, 'Movement' );
+['Aktif', 'All Cost Centers', 'Final Toplam Kira Geliri'] => DB( 'Mali Tablo', 'KGK.T0780208', 'KGK', !Version, !Period, 'Opening' );

@@ -1,0 +1,35 @@
+{
+	"@type":"MDXView",
+	"Name":"Kira Gider",
+	"MDX@Code.link":"Kira Gider.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : "Code - Name"
+		},
+		"ContextSets" : 
+		{
+			"[Kira_Gider_Türleri].[Kira_Gider_Türleri]" : 
+			{
+				"Expression" : "{[Kira_Gider_Türleri].[Kira_Gider_Türleri].MEMBERS}"
+			},
+			"[Period].[Period]" : 
+			{
+				"Expression" : "{[Period].[Period].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Kira_Gider_Meas].[Kira_Gider_Meas]" : false,
+			"[Kira_Gider_Türleri].[Kira_Gider_Türleri]" : false,
+			"[Masraf_Kar_Merkezleri].[Masraf_Kar_Merkezleri]" : false,
+			"[Period].[Period]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

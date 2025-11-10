@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Report CF",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Report_CF_Acc')"
+		},
+		{
+			"@id":"Dimensions('Version_Report')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Report_CF_Meas')"
+		}
+	],
+	"Rules@Code.link":"Report CF.rules",
+	"Views@Code.links":[]
+}

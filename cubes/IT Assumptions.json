@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"IT Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('IT_Assumptions_Meas')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"IT Assumptions.views/IT Assumptions.json"
+	]
+}

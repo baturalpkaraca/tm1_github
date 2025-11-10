@@ -1,0 +1,7 @@
+SKIPCHECK;
+
+['No Kategori', 'Amount'] = N: DB( 'MM_P', !Masraf_Kar_Merkezleri, !Period, !Reyon_Acc);
+
+['No Day', 'Amount'] = N: DB( 'Final Internal Prim', 'Koçtaş Kategori Toplam', !Masraf_Kar_Merkezleri, !Period, !Reyon_Acc);
+
+FEEDERS;

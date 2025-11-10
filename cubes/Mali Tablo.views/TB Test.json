@@ -1,0 +1,56 @@
+{
+	"@type":"MDXView",
+	"Name":"TB Test",
+	"MDX@Code.link":"TB Test.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Mali_Tablo_Source].[Mali_Tablo_Source]" : "Name",
+			"[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu]" : "Kod - İsim"
+		},
+		"CalculatedMembers" : 
+		{
+			"[Mali_Tablo_Meas].[Mali_Tablo_Meas]" : 
+			[
+				
+				{
+					"InsertionPosition" : "AFTER",
+					"MemberID" : "[Mali_Tablo_Meas].[Mali_Tablo_Meas].[Header_#000001724314196020#]"
+				}
+			],
+			"[Mali_Tablo_Source].[Mali_Tablo_Source]" : 
+			[
+				
+				{
+					"InsertionPosition" : "AFTER",
+					"MemberID" : "[Mali_Tablo_Source].[Mali_Tablo_Source].[Header_#000001724314195952#]"
+				}
+			],
+			"[Version].[Version]" : 
+			[
+				
+				{
+					"Anchor" : "[Version].[Version].[Forecast 5+7 2024]",
+					"InsertionPosition" : "BEFORE",
+					"MemberID" : "[Version].[Version].[Header_#000001724314195952#]"
+				}
+			]
+		},
+		"ContextSets" : 
+		{
+			"[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu]" : 
+			{
+				"Expression" : "{DRILLDOWNMEMBER({[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[TB]} , {[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[TB],[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[Gelir/Gider],[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[Sermaye],[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[Yükümlülükler],[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu].[Varlıklar]} , RECURSIVE)}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Mali_Tablo_Meas].[Mali_Tablo_Meas]" : false,
+			"[Mali_Tablo_Source].[Mali_Tablo_Source]" : false,
+			"[Mizan_Hesapları_Uclu].[Mizan_Hesapları_Uclu]" : false,
+			"[Period].[Period]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

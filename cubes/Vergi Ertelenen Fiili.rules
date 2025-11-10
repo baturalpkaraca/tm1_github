@@ -1,0 +1,107 @@
+SKIPCHECK;
+
+# Yıl kapanışları ilgili yılın Aralık ayından besleniyor.
+[ 'Fiili', 'Amount' ] = N: IF( SUBST( !Period, 1, 4 ) @= '2023', STET, CONTINUE );
+
+[ 'Fiili', 'Amount' ] =  N: 
+	IF(SCAN('Opening', !Period) <> 0, 
+    DB('Vergi Ertelenen Fiili', !Vergi_Kalemleri, !Vergi_Ertelenen_Detay, !Version_Actual, ATTRS('Period', !Period, 'PrevMonth'), 'Amount - Final'), CONTINUE);
+
+###SPK HESAPLAMALARI
+
+[ 'Fiili', 'Inventory (NRV)', 'Tutar - SPK', 'Amount' ] =  N: 
+    DB( 'SPK Giriş', 'Stock - BS Charge - 153', !Version_Actual, !Period, 'Amount' );
+
+[ 'Fiili', 'Rebate in Stock', 'Tutar - SPK', 'Amount' ] =  N: 
+	DB( 'SPK Giriş', 'Rebate - BS Charge - 153', !Version_Actual, !Period, 'Amount' );
+
+[ 'Fiili', 'IFRS 16', 'Tutar - SPK', 'Amount' ] =  N: 
+  (DB( 'SPK Giriş', 'IFRS 16 - BS Charge - 252', !Version_Actual, !Period, 'Amount' ) + 
+   DB( 'SPK Giriş', 'IFRS 16 - BS Charge - 256', !Version_Actual, !Period, 'Amount' ) + 
+   DB( 'SPK Giriş', 'IFRS 16 - BS Charge - 309', !Version_Actual, !Period, 'Amount' )) * -1;
+
+[ 'Fiili', 'Tangible ass.', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB('Mali Tablo Fiili', '254', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '255', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '257', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '258', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '0', 'SPK', !Version_Actual, !Period, 'Amount - Final');
+
+[ 'Fiili', 'Intangible ass.', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB('Mali Tablo Fiili', '260', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '261', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '262', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '263', 'SPK', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '268', 'SPK', !Version_Actual, !Period, 'Amount - Final');
+
+[ 'Fiili', 'ETB', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB('Mali Tablo Fiili', '472', 'SPK', !Version_Actual, !Period, 'Amount - Final') * -1;
+
+[ 'Fiili', 'IAS39 (TR)', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB( 'SPK Giriş', 'IAS39 TR - BS Charge - 120', !Version_Actual, !Period, 'Amount' ) +
+  DB( 'SPK Giriş', 'IAS39 TR - BS Charge - 108', !Version_Actual, !Period, 'Amount' );
+
+[ 'Fiili', 'IAS39 (TP)', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB( 'SPK Giriş', 'IAS39 TP - BS Charge - 320', !Version_Actual, !Period, 'Amount' );
+
+[ 'Fiili', 'Unused vac.', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB( 'SPK Giriş', 'Holiday - BS Charge - 373', !Version_Actual, !Period, 'Amount' );
+
+[ 'Fiili', 'PARO', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB( 'SPK Giriş', 'PARO - BS Charge - 380', !Version_Actual, !Period, 'Amount' ) * -1;
+
+[ 'Fiili', 'Lawsuit prov.', 'Tutar - SPK', 'Amount' ] =  N: 
+  DB( 'SPK Giriş', 'Litigation - BS Charge - 373', !Version_Actual, !Period, 'Amount' );
+
+[ 'Fiili', 'ETB', 'Tutar - Kanuni', 'Amount' ] =  N: 
+  (DB('Mali Tablo Fiili', '372', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+   DB('Mali Tablo Fiili', '472', 'Kanuni', !Version_Actual, !Period, 'Amount - Final')) * -1 * 0;
+
+[ 'Fiili', 'Tangible ass.', 'Tutar - Kanuni', 'Amount' ] =  N: 
+	DB('Mali Tablo Fiili', '254', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '255', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '257', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '258', 'Kanuni', !Version_Actual, !Period, 'Amount - Final');
+
+[ 'Fiili', 'Intangible ass.', 'Tutar - Kanuni', 'Amount' ] =  N: 
+  DB('Mali Tablo Fiili', '260', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '261', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '262', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '263', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '264', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '0  ', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '268', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '252', 'Kanuni', !Version_Actual, !Period, 'Amount - Final') + 
+  DB('Mali Tablo Fiili', '256', 'Kanuni', !Version_Actual, !Period, 'Amount - Final');
+
+[ 'Fiili', 'Toplam Geçici Farklar', { 'Tutar - Kanuni', 'Tutar - SPK', 'Fark' }, 'Amount' ] =  N: 
+	[ 'Inventory (NRV)' ] + [ 'Slow Moving' ] + [ 'Tangible ass.' ] + [ 'Intangible ass.' ] + [ 'ETB' ] + 
+  [ 'IAS39 (TR)' ] + [ 'IAS39 (TP)' ] + [ 'Unused vac.' ] + [ 'PARO' ] + [ 'Lawsuit prov.' ] + [ 'Rebate in Stock' ] + [ 'IFRS 16' ];
+
+# Fark işleminde, kalemlere göre pozitif negatiflik değişiyor
+[ 'Fiili', 'Fark', { 'Tangible ass.', 'Intangible ass.', 'IAS39 (TP)', 'PARO' }, 'Amount' ] =  N: [ 'Tutar - SPK' ] - [ 'Tutar - Kanuni' ];
+
+[ 'Fiili', 'Fark', 'Amount' ] =  N: [ 'Tutar - Kanuni' ] - [ 'Tutar - SPK' ];
+
+[ 'Fiili', 'Ertelenen Vergi - BS', 'Toplam Geçici Farklar', 'Amount' ] =  N: 
+	IF(SUBST(!Period, 1, 7) @= 'Opening', STET, [ 'Fark' ] * DB('V_P Fiili', !Version_Actual, !Period, 'Current Tax' ));
+
+[ 'Fiili', 'Ertelenen Vergi - PL', 'Toplam Geçici Farklar', 'Amount' ] =  N: 
+	IF(SUBST(!Period, 1, 7) @= 'Opening', 0, [ 'Ertelenen Vergi - BS' ] - 
+    DB('Vergi Ertelenen Fiili', !Vergi_Kalemleri, 'Ertelenen Vergi - BS', !Version_Actual, ATTRS('Period', !Period, 'PYLastMonth'), 'Amount - Final'));
+
+FEEDERS;
+
+# İlgili yılın Aralık ayı Closing satırını besliyor.
+[ 'Fiili', 'Amount' ] => DB('Vergi Ertelenen Fiili', !Vergi_Kalemleri, !Vergi_Ertelenen_Detay, !Version_Actual, IF(SUBST(!Period, 6, 2) @= '12', 'Opening' | ATTRS('Period', !Period, 'Year'), ''), !Vergi_Ertelenen_Fiili_Meas);
+[ 'Fiili', 'Amount' ] => DB('Vergi Ertelenen Fiili', !Vergi_Kalemleri, !Vergi_Ertelenen_Detay, !Version_Actual, IF(SUBST(!Period, 6, 2) @= '12', !Period, ''), !Vergi_Ertelenen_Fiili_Meas);
+  
+[ 'Fiili', { 'Inventory (NRV)', 'Slow Moving', 'Tangible ass.', 'Intangible ass.', 'ETB', 'IAS39 (TR)', 'IAS39 (TP)', 'Unused vac.', 'PARO', 'Lawsuit prov.', 'Rebate in Stock', 'IFRS 16' }, { 'Tutar - Kanuni', 'Tutar - SPK', 'Fark' }, 'Amount' ] => [ 'Toplam Geçici Farklar' ];
+[ 'Fiili', 'Tutar - Kanuni' ] => [ 'Fark' ];
+[ 'Fiili', 'Tutar - SPK' ] => [ 'Fark' ];
+[ 'Fiili', 'Fark' ] => [ 'Ertelenen Vergi - BS' ];
+[ 'Fiili', 'Ertelenen Vergi - BS' ] => [ 'Ertelenen Vergi - PL' ];
+
+#SPK Giriş Küpü için Feederlar
+# [ 'Fiili', 'Toplam Geçici Farklar', 'Ertelenen Vergi - BS', 'Amount - Final' ] => DB( 'SPK Giriş', 'Tax - BS Charge - 470', !Version_Actual, !Period, 'Amount' );
+# [ 'Fiili', 'Toplam Geçici Farklar', 'Ertelenen Vergi - PL', 'Amount - Final' ] => DB( 'SPK Giriş', 'Tax - PL Charge - 691', !Version_Actual, !Period, 'Amount' );

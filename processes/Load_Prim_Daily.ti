@@ -1,0 +1,156 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#******* Source Cube ***********************************
+
+vProcessName = GetProcessName;
+
+v_CubeSourceName = 'Final Internal Prim';
+v_ViewSourceName = 'Source'|'_'|v_CubeSourceName|'_'|vProcessName;
+
+v_DimSourceName1 = 'Mal_Grupları';
+v_DimSourceName2 = 'Masraf_Kar_Merkezleri';
+v_DimSourceName3 = 'Day';
+v_DimSourceName4 = 'Final_Internal_Prim_Meas';
+
+v_SubSourceName1 = v_DimSourceName1|'_'|v_ViewSourceName;
+v_SubSourceName2 = v_DimSourceName2|'_'|v_ViewSourceName;
+v_SubSourceName3 = v_DimSourceName3|'_'|v_ViewSourceName;
+v_SubSourceName4 = v_DimSourceName4|'_'|v_ViewSourceName;
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName, v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1, v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1, v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2, v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2, v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3, v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3, v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4, v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4, v_SubSourceName4); 
+ENDIF;
+
+VIEWCREATE(v_CubeSourceName, v_ViewSourceName);
+
+ViewExtractSkipCalcsSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipRuleValuesSet(v_CubeSourceName, v_ViewSourceName, 1);
+ViewExtractSkipZeroesSet(v_CubeSourceName, v_ViewSourceName, 1);
+
+SubsetCreate(v_DimSourceName1, v_SubSourceName1, 0);
+SubsetElementInsert(v_DimSourceName1, v_SubSourceName1, 'No Kategori', 1);
+
+MDX2 = '{TM1FILTERBYLEVEL({TM1SUBSETALL(['|v_DimSourceName2|'])},0)}';
+SUBSETCREATEBYMDX(v_SubSourceName2, MDX2, 0);
+SubsetMDXSet(v_DimSourceName2, v_SubSourceName2, '' );
+
+MDX3 = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ ['|v_DimSourceName3|'].['|pPeriod|']},ALL,RECURSIVE)}, 0)}';
+SUBSETCREATEBYMDX (v_SubSourceName3, MDX3, 0);
+SubsetMDXSet(v_DimSourceName3, v_SubSourceName3, '' );
+
+SubsetCreate(v_DimSourceName4, v_SubSourceName4, 0);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, 'Perakende Satış', 1);
+SubsetElementInsert(v_DimSourceName4, v_SubSourceName4, '3P Satış', 1);
+
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName1, v_SubSourceName1);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName2, v_SubSourceName2);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName3, v_SubSourceName3);
+VIEWSUBSETASSIGN(v_CubeSourceName, v_ViewSourceName, v_DimSourceName4, v_SubSourceName4);
+
+#Data source assignment
+DataSourceType = 'View';
+DataSourceNameForServer = v_CubeSourceName;
+DatasourceCubeview = v_ViewSourceName;
+
+MDX = '{TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER({ [Mal_Grupları].[Koçtaş Kategori Toplam]},ALL,RECURSIVE)}, 0)}';
+SubsetCreatebyMDX( 'Temp', MDX, 0 );
+SubsetMDXSet( 'Mal_Grupları', 'Temp', '' );
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+vMM_Yontem = CellGetS( 'MM_P', Masraf_Kar_Merkezleri,SUBST( vDay, 1, 7 ) , 'Yöntem '|Final_Internal_Prim_Meas );
+
+vRef_MM = Masraf_Kar_Merkezleri;
+
+if (vMM_Yontem @= 'Bigbox'); 
+    vRef_MM = '1340000'; 
+elseif( vMM_Yontem @= 'Fix'  );
+    vRef_MM = '6340100';   
+endif;
+
+vToplamReyonAmount = CellGetN( 'Final External Satis', 'Koçtaş Kategori Toplam', vRef_MM, vDay, pVersiyon, Final_Internal_Prim_Meas );
+vToplamReyonAmount_2 = CellGetN( 'Prim Reyon', Final_Internal_Prim_Meas, 'Mal_Grupları':'Koçtaş Kategori Toplam', vRef_MM, SUBST( vDay, 1, 7 ), 'Prim_Reyon_Meas':'Final' );
+
+vRef_Day = vDay;
+
+if (vToplamReyonAmount = 0); 
+    vRef_Day = ATTRS( 'Day',vDay ,'PreviousDay' ); 
+    vToplamReyonAmount = CellGetN( 'Final External Satis', 'Koçtaş Kategori Toplam', vRef_MM, vRef_Day, pVersiyon, Final_Internal_Prim_Meas );
+endif;
+
+Size = SubsetGetSize('Mal_Grupları', 'Temp');
+i=1;
+
+While(i <= Size);
+
+    vReyon = SubsetGetElementName('Mal_Grupları', 'Temp', i);
+
+    vReyonAmount = CellGetN( 'Final External Satis', vReyon, vRef_MM, vRef_Day, pVersiyon, Final_Internal_Prim_Meas );
+    vReyonAmount_2 = CellGetN( 'Prim Reyon', Final_Internal_Prim_Meas, vReyon, vRef_MM, SUBST( vDay, 1, 7 ), 'Prim_Reyon_Meas':'Final' );
+
+    vOran = vReyonAmount \ vToplamReyonAmount;
+    vOran2 = vReyonAmount_2 \ vToplamReyonAmount_2;
+
+    CellPutN( Value * vOran2, 'Final Internal Prim', vReyon, Masraf_Kar_Merkezleri, vDay, Final_Internal_Prim_Meas );
+
+    #INT Kategori
+    if (Final_Internal_Prim_Meas @= 'Perakende Satış'); 
+        CellPutN( Value * vOran, 'Final Internal Prim', vReyon, Masraf_Kar_Merkezleri, vDay, 'Perakende Satış (INT-Kategori)' );
+    endif;
+    if (Final_Internal_Prim_Meas @= '3P Satış'); 
+        CellPutN( Value * vOran, 'Final Internal Prim', vReyon, Masraf_Kar_Merkezleri, vDay, '3P Satış (INT-Kategori)' );
+    endif;
+
+    i=i+1;
+END;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+IF(SUBSETEXISTS('Mal_Grupları','Temp')=1);
+    SUBSETDESTROY('Mal_Grupları','Temp'); 
+ENDIF;
+
+###---Source View Destroy----###
+
+IF(VIEWEXISTS(v_CubeSourceName, v_ViewSourceName)=1);
+    VIEWDESTROY(v_CubeSourceName,v_ViewSourceName);
+ENDIF;
+
+IF(SUBSETEXISTS(v_DimSourceName1,v_SubSourceName1)=1);
+    SUBSETDESTROY(v_DimSourceName1,v_SubSourceName1); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName2,v_SubSourceName2)=1);
+    SUBSETDESTROY(v_DimSourceName2,v_SubSourceName2); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName3,v_SubSourceName3)=1);
+    SUBSETDESTROY(v_DimSourceName3,v_SubSourceName3); 
+ENDIF;
+IF(SUBSETEXISTS(v_DimSourceName4,v_SubSourceName4)=1);
+    SUBSETDESTROY(v_DimSourceName4,v_SubSourceName4); 
+ENDIF;
+
+ExecuteProcess( 'Load_Prim_Monthly_2.3', 'pPeriod', pPeriod, 'pVersiyon', pVersiyon );
+#endregion

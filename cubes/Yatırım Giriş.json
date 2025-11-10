@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Yatırım Giriş",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Departmanlar')"
+		},
+		{
+			"@id":"Dimensions('Records')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Yatırım_Giriş_Meas')"
+		}
+	],
+	"Rules@Code.link":"Yatırım Giriş.rules",
+	"Views@Code.links":
+	[
+		"Yatırım Giriş.views/View1.json"
+	]
+}

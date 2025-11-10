@@ -1,0 +1,76 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ {'Kanuni Amortisman - Mevcut', 'UMS Amortisman - Mevcut'} ] = N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[ 'Yatırım' ] =  N: IF(DB( 'V_P', !Version, !Period, 'Actual - Plan'  ) @= 'Actual', STET, CONTINUE);
+
+#Yatırım
+[ 'Yatırım' ] =  N: 
+	DB( 'Yatırım', 'Departman Toplam', 'Toplam Yatırım', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, 'Yatırım - Final');
+
+# Kanuni Amortisman
+
+[ 'Kanuni Amortisman - Mevcut' ] =  N: 
+	DB( 'Yatırım', 'Departman Toplam', 'Toplam Yatırım', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, 'Amortisman - Kanuni');
+
+# UMS Amortisman
+
+[ 'UMS Amortisman - Mevcut' ] =  N: 
+	DB( 'Yatırım', 'Departman Toplam', 'Toplam Yatırım', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, 'Amortisman - UMS');
+
+# YTD Hesaplamaları
+
+[ 'Kanuni Amortisman - Mevcut - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'Kanuni Amortisman - Mevcut' );
+[ 'Kanuni Amortisman - Devir - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'Kanuni Amortisman - Devir' );
+[ 'Kanuni Amortisman - Düzeltme - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'Kanuni Amortisman - Düzeltme' );
+[ 'Kanuni Amortisman - Çıkış - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'Kanuni Amortisman - Çıkış' );
+[ 'UMS Amortisman - Mevcut - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'UMS Amortisman - Mevcut' );
+[ 'UMS Amortisman - Devir - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'UMS Amortisman - Devir' );
+[ 'UMS Amortisman - Düzeltme - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'UMS Amortisman - Düzeltme' );
+[ 'UMS Amortisman - Çıkış - YTD' ] = N: DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period|'-YTD', 'UMS Amortisman - Çıkış' );
+
+FEEDERS;
+  
+# YTD Hesaplamaları
+['Aktif', 'Kanuni Amortisman - Mevcut'] => ['Kanuni Amortisman - Mevcut - YTD'];
+['Aktif', 'Kanuni Amortisman - Devir'] => ['Kanuni Amortisman - Devir - YTD'];
+['Aktif', 'Kanuni Amortisman - Düzeltme'] => ['Kanuni Amortisman - Düzeltme - YTD'];
+['Aktif', 'Kanuni Amortisman - Çıkış'] => ['Kanuni Amortisman - Çıkış - YTD'];
+['Aktif', 'UMS Amortisman - Mevcut'] => ['UMS Amortisman - Mevcut - YTD'];
+['Aktif', 'UMS Amortisman - Devir'] => ['UMS Amortisman - Devir - YTD'];
+['Aktif', 'UMS Amortisman - Düzeltme'] => ['UMS Amortisman - Düzeltme - YTD'];
+['Aktif', 'UMS Amortisman - Çıkış'] => ['UMS Amortisman - Çıkış - YTD'];
+
+['Aktif', {'Kanuni Amortisman - Mevcut - YTD', 'Kanuni Amortisman - Devir - YTD', 'Kanuni Amortisman - Düzeltme - YTD', 'Kanuni Amortisman - Çıkış - YTD', 
+  'UMS Amortisman - Mevcut - YTD', 'UMS Amortisman - Devir - YTD', 'UMS Amortisman - Düzeltme - YTD', 'UMS Amortisman - Çıkış - YTD'}] => DB( 'Yatırım Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, ATTRS( 'Period', !Period, 'NextMonth' ), !Yatırım_Amortisman_Meas );
+
+['Aktif', 'Toplam Duran Varlık', { 'Yatırım - Çıkış', 'Kanuni Amortisman - Çıkış' } ] => DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6890126401');
+
+['Aktif', 'Toplam Duran Varlık', 'All Cost Centers', 'Yatırım' ] => DB('KDV', !Version, !Period, 'Capex');  
+  
+['Aktif', '254', 'Kanuni Amortisman - Final' ] => DB('Genel Giderler', '8140104001', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar');
+['Aktif', '255', 'Kanuni Amortisman - Final' ] => DB('Genel Giderler', '8140105001', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar');
+['Aktif', '260', 'Kanuni Amortisman - Final' ] => DB('Genel Giderler', '8140201001', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar');
+['Aktif', '262', 'Kanuni Amortisman - Final' ] => DB('Genel Giderler', '8140202002', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar');
+['Aktif', '264', 'Kanuni Amortisman - Final' ] => DB('Genel Giderler', '8140204001', !Masraf_Kar_Merkezleri, 'Mali İşler - Genel', !Version, !Period, 'Hesaplanan Tutar');
+
+['Aktif'] => DB('Yatırım Arge - Amortisman', !Duran_Varlık_Sınıfları, !Masraf_Kar_Merkezleri, !Version, !Period, !Yatırım_Amortisman_Meas);
+
+['Aktif', 'Toplam Duran Varlık', 'All Cost Centers', 'UMS Amortisman - Final'] => DB( 'SPK Giriş Plan', '268 Reclass', !Version, !Period, 'Amount' );  
+  
+#Mali Tablo feederları.
+['Aktif', {'254', '255', '260', '261', '262', '264'}, 'All Cost Centers', 'Yatırım - Final'] => DB( 'Mali Tablo', !Duran_Varlık_Sınıfları, 'Yatırım - Amortisman', !Version, !Period, 'Movement' );
+['Aktif', {'254', '255'}, 'All Cost Centers', 'Kanuni Amortisman - Final'] => DB( 'Mali Tablo', '257', 'Yatırım - Amortisman', !Version, !Period, 'Movement' );
+['Aktif', '264', 'All Cost Centers', 'Yatırım - Final'] => DB( 'Mali Tablo', '0', 'Depr. (Stat/IAS9)', !Version, !Period, 'Movement' );
+
+['Aktif', '254', 'All Cost Centers', 'UMS Amortisman - Final'] => DB( 'Mali Tablo', 'KGK.T0250204', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', '255', 'All Cost Centers', 'UMS Amortisman - Final'] => DB( 'Mali Tablo', 'KGK.T0250205', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', '260', 'All Cost Centers', 'UMS Amortisman - Final'] => DB( 'Mali Tablo', 'KGK.T0260201', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', '264', 'All Cost Centers', 'UMS Amortisman - Final'] => DB( 'Mali Tablo', 'KGK.T0250206', 'KGK', !Version, !Period, 'Opening' );
+
+['Aktif', {'250', '254', '255', '258', '264'}, 'All Cost Centers', 'Yatırım'] => DB( 'Mali Tablo', 'KGK.SKH01.HD03', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', {'250', '254', '255', '258', '264'}, 'All Cost Centers', {'Yatırım - Çıkış', 'UMS Amortisman - Çıkış'}] => DB( 'Mali Tablo', 'KGK.SKH01.HD04', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', {'260', '261', '262', '263', '264'}, 'All Cost Centers', {'Yatırım - Çıkış', 'UMS Amortisman - Çıkış'}] => DB( 'Mali Tablo', 'KGK.SKH02.HD04', 'KGK', !Version, !Period, 'Opening' );
+['Aktif', {'250', '254', '255', '258', '264'}, 'All Cost Centers', {'UMS Amortisman - Mevcut', 'UMS Amortisman - Devir', 'UMS Amortisman - Düzeltme'}] => DB( 'Mali Tablo', 'KGK.SKH01.HD12', 'KGK', !Version, !Period, 'Opening' );

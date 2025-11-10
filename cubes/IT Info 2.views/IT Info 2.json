@@ -1,0 +1,22 @@
+{
+	"@type":"MDXView",
+	"Name":"IT Info 2",
+	"MDX@Code.link":"IT Info 2.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Year].[Year]" : 
+			{
+				"Expression" : "{[Year].[Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[IT_Info_2_Meas].[IT_Info_2_Meas]" : false,
+			"[Records].[Records]" : false,
+			"[Year].[Year]" : false
+		}
+	}
+}

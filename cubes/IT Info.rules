@@ -1,0 +1,56 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+[] = IF( ELPAR( 'Version', !Version, 1 ) @= 'Aktif', CONTINUE, STET );
+
+['MM'] = S: IF(DB( 'IT Info', !Records, !Version, 'Dağıtım Anahtar ID'  ) @<> '', '', CONTINUE);
+
+['Toplam Fiyat (Original Currency)'] = N: ['Birim Fiyat'] * ['Toplam Adet'];
+
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '1', 'Yazılım Bakım', CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '2', 'Genel Danışmanlık' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '3', 'Altyapı Tamir ve Bakım' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '4', 'Yönetilen Hizmetler' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '5', 'Mobil Telefon Giderleri' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '6', 'Data Hatları' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '7', 'Sabit Telefon Giderleri' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '8', 'Network Altyapı' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '9', 'Yardım Masası ve Destek' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '10', 'IT Sarf ve Diğer Giderler' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '11', 'Son kullanıcı donanım tamir bakım' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '12', 'Uygulama Kiralama' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '13', 'Cloud Hizmetler' , CONTINUE);
+['ID Açıklama'] = S: IF( DB( 'IT Info', !Records, !Version, 'ID'  ) @= '14', 'ERP Danışmanlık', CONTINUE);
+
+## Forecast Başlangıç
+[ 'Ocak' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-01', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Şubat' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-02', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Mart' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-03', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Nisan' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-04', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Mayıs' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-05', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Haziran' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-06', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Temmuz' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-07', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Ağustos' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-08', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Eylül' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-09', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Ekim' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-10', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Kasım' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-11', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+[ 'Aralık' ] =  N: IF(DB('V_P', !Version, SUBST ( !Version, LONG(!Version)-4+1, 4)|'-12', 'Actual - Plan') @= 'Actual', 0, CONTINUE);
+
+['TL Karşılğı'] = N: IF(DB( 'IT Info', !Records, !Version, 'Para Birimi') @= 'TRY', ['Toplam Fiyat (Original Currency)'],
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Ocak'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-01', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Şubat'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-02', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Mart'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-03', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Nisan'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-04', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Mayıs'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-05', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Haziran'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-06', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Temmuz'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-07', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Ağustos'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-08', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Eylül'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-09', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Ekim'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-10', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Kasım'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-11', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi'))+
+(['Toplam Fiyat (Original Currency)'] \ ['Toplam Adet']) * ['Aralık'] * DB('V_P', !Version, SUBST ( !Version, LONG ( !Version) -4+1,4)|'-12', 'Aysonu Kur - '|DB( 'IT Info', !Records, !Version, 'Para Birimi')));
+
+FEEDERS;
+
+['Aktif', 'Birim Fiyat'] => ['Toplam Fiyat (Original Currency)'];
+['Aktif', 'ID'] => ['ID Açıklama'];

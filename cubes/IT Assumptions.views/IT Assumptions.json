@@ -1,0 +1,22 @@
+{
+	"@type":"MDXView",
+	"Name":"IT Assumptions",
+	"MDX@Code.link":"IT Assumptions.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Year].[Year]" : 
+			{
+				"Expression" : "{[Year].[Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Currency].[Currency]" : false,
+			"[IT_Assumptions_Meas].[IT_Assumptions_Meas]" : false,
+			"[Year].[Year]" : false
+		}
+	}
+}

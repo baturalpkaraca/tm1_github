@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"PL Fiili",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PL_Acc')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Version_Actual')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('PL_Fiili_Meas')"
+		}
+	],
+	"Rules@Code.link":"PL Fiili.rules",
+	"Views@Code.links":
+	[
+		"PL Fiili.views/View1.json"
+	]
+}

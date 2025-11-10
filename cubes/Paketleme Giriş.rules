@@ -1,0 +1,38 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Tutar' ] =  N: [ 'Orjinal Para Birimi - Birim Fiyat' ] * [ 'Adet' ];
+
+[ 'Tutar - TL' ] =  N: 
+	[ 'Tutar' ] * IF(DB('Paketleme Giriş', !Records, !Version, 'Para Birimi') @= 'USD', 
+    DB('V_P', SUBST ( !Version, LONG ( !Version )-4+1, 4)|'-12', !Version, 'Yıllık Ortalama Kur - USD'), 
+    IF(DB('Paketleme Giriş', !Records, !Version, 'Para Birimi') @= 'EUR', 
+    DB('V_P', SUBST ( !Version, LONG ( !Version )-4+1, 4)|'-12', !Version, 'Yıllık Ortalama Kur - EUR'), 
+    IF(DB('Paketleme Giriş', !Records, !Version, 'Para Birimi') @= 'GBP', 
+    DB('V_P', SUBST ( !Version, LONG ( !Version )-4+1, 4)|'-12', !Version, 'Yıllık Ortalama Kur - GBP'), 
+    IF(DB('Paketleme Giriş', !Records, !Version, 'Para Birimi') @= 'TL', 1, CONTINUE))));
+
+[ '!!!Uyarı!!!' ] =  S: IF([ 'Tutar' ] <> 0& [ 'Toplam %' ] <> 100, 'Oranların Toplamı %100 Olmalıdır.', '');
+
+[ 'Fix Depo Tutarı (TL)' ] =  N: [ 'Tutar - TL' ] * [ 'Fix Depo Payı %' ] \ 100;
+
+[ 'Web Tutarı (TL)' ] =  N: [ 'Tutar - TL' ] * [ 'Web Payı %' ] \ 100;
+
+[ 'Kiosk Tutarı (TL)' ] =  N: [ 'Tutar - TL' ] * [ 'Kiosk Payı %' ] \ 100;
+
+FEEDERS;
+
+['Aktif' , 'Adet' ] => [ 'Tutar' ], [ 'Tutar - TL' ];
+
+['Aktif', 'Fix Depo Payı %' ] => [ 'Fix Depo Tutarı (TL)' ];
+
+['Aktif', 'Web Payı %' ] => [ 'Web Tutarı (TL)' ];
+
+['Aktif', 'Kiosk Payı %' ] => [ 'Kiosk Tutarı (TL)' ];
+
+['Aktif', 'Toplam %' ] => [ '!!!Uyarı!!!' ];
+
+['Aktif', 'Web Tutarı (TL)' ] => DB('Paketleme Hesaplama', 'B2C', !Version, SUBST ( !Version, LONG ( !Version )-4+1, 4), 'Amount');
+
+['Aktif', 'Fix Depo Tutarı (TL)' ] => DB('Paketleme Hesaplama', '3340002', !Version, SUBST ( !Version, LONG ( !Version )-4+1, 4), 'Amount');

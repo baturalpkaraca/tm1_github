@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Final Internal Prim",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Mal_Grupları')"
+		},
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('Day')"
+		},
+		{
+			"@id":"Dimensions('Final_Internal_Prim_Meas')"
+		}
+	],
+	"Rules@Code.link":"Final Internal Prim.rules",
+	"Views@Code.links":
+	[
+		"Final Internal Prim.views/View1.json"
+	]
+}

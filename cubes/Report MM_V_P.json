@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Report MM_V_P",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Masraf_Kar_Merkezleri')"
+		},
+		{
+			"@id":"Dimensions('LFL_Info')"
+		},
+		{
+			"@id":"Dimensions('Version_Report')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MM_V_P_Meas')"
+		}
+	],
+	"Views@Code.links":[]
+}

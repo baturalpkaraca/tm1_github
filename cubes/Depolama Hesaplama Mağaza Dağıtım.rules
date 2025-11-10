@@ -1,0 +1,246 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+ 
+['Amount'] = N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Actual', STET, CONTINUE);
+
+[ '5340000', 'Amount' ] =  N: DB('Depolama Hesaplama', !Depolama_Dağıtım_Detay, !Version, !Period, '5001 Kalan');
+
+[ '3340002', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340010', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340015', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3350000', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340007', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340008', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '5340300', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '1345000', 'Personel Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Personel (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Personel', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340002', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  );    
+
+[ '3340010', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '3340015', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '3350000', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '3340007', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '3340008', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '5340300', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '1345000', '410-1 Elektrik', 'Amount' ] =  N: 
+	DB( 'Depolama Elektrik', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Tutar (TL)'  ); 
+
+[ '3340002', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340010', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340015', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3350000', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340007', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340008', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '5340300', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '1345000', 'Sarf Malzemesi', 'Amount' ] =  N: 
+	DB( 'Depolama Sarf Malzeme (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340002', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '3340010', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '3340015', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '3350000', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '3340007', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '3340008', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '5340300', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '1345000', 'Diğer', 'Amount' ] =  N: 
+	DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Diğer'  );
+
+[ '3340002', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340010', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340015', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3350000', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340007', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340008', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '5340300', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '1345000', 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Güvenlik (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam Güvenlik', 'Total Records', !Version, !Period, 'Amount'  );
+
+[ '3340002', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '3340010', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '3340015', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '3350000', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '3340007', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '3340008', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '5340300', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '1345000', 'Kira Giderleri', 'Amount' ] =  N: 
+	DB( 'Depolama Kira Giderleri', !Masraf_Kar_Merkezleri, !Version, !Period, 'Hesaplanan Kira (TL)'  );
+
+[ '3340002', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '3340010', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '3340015', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '3350000', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '3340007', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '3340008', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '5340300', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ '1345000', 'Ekipman Gideri', 'Amount' ] =  N: 
+	DB( 'Depolama Ekipman (Hesap)', !Masraf_Kar_Merkezleri, 'Toplam', 'Total Records', !Version, !Period, 'Toplam'  );
+
+[ 'Personel Giderleri', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Personel Giderleri', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ '410-1 Elektrik', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', '410-1 Elektrik', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ 'Ekipman Gideri', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Ekipman Gideri', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ 'Sarf Malzemesi', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Sarf Malzemesi', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+
+[ 'Diğer', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Diğer', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ 'Kira Giderleri', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Kira Giderleri', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ 'Güvenlik Giderleri', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Güvenlik Giderleri', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ 'Lojistik Primi', 'Amount' ] =  N: 
+	IF((ELISANC('Masraf_Kar_Merkezleri', 'Koçtaş', !Masraf_Kar_Merkezleri) = 1
+	% ELISANC('Masraf_Kar_Merkezleri', 'Fix', !Masraf_Kar_Merkezleri) = 1), 
+    (DB('Depolama Hesaplama', 'Lojistik Primi', !Version, !Period, 'Dağıtılacak Tutar')) * 
+    (DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kiosk Yarı Gross Ciro' ) \ 
+    (DB('Satış', 'Koçtaş', !Version, !Period, 'Kiosk Yarı Gross Ciro' ) + 
+    DB('Satış', 'Fix', !Version, !Period, 'Kiosk Yarı Gross Ciro' ))), CONTINUE);
+
+[ 'Lojistik Primi', 'Amount' ] =  N: DB( 'Depolama Diğer Giderler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Lojistik Prim'  );
+
+FEEDERS;
+
+['Aktif', 'Toplam', 'Amount' ] => DB('Genel Giderler', '8081000001', !Masraf_Kar_Merkezleri, 'Lojistik', !Version, !Period, 'Hesaplanan Tutar');

@@ -1,0 +1,14 @@
+SKIPCHECK;
+
+[ 'Fiili', 'Tutar' ] =  N: 
+	IF(SUBST(!Mizan_Hesapları, 1, 3) @= '373', DB('Fiili Mizan Karşılık Sonrası', !Mizan_Hesapları, 'Tutar - Nihai', !Version_Actual, !Period, 'Amount'), CONTINUE);
+
+[ 'Fiili', '373-320 Sınıflama Tutar' ] =  N: 
+	IF(DB('373 - 320 Sınıflama', !Mizan_Hesapları, !Version_Actual, !Period, 'Grup') @= '', [ 'Tutar' ], 0);
+
+[ 'Fiili', '373-320 Sınıflama Vergi Tutar' ] =  N: 
+	IF(DB('373 - 320 Sınıflama', !Mizan_Hesapları, !Version_Actual, !Period, 'Grup') @<> '', [ 'Tutar' ], 0);
+
+FEEDERS;
+
+[ 'Fiili', 'Tutar' ] => [ '373-320 Sınıflama Tutar' ], [ '373-320 Sınıflama Vergi Tutar' ];

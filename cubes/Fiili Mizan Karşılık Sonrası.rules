@@ -1,0 +1,113 @@
+SKIPCHECK;
+
+['Fiili', 'Sistemden Gelen Tutar', 'Amount'] = N: DB( 'Fiili Mizan', !Mizan_Hesapları, !Version_Actual, !Period, 'Net - YTD'  );
+
+['Fiili', 'Karşılık Tutar', 'Amount'] = N: IF( ATTRS( 'Mizan_Hesapları', SUBST( !Mizan_Hesapları, 1, 3 ), 'Tip' ) @= 'Gelir', 
+              (DB( 'Kanuni Karşılık', !Mizan_Hesapları, 'Total Records', !Version_Actual, !Period, 'Alacak Tutar'  ) * -1) + 
+              DB( 'Kanuni Karşılık', !Mizan_Hesapları, 'Total Records', !Version_Actual, !Period, 'Borç Tutar'  ), 
+              CONTINUE );
+
+['Fiili', 'Karşılık Tutar', 'Amount'] = N: DB( 'Kanuni Karşılık', !Mizan_Hesapları, 'Total Records', !Version_Actual, !Period, 'Borç Tutar'  ) - 
+              DB( 'Kanuni Karşılık', !Mizan_Hesapları, 'Total Records', !Version_Actual, !Period, 'Alacak Tutar'  );
+
+
+#Amortisman hesapları hariç 8'li hesapları AVM cost düzeltmesine - işaretli olarak getiriyoruz..
+['Fiili', 'AVM Cost Düzeltmesi', 'Amount'] = N: IF(SUBST(!Mizan_Hesapları, 1, 1) @= '8' &
+                                          !Mizan_Hesapları @<> '8140104001' &
+                                          !Mizan_Hesapları @<> '8140105001' &
+                                          !Mizan_Hesapları @<> '8140201001' &
+                                          !Mizan_Hesapları @<> '8140202002' &
+                                          !Mizan_Hesapları @<> '8140204001' &
+                                          !Mizan_Hesapları @<> '8140202001' &
+                                          !Mizan_Hesapları @<> '8140203001',
+                                          (DB('Fiili', !Mizan_Hesapları, 'AVM', !Version_Actual, !Period, 'Karşılık Sonrası - YTD' )) * -1, CONTINUE);
+
+#8'li hesaplardan düşürdüğümüz AVM cost düzeltme rakamını 649010004 hesabına ekliyoruz.
+['Fiili', '6490100004', 'AVM Cost Düzeltmesi', 'Amount'] = N: DB( 'Fiili Mizan Karşılık Sonrası', '8', 'AVM Cost Düzeltmesi', !Version_Actual, !Period, 'Amount'  ) * -1;
+
+# #Diğer Düzeltmeler
+['Fiili', '1360000001', 'Diğer Düzeltmeler', 'Amount'] = N: ['Sistemden Gelen Tutar'] * -1;
+
+['Fiili', '1300100002', 'Diğer Düzeltmeler', 'Amount'] = N: ['1360000001', 'Diğer Düzeltmeler']	* -1;
+
+['Fiili', 'Diğer Düzeltmeler', 'Amount'] = N: IF(!Mizan_Hesapları @= '6910000000', ['Sistemden Gelen Tutar'] * -1, CONTINUE);
+
+['Fiili', 'Diğer Düzeltmeler', 'Amount'] = N: IF(!Mizan_Hesapları @= '3700000001', ['6910000000', 'Diğer Düzeltmeler'] * -1, CONTINUE);
+
+['Fiili', 'Diğer Düzeltmeler', 'Amount'] = N: IF(SUBST(!Mizan_Hesapları, 1, 3) @= '999', ['Sistemden Gelen Tutar'] * -1, CONTINUE);
+
+['Fiili', '3610100001', 'Diğer Düzeltmeler', 'Amount'] = N: ['999', 'Diğer Düzeltmeler'] * -1;
+
+['Fiili', '3290200001', 'Diğer Düzeltmeler', 'Amount'] = N: DB( 'Fiili Mizan Karşılık Sonrası', '103', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount'  ) + 
+                                                            DB( 'Fiili Mizan Karşılık Sonrası', '103', 'Karşılık Tutar', !Version_Actual, !Period, 'Amount'  );
+
+['Fiili', 'Diğer Düzeltmeler', 'Amount'] = N: IF(SUBST(!Mizan_Hesapları, 1, 3) @= '103', (['Sistemden Gelen Tutar'] + ['Karşılık Tutar']) * -1, CONTINUE);
+
+### 2024-12 öncesi bu kural çalışacak.
+['Fiili', 'Tutar - Nihai', 'Amount'] = N: IF(ATTRN( 'Period', !Period, 'Index' ) < 36,
+                                      IF(SUBST(!Mizan_Hesapları, 1, 3) @= '391',
+                                        IF(DB('Fiili Mizan Karşılık Sonrası', '190', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') +
+                                           DB('Fiili Mizan Karşılık Sonrası', '191', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') +
+                                           DB('Fiili Mizan Karşılık Sonrası', '192', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') +
+                                           DB('Fiili Mizan Karşılık Sonrası', '391', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') < 0, 
+                                           ['Vergi Düzeltmesi'] * -1 + ['Karşılık Tutar'], 
+                                           CONTINUE), 
+                                        CONTINUE), 
+                                      CONTINUE);
+
+### 2024-12 öncesi bu kural çalışacak.
+['Fiili', 'Tutar - Nihai', 'Amount'] = N: IF(ATTRN( 'Period', !Period, 'Index' ) < 36,
+                                      IF(SUBST(!Mizan_Hesapları, 1, 3) @= '191',
+                                        IF(DB('Fiili Mizan Karşılık Sonrası', '190', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') +
+                                           DB('Fiili Mizan Karşılık Sonrası', '191', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') +
+                                           DB('Fiili Mizan Karşılık Sonrası', '192', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') +
+                                           DB('Fiili Mizan Karşılık Sonrası', '391', 'Sistemden Gelen Tutar', !Version_Actual, !Period, 'Amount') > 0, 
+                                           ['Vergi Düzeltmesi'] * -1, 
+                                           CONTINUE), 
+                                        CONTINUE), 
+                                      CONTINUE);
+
+['Fiili', 'Tutar - Nihai', 'Amount'] = N: ['Sistemden Gelen Tutar'] + ['Karşılık Tutar'] + ['AVM Cost Düzeltmesi'] + ['Özsermaye Düzeltmesi'] + ['Diğer Düzeltmeler'] + ['Vergi Düzeltmesi'];
+
+FEEDERS;
+
+['Fiili', 'Sistemden Gelen Tutar', 'Amount'] => ['Tutar - Nihai'];
+['Fiili', 'Karşılık Tutar', 'Amount'] => ['Tutar - Nihai'];
+['Fiili', 'AVM Cost Düzeltmesi', 'Amount'] => ['Tutar - Nihai'];
+['Fiili', 'Özsermaye Düzeltmesi', 'Amount'] => ['Tutar - Nihai'];
+['Fiili', 'Diğer Düzeltmeler', 'Amount'] => ['Tutar - Nihai'];
+['Fiili', 'Vergi Düzeltmesi', 'Amount'] => ['Tutar - Nihai'];
+
+['Fiili', 'Mizan_Hesapları':'8',  'AVM Cost Düzeltmesi',  'Amount']  =>  ['6490100004'];
+
+#['Fiili', 'Toplam', 'Tutar - Nihai', 'Amount'] => DB( 'Mali Tablo Fiili', 'TB', 'Kanuni', !Version_Actual, !Period, 'Amount'  );
+['Fiili', 'Tutar - Nihai', 'Amount'] => DB( 'Mali Tablo Fiili', SUBST( !Mizan_Hesapları, 1, 3 ), 'Kanuni', !Version_Actual, !Period, 'Amount'  );
+  
+#Diğer Düzeltmeler Feeder.
+['Fiili', '1360000001', 'Sistemden Gelen Tutar', 'Amount'] => ['Diğer Düzeltmeler'];
+['Fiili', '1360000001', 'Diğer Düzeltmeler', 'Amount'] => ['1300100002', 'Diğer Düzeltmeler'];
+['Fiili', '6910000000', 'Sistemden Gelen Tutar', 'Amount'] => ['Diğer Düzeltmeler'];
+['Fiili', '6910000000', 'Diğer Düzeltmeler', 'Amount'] => ['3700000001', 'Diğer Düzeltmeler'];
+['Fiili', '999', 'Sistemden Gelen Tutar', 'Amount'] => ['Diğer Düzeltmeler'];
+['Fiili', '999', 'Diğer Düzeltmeler', 'Amount'] => ['3610100001', 'Diğer Düzeltmeler'];
+['Fiili', 'Mizan_Hesapları':'103', 'Sistemden Gelen Tutar', 'Amount'] => DB( 'Fiili Mizan Karşılık Sonrası', '3290200001', 'Diğer Düzeltmeler', !Version_Actual, !Period, 'Amount'  );
+['Fiili', 'Mizan_Hesapları':'103', 'Karşılık Tutar', 'Amount'] => DB( 'Fiili Mizan Karşılık Sonrası', '3290200001', 'Diğer Düzeltmeler', !Version_Actual, !Period, 'Amount'  );
+['Fiili', 'Mizan_Hesapları':'103', 'Sistemden Gelen Tutar', 'Amount'] => ['Mizan_Hesapları':'103', 'Diğer Düzeltmeler'];
+['Fiili', 'Mizan_Hesapları':'103', 'Karşılık Tutar', 'Amount'] => ['Mizan_Hesapları':'103', 'Diğer Düzeltmeler'];
+  
+#Yatırım Hesaplama Fiili Feedarı.
+['Fiili', '2580209999', 'Tutar - Nihai', 'Amount'] => DB( 'Yatırım Hesaplama Fiili', '9347777', '258', 'STAT Maliyet', !Version_Actual, !Period, 'Giriş' );
+['Fiili', '2580209999', 'Tutar - Nihai', 'Amount'] => DB( 'Yatırım Hesaplama Fiili', '9347777', '258', 'IFRS Maliyet', !Version_Actual, !Period, 'Giriş' );
+['Fiili', 'Sistemden Gelen Tutar', 'Amount'] => DB( 'Yatırım Mizan Kontrol Fiili', SUBST( !Mizan_Hesapları, 1, 3 ), !Version_Actual, !Period, 'Mizan Sistemden Gelen' );
+['Fiili', 'Tutar - Nihai', 'Amount'] => DB( 'Yatırım Mizan Kontrol Fiili', SUBST( !Mizan_Hesapları, 1, 3 ), !Version_Actual, !Period, 'Mizan Karşılık Sonrası' );
+
+#SPK Giriş Feedarı.
+['Fiili', {'153', '154', '157', '159'}, 'Tutar - Nihai', 'Amount'] => DB( 'SPK Giriş', 'Total Stock', !Version_Actual, !Period, 'Amount'  );
+['Fiili', {'153', '154', '157', '159'}, 'Tutar - Nihai', 'Amount'] => DB( 'SPK Giriş', 'Stock', !Version_Actual, !Period, 'Amount'  );
+['Fiili', {'120', '123', '126', '128', '129'}, 'Tutar - Nihai', 'Amount'] => DB( 'SPK Giriş', 'Oth. T/R (exc. 108)', !Version_Actual, !Period, 'Amount'  );
+['Fiili', 'Mizan_Hesapları':'108', 'Tutar - Nihai', 'Amount'] => DB( 'SPK Giriş', 'Credit Card Rec.', !Version_Actual, !Period, 'Amount'  );
+['Fiili', {'320', '321', '323', '324', '326', '329'}, 'Tutar - Nihai', 'Amount'] => DB( 'SPK Giriş', 'T/P', !Version_Actual, !Period, 'Amount'  );
+['Fiili', 'Mizan_Hesapları':'8', 'AVM Cost Düzeltmesi', 'Amount'] => DB( 'SPK Giriş', 'AVM Net-Off', !Version_Actual, !Period, 'Amount'  );
+
+#320 - 373 Feedarı.
+['Fiili', '373', 'Tutar - Nihai', 'Amount'] => DB( '373 - 320 Sınıflama', !Mizan_Hesapları, !Version_Actual, !Period, 'Tutar'  );

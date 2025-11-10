@@ -1,0 +1,7 @@
+#region Prolog
+
+CubeProcessFeeders( 'Kiralık Araç Giriş' );
+CubeProcessFeeders( 'Kiralık Araç (Hesap)' );
+CubeProcessFeeders( 'Kiralık Ekipman Giriş' );
+CubeProcessFeeders( 'Kiralık Ekipman (Hesap)' );
+#endregion

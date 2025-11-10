@@ -1,0 +1,7 @@
+SKIPCHECK;
+
+[ ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'Hesap İsmi' ] = S: ATTRS('Mizan_Hesapları', DB('Genel Giderler - Açılış Öncesi Eşleme', !Mizan_Hesapları, !Version, 'Hesap Kodu'), 'Hesap Kodu - İsim');
+
+FEEDERS;

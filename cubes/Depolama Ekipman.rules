@@ -1,0 +1,32 @@
+SKIPCHECK;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[ 'MM Name' ] =  S: DB('}ElementAttributes_Masraf_Kar_Merkezleri', DB( 'Depolama Ekipman', !Records, !Version, 'MM'  ), 'Name');
+
+[ '!!!Uyarı!!!' ] =  S: 
+	IF(SUBST(DB('Depolama Ekipman', !Records, !Version, 'Sözleşme Bitiş Tarihi'), 1, 4) @= SUBST(!Version, LONG(!Version)-4+1, 4), 
+    'Sözleşme Bitişi, bütçe yılı ile aynı yıl içindedir.', CONTINUE);
+    
+[ 'Yıllık Kira Maliyeti' ] =  N: DB( 'Depolama Ekipman (Hesap)', DB( 'Depolama Ekipman', !Records, !Version, 'MM'  ), 
+DB( 'Depolama Ekipman', !Records, !Version, 'Ekipman Tipi'  ), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4), 'Toplam'  );  
+
+[ 'Yeni Ekipman Aylık Kira Bedeli' ] =  N: 
+	IF(SUBST(DB('Depolama Ekipman', !Records, !Version, 'Sözleşme Bitiş Tarihi'), 1, 4) @<> SUBST(!Version, LONG(!Version)-4+1, 4), 0, CONTINUE);
+
+[ 'Para Birimi Yeni' ] =  S: 
+	IF(SUBST(DB('Depolama Ekipman', !Records, !Version, 'Sözleşme Bitiş Tarihi'), 5, 2) @<> SUBST(!Version, LONG(!Version)-4+1, 4), '', CONTINUE);
+
+FEEDERS;
+
+['Aktif', {'Aylık Kira Bedeli', 'Adet'}] => DB( 'Depolama Ekipman (Hesap)', DB( 'Depolama Ekipman', !Records, !Version, 'MM'  ), 
+DB( 'Depolama Ekipman', !Records, !Version, 'Ekipman Tipi'  ), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4), 'Ekipman Kiralama Bedeli'  );
+
+['Aktif', {'Yeni Ekipman Aylık Kira Bedeli', 'Adet'}] => DB( 'Depolama Ekipman (Hesap)', DB( 'Depolama Ekipman', !Records, !Version, 'MM'  ), 
+DB( 'Depolama Ekipman', !Records, !Version, 'Ekipman Tipi'  ), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4), 'Ekipman Kiralama Bedeli'  );
+
+['Aktif', 'Periyodik'] => DB( 'Depolama Ekipman (Hesap)', DB( 'Depolama Ekipman', !Records, !Version, 'MM'  ), 
+DB( 'Depolama Ekipman', !Records, !Version, 'Ekipman Tipi'  ), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4), 'Periyodik Bakım Giderleri'  );
+
+['Aktif', 'Arızi'] => DB( 'Depolama Ekipman (Hesap)', DB( 'Depolama Ekipman', !Records, !Version, 'MM'  ), 
+DB( 'Depolama Ekipman', !Records, !Version, 'Ekipman Tipi'  ), !Records, !Version, SUBST(!Version, LONG(!Version)-4+1, 4), 'Arızi Bakım Giderleri'  );

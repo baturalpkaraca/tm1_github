@@ -1,0 +1,418 @@
+SKIPCHECK;
+
+[ 'PL', 'Amount' ] =  C: 0;
+
+[  ] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[  ] =  N: IF(DB('V_P', !Version, !Period, 'Actual - Plan') @= 'Plan', CONTINUE, STET);
+
+#RegionStart Satış
+
+[ 'NET SALES', 'Satış', 'Amount' ] =  N: 
+	DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Net Ciro');
+
+[ 'Product discounts given', 'Satış', 'Amount' ] =  N: 
+	- DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Toplam İndirim');
+
+[ 'Buying margin', 'Satış', 'Amount' ] =  N: 
+	DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Buying Margin');
+
+[ 'Supplier rebates', 'Satış', 'Amount' ] =  N: 
+	DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Rebate');
+
+[ 'Shrinkage', 'Satış', 'Amount' ] =  N: 
+	- DB('Satış', !Masraf_Kar_Merkezleri, !Version, !Period, 'Shrinkage');
+
+#EndRegion Satış
+#RegionStart Alış Nakliye
+
+[ 'Stock transfer cost', 'Alış Nakliye', 'Amount' ] =  N: 
+	- DB('Alış Nakliye', !Masraf_Kar_Merkezleri, !Version, !Period, 'Amount');
+
+#EndRegion Alış Nakliye
+#RegionStart Delivery
+
+[ 'Delivery', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	- DB('Genel Giderler', 'Sales Transportation Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar');
+
+#EndRegion Delivery
+#RegionStart Distribution Costs
+
+[ 'Distribution costs', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'Depo', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'COST', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ 'Distribution costs', 'İK - Kıdem Karşılık', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'Depo', !Masraf_Kar_Merkezleri) = 1,  - DB('IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kıdem Yasal'), CONTINUE);
+
+#EndRegion Distribution Costs
+#RegionStart Marketplace
+[ '3P commission income (kdv dahil)', 'PL_Source':'Marketplace', '5340800', 'Amount' ] =  N: 
+	DB('MM_V_P', 'All Cost Centers', !Version, !Period, '3P commission income amount (Incl. VAT)');
+
+[ '3P other marketing income (kdv dahil)', 'PL_Source':'Marketplace', '5340800', 'Amount' ] =  N: 
+	DB('MM_V_P', 'All Cost Centers', !Version, !Period, '3P other marketing income amount (Incl. VAT)');
+
+[ '3P delivery cost (kdv dahil)', 'PL_Source':'Marketplace', '5340800', 'Amount' ] =  N: 
+	DB('MM_V_P', 'All Cost Centers', !Version, !Period, '3P delivery cost (kdv dahil)');
+
+[ 'MP GMV (3P)', 'PL_Source':'Marketplace', '5340800', 'Amount' ] =  N: 
+	DB('MM_V_P', 'All Cost Centers', !Version, !Period, 'MP GMV (3P) Y.Gross Ciro');
+
+#EndRegion Marketplace
+#RegionStart Staff Payroll
+
+[ '- staff (Payroll)', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'Salary', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Salary (1/3)', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Vacation Fees', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Holiday Fees', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Heating Aids', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Education Aids', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Children Aids', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'SSK (Social Insurance)', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Funds (Koç Holding Retirement Fund)', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Unemployment Insurance', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Cash İndemity', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Board Members Fees', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion Staff Payroll
+#RegionStart Staff Exc. Payroll
+
+[ '- staff (exc. Payroll)', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'Children, Wedding & Military Service Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Employee Equipment Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Food Expenses for Personnel', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Medical Aids for Personnel', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Other Social Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Termination & Notification Payment', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Training Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  - DB('Genel Giderler', 'Transportation for Personnel', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion Staff Exc. Payroll
+#RegionStart Term.benefit provision
+
+[ '- term. benefit provision', 'İK - Kıdem Karşılık', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kıdem Yasal'), CONTINUE);
+
+#EndRegion Term.benefit provision
+#RegionStart Bonus
+
+[ '- bonus', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Bonus', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion Bonus
+#RegionStart Rent
+
+[ '- rent', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Rental Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion Rent
+#RegionStart Repair and Maint.
+
+[ '- repairs and maintenance', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'Maintenance', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion Repair and Maint.
+#RegionStart IT Maint.
+
+[ '- IT maintenance', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'IT Maintenance (Koç Net & Etc.)', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion IT Maint.
+#RegionStart Depreciation
+[ '- retail asset depreciation', 'Genel Giderler - Cost', '1340200', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'Depreciation', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  - DB('Genel Giderler', 'Depreciation', '1340201', 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- retail asset depreciation', 'Genel Giderler - Cost', '1340300', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'Depreciation', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  - DB('Genel Giderler', 'Depreciation', '1340301', 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- retail asset depreciation', 'Genel Giderler - Cost', '2350300', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1, 
+  - DB('Genel Giderler', 'Depreciation', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  - DB('Genel Giderler', 'Depreciation', '2350301', 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- retail asset depreciation', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'Depreciation', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+#EndRegion Depreciation
+#RegionStart Cost Others
+
+[ '- credit card charges', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Credit Card Commissions', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- utilities', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Utilities', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- printing and stationery', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Printing and stationery', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- communications', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Communications', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- travel', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Travel', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- cleaning', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Cleaning', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- security', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Security', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- insurance exp.', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Insurance Exp.', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- external services', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'External Services', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') + DB('Genel Giderler', '8081000004', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') + DB('Genel Giderler', '8081000010', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') + DB('Genel Giderler', '8081000011', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') + DB('Genel Giderler', '8081000012', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- call center expenses', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+    IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', '8081000004', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') - 
+    DB('Genel Giderler', '8081000010', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') - 
+    DB('Genel Giderler', '8081000011', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') - 
+    DB('Genel Giderler', '8081000012', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- rental car expenses', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+    (DB('Genel Giderler', 'Gas - Oil', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') +
+    DB('Genel Giderler', 'Parking Etc.', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') +
+    DB('Genel Giderler', 'Other Expenses (Tax & Insurance  )', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') +
+    DB('Genel Giderler', 'Maintenance (Cars)', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') +
+    DB('Genel Giderler', '8101700003', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') +
+    DB('Genel Giderler', '8101700004', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')) * -1, CONTINUE);
+
+[ '- packaging expenses', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', '8180900001', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- advertisement, environment taxes and fees', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'Other Taxes', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- management and consultancy expenses', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Other General Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- Tax, Duty and Fees', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,  
+   (DB('Genel Giderler', 'Tax, Duty and Fees', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') -
+    DB('Genel Giderler', '8101700003', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') -
+    DB('Genel Giderler', '8101700004', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')) * -1, CONTINUE);
+
+[ '- Guarantee Expenses', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Guarantee Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- Used material from stock', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'Other Sales Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') + DB('Genel Giderler', '8180900001', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- porterage expenses', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'Porterage Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- external services (forklift)', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'External Services (Forklift)', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ '- other costs', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+   - DB('Genel Giderler', 'General Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') -
+    ([ '- porterage expenses', 'Amount' ] + [ '- external services (forklift)', 'Amount' ] + 
+     [ '- insurance exp.', 'Amount' ] + [ '- external services', 'Amount' ] + [ '- call center expenses', 'Amount' ] + [ '- rental car expenses', 'Amount' ] + 
+     [ '- packaging expenses', 'Amount' ] + [ '- advertisement, environment taxes and fees', 'Amount' ] + [ '- management and consultancy expenses', 'Amount' ] + 
+     [ '- Tax, Duty and Fees', 'Amount' ] + [ '- Guarantee Expenses', 'Amount' ] + [ '- Used material from stock', 'Amount' ]), CONTINUE);
+
+[ 'Marketing costs', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1,
+  - DB('Genel Giderler', 'Marketing', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ 'Total costs', 'Amount' ] =  N: 
+	[ 'Store costs', 'Amount' ] + [ 'Marketing costs', 'Amount' ];
+
+[ 'Operations contribution', 'Amount' ] =  N: 
+	[ 'Net margin', 'Amount' ] + [ 'Total costs', 'Amount' ];
+
+[ 'Central costs', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'Central', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('Genel Giderler', 'COST', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') 
+  + DB('Genel Giderler', 'TV & Radio Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Newspaper & Magazine Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Insert Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Other Advertisement Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Sales Transportation Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Bank Interest Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Given Exchange Rate Differences', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Over Due Interest Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Other Financial Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', 'Credit Card Commissions', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar')
+  + DB('Genel Giderler', '8140203001', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ 'Central costs', 'İK - Kıdem Karşılık', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'Central', !Masraf_Kar_Merkezleri) = 1,  
+  - DB('IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kıdem Yasal'), CONTINUE);
+
+[ 'IT costs', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= '9340001',  - DB('Genel Giderler', 'COST', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ 'IT costs', 'İK - Kıdem Karşılık', 'Amount' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= '9340001',  - DB('IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kıdem Yasal'), CONTINUE);
+
+[ 'Regional costs', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'Bölgeler', !Masraf_Kar_Merkezleri) = 1,  - DB('Genel Giderler', 'COST', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar'), CONTINUE);
+
+[ 'Regional costs', 'İK - Kıdem Karşılık', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'Bölgeler', !Masraf_Kar_Merkezleri) = 1,  - DB('IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kıdem Yasal'), CONTINUE);
+
+[ 'R&D Costs', 'Genel Giderler - Cost', '9347777', 'Amount' ] =  N: 
+	- DB('Genel Giderler', 'Depreciation', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar');
+
+[ 'R&D Costs', 'İK - Kıdem Karşılık', '9347777', 'Amount' ] =  N: 
+	- DB('IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Kıdem Yasal');
+
+[ 'Retail Operating Profit - Before Pre-openning', 'Amount' ] =  N: 
+	[ 'Operations contribution', 'Amount' ] + [ 'Central costs', 'Amount' ] + [ 'IT costs', 'Amount' ] + [ 'Regional costs', 'Amount' ] + [ 'R&D Costs', 'Amount' ];
+
+[ 'Net pre-opening costs', 'Genel Giderler - Cost', 'Amount' ] =  N:
+      DB('Genel Giderler', 'COST', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Açılış Öncesi Tutar');
+
+[ 'RETAIL OPERATING PROFIT', 'Amount' ] =  N: 
+	[ 'Retail Operating Profit - Before Pre-openning', 'Amount' ] + [ 'Net pre-opening costs', 'Amount' ] + [ 'Licence fees', 'Amount' ];
+
+[ 'Rent received external', 'Kira', '1340200', 'Amount' ] =  N: 
+	DB('Kira', '1340201', !Version, !Period, 'Final Toplam Kira Geliri') - (DB('Genel Giderler', 'COST', '1340201', 'Departman Toplam', !Version, !Period, 'Toplam Tutar') - DB('Genel Giderler', 'Depreciation', '1340201', 'Departman Toplam', !Version, !Period, 'Toplam Tutar'));
+
+[ 'Rent received external', 'Kira', '1340300', 'Amount' ] =  N: 
+	DB('Kira', '1340301', !Version, !Period, 'Final Toplam Kira Geliri') - (DB('Genel Giderler', 'COST', '1340301', 'Departman Toplam', !Version, !Period, 'Toplam Tutar') - DB('Genel Giderler', 'Depreciation', '1340301', 'Departman Toplam', !Version, !Period, 'Toplam Tutar'));
+
+[ 'Rent received external', 'Kira', '2350300', 'Amount' ] =  N: 
+	DB('Kira', '2350301', !Version, !Period, 'Final Toplam Kira Geliri') - (DB('Genel Giderler', 'COST', '2350301', 'Departman Toplam', !Version, !Period, 'Toplam Tutar') - DB('Genel Giderler', 'Depreciation', '2350301', 'Departman Toplam', !Version, !Period, 'Toplam Tutar'));
+
+[ 'Rent received external', 'Kira', 'Amount' ] =  N: 
+	IF(ELISANC('Masraf_Kar_Merkezleri', 'All Stores + B2B + MP + U', !Masraf_Kar_Merkezleri) = 1 %
+    ELISANC('Masraf_Kar_Merkezleri', 'Depo', !Masraf_Kar_Merkezleri) = 1 %
+    ELISANC('Masraf_Kar_Merkezleri', 'Head Office', !Masraf_Kar_Merkezleri) = 1, 
+    DB('Kira', !Masraf_Kar_Merkezleri, !Version, !Period, 'Final Toplam Kira Geliri'), CONTINUE);
+
+[ 'Other operations income', 'Diğer Girişler', 'Amount' ] =  N: 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6490209098') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6490209099') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6490309099') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6890126401') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6790300001') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6490000001');
+
+[ 'TOTAL OPERATING PROFIT', 'Amount' ] =  N: 
+	[ 'RETAIL OPERATING PROFIT', 'Amount' ] + [ 'Rent received external', 'Amount' ] + [ 'Other operations income', 'Amount' ];
+
+[ 'External interest received', 'Diğer Girişler', 'Amount' ] =  N: 
+	DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Faiz Geliri TL (6420202001)') + DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Faiz Geliri EUR (6420201002)') + DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, 'Faiz Geliri USD (6420201001)');
+
+[ 'Short&Long term interest paid', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	- DB('Genel Giderler', 'Bank Interest Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar');
+
+[ 'Given Exchange Rate Difference', 'Diğer Girişler', 'Amount' ] =  N: 
+  - (DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6460100003') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6560100004') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6460100006') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6560100006') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6460100002') + 
+  DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6560100002'));
+
+[ 'Other Financial Expense', 'Diğer Girişler', 'Amount' ] =  N: 
+	DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6490100024') + DB('Diğer Girişler', !Masraf_Kar_Merkezleri, !Version, !Period, '6490100025');
+
+[ 'Other Financial Expense', 'Genel Giderler - Cost', 'Amount' ] =  N: 
+	- DB('Genel Giderler', 'Other Financial Expenses', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar') +  - DB('Genel Giderler', '8160900001', !Masraf_Kar_Merkezleri, 'Departman Toplam', !Version, !Period, 'Toplam Tutar');
+
+[ 'Net interest', 'Amount' ] =  N: 
+	[ 'External interest received', 'Amount' ] + [ 'Short&Long term interest paid', 'Amount' ] + [ 'Given Exchange Rate Difference', 'Amount' ] + [ 'Interest element of finance leases', 'Amount' ] + [ 'Other Financial Expense', 'Amount' ];
+
+[ 'PROFIT BEFORE TAXATION', 'Amount' ] =  N: 
+	[ 'TOTAL OPERATING PROFIT', 'Amount' ] + [ 'Net interest', 'Amount' ];
+
+[ 'Tax', 'Vergi', 'Amount' ] =  N: 
+	IF(!Masraf_Kar_Merkezleri @= '9349999',  - DB('Vergi', !Version, !Period, 'Monthly PL Charge'), CONTINUE);
+
+[ 'PROFIT AFTER TAXATION', 'Amount' ] =  N: 
+	[ 'PROFIT BEFORE TAXATION', 'Amount' ] + [ 'Tax', 'Amount' ];
+
+[ 'EBITDA', 'Amount' ] =  N: 
+	[ 'Operations contribution', 'Amount' ] - [ '- retail asset depreciation', 'Amount' ] - [ '- credit card charges', 'Amount' ];
+
+#EndRegion Cost Others
+
+FEEDERS;
+
+[ 'Aktif', { 'Store costs', 'Marketing costs' }, 'Amount' ] => [ 'Total costs' ];
+
+[ 'Aktif', { 'Net margin', 'Total costs' }, 'Amount' ] => [ 'Operations contribution' ];
+
+[ 'Aktif', { 'Operations contribution', 'Central costs', 'IT costs', 'Regional costs', 'R&D Costs' }, 'Amount' ] => [ 'Retail Operating Profit - Before Pre-openning' ];
+
+[ 'Aktif', { 'Retail Operating Profit - Before Pre-openning', 'Net pre-opening costs', 'Licence fees' }, 'Amount' ] => [ 'RETAIL OPERATING PROFIT' ];
+
+[ 'Aktif', { 'RETAIL OPERATING PROFIT', 'Rent received external', 'Other operations income' }, 'Amount' ] => [ 'TOTAL OPERATING PROFIT' ];
+
+[ 'Aktif', { 'External interest received', 'Short&Long term interest paid', 'Given Exchange Rate Difference', 'Interest element of finance leases', 'Other Financial Expense' }, 'Amount' ] => [ 'Net interest' ];
+
+[ 'Aktif', { 'TOTAL OPERATING PROFIT', 'Net interest' }, 'Amount' ] => [ 'PROFIT BEFORE TAXATION' ];
+
+[ 'Aktif', { 'PROFIT BEFORE TAXATION', 'Tax' }, 'Amount' ] => [ 'PROFIT AFTER TAXATION' ];
+
+[ 'Aktif', { 'Operations contribution', '- retail asset depreciation', '- credit card charges' }, 'Amount' ] => [ 'EBITDA' ];
+
+#Vergi Feedarları
+[ 'Aktif', 'PROFIT BEFORE TAXATION', 'Total Source', 'All Cost Centers', 'Amount' ] => DB('Vergi', !Version, !Period, 'PL Profit');
+[ 'Aktif', 'NET SALES', 'Total Source', 'Koçtaş Total', 'Amount' ] => DB( 'KDV', !Version, !Period, 'Sales' );
+[ 'Aktif', 'NET SALES', 'Total Source', '1345002', 'Amount' ] => DB( 'KDV', !Version, !Period, 'Iraq sales' );
+  
+#Mali Tablo Feederları
+#[ 'Aktif', 'Tax', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '193', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', 'Tax', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '370', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', {'Net Sales', 'Buying margin', 'Product discounts given', 'Supplier rebates' , 'Shrinkage', '3P delivery cost (kdv dahil)', 'Stock transfer cost'}, 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '621', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', 'R&D Costs', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '630', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', 'External interest received', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '642', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', 'Interest element of finance leases', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '642', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', 'Net pre-opening costs', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '659', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', {'- credit card charges', 'Short&Long term interest paid', 'Other Financial Expense'}, 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '660', 'PL', !Version, !Period, 'Movement' );
+[ 'Aktif', 'Tax', 'Total Source', 'All Cost Centers', 'Amount' ] => DB( 'Mali Tablo', '691', 'PL', !Version, !Period, 'Movement' );
+
+#Mağaza Performans Raporu Feederları
+[ 'Aktif', '- rent', 'Total Source', 'Amount' ] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, 'Fiili', !Period, 'rent bütçe' );
+[ 'Aktif', '- rent', 'Total Source', 'Amount' ] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, 'Fiili', !Period, 'rent Forecast' );
+[ 'Aktif', {'- staff (Payroll)', '- staff (exc. Payroll)', '- term. benefit provision', '- bonus'}, 'Total Source', 'Amount' ] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, 'Fiili', !Period, 'total staff bütçe' );
+[ 'Aktif', {'- staff (Payroll)', '- staff (exc. Payroll)', '- term. benefit provision', '- bonus'}, 'Total Source', 'Amount' ] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, 'Fiili', !Period, 'total staff Forecast' );
+[ 'Aktif', {'Operations contribution', '- retail asset depreciation', '- credit card charges'}, 'Total Source', 'Amount' ] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, 'Fiili', !Period, 'EBITDA BÜTÇE' );
+[ 'Aktif', {'Operations contribution', '- retail asset depreciation', '- credit card charges'}, 'Total Source', 'Amount' ] => DB( 'Mağaza Performans Raporu', !Masraf_Kar_Merkezleri, 'Fiili', !Period, 'EBITDA Forecast' );
+
+#Report Net Satışlar Raporu Feederarı
+[ 'Aktif', 'NET SALES', 'Total Source', 'Amount'] => DB( 'Report Net Satışlar', !Masraf_Kar_Merkezleri, 'Toplam LFL', !Version, !Period, 'Net Sales SPK' );
+
+#SPK Giriş Plan Feederları
+[ 'Aktif', 'NET SALES', 'B2B', 'Total Source', 'Amount'] => DB( 'SPK Giriş Plan', 'Monthly B2B Sales', !Version, !Period, 'Amount' );
+[ 'Aktif', 'NET SALES', 'Koçtaş Total', 'Total Source', 'Amount'] => DB( 'SPK Giriş Plan', 'Monthly Sales (exc. B2B)', !Version, !Period, 'Amount' );
+[ 'Aktif', 'NET SALES', 'Koçtaş Total', 'Total Source', 'Amount'] => DB( 'SPK Giriş Plan', 'COGS - cumulative', !Version, !Period, 'Amount' );
+[ 'Aktif', 'NET SALES', 'Koçtaş Total', 'Total Source', 'Amount'] => DB( 'SPK Giriş Plan', 'COGS - month', !Version, !Period, 'Amount' );
+[ 'Aktif', 'Supplier rebates', 'Koçtaş Total', 'Total Source', 'Amount'] => DB( 'SPK Giriş Plan', 'Monthly Rebate', !Version, !Period, 'Amount' );
+[ 'Aktif', 'Supplier rebates', 'Koçtaş Total', 'Total Source', 'Amount'] => DB( 'SPK Giriş Plan', 'Rebate - Cumulative', !Version, !Period, 'Amount' );
+
+#MM_V_P 3P Fiilisi Feederları
+#[ 'Aktif', 'MP GMV (3P)', 'Total Source', 'Amount'] => DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'MP GMV (3P) Y.Gross Ciro' );
+#[ 'Aktif', '3P commission income (kdv dahil)', 'Total Source', 'Amount'] => DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, '3P commission income amount (Incl. VAT)' );
+[ 'Aktif', '3P other marketing income (kdv dahil)', 'Total Source', 'Amount'] => DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, '3P other marketing income amount (Incl. VAT)' );
+[ 'Aktif', '3P delivery cost (kdv dahil)', 'Total Source', 'Amount'] => DB( 'MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, '3P delivery cost (kdv dahil)' );

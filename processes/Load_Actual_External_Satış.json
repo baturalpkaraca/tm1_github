@@ -1,0 +1,77 @@
+{
+	"@type":"Process",
+	"Name":"Load_Actual_External_Satış",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Load_Actual_External_Satış.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Final External Satis",
+		"dataSourceNameForServer":"Final External Satis",
+		"view":"View1"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Versiyon seçiniz.",
+			"Value":"Forecast 3+9 2025",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"Kategori",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Masraf_Kar_Merkezleri",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Day",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Version",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Final_External_Satis_Meas",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

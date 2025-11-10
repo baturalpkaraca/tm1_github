@@ -1,0 +1,75 @@
+SKIPCHECK;
+
+[] = IF(ELPAR('Version', !Version, 1) @= 'Aktif', CONTINUE, STET);
+
+[{'Stajyer Merkez', 'Stajyer Mağaza'},'Tutar'] = N: IF(!İK_Bordro_Kalemleri @<> 'Brüt Ücret', 0, CONTINUE);
+
+['Ayni Yardım', 'Tutar'] = N: DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, 'Ayni Yardım'  ) * 1.2;
+
+['Tutar'] = N: IF( ELPAR('İK_Bordro_Kalemleri', !İK_Bordro_Kalemleri, 1) @= 'Toplam Maliyet',
+	         DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, !İK_Bordro_Kalemleri), CONTINUE);
+
+['Çalışan Sayısı', 'Tutar'] = N: DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, 'Çalışan Sayısı'  );
+
+#IK - Bordro EFT Kuralları
+[ 'Çalışan Sayısı', 'Full Time', 'Tutar EFT' ] = N: DB( 'IK - Genel Giriş', !Masraf_Kar_Merkezleri, !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, 'EFT Sayısı'  ) - ['Çalışan Sayısı', 'Tutar'];
+
+[ '9347777', 'Tutar EFT' ] = N: IF( !İK_Bordro_Kalemleri @<> 'Çalışan Sayısı', 
+    DB( 'IK - Bordro Arge', !İK_Bordro_Kalemleri, 'Toplam', !Unvanlar, !Çalışan_Alt_Grupları, !Version, !Period, 'Tutar'  ) - ['9347777', 'Tutar'], CONTINUE );
+
+[ 'Yönetici', 'Devreden Matrah', 'Full Time', 'Tutar' ] =  N: 
+	IF(Attrs('Masraf_Kar_Merkezleri', !Masraf_Kar_Merkezleri, 'İK Sınıf') @<> 'All Stores', DB( 'IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Devreden Matrah'  ), 0);
+
+[ 'Mağaza Müdürü', 'Devreden Matrah', 'Full Time', 'Tutar' ] =  N: 
+	IF(Attrs('Masraf_Kar_Merkezleri', !Masraf_Kar_Merkezleri, 'İK Sınıf') @= 'All Stores', DB( 'IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Devreden Matrah'  ), 0);
+
+[ 'Devreden Matrah', 'Tutar' ] =  N: 0;
+
+[ 'Toplam Birim Maliyet', 'Tutar' ] =  N: ([ 'Toplam Maliyet' ] - [ 'Kaza Tazminatı' ] - [ 'Çocuk Yardımı' ]) \ [ 'Çalışan Sayısı' ];
+
+[ 'SGK Matrah', 'Tutar' ] =  N: Min(DB( 'IK_V_P', !Version, !Period, 'SGK Tavan'  ), [ 'Toplam Birim Maliyet' ] + [ 'Devreden Matrah' ] - ([ 'Ayni Yardım' ] / [ 'Çalışan Sayısı' ])) * [ 'Çalışan Sayısı' ];
+
+[ 'SGK Matrah * SGK İşveren %', 'Tutar' ] =  N: [ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'SGK İşveren %'  );
+
+[ 'SGK Matrah * Teşvik 1 %', 'Tutar' ] =  N: 
+	IF(!Unvanlar @= 'Müşteri Danışmanı' & !Çalışan_Alt_Grupları @= 'Full Time', [ 'SGK Matrah' ] * 
+    DB( 'IK_V_P', !Version, !Period, 'Teşvik 1 %') * DB( 'IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Teşvik 1 Kişi Sayısı') \ [ 'Çalışan Sayısı', 'Tutar' ], 0);
+
+# [ 'Asgari Ücret * Teşvik 2 %', 'Tutar' ] =  N: 
+# 	IF([ 'SGK Matrah', 'Tutar' ] > 0, DB( 'IK_V_P', !Version, !Period, 'Asgari Ücret') * 
+#     DB( 'IK_V_P', !Version, !Period, 'Teşvik 2 %') * [ 'Çalışan Sayısı', 'Tutar' ], 0);
+
+[ 'SGK Matrah * Teşvik 3 %', 'Tutar' ] =  N: [ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'Teşvik 3 %');
+
+[ 'SGK Matrah * Teşvik 4 %', 'Tutar' ] =  N: 
+	IF(!Unvanlar@= 'Müşteri Danışmanı' & !Çalışan_Alt_Grupları @= 'Full Time', [ 'SGK Matrah' ] * 
+    DB( 'IK_V_P', !Version, !Period, 'Teşvik 4 %') * DB( 'IK_MM_V_P', !Masraf_Kar_Merkezleri, !Version, !Period, 'Teşvik 4 Kişi Sayısı') \ [ 'Çalışan Sayısı', 'Tutar' ], 0);
+
+[ 'İşsizlik İşveren', 'Tutar' ] =  N: [ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'İşsizlik İşveren %');
+
+[ 'SGK İşçi', 'Tutar' ] =  N: [ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'SGK İşçi %');
+
+[ 'İşsizlik İşçi', 'Tutar' ] =  N: [ 'SGK Matrah' ] * DB( 'IK_V_P', !Version, !Period, 'İşsizlik İşçi %');
+
+[ 'Vakıf Aidatı Kesintisi', 'Tutar' ] =  N: IF(!Çalışan_Alt_Grupları @<> 'Sezonluk' & !Çalışan_Alt_Grupları @<> 'Part Time', Min(([ 'Brüt Ücret' ] \ [ 'Çalışan Sayısı' ]), 
+    DB( 'IK_V_P', !Version, !Period, 'Vakıf Tavan')) * [ 'Çalışan Sayısı' ] * 
+    DB( 'IK_V_P', !Version, !Period, 'Vakıf Aidatı Kesinti %'), 0);
+
+#Birim tutar hesaplaması.
+[ 'Birim Tutar' ] = N: IF(!İK_Bordro_Kalemleri @<> 'Toplam Birim Maliyet', [ 'Tutar' ] \ [ 'Çalışan Sayısı', 'Tutar' ], 0);
+
+FEEDERS;
+
+['Aktif', 'Çalışan Sayısı', 'Tutar' ] => [ 'Toplam Birim Maliyet', 'Tutar' ];
+
+['Aktif', 'SGK Matrah', 'Tutar' ] => ['SGK İşveren'], [ 'İşsizlik İşveren'], ['SGK İşçi'], ['İşsizlik İşçi'], ['SGK Matrah * Teşvik 3 %'], ['SGK Matrah * SGK İşveren %'];
+
+['Aktif', 'SGK Matrah', ' Toplam Müşteri Danışmanı', 'Full Time', 'Tutar' ] => [ 'SGK Matrah * Teşvik 1 %', 'Toplam Müşteri Danışmanı', 'Full Time', 'Tutar' ];
+
+['Aktif', 'SGK Matrah', 'Toplam Müşteri Danışmanı', 'Full Time', 'Tutar' ] => [ 'SGK Matrah * Teşvik 4 %', 'Toplam Müşteri Danışmanı', 'Full Time', 'Tutar' ];
+
+['Aktif', 'Brüt Ücret', 'Tutar' ] => [ 'Vakıf Aidatı Kesintisi', 'Tutar' ];
+
+['Aktif', 'Çalışan Sayısı', 'Tutar' ] => [ 'Birim Tutar' ], ['Tutar EFT'];
+
+['Aktif', '9347777', 'Tutar' ] => ['Tutar EFT'];

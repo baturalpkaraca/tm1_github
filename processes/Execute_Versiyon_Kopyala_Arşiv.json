@@ -1,0 +1,21 @@
+{
+	"@type":"Process",
+	"Name":"Execute_Versiyon_Kopyala_Arşiv",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Execute_Versiyon_Kopyala_Arşiv.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"p_Version",
+			"Prompt":"Arşivlemek istediğiniz versiyonu giriniz: Örn: Forecast 5+7 2024",
+			"Value":"Forecast 5+7 2024",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

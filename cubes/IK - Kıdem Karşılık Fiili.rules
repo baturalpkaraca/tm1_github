@@ -1,0 +1,5 @@
+SKIPCHECK;
+
+['Fiili', 'Amount'] = N: DB( 'Fiili', '6540300001', !Masraf_Kar_Merkezleri, !Version_Actual, !Period, 'Karşlılık Sonrası - Aylık' );
+
+FEEDERS;

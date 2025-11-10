@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Indirim",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('İndirimler')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('İndirim_Meas')"
+		}
+	],
+	"Rules@Code.link":"Indirim.rules",
+	"Views@Code.links":[]
+}
