@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"PL_M",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

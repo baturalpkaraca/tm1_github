@@ -1,0 +1,81 @@
+#region Prolog
+sScenario ='Live';
+sProcess  = GetProcessName();
+sTimeStamp = TIMST(NOW,'\y\m\d\h\i\s');
+v_CubeName = 'Expense_Entry';
+
+v_ViewName = '}Process_' | sProcess | '_' | sTimeStamp ;
+
+v_Dim1Name = 'Scenario';
+v_Dim2Name = 'Version';
+v_Dim3Name = 'Entity'; 
+v_Dim4Name = 'Years';
+v_Dim5Name = 'Cost_Center';
+v_Dim6Name = 'Expense_Accounts';
+v_Dim7Name = 'Items';
+v_Dim8Name = 'Expense_Entry_M';
+
+v_Subs1Name = v_Dim1Name | '_' |v_ViewName;
+v_Subs2Name = v_Dim2Name | '_' |v_ViewName;
+v_Subs3Name = v_Dim3Name | '_' |v_ViewName;
+v_Subs4Name = v_Dim4Name | '_' |v_ViewName;
+v_Subs5Name = v_Dim5Name | '_' |v_ViewName;
+v_Subs6Name = v_Dim6Name | '_' |v_ViewName;
+v_Subs7Name = v_Dim7Name | '_' |v_ViewName;
+v_Subs8Name = v_Dim8Name | '_' |v_ViewName;
+
+VIEWCREATE(v_CubeName, v_ViewName, 1);
+
+SUBSETCREATEBYMDX (v_Subs1Name, '{[Scenario].['   | sScenario | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs2Name, '{[Version].['   | pVersion   | ']}', 1); 
+SUBSETCREATEBYMDX (v_Subs3Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Entity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs4Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Years] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs5Name, 'TM1FILTERBYLEVEL(DRILLDOWNMEMBER({[Cost_Center].[Cost_Center].[Sales & Marketing]} , {[Cost_Center].[Cost_Center].[Sales & Marketing]} , RECURSIVE) , 0)', 1);
+SUBSETCREATEBYMDX (v_Subs6Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Expense_Accounts] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs7Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Items] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs8Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Expense_Entry_M] )}, 0)}', 1);
+
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim6Name, v_Subs6Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim7Name, v_Subs7Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim8Name, v_Subs8Name);
+
+VIEWZEROOUT(v_CubeName, v_ViewName);
+
+SetInputCharacterSet( 'TM1CS_ISO_8859_9' );
+
+sFile = 'model_upload\' | pFile;
+
+#DataSource#
+DataSourceType = 'CHARACTERDELIMITED';
+DatasourceASCIIDelimiter=',';
+DatasourceNameForServer = sFile;
+DatasourceNameForClient = sFile;
+DatasourceASCIIHeaderRecords=1;
+DatasourceASCIIThousandSeparator='.';
+DatasourceASCIIDecimalSeparator=',';
+
+#endregion
+#region Data
+
+CellPutN( vPrice,             'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Price' );
+CellPutS( vDesciption,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Description' );
+CellPutS( vCurrency,        'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Currency' );
+
+CellPutN( v01,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Jan' );
+CellPutN( v02,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Feb' );
+CellPutN( v03,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Mar' );
+CellPutN( v04,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Apr' );
+CellPutN( v05,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'May' );
+CellPutN( v06,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Jun' );
+CellPutN( v07,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Jul' );
+CellPutN( v08,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Aug' );
+CellPutN( v09,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Sep' );
+CellPutN( v10,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Oct' );
+CellPutN( v11,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Nov' );
+CellPutN( v12,     'Expense_Entry', sScenario, pVersion, vEntity, vYears, vCost_Center, vExpense_Accounts,vItems, 'Dec' );
+#endregion

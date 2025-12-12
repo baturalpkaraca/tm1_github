@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"Expense_Entry_Data_Transfer",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Expense_Entry_Data_Transfer.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

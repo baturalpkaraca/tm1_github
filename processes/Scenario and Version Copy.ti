@@ -1,0 +1,58 @@
+#region Prolog
+pCube              = '';			
+pView              = '';			
+pFilter            = '';			
+
+pDimensionDelim    = '&';			
+pElementStartDelim = ':';			
+pElementDelim      = '+';			
+pMappingDelimiter  = '->';			
+pSuppressRules     = 0;			
+pZeroTarget        = 1;			
+pZeroSource        = 0;			
+
+pElementMapping    = 'Scenario' | pElementStartDelim | pSourceScenario | pMappingDelimiter | pTargetScenario | pDimensionDelim | 			
+                     'Version'  | pElementStartDelim | pSourceVersion  | pMappingDelimiter | pTargetVersion;			
+
+nCubes = 1;			
+nCubesLast = DIMSIZ('}Cubes');			
+
+WHILE (nCubes <= nCubesLast);			
+    sCubesName = DIMNM('}Cubes', nCubes);			
+    nIsCopy = 0;			
+
+    IF (SUBST(sCubesName, 1, 1) @<>'}' );			
+        nIndex = 1;			
+        nIndexLast = CubeDimensionCountGet( sCubesName );			
+
+        WHILE( nIndex <= nIndexLast);			
+            sDimensionName = TABDIM( sCubesName, nIndex );			
+
+            IF ( LONG(sDimensionName)<9 			
+                &(SUBST(sDimensionName, 1, 8) @= 'Scenario'  % SUBST(sDimensionName, 1, 7) @= 'Version') 			
+               );			
+                nIsCopy = nIsCopy+1;			
+            ENDIF;			
+
+            nIndex = nIndex + 1;			
+        END;	
+
+        IF( nIsCopy = 2 );
+            ExecuteProcess( 'Bedrock.Cube.Data.Copy.IntraCube',
+                           'pCube',            sCubesName,
+                           'pView',              pView,	
+                           'pFilter',            pFilter,
+                           'pElementMapping',    pElementMapping,
+                           'pDimensionDelim',    pDimensionDelim,
+                           'pElementStartDelim', pElementStartDelim,	
+                           'pElementDelim',      pElementDelim,	
+                           'pMappingDelimiter',  pMappingDelimiter,		 
+                           'pSuppressRules',     pSuppressRules	
+                          );			
+        ENDIF;	
+    ENDIF;
+    nCubes = nCubes + 1;
+END;
+
+
+#endregion

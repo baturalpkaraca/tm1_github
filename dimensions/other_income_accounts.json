@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"other_income_accounts",
+	"Hierarchies@Code.links":
+	[
+		"other_income_accounts.hierarchies/other_income_accounts.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('other_income_accounts')/Hierarchies('other_income_accounts')"
+	}
+}

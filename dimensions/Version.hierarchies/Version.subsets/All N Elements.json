@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All N Elements",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0)}"
+}

@@ -1,0 +1,53 @@
+{
+	"@type":"Hierarchy",
+	"Name":"FTP_Weighted_Average_M",
+	"Elements":
+	[
+		{
+			"Name":"Total FTP Weithed Average",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Notional",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Curves",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CurveAlt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CurveUst",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GunlukCurve",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sum1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sum2",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total FTP Weithed Average",
+			"ComponentName":"Notional",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total FTP Weithed Average",
+			"ComponentName":"Curves",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

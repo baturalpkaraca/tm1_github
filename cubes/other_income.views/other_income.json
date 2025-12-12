@@ -1,0 +1,49 @@
+{
+	"@type":"MDXView",
+	"Name":"other_income",
+	"MDX@Code.link":"other_income.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Segment].[Segment]" : 
+			{
+				"Expression" : "{[Segment].[Segment].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[other_income_m].[other_income_m]" : 
+			{
+				"Expression" : "{[other_income_m].[other_income_m].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Currency].[Currency]" : false,
+			"[Entity].[Entity]" : false,
+			"[Period].[Year]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Segment].[Segment]" : false,
+			"[Version].[Version]" : false,
+			"[other_income_accounts].[other_income_accounts]" : false,
+			"[other_income_m].[other_income_m]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

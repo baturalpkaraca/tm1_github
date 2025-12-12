@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Expense_M",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FTE",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

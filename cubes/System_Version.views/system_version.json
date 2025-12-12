@@ -1,0 +1,34 @@
+{
+	"@type":"MDXView",
+	"Name":"system_version",
+	"MDX@Code.link":"system_version.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Entity].[Entity]" : false,
+			"[Period].[Year]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[System_Version_M].[System_Version_M]" : false,
+			"[Version].[Version]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

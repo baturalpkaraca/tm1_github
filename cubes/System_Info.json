@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"System_Info",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('System_Info')"
+		},
+		{
+			"@id":"Dimensions('System_Info_M')"
+		}
+	],
+	"Views@Code.links":[]
+}

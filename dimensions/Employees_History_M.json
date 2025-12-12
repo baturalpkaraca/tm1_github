@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Employees_History_M",
+	"Hierarchies@Code.links":
+	[
+		"Employees_History_M.hierarchies/Employees_History_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Employees_History_M')/Hierarchies('Employees_History_M')"
+	}
+}

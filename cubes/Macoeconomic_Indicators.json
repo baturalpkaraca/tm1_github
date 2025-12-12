@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Macoeconomic_Indicators",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Macroeconomic_Indicators_M')"
+		}
+	],
+	"Rules@Code.link":"Macoeconomic_Indicators.rules",
+	"Views@Code.links":
+	[
+		"Macoeconomic_Indicators.views/macroeconomic_indicators.json"
+	]
+}

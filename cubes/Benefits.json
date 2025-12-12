@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Benefits",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Benefits_M')"
+		}
+	],
+	"Views@Code.links":[]
+}

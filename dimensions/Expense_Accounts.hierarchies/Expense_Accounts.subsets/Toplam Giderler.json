@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Toplam Giderler",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{[Expense_Accounts].[Expense_Accounts].[Toplam Giderler].CHILDREN}"
+}

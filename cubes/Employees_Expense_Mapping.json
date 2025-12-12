@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Employees_Expense_Mapping",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Employees')"
+		},
+		{
+			"@id":"Dimensions('Expense_Accounts')"
+		},
+		{
+			"@id":"Dimensions('Employees_Expense_Mapping_M')"
+		}
+	],
+	"Rules@Code.link":"Employees_Expense_Mapping.rules",
+	"Views@Code.links":[]
+}

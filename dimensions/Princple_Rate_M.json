@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Princple_Rate_M",
+	"Hierarchies@Code.links":
+	[
+		"Princple_Rate_M.hierarchies/Princple_Rate_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Princple_Rate_M')/Hierarchies('Princple_Rate_M')"
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"System_Info",
+	"Elements":
+	[
+		{
+			"Name":"Budget Periods Start",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Periods End",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,35 @@
+SKIPCHECK;
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'Personel Giderleri']=N:
+        DB( 'Expense_All', !Scenario, !Version, !Entity, !Period, 'Cost_Center_All':'Total Cost Center', 'Expense_Accounts':'Personel Giderleri', !Currency, !Currency_Reporting, 'Amount' );
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'Kira ve Yan Giderler']=N:
+        DB( 'Expense_All', !Scenario, !Version, !Entity, !Period, 'Cost_Center_All':'Total Cost Center', 'Expense_Accounts':'Kira ve Aidat', !Currency, !Currency_Reporting, 'Amount' );
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'Amortisman & İtfa Giderleri']=N:
+        DB('Depreciation', !Scenario, !Version, !Entity, !Period, 'Cost_Center':'Total Cost Center', 'Items':'Total_Items', 'Amount' );
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'Pazarlama']=N:
+        DB( 'Expense_All', !Scenario, !Version, !Entity, !Period, 'Cost_Center_All':'Total Cost Center', 'Expense_Accounts':'Ajans / Reklam Giderleri', !Currency, !Currency_Reporting, 'Amount' );
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'IT ve Donanım']=N:
+        DB( 'Expense_All', !Scenario, !Version, !Entity, !Period, 'Cost_Center_All':'Total Cost Center', 'Expense_Accounts':'Yazılım ve Lisanslar', !Currency, !Currency_Reporting, 'Amount' );
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'Diğer']=N:
+        DB( 'Expense_All', !Scenario, !Version, !Entity, !Period, 'Cost_Center_All':'Total Cost Center', 'Expense_Accounts':'Toplam Giderler', !Currency, !Currency_Reporting, 'Amount' )
+     -['PL Accounts':'PL Accounts':'Personel Giderleri']
+     -['PL Accounts':'PL Accounts':'Kira ve Yan Giderler']
+     -['PL Accounts':'PL Accounts':'Enerji ve Su']
+     -['PL Accounts':'PL Accounts':'IT ve Donanım']
+     -['PL Accounts':'PL Accounts':'Pazarlama'];
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'FTE']=N:
+      DB( 'Expense_All', !Scenario, !Version, !Entity, !Period, 'Cost_Center_All':'Total Cost Center', 'Expense_Accounts':'FTE', !Currency, !Currency_Reporting, 'Amount' );
+
+FEEDERS;
+
+[Scenario:'Scenario':'Live','PL Accounts':'PL Accounts':'Amortisman & İtfa Giderleri']=>
+       ['PL Accounts':'PL Accounts':'Faaliyet Giderleri'];
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'ORJ']=>
+        [Currency_Reporting:'Currency_Reporting':'Total Currency'];

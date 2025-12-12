@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"Principle_Rate",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Items')"
+		},
+		{
+			"@id":"Dimensions('Princple_Rate_M')"
+		}
+	],
+	"Views@Code.links":[]
+}

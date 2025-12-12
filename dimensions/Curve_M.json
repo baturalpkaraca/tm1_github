@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Curve_M",
+	"Hierarchies@Code.links":
+	[
+		"Curve_M.hierarchies/Curve_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Curve_M')/Hierarchies('Curve_M')"
+	}
+}

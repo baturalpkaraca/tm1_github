@@ -1,0 +1,49 @@
+{
+	"@type":"MDXView",
+	"Name":"PL",
+	"MDX@Code.link":"PL.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Currency_Reporting].[Currency_Reporting]" : 
+			{
+				"Expression" : "{[Currency_Reporting].[Currency_Reporting].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[PL_M].[PL_M]" : 
+			{
+				"Expression" : "{[PL_M].[PL_M].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Currency].[Currency]" : false,
+			"[Currency_Reporting].[Currency_Reporting]" : false,
+			"[Entity].[Entity]" : false,
+			"[PL_Accounts].[PL_Accounts]" : false,
+			"[PL_M].[PL_M]" : false,
+			"[Period].[Year]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Version].[Version]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

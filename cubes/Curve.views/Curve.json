@@ -1,0 +1,40 @@
+{
+	"@type":"MDXView",
+	"Name":"Curve",
+	"MDX@Code.link":"Curve.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Currency].[Currency]" : false,
+			"[Curve_M].[Curve_M]" : false,
+			"[Entity].[Entity]" : false,
+			"[Maturity].[Maturity]" : false,
+			"[Period].[Period]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Version].[Version]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

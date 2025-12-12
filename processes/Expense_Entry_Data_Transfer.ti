@@ -1,0 +1,42 @@
+#region Data
+# vExpense_Entry_M: currency gibi kullanılacak
+# vYears = Period ile eşleniyor
+
+vPeriod = vYears;
+sCurrency = vExpense_Entry_M;
+
+# Değeri oku
+vValue = Value;
+
+# Eski değeri oku (aggregation yapıyorsak)
+vOld = CellGetN(
+  'Expense',
+  vScenario,
+  vVersion,
+  vEntity,
+  vPeriod,
+  vCost_Center,
+  vExpense_Accounts,
+  sCurrency,
+  sCurrencyRep,
+  vExpense_Entry_M
+);
+
+# Yeni değeri yaz (üzerine ekle)
+CellPutN(
+  vOld + vValue,
+  'Expense',
+  vScenario,
+  vVersion,
+  vEntity,
+  vPeriod,
+  vCost_Center,
+  vExpense_Accounts,
+  sCurrency,
+  sCurrencyRep,
+  vExpense_Entry_M
+);
+#endregion
+#region Epilog
+AsciiOutput('log_Copy_Expense.txt', 'Expense_Entry to Expense aktarımı tamamlandı.');
+#endregion

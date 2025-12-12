@@ -1,0 +1,50 @@
+{
+	"@type":"MDXView",
+	"Name":"Expense All Reporting",
+	"MDX@Code.link":"Expense All Reporting.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Currency_Reporting].[Currency_Reporting]" : 
+			{
+				"Expression" : "{[Currency_Reporting].[Currency_Reporting].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Period].[Period]" : 
+			{
+				"Expression" : "{[Period].[Period].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Cost_Center_All].[Cost_Center_All]" : false,
+			"[Currency].[Currency]" : false,
+			"[Currency_Reporting].[Currency_Reporting]" : false,
+			"[Entity].[Entity]" : false,
+			"[Expense_Accounts].[Expense_Accounts]" : false,
+			"[Expense_M].[Expense_M]" : false,
+			"[Period].[Period]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Version].[Version]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

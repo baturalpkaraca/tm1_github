@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"Expense",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Expense_Accounts')/Hierarchies('Expense_Accounts')/Elements('Toplam Giderler')"
+		}
+	]
+}

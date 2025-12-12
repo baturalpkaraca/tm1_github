@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Tax_ID",
+	"Hierarchies@Code.links":
+	[
+		"Tax_ID.hierarchies/Tax_ID.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Tax_ID')/Hierarchies('Tax_ID')"
+	}
+}

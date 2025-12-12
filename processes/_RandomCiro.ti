@@ -1,0 +1,4 @@
+#region Data
+vValue = RAND() * 100000;
+CellPutN( vValue, 'Satışlar', vScenario, vVersion, vDay, vMağaza, vMeasure );
+#endregion

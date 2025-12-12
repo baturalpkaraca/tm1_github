@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Alokasyon Giderleri",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{DISTINCT(FILTER(TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER(TM1SUBSETALL([Expense_Accounts]) , ALL , RECURSIVE) , 0) , [Expense_Accounts].[Alokasyon] = 1))}"
+}

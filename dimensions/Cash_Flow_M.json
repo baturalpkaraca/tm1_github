@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Cash_Flow_M",
+	"Hierarchies@Code.links":
+	[
+		"Cash_Flow_M.hierarchies/Cash_Flow_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Cash_Flow_M')/Hierarchies('Cash_Flow_M')"
+	}
+}

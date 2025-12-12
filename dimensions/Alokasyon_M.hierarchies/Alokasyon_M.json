@@ -1,0 +1,90 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Alokasyon_M",
+	"Elements":
+	[
+		{
+			"Name":"M2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FTE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Toplam Alokasyon",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eşit",
+			"Type":"String"
+		},
+		{
+			"Name":"Toplam Tutar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"M2 (Pay)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FTE (Pay)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eşit (Pay)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oran",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Oran (Pay)",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Toplam Alokasyon",
+			"ComponentName":"M2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Alokasyon",
+			"ComponentName":"FTE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Alokasyon",
+			"ComponentName":"Oran",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"M2 (Pay)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"FTE (Pay)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"Oran (Pay)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Tutar",
+			"ComponentName":"Eşit (Pay)",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

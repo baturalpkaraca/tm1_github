@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"PieChart",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{[Expense_Accounts].CURRENTMEMBER.CHILDREN}"
+}

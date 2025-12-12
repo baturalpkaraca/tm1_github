@@ -1,0 +1,4 @@
+#region Prolog
+DimensionTopElementInsert( 'Mağazalar', '1', 'Toplam Mağazalar' );
+
+#endregion

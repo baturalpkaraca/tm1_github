@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Mal Grubu N",
-	"Alias":"MEMBER_NAME",
-	"Expression":"{EXCEPT(DISTINCT({{[Mal_Grupları].[Mal_Grupları].[Koçtaş Kategori Toplam]},DESCENDANTS([Mal_Grupları].[Mal_Grupları].[Koçtaş Kategori Toplam] , 99 , LEAVES)}) , {[Mal_Grupları].[Mal_Grupları].[Koçtaş Kategori Toplam],[Mal_Grupları].[Mal_Grupları].[Dummy Ustabilir]} , ALL)}"
-}

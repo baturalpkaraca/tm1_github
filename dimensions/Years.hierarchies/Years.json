@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Years",
+	"Elements":
+	[
+		{
+			"Name":"2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2027",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2028",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2029",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2030",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

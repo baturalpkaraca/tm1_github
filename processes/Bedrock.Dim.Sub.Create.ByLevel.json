@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"Bedrock.Dim.Sub.Create.ByLevel",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Bedrock.Dim.Sub.Create.ByLevel.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pDimension",
+			"Prompt":"Dimension Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pSort",
+			"Prompt":"Sort the Subset (1)",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pConvertStatic",
+			"Prompt":"Convert the Subset to Static (1)",
+			"Value":1,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pAlias",
+			"Prompt":"Assign an alias to the subset",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDebug",
+			"Prompt":"Debug Mode",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[]
+}

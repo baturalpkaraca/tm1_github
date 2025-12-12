@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"FTE",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Expense_Accounts')/Hierarchies('Expense_Accounts')/Elements('FTE')"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"commission_accounts",
+	"Hierarchies@Code.links":
+	[
+		"commission_accounts.hierarchies/commission_accounts.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('commission_accounts')/Hierarchies('commission_accounts')"
+	}
+}

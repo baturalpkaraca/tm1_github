@@ -4,21 +4,51 @@
 	"Elements":
 	[
 		{
+			"Name":"Total Currency",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TRY",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total  FX",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EUR",
+			"Type":"Numeric"
+		},
+		{
 			"Name":"USD",
 			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Currency",
+			"ComponentName":"TRY",
+			"Weight":1
 		},
 		{
-			"Name":"CDN",
-			"Type":"Numeric"
+			"ParentName":"Total Currency",
+			"ComponentName":"Total  FX",
+			"Weight":1
 		},
 		{
-			"Name":"GBP",
-			"Type":"Numeric"
+			"ParentName":"Total  FX",
+			"ComponentName":"USD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total  FX",
+			"ComponentName":"EUR",
+			"Weight":1
 		}
 	],
 	"Subsets@Code.links":
 	[
-		"Currency.subsets/All Members.json",
-		"Currency.subsets/Default.json"
+		"Currency.subsets/All N Elements.json"
 	]
 }

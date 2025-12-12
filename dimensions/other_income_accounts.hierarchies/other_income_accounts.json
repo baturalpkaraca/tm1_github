@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"other_income_accounts",
+	"Elements":
+	[
+		{
+			"Name":"Other Income Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Fixed Asset Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Income",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Other Income Total",
+			"ComponentName":"Fixed Asset Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Income Total",
+			"ComponentName":"Other Income",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Cost_Center_Expense_Accounts_Mapping",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Groups')"
+		},
+		{
+			"@id":"Dimensions('Cost_Center')"
+		},
+		{
+			"@id":"Dimensions('Expense_Accounts')"
+		},
+		{
+			"@id":"Dimensions('Cost_Center_Expense_Accounts_Mapping_M')"
+		}
+	],
+	"Rules@Code.link":"Cost_Center_Expense_Accounts_Mapping.rules",
+	"Views@Code.links":[]
+}

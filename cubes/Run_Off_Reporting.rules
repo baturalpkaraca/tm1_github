@@ -1,0 +1,21 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+[Scenario:'Scenario':'Live'] =N:
+    IF( !Currency_Reporting @<>'ORJ',
+          [Currency_Reporting:'Currency_Reporting':'ORJ'] * DB('Cross Currency', !Scenario, !Version, !Period, !Currency, !Currency_Reporting ),
+          CONTINUE
+        );
+
+[Currency_Reporting:'Currency_Reporting':'ORJ'] = N:
+    DB('Run_Off', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, !Production_Type, !Run_Off_M );
+
+
+
+FEEDERS;
+
+['ORJ'] =>
+   [Currency_Reporting:'Currency_Reporting':'EUR'],
+   [Currency_Reporting:'Currency_Reporting':'USD'],
+   [Currency_Reporting:'Currency_Reporting':'TRY'];

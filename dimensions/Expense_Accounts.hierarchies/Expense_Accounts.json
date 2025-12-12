@@ -1,0 +1,499 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Expense_Accounts",
+	"Elements":
+	[
+		{
+			"Name":"Ücret ve Maaşlar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Brüt Ücret",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fazla Mesai",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prim / Bonus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGK ve Yasal Yükümlülükler",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"SGK İşveren Payı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşsizlik Sigortası",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Damga Vergisi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yan Haklar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Yemek Yardımı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Servis / Yol Yardımı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Özel Sağlık Sigortası",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eğitim ve Gelişim",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Eğitim Ücretleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sertifika / Seminer Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşe Alım",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"İK Danışmanlığı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İlan ve Platform Üyelikleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Mülakat Masrafları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Danışmanlık Hizmetleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Finansal Danışmanlık",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IT Danışmanlığı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hukuki Hizmetler",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ajans / Reklam Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Kreatif Ajans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Medya Satın Alma",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yazılım ve Lisanslar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ERP Lisansları",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CRM Yazılımı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bulut Hizmeti (SaaS)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kira ve Aidat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Temizlik ve Güvenlik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kırtasiye ve Ofis Malzemeleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İkram ve Misafir Ağırlama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Telefon / İnternet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ulaşım (Uçak, Araç, Taksi)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Konaklama",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Günlük Harcırah",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Müşteri Ziyareti Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Yurt Dışı Temsil Giderleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Elektrik",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Doğal Gaz",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Su ve Diğer Tesisat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bakım / Onarım Hizmetleri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Damga / Harç / Ruhsat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Belediye / Çevre Vergileri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personel Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Vergi ve Mevzuat Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Enerji ve Altyapı Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Seyahat ve Temsil Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Ofis ve Genel Yönetim Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hizmet Alım Giderleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Toplam Giderler",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FTE",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Ücret ve Maaşlar",
+			"ComponentName":"Brüt Ücret",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ücret ve Maaşlar",
+			"ComponentName":"Fazla Mesai",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ücret ve Maaşlar",
+			"ComponentName":"Prim / Bonus",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK ve Yasal Yükümlülükler",
+			"ComponentName":"SGK İşveren Payı",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK ve Yasal Yükümlülükler",
+			"ComponentName":"İşsizlik Sigortası",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK ve Yasal Yükümlülükler",
+			"ComponentName":"Damga Vergisi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yan Haklar",
+			"ComponentName":"Yemek Yardımı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yan Haklar",
+			"ComponentName":"Servis / Yol Yardımı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yan Haklar",
+			"ComponentName":"Özel Sağlık Sigortası",
+			"Weight":1
+		},
+		{
+			"ParentName":"Eğitim ve Gelişim",
+			"ComponentName":"Eğitim Ücretleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Eğitim ve Gelişim",
+			"ComponentName":"Sertifika / Seminer Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"İşe Alım",
+			"ComponentName":"İK Danışmanlığı",
+			"Weight":1
+		},
+		{
+			"ParentName":"İşe Alım",
+			"ComponentName":"İlan ve Platform Üyelikleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"İşe Alım",
+			"ComponentName":"Mülakat Masrafları",
+			"Weight":1
+		},
+		{
+			"ParentName":"Danışmanlık Hizmetleri",
+			"ComponentName":"Finansal Danışmanlık",
+			"Weight":1
+		},
+		{
+			"ParentName":"Danışmanlık Hizmetleri",
+			"ComponentName":"IT Danışmanlığı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Danışmanlık Hizmetleri",
+			"ComponentName":"Hukuki Hizmetler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ajans / Reklam Giderleri",
+			"ComponentName":"Kreatif Ajans",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ajans / Reklam Giderleri",
+			"ComponentName":"Medya Satın Alma",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yazılım ve Lisanslar",
+			"ComponentName":"ERP Lisansları",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yazılım ve Lisanslar",
+			"ComponentName":"CRM Yazılımı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Yazılım ve Lisanslar",
+			"ComponentName":"Bulut Hizmeti (SaaS)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personel Giderleri",
+			"ComponentName":"Ücret ve Maaşlar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personel Giderleri",
+			"ComponentName":"SGK ve Yasal Yükümlülükler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personel Giderleri",
+			"ComponentName":"Yan Haklar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personel Giderleri",
+			"ComponentName":"Eğitim ve Gelişim",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personel Giderleri",
+			"ComponentName":"İşe Alım",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergi ve Mevzuat Giderleri",
+			"ComponentName":"Damga / Harç / Ruhsat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergi ve Mevzuat Giderleri",
+			"ComponentName":"Belediye / Çevre Vergileri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Enerji ve Altyapı Giderleri",
+			"ComponentName":"Elektrik",
+			"Weight":1
+		},
+		{
+			"ParentName":"Enerji ve Altyapı Giderleri",
+			"ComponentName":"Doğal Gaz",
+			"Weight":1
+		},
+		{
+			"ParentName":"Enerji ve Altyapı Giderleri",
+			"ComponentName":"Su ve Diğer Tesisat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Enerji ve Altyapı Giderleri",
+			"ComponentName":"Bakım / Onarım Hizmetleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Seyahat ve Temsil Giderleri",
+			"ComponentName":"Ulaşım (Uçak, Araç, Taksi)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Seyahat ve Temsil Giderleri",
+			"ComponentName":"Konaklama",
+			"Weight":1
+		},
+		{
+			"ParentName":"Seyahat ve Temsil Giderleri",
+			"ComponentName":"Günlük Harcırah",
+			"Weight":1
+		},
+		{
+			"ParentName":"Seyahat ve Temsil Giderleri",
+			"ComponentName":"Müşteri Ziyareti Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Seyahat ve Temsil Giderleri",
+			"ComponentName":"Yurt Dışı Temsil Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ofis ve Genel Yönetim Giderleri",
+			"ComponentName":"Kira ve Aidat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ofis ve Genel Yönetim Giderleri",
+			"ComponentName":"Temizlik ve Güvenlik",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ofis ve Genel Yönetim Giderleri",
+			"ComponentName":"Kırtasiye ve Ofis Malzemeleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ofis ve Genel Yönetim Giderleri",
+			"ComponentName":"İkram ve Misafir Ağırlama",
+			"Weight":1
+		},
+		{
+			"ParentName":"Ofis ve Genel Yönetim Giderleri",
+			"ComponentName":"Telefon / İnternet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Hizmet Alım Giderleri",
+			"ComponentName":"Danışmanlık Hizmetleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Hizmet Alım Giderleri",
+			"ComponentName":"Ajans / Reklam Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Hizmet Alım Giderleri",
+			"ComponentName":"Yazılım ve Lisanslar",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Giderler",
+			"ComponentName":"Personel Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Giderler",
+			"ComponentName":"Vergi ve Mevzuat Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Giderler",
+			"ComponentName":"Enerji ve Altyapı Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Giderler",
+			"ComponentName":"Seyahat ve Temsil Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Giderler",
+			"ComponentName":"Ofis ve Genel Yönetim Giderleri",
+			"Weight":1
+		},
+		{
+			"ParentName":"Toplam Giderler",
+			"ComponentName":"Hizmet Alım Giderleri",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Expense_Accounts.subsets/All N Elements.json",
+		"Expense_Accounts.subsets/All N Elements Exc. Personel Giderleri.json",
+		"Expense_Accounts.subsets/Alokasyon Giderleri.json",
+		"Expense_Accounts.subsets/Default.json",
+		"Expense_Accounts.subsets/Expense.json",
+		"Expense_Accounts.subsets/Expense + FTE.json",
+		"Expense_Accounts.subsets/FTE.json",
+		"Expense_Accounts.subsets/Personel Giderleri.json",
+		"Expense_Accounts.subsets/PieChart.json",
+		"Expense_Accounts.subsets/Toplam Giderler.json"
+	]
+}

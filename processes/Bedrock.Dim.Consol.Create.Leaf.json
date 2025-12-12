@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"Bedrock.Dim.Consol.Create.Leaf",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Bedrock.Dim.Consol.Create.Leaf.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pDimension",
+			"Prompt":"Dimension",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pConsol",
+			"Prompt":"Consolidation Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pMemberConsol",
+			"Prompt":"The element is a member of the consolidation.",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDebug",
+			"Prompt":"Debug Mode",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[]
+}

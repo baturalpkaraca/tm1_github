@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Alokasyon_Cost_Center",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Cost_Center')"
+		},
+		{
+			"@id":"Dimensions('Expense_Accounts')"
+		},
+		{
+			"@id":"Dimensions('Alokasyon_M')"
+		}
+	],
+	"Rules@Code.link":"Alokasyon_Cost_Center.rules",
+	"Views@Code.links":
+	[
+		"Alokasyon_Cost_Center.views/Alokasyon Cost Center.json"
+	]
+}

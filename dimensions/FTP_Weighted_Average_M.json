@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"FTP_Weighted_Average_M",
+	"Hierarchies@Code.links":
+	[
+		"FTP_Weighted_Average_M.hierarchies/FTP_Weighted_Average_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('FTP_Weighted_Average_M')/Hierarchies('FTP_Weighted_Average_M')"
+	}
+}

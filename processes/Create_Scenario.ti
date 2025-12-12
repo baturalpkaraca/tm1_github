@@ -1,0 +1,7 @@
+#region Prolog
+
+
+IF( DimensionElementExists( 'Scenario', pScenario ) = 0 );  
+    DimensionElementInsertDirect( 'Scenario', '', pScenario, 'N' );
+ENDIF;
+#endregion

@@ -1,9 +1,0 @@
-#region Prolog
-
-AttrInsert('Pazarlama_Gider_Hesapları', '', 'Code Name', 'A');
-#endregion
-#region Metadata
-
-ElementAttrPutS( vAlias, 'Pazarlama_Gider_Hesapları', 'Pazarlama_Gider_Hesapları', vElement, 'Code Name' );
- 
-#endregion
