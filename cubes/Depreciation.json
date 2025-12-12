@@ -26,8 +26,5 @@
 		}
 	],
 	"Rules@Code.link":"Depreciation.rules",
-	"Views@Code.links":
-	[
-		"Depreciation.views/Amortization.json"
-	]
+	"Views@Code.links":[]
 }
