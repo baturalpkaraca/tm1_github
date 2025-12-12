@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"Denklik_Master",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Denklik_Master.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pScenario",
+			"Prompt":"",
+			"Value":"0",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersion",
+			"Prompt":"",
+			"Value":"0",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

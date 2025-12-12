@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"Bedrock.Dim.Element.Component.Add",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Bedrock.Dim.Element.Component.Add.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pDimension",
+			"Prompt":"Dimension Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pParent",
+			"Prompt":"Parent Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Element Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pWeight",
+			"Prompt":"Component Weight",
+			"Value":1,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pDebug",
+			"Prompt":"Debug Mode",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[]
+}

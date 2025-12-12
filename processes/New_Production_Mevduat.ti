@@ -1,0 +1,217 @@
+#region Prolog
+#Region  Prolog
+
+#Region Process
+sProcess = GetProcessName( );
+sTimeStamp = TimSt( Now, '\Y\m\d\h\i\s' );
+sScenario = 'Live';
+nOldCubeLogChanges = CubeGetLogChanges('Salary');
+CubeSetLogChanges('Salary',0);
+#EndRegion Process
+NumericGlobalVariable( 'pSayac' ); 
+
+#Region TargetView
+
+v_CubeName='Cash_Flow';
+
+v_ViewName = '}Process_' | sProcess | '_' | sTimeStamp   | NumberToString( pSayac );
+
+v_Dim1Name='Scenario';
+v_Dim2Name='Version';
+v_Dim3Name='Entity';
+v_Dim4Name='Period';
+v_Dim5Name='Currency';
+v_Dim6Name='Segment';
+v_Dim7Name='Product';
+v_Dim8Name='Maturity';
+v_Dim9Name='Treasury_Accounts';
+v_Dim10Name='Items';
+v_Dim11Name='Production_Type';
+v_Dim12Name='Cash_Flow_M';
+
+v_Subs1Name=v_Dim1Name|'_'|v_ViewName;
+v_Subs2Name=v_Dim2Name|'_'|v_ViewName;
+v_Subs3Name=v_Dim3Name|'_'|v_ViewName;
+v_Subs4Name=v_Dim4Name|'_'|v_ViewName;
+v_Subs5Name=v_Dim5Name|'_'|v_ViewName;
+v_Subs6Name=v_Dim6Name|'_'|v_ViewName;
+v_Subs7Name=v_Dim7Name|'_'|v_ViewName;
+v_Subs8Name=v_Dim8Name|'_'|v_ViewName;
+v_Subs9Name=v_Dim9Name|'_'|v_ViewName;
+v_Subs10Name=v_Dim10Name|'_'|v_ViewName;
+v_Subs11Name=v_Dim11Name|'_'|v_ViewName;
+v_Subs12Name=v_Dim12Name|'_'|v_ViewName;
+
+VIEWCREATE(v_CubeName,v_ViewName, 1);
+ViewExtractSkipCalcsSet (v_CubeName, v_ViewName, 1);
+ViewExtractSkipRuleValuesSet (v_CubeName, v_ViewName, 0);
+ViewExtractSkipZeroesSet (v_CubeName, v_ViewName, 1);
+pProductionType = 'New';
+SUBSETCREATEBYMDX (v_Subs1Name, '{[Scenario].['   | sScenario | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs2Name, '{[Version].['   | pVersion   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs3Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Entity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs4Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Period] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs5Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Currency] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs6Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Segment] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs7Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Product] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs8Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Maturity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs9Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Treasury_Accounts] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs10Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Items] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs11Name, '{[Production_Type].['   | pProductionType   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs12Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Cash_Flow_M] )}, 0)}', 1);
+
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim6Name, v_Subs6Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim7Name, v_Subs7Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim8Name, v_Subs8Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim9Name, v_Subs9Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim10Name, v_Subs10Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim11Name, v_Subs11Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim12Name, v_Subs12Name);
+
+# VIEWZEROOUT(v_CubeName, v_ViewName);
+
+
+#Region SourceView
+
+v_CubeNameSource='Run_Off';
+
+v_ViewNameSource = '}Process_' | sProcess | '_' | sTimeStamp | 'Source' | NumberToString( pSayac );
+
+v_Dim1NameSource='Scenario';
+v_Dim2NameSource='Version';
+v_Dim3NameSource='Entity';
+v_Dim4NameSource='Period';
+v_Dim5NameSource='Treasury_Accounts';
+v_Dim6NameSource='Segment';
+v_Dim7NameSource='Product';
+v_Dim8NameSource='Currency';
+v_Dim9NameSource='Production_Type';
+v_Dim10NameSource='Run_Off_M';
+
+
+v_Subs1NameSource=v_Dim1NameSource|'_'|v_ViewNameSource;
+v_Subs2NameSource=v_Dim2NameSource|'_'|v_ViewNameSource;
+v_Subs3NameSource=v_Dim3NameSource|'_'|v_ViewNameSource;
+v_Subs4NameSource=v_Dim4NameSource|'_'|v_ViewNameSource;
+v_Subs5NameSource=v_Dim5NameSource|'_'|v_ViewNameSource;
+v_Subs6NameSource=v_Dim6NameSource|'_'|v_ViewNameSource;
+v_Subs7NameSource=v_Dim7NameSource|'_'|v_ViewNameSource;
+v_Subs8NameSource=v_Dim8NameSource|'_'|v_ViewNameSource;
+v_Subs9NameSource=v_Dim9NameSource|'_'|v_ViewNameSource;
+v_Subs10NameSource=v_Dim10NameSource|'_'|v_ViewNameSource;
+
+
+VIEWCREATE(v_CubeNameSource,v_ViewNameSource, 1);
+ViewExtractSkipCalcsSet (v_CubeNameSource, v_ViewNameSource, 1);
+ViewExtractSkipRuleValuesSet (v_CubeNameSource, v_ViewNameSource, 0);
+ViewExtractSkipZeroesSet (v_CubeNameSource, v_ViewNameSource, 1);
+pProductionType = 'Entry';
+SUBSETCREATEBYMDX (v_Subs1NameSource, '{[Scenario].['   | sScenario | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs2NameSource, '{[Version].['   | pVersion   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs3NameSource, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Entity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs4NameSource, '{[Period].['   | pPeriod   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs5NameSource, '{[Treasury_Accounts].[Vadeli Mevduat]}', 1);
+SUBSETCREATEBYMDX (v_Subs6NameSource, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Segment] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs7NameSource, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Product] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs8NameSource, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Currency] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs9NameSource, '{[Production_Type].['   | pProductionType   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs10NameSource, '{[Run_Off_M].[Volume]}', 1);
+
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim1NameSource, v_Subs1NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim2NameSource, v_Subs2NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim3NameSource, v_Subs3NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim4NameSource, v_Subs4NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim5NameSource, v_Subs5NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim6NameSource, v_Subs6NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim7NameSource, v_Subs7NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim8NameSource, v_Subs8NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim9NameSource, v_Subs9NameSource);
+VIEWSUBSETASSIGN (v_CubeNameSource, v_ViewNameSource, v_Dim10NameSource, v_Subs10NameSource);
+
+#Data source assignment
+DataSourceType='View';
+DataSourceNameForServer=v_CubeNameSource;
+DatasourceCubeview=v_ViewNameSource;
+
+#EndRegion SourceView
+#endregion
+#region Data
+
+nEntry=CellGetN( 'Run_Off', 'Live', pVersion, vEntity, vPeriod,  vTreasuryAccount, vSegment, vProduct, vCurrency, 'Entry', 'Volume');
+nTotalProduction=CellGetN( 'Run_Off', 'Live', pVersion, vEntity, vPeriod, vTreasuryAccount, vSegment, vProduct, vCurrency, 'Total_Production', ' Volume');
+
+nNewProduction = nEntry - nTotalProduction ;
+
+
+IF(nNewProduction < 0);
+    nNewProduction = 0;
+ENDIF;
+
+MaturitySize=Dimsiz('Maturity');
+i=1; 
+# WHILE ( i<=MaturitySize);    
+#     sMaturity = DIMNM('Maturity',i); 
+#     IF(ELLEV('Maturity',sMaturity)=0);
+sMaturity ='3M';
+        nMaturtiyRatio=   ATTRN('Maturity',sMaturity, 'Rate') \ 100;
+        nMaturtiyRatio = 1;
+
+        sFTPType = ATTRS('Product',vProduct,'FTP Type');
+
+        nFTP = CellGetN( 'Curve', vScenario, vVersion, vEntity, vPeriod, sMaturity, vCurrency, 'Curve_M':'Total_Curve' );
+
+
+
+        nFTPRate = nFTP * 365 / 360;
+        nSpread = CellGetN( 'Run_Off', 'Live', pVersion, vEntity, vPeriod,  vTreasuryAccount, vSegment, vProduct, vCurrency, 'Entry', 'Spread');
+        nClientRate         =  nFTPRate - nSpread;                  
+        IF(nClientRate<0);
+            nClientRate = 0;
+        ENDIF;
+        # sFaizCap=CellGetS( 'NII Assumptions', 'RFC Live', pVersion, vYear, vMonth, vEntity, vSegmentLocal, vProductLocal, vCurrency, 'Faiz Capi Flag');
+        # IF(sFaizCap @= 'YES');
+        #     nFaizClientRate=CellGetN( 'NII Assumptions', 'RFC Live', pVersion, vYear, vMonth, vEntity, vSegmentLocal, vProductLocal, vCurrency, 'Toplam Faiz Capi');
+        #     IF(nFaizClientRate<nClientRate);
+        #           nClientRate=nFaizClientRate;
+        #      ENDIF;
+        #  ENDIF;
+
+        nNewAmount             = nNewProduction * nMaturtiyRatio;                          
+        IF(vTreasuryAccount@='Vadesiz Mevduat Borrow'); 
+            nClientRate    = 0;
+            nSpreadRate = -1 * nFTPRate ;
+        ENDIF;       
+        nNewClientAmount    = nClientRate * nNewAmount  ;
+        nNewFTPAmount       = nFTPRate   * nNewAmount ;
+ 
+        Line=ATTRN( 'Maturity', sMaturity, 'Duration' ); 
+        sPeriod = vPeriod;
+        j=1; 
+        CashFlowLine=CellGetN('Cash_Flow',  'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, 'Total_Items', 'New', 'Line');
+        WHILE( j <=Line);
+            sPeriod = ATTRS('Period', sPeriod, 'Next Period');
+
+            j=j+1;
+        END; 
+        Satir=NumberToString( 1 + CashFlowLine );  
+
+        CellPutN(nNewAmount,              'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'Amount');
+        CellPutN(nClientRate,                 'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'Client_Rate');
+        CellPutN(nFTPRate,                   'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'FTP_Rate');
+        CellPutN(nSpreadRate ,               'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'Spread');
+
+        CellPutS(sPeriod,                                'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'Maturity');
+        CellPutN(1,                                  'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'Line');
+
+        CellPutN(nNewClientAmount,     'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'Client_Amount');
+        CellPutN(nNewFTPAmount,        'Cash_Flow', 'Live', pVersion, vEntity, pCashFlowPeriod, vCurrency,  vSegment, vProduct, sMaturity, vTreasuryAccount, Satir ,'New', 'FTP_Amount');
+
+    # ENDIF;
+#     i=i+1;  
+# END;
+#endregion

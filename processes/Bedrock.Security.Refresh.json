@@ -1,0 +1,21 @@
+{
+	"@type":"Process",
+	"Name":"Bedrock.Security.Refresh",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Bedrock.Security.Refresh.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pDebug",
+			"Prompt":"Debug Mode",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[]
+}

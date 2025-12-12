@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Salary_Cost_Center_Mapping_M",
+	"Hierarchies@Code.links":
+	[
+		"Salary_Cost_Center_Mapping_M.hierarchies/Salary_Cost_Center_Mapping_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Salary_Cost_Center_Mapping_M')/Hierarchies('Salary_Cost_Center_Mapping_M')"
+	}
+}
