@@ -1,0 +1,10 @@
+#region Prolog
+
+AttrInsert( 'Years', '', 'Next Year', 'S' );
+AttrInsert( 'Years', '', 'Previous Year', 'S' );
+#endregion
+#region Data
+
+AttrPutS( vNext_Year, 'Years', vMember_Name, 'Next Year', '' );
+AttrPutS( vPrevious_Year, 'Years', vMember_Name, 'Previous Year', '' );
+#endregion

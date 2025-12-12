@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"All Members",
-	"Alias":"MEMBER_NAME",
-	"Expression":"{[Entity].[Entity].MEMBERS}"
-}

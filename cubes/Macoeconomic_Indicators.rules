@@ -1,9 +1,0 @@
-SKIPCHECK;
-
-[Scenario:'Scenario':'Live',Macroeconomic_Indicators_M:'Macroeconomic_Indicators_M':'TRY']=N:1;
-          
-
-
-FEEDERS;
-[Scenario:'Scenario':'Live',Macroeconomic_Indicators_M:'Macroeconomic_Indicators_M':'USD']=>
-          [Macroeconomic_Indicators_M:'Macroeconomic_Indicators_M':'TRY'];

@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"All N Elements Exc. Personel Giderleri",
-	"Expression":"{EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Expense_Accounts].[Expense_Accounts]) , 0) , TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({[Expense_Accounts].[Personel Giderleri]} , ALL , RECURSIVE) , 0))}"
-}
