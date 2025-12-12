@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Assumptions')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Assumptions_M')"
+		}
+	],
+	"Views@Code.links":[]
+}

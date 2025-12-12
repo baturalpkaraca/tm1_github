@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"2025-2026",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{{DISTINCT({[Period].[Period].[2025], DESCENDANTS([Period].[Period].[2025], 99 , LEAVES)})},{DISTINCT({[Period].[Period].[2026], DESCENDANTS([Period].[Period].[2026], 99 , LEAVES)})}}"
+}

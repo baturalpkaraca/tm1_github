@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Mal_Grupları",
+	"Hierarchies@Code.links":
+	[
+		"Mal_Grupları.hierarchies/Mal_Grupları.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Mal_Grupları')/Hierarchies('Mal_Grupları')"
+	}
+}

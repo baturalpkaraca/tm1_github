@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Final_External_Satis_Meas",
+	"Hierarchies@Code.links":
+	[
+		"Final_External_Satis_Meas.hierarchies/Final_External_Satis_Meas.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Final_External_Satis_Meas')/Hierarchies('Final_External_Satis_Meas')"
+	}
+}

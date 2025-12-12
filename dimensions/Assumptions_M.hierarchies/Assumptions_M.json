@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Assumptions_M",
+	"Elements":
+	[
+		{
+			"Name":"Tutar",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

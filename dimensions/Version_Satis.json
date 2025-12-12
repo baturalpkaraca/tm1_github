@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Version_Satis",
+	"Hierarchies@Code.links":
+	[
+		"Version_Satis.hierarchies/Version_Satis.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Version_Satis')/Hierarchies('Version_Satis')"
+	}
+}
