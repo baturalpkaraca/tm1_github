@@ -1,0 +1,117 @@
+SKIPCHECK;
+FEEDSTRINGS;
+# [Cost_Center:'Cost_Center':'FPM Services']=STET;
+
+
+
+# [Scenario:'Scenario':'Live',Cost_Center_All:'Cost_Center_All':'Head Office']=C:STET;
+
+[Scenario:'Scenario':'Live']=N:
+            IF(DB( 'System_Version', !Scenario, !Version, !Entity, !Period, 'Input' )@='Actual',
+                [Scenario:'Scenario':'Actual'],
+                CONTINUE
+            );
+
+[Scenario:'Scenario':'Live']=N:
+            IF(ELISANC( 'Cost_Center_All', 'Head Office', !Cost_Center_All )=0 & ATTRN('Expense_Accounts',!Expense_Accounts,'Alokasyon')=1,
+                  DB( 'Alokasyon', !Scenario, !Version, !Period, !Expense_Accounts, 'Amount' ) 
+                * DB( 'Alokasyon', !Scenario, !Version, !Period, !Expense_Accounts, 'FTE' ) \100
+                * [Expense_Accounts:'Expense_Accounts':'FTE'] \ [Expense_Accounts:'Expense_Accounts':'FTE',Cost_Center_All:'Cost_Center_All':'Shoping Center']
+              + DB( 'Alokasyon', !Scenario, !Version, !Period, !Expense_Accounts, 'Amount' ) 
+                * DB( 'Alokasyon', !Scenario, !Version, !Period, !Expense_Accounts, 'M2' ) \ 100
+                * DB( 'Mağaza_Bilgileri', !Scenario, !Version, ATTRS( 'Period', !Period, 'Year' ), !Cost_Center_All, 'M2' )
+                \ DB( 'Mağaza_Bilgileri', !Scenario, !Version, ATTRS( 'Period', !Period, 'Year' ), 'Mağazalar':'Toplam Mağazalar', 'M2' )
+              + DB( 'Alokasyon', !Scenario, !Version, !Period, !Expense_Accounts, 'Amount' ) 
+               * DB( 'Alokasyon', !Scenario, !Version, !Period, !Expense_Accounts, 'Ciro' ) \ 100
+              * DB( 'Satışlar', !Scenario, !Version, 'MMM-YYYY':!Period, !Cost_Center_All, 'Satış' ) 
+              \ DB( 'Satışlar', !Scenario, !Version, 'MMM-YYYY':!Period, 'Mağazalar':'Toplam Mağazalar', 'Satış' ),  
+                CONTINUE
+            );
+
+[Scenario:'Scenario':'Live',Expense_Accounts:'Expense_Accounts':'Eğitim Ücretleri']=N:
+        IF(!Currency_Reporting@<>'ORJ' &  ELISANC( 'Cost_Center_All', 'Head Office', !Cost_Center_All )=0, 
+              [Currency_Reporting:'Currency_Reporting':'ORJ'] * DB( 'Cross Currency', !Scenario, !Version, !Period, !Currency, !Currency_Reporting ),
+              CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Expense_Accounts:'Expense_Accounts':'Eğitim Ücretleri',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+        IF( ELISANC( 'Cost_Center_All', 'Head Office', !Cost_Center_All )=0, 
+            DB( 'Mağaza_Yatırım', !Scenario, !Version, !Period, !Cost_Center_All, 'Personel Eğitim ve Açılış Giderleri', !Currency, 'Amount TRY' ),
+            CONTINUE
+       );
+  
+[Scenario:'Scenario':'Live',Expense_Accounts:'Expense_Accounts':'Özel Sağlık Sigortası']=N:
+       IF(ELISANC( 'Cost_Center_All', 'Shoping Center', !Cost_Center_All )=1, 0 ,CONTINUE);
+ 
+[Scenario:'Scenario':'Live',Expense_Accounts:'Expense_Accounts':'Kira ve Aidat',Currency:'Currency':'TRY',Currency_Reporting:'Currency_Reporting':'TRY',Expense_M:'Expense_M':'Amount']=N:
+        IF( ELISANC( 'Cost_Center_All', 'Head Office', !Cost_Center_All )=0, 
+            DB( 'Kira', !Scenario, !Version, !Period, !Cost_Center_All, 'Tutar' ), 
+            CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY',Expense_M:'Expense_M':'Amount'] =N:
+      IF(ATTRS('Expense_Accounts',!Expense_Accounts,'Benefits')@<>'' & ATTRN( 'Expense_Accounts', !Expense_Accounts, 'Daily' )=0,
+             DB('Benefits', !Scenario, !Version, !Entity, !Period,  ATTRS('Expense_Accounts',!Expense_Accounts,'Benefits'))
+            * [Expense_Accounts:'Expense_Accounts':'FTE'],
+          CONTINUE  
+      ); 
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY',Expense_M:'Expense_M':'Amount'] =N:
+      IF(ATTRS('Expense_Accounts',!Expense_Accounts,'Benefits')@<>'',
+            DB('Benefits', !Scenario, !Version, !Entity, !Period,  ATTRS('Expense_Accounts',!Expense_Accounts,'Benefits'))
+            * DB( 'Benefits', !Scenario, !Version, !Entity, !Period, 'Business Days' )
+            * [Expense_Accounts:'Expense_Accounts':'FTE'],
+          CONTINUE  
+      );
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY',Expense_M:'Expense_M':'Amount'] =N:
+      IF(ATTRS('Expense_Accounts',!Expense_Accounts,'Payroll')@<>'' &  ELISANC( 'Cost_Center_All', 'Head Office', !Cost_Center_All )=0, 
+          DB( 'Salary_Mağaza', !Scenario, !Version, !Period, !Cost_Center_All, 'Unvan':'Toplam Unvan', ATTRS('Expense_Accounts',!Expense_Accounts,'Payroll')  ),
+          CONTINUE  
+      );
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY',Expense_M:'Expense_M':'Amount'] =N:
+      IF(ATTRS('Expense_Accounts',!Expense_Accounts,'Payroll')@<>'',
+          DB('Salary_Cost_Center_Mapping', !Scenario, !Version, !Entity, !Period, 'Employees':'Total Employees', !Cost_Center_All, ATTRS('Expense_Accounts',!Expense_Accounts,'Payroll') ),
+          CONTINUE  
+      );
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY',Expense_M:'Expense_M':'Amount'] =N:
+            DB( 'Expense_Entry', !Scenario, !Version, !Entity, SUBST( !Period, 5, 4 ), !Cost_Center_All, !Expense_Accounts, 'Items':'Total_Items', SUBST( !Period, 1, 3 ) | 'TRY' );
+
+[Scenario:'Scenario':'Live',Expense_M:'Expense_M':'Amount'] =N:
+            IF(!Currency@='TRY' & !Currency_Reporting@<>'TRY' & !Expense_Accounts@<>'FTE', 
+                [Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY'] \ 
+                DB( 'Macoeconomic_Indicators', !Scenario, !Version, !Entity, !Period, !Currency_Reporting ),
+                CONTINUE  
+            );
+
+[Scenario:'Scenario':'Live',Expense_Accounts:'Expense_Accounts':'FTE'] =N:
+            IF(!Currency@='TRY' & !Currency_Reporting@<>'TRY' ,
+                [Currency_Reporting:'Currency_Reporting':'TRY'],
+                CONTINUE
+           );
+
+# [Scenario:'Scenario':'Live',Expense_M:'Expense_M':'FTE',Expense_Accounts:'Expense_Accounts':'FTE'] = 
+#         DB('Salary_Cost_Center_Mapping', !Scenario, !Version, !Entity, !Period, 'Employees':'Total Employees', !Cost_Center_All, 'FTE' );
+
+[Expense_Accounts:'Expense_Accounts':'FTE'] =
+    IF(DTYPE( 'Period', !Period )@='C',
+        DB( 'Expense_All', !Scenario, !Version, !Entity, ATTRS('Period',!Period,'Last Period'),!Cost_Center_All, !Expense_Accounts, !Currency, !Currency_Reporting, !Expense_M ),
+        CONTINUE
+  );
+    
+
+
+
+FEEDERS;
+[Scenario:'Scenario':'Live',Expense_Accounts:'Expense_Accounts':'FTE']=>
+          [Expense_Accounts:'Expense_Accounts':'Medya Satın Alma'],
+          [Expense_Accounts:'Expense_Accounts':'Elektrik'];
+  
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY'] =>
+        [Currency:'TRY',Currency_Reporting:'EUR'], 
+        [Currency:'TRY',Currency_Reporting:'USD'];
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'TRY',Currency:'Currency':'TRY',Expense_Accounts:'Expense_Accounts':'Brüt Ücret'] =>
+        [Expense_Accounts:'Expense_Accounts':'FTE'];

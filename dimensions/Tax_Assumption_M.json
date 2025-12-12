@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Tax_Assumption_M",
+	"Hierarchies@Code.links":
+	[
+		"Tax_Assumption_M.hierarchies/Tax_Assumption_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Tax_Assumption_M')/Hierarchies('Tax_Assumption_M')"
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"@type":"MDXView",
+	"Name":"commission",
+	"MDX@Code.link":"commission.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Period].[Year]" : "Period_TR"
+		},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Segment].[Segment]" : 
+			{
+				"Expression" : "{[Segment].[Segment].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[commission_m].[commission_m]" : 
+			{
+				"Expression" : "{[commission_m].[commission_m].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Currency].[Currency]" : false,
+			"[Entity].[Entity]" : false,
+			"[Period].[Year]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Segment].[Segment]" : false,
+			"[Version].[Version]" : false,
+			"[commission_accounts].[commission_accounts]" : false,
+			"[commission_m].[commission_m]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

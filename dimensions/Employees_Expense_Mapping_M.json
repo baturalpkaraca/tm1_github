@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Employees_Expense_Mapping_M",
+	"Hierarchies@Code.links":
+	[
+		"Employees_Expense_Mapping_M.hierarchies/Employees_Expense_Mapping_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Employees_Expense_Mapping_M')/Hierarchies('Employees_Expense_Mapping_M')"
+	}
+}

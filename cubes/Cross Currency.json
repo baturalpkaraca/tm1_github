@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Cross Currency",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Currency_Reporting')"
+		}
+	],
+	"Rules@Code.link":"Cross Currency.rules",
+	"Views@Code.links":[]
+}

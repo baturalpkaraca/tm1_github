@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Maturity",
+	"Elements":
+	[
+		{
+			"Name":"1M",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3M",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6M",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1Y",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3Y",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5Y",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

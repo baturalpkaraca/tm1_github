@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Cost Center N",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{TM1FILTERBYLEVEL(TM1SUBSETALL([Cost_Center].[Cost_Center]) , 0)}"
+}

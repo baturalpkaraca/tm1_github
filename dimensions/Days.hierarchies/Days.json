@@ -1,0 +1,1095 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Days",
+	"Elements":
+	[
+		{
+			"Name":"30",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"60",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"90",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"150",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"180",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"240",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"270",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"300",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"360",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"390",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"450",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"480",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"540",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"570",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"600",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"660",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"690",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"720",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"750",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"780",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"810",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"840",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"900",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"930",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"960",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"990",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1170",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1200",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1260",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1290",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1350",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1380",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1440",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1470",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1500",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1530",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1560",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1590",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1620",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1650",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1680",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1710",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1740",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1770",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1800",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1830",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1860",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1890",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1950",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1980",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2160",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2190",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2250",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2280",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2340",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2370",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2400",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2430",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2460",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2490",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2550",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2580",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2610",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2640",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2670",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2700",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2730",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2760",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2790",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2820",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2850",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2880",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2940",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2970",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3000",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3150",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3180",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3240",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3270",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3300",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3360",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3390",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3450",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3480",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3540",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3570",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3600",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Days",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"30",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"60",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"90",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"150",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"180",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"240",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"270",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"300",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"360",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"390",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"420",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"450",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"480",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"630",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"660",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"690",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"720",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"750",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"780",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"810",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"840",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"870",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"900",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"930",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"960",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"990",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1170",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1200",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1260",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1290",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1320",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1350",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1380",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1440",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1470",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1500",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1530",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1560",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1590",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1620",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1650",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1680",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1710",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1740",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1770",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1800",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1830",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1860",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1890",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1950",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"1980",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2160",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2190",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2250",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2280",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2340",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2370",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2400",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2430",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2460",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2490",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2520",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2550",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2580",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2610",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2640",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2670",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2700",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2730",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2760",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2790",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2820",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2850",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2880",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2940",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"2970",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3000",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3150",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3180",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3240",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3270",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3300",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3360",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3390",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3420",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3450",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3480",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3540",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3570",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Days",
+			"ComponentName":"3600",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

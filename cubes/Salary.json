@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Salary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Employees')"
+		},
+		{
+			"@id":"Dimensions('Salary_M')"
+		}
+	],
+	"Rules@Code.link":"Salary.rules",
+	"Views@Code.links":
+	[
+		"Salary.views/Default.json"
+	]
+}

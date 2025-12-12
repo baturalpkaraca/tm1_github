@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Personel_Expenses",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Cost_Center_All')"
+		},
+		{
+			"@id":"Dimensions('Salary_M')"
+		}
+	],
+	"Rules@Code.link":"Personel_Expenses.rules",
+	"Views@Code.links":[]
+}

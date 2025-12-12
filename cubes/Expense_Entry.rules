@@ -1,0 +1,21 @@
+SKIPCHECK;
+
+['Amount'] = N: ['Price']*['Total Month'];
+
+[Scenario:'Scenario':'Live',Expense_Entry_M:'Expense_Entry_M':{'Jan TRY', 'Feb TRY','Mar TRY','Apr TRY','May TRY','Jun TRY','Jul TRY','Aug TRY','Sep TRY','Oct TRY','Nov TRY','Dec TRY'}]=N:
+      DB( 'Macoeconomic_Indicators', !Scenario, !Version, !Entity, SUBST( !Expense_Entry_M, 1, 3 ) | !Years, DB( 'Expense_Entry', !Scenario, !Version, !Entity, !Years, !Cost_Center, !Expense_Accounts, !Items, 'Currency' ) ) *
+      DB('Expense_Entry', !Scenario, !Version, !Entity, !Years, !Cost_Center, !Expense_Accounts, !Items, SUBST( !Expense_Entry_M, 1, 3 )) *
+      ['Price'];
+
+
+
+FEEDERS;
+# ['Price'] => ['Amount'];
+
+[Scenario:'Scenario':'Live',Expense_Entry_M:'Expense_Entry_M':{'Jan', 'Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'}]=>
+        DB( 'Expense_Entry', !Scenario, !Version, !Entity, !Years, !Cost_Center, !Expense_Accounts, !Items, !Expense_Entry_M | 'TRY');
+
+[Scenario:'Scenario':'Live',Expense_Entry_M:'Expense_Entry_M':{'Jan', 'Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'},Items:'Items':'1']=>
+      DB( 'Expense', !Scenario, !Version, !Entity, SUBST(!Expense_Entry_M,1,3) | ' ' | !Years ,!Cost_Center, !Expense_Accounts, 'TRY', 'TRY', 'Amount' ),
+      DB( 'Expense_All', !Scenario, !Version, !Entity,  SUBST(!Expense_Entry_M,1,3) | ' ' | !Years , !Cost_Center,  !Expense_Accounts, 'TRY', 'TRY', 'Amount' );
+

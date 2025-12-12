@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Maturity",
+	"Hierarchies@Code.links":
+	[
+		"Maturity.hierarchies/Maturity.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Maturity')/Hierarchies('Maturity')"
+	}
+}

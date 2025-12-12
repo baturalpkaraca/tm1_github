@@ -1,0 +1,14 @@
+SKIPCHECK;
+
+
+[Scenario:'Scenario':'Live'] = N:
+  DB('Salary_Mağaza', !Scenario, !Version, !Period, !Cost_Center_All, 'Unvan':'Toplam Unvan', !Salary_M );
+
+#[Scenario:'Scenario':'Live'] = N:
+ # DB('Salary_Mağaza', !Scenario, !Version, !Period, !Cost_Center_All, 'Unvan':'Toplam Unvan', !Salary_M );
+
+
+
+
+
+FEEDERS;

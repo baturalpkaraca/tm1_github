@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"Bedrock.Cube.ViewAndSubsets.Delete",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Bedrock.Cube.ViewAndSubsets.Delete.ti",
+	"UIData":"CubeAction=1511\fDataAction=1503\fCubeLogChanges=0\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCube",
+			"Prompt":"Cube Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pView",
+			"Prompt":"View Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pSubset",
+			"Prompt":"Subset Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pMode",
+			"Prompt":"Delete temporary view and Subset ( 0 = Retain View and Subsets 1 = Delete View and Subsets 2 = Delete View only )",
+			"Value":1,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pDebug",
+			"Prompt":"Debug",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[]
+}

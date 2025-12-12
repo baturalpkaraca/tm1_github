@@ -1,0 +1,42 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+[Scenario:'Scenario':'Live', FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Curves', Days:'Days':'Total Days'] = C: 
+    [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Sum1'] \ [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Sum2'];
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Sum1'] = N:
+    NUMBR( !Days ) *  [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Notional'] * [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Curves'];
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Sum2'] = N:
+    NUMBR( !Days ) *  [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Notional'] ;
+
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Notional'] = N:
+    IF( !Period @= 'Dec 2030',
+          STET,
+          DB('FTP_Weithed_Average', !Scenario, !Version, 'Dec 2030', !Entity, !Currency, !Product, !Days, !Maturity, 'Notional' )
+        );
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Curves'] = N:
+      [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveAlt'] 
+  + [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'GunlukCurve'] * (NUMBR( !Days )  - NUMBR( ATTRS('Days',!Days,'Prev Curve')));
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'GunlukCurve'] = N:
+  ([FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveUst'] - [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveAlt']) 
+  \ (NUMBR( ATTRS( 'Days', !Days, 'Nex Curve')) -  (NUMBR( ATTRS( 'Days', !Days, 'Prev Curve'))));
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveAlt'] = N:
+  DB('Curve', !Scenario, !Version, !Entity, !Period, ATTRS('Days', !Days, 'Prev Curve'), !Currency, 'Curve_M':'Total_Curve' );
+
+[Scenario:'Scenario':'Live',FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveUst'] = N:
+  DB('Curve', !Scenario, !Version, !Entity, !Period, ATTRS('Days', !Days, 'Nex Curve'), !Currency, 'Curve_M':'Total_Curve' );
+
+
+FEEDERS;
+
+[FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Notional'] =>
+  [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveAlt'],
+  [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'CurveAlt'],
+  [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Sum1'],
+  [FTP_Weighted_Average_M:'FTP_Weighted_Average_M':'Sum2'];

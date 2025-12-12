@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"PL",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Currency_Reporting')"
+		},
+		{
+			"@id":"Dimensions('PL_Accounts')"
+		},
+		{
+			"@id":"Dimensions('PL_M')"
+		}
+	],
+	"Rules@Code.link":"PL.rules",
+	"Views@Code.links":
+	[
+		"PL.views/PL.json"
+	]
+}

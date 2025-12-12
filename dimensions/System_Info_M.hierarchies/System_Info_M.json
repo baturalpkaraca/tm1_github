@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"System_Info_M",
+	"Elements":
+	[
+		{
+			"Name":"Default",
+			"Type":"String"
+		},
+		{
+			"Name":"Comment",
+			"Type":"String"
+		},
+		{
+			"Name":"Input",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

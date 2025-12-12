@@ -1,0 +1,165 @@
+#region Prolog
+#Region  Prolog
+
+#Region Process
+sProcess = GetProcessName( );
+sTimeStamp = TimSt( Now, '\Y\m\d\h\i\s' );
+sScenario = 'Live';
+nOldCubeLogChanges = CubeGetLogChanges('Salary');
+CubeSetLogChanges('Salary',0);
+#EndRegion Process
+NumericGlobalVariable( 'pSayac' );
+
+#Region TargetView
+v_CubeName='Cash_Flow';
+
+v_ViewName = '}Process_' | sProcess | '_' | sTimeStamp | '';
+
+v_Dim1Name='Scenario';
+v_Dim2Name='Version';
+v_Dim3Name='Entity';
+v_Dim4Name='Period';
+v_Dim5Name='Currency';
+v_Dim6Name='Segment';
+v_Dim7Name='Product';
+v_Dim8Name='Maturity';
+v_Dim9Name='Treasury_Accounts';
+v_Dim10Name='Items';
+v_Dim11Name='Production_Type';
+v_Dim12Name='Cash_Flow_M';
+
+v_Subs1Name=v_Dim1Name|'_'|v_ViewName;
+v_Subs2Name=v_Dim2Name|'_'|v_ViewName;
+v_Subs3Name=v_Dim3Name|'_'|v_ViewName;
+v_Subs4Name=v_Dim4Name|'_'|v_ViewName;
+v_Subs5Name=v_Dim5Name|'_'|v_ViewName;
+v_Subs6Name=v_Dim6Name|'_'|v_ViewName;
+v_Subs7Name=v_Dim7Name|'_'|v_ViewName;
+v_Subs8Name=v_Dim8Name|'_'|v_ViewName;
+v_Subs9Name=v_Dim9Name|'_'|v_ViewName;
+v_Subs10Name=v_Dim10Name|'_'|v_ViewName;
+v_Subs11Name=v_Dim11Name|'_'|v_ViewName;
+v_Subs12Name=v_Dim12Name|'_'|v_ViewName;
+
+VIEWCREATE(v_CubeName,v_ViewName, 1);
+ViewExtractSkipCalcsSet (v_CubeName, v_ViewName, 1);
+ViewExtractSkipRuleValuesSet (v_CubeName, v_ViewName, 0);
+ViewExtractSkipZeroesSet (v_CubeName, v_ViewName, 1);
+pProductionType = 'New';
+SUBSETCREATEBYMDX (v_Subs1Name, '{[Scenario].['   | sScenario | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs2Name, '{[Version].['   | pVersion   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs3Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Entity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs4Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Period] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs5Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Currency] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs6Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Segment] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs7Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Product] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs8Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Maturity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs9Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Treasury_Accounts] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs10Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Items] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs11Name, '{[Production_Type].['   | pProductionType   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs12Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Cash_Flow_M] )}, 0)}', 1);
+
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim6Name, v_Subs6Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim7Name, v_Subs7Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim8Name, v_Subs8Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim9Name, v_Subs9Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim10Name, v_Subs10Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim11Name, v_Subs11Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim12Name, v_Subs12Name);
+
+
+VIEWZEROOUT(v_CubeName, v_ViewName);
+#EndRegion TargetView
+
+#Region TargetView
+v_CubeName='Run_Off';
+
+v_ViewName = '}Process_' | sProcess | '_' | sTimeStamp  | NumberToString( pSayac );
+
+v_Dim1Name='Scenario';
+v_Dim2Name='Version';
+v_Dim3Name='Entity';
+v_Dim4Name='Period';
+v_Dim5Name='Treasury_Accounts';
+v_Dim6Name='Segment';
+v_Dim7Name='Product';
+v_Dim8Name='Currency';
+v_Dim9Name='Production_Type';
+v_Dim10Name='Run_Off_M';
+
+
+v_Subs1Name=v_Dim1Name|'_'|v_ViewName;
+v_Subs2Name=v_Dim2Name|'_'|v_ViewName;
+v_Subs3Name=v_Dim3Name|'_'|v_ViewName;
+v_Subs4Name=v_Dim4Name|'_'|v_ViewName;
+v_Subs5Name=v_Dim5Name|'_'|v_ViewName;
+v_Subs6Name=v_Dim6Name|'_'|v_ViewName;
+v_Subs7Name=v_Dim7Name|'_'|v_ViewName;
+v_Subs8Name=v_Dim8Name|'_'|v_ViewName;
+v_Subs9Name=v_Dim9Name|'_'|v_ViewName;
+v_Subs10Name=v_Dim10Name|'_'|v_ViewName;
+
+
+VIEWCREATE(v_CubeName,v_ViewName, 1);
+ViewExtractSkipCalcsSet (v_CubeName, v_ViewName, 1);
+ViewExtractSkipRuleValuesSet (v_CubeName, v_ViewName, 0);
+ViewExtractSkipZeroesSet (v_CubeName, v_ViewName, 1);
+pProductionType = 'New';
+pNextPeriod = ATTRS('Period',pPeriod, 'Next Period');
+SUBSETCREATEBYMDX (v_Subs1Name, '{[Scenario].['   | sScenario | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs2Name, '{[Version].['   | pVersion   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs3Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Entity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs4Name,  '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Period] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs5Name, 'UNION({[Treasury_Accounts].[Kredi Place]} , {[Treasury_Accounts].[Vadeli Mevduat]}))', 1);
+SUBSETCREATEBYMDX (v_Subs6Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Segment] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs7Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Product] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs8Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Currency] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs9Name, '{[Production_Type].['   | pProductionType   | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs10Name,  '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Run_Off_M] )}, 0)}', 1);
+
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim6Name, v_Subs6Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim7Name, v_Subs7Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim8Name, v_Subs8Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim9Name, v_Subs9Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim10Name, v_Subs10Name);
+
+VIEWZEROOUT(v_CubeName, v_ViewName);
+#EndRegion TargetView
+
+
+
+sBBas = pPeriod;
+sBBit = 'Dec 2027';
+nBBas = DIMIX('Period',sBBas);
+nBBit = DIMIX('Period',sBBit);
+
+WHILE(nBBAS<= nBBit);
+     sPeriod = DIMNM( 'Period', nBBAS );
+
+     IF(DTYPE( 'Period',sPeriod  )@='N');
+
+              ExecuteProcess('New_Production_Kredi','pScenario' , pScenario,  'pVersion', pVersion, 'pPeriod', sPeriod,'pCashFlowPeriod', pCashFlowPeriod);
+                       ExecuteProcess('New_Production_Mevduat','pScenario' , pScenario,  'pVersion', pVersion, 'pPeriod', sPeriod,'pCashFlowPeriod', pCashFlowPeriod);
+              ExecuteProcess('New_Run_Off','pScenario' , pScenario,  'pVersion', pVersion, 'pPeriod', sPeriod, 'pCashFlowPeriod', pCashFlowPeriod);
+        ENDIF;
+    nBBas = nBBas + 1;
+    pSayac = pSayac + 1;
+END;
+
+# ExecuteProcess('Cube.RunOff.From.Run.Off.Rate.Calculation', 'pYear' , pFirstYear,  'pMonth', pFirstMonth, 'pVersion', pVersion);
+# CubeClearData( 'Principle Rate' );
+#endregion
+#region Data
+
+
+#endregion

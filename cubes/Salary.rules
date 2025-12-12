@@ -1,0 +1,139 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+[Scenario:'Scenario':'Live','SGK Matrahı'] = N:
+      IF(
+          [Salary_M:'Salary_M':'Brüt Maaş'] <= DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'Salary_Assumption_M':'SGK Tavan Matrahı' ), 
+          [Salary_M:'Salary_M':'Brüt Maaş'], 
+          DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'SGK Tavan Matrahı' )
+      );
+
+[Scenario:'Scenario':'Live','Damga Vergisi'] = N: 
+      IF([Salary_M:'Salary_M':'Ücret Giriş']<>0,
+            ['Brüt Maaş']
+         * DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'Salary_Assumption_M':'Damga Vergisi (%)' ) \ 100
+         - DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'AÜ Damga Vergisi İstisnası' ),
+          CONTINUE
+     );
+
+[Scenario:'Scenario':'Live','işsizlik işçi Payı'] = N: 
+          ['Toplam SGK Matrahı'] 
+       * DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'İşsizlik İşçi Primi (%)' ) \ 100;
+
+[Scenario:'Scenario':'Live','SGK işçi Payı'] =  N: 
+         ['Toplam SGK Matrahı'] * 
+         DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'SGK İşçi Primi (%)' )  \ 100
+        *DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'SGK' );
+
+[Scenario:'Scenario':'Live','SGDP işçi Payı'] =  N: 
+         ['Toplam SGK Matrahı'] * 
+         DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'SGDP İşçi (%)' )  \ 100
+        *DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'SGDP' );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'SGK İşveren Payı'] = N: 
+        ['Toplam SGK Matrahı'] * 
+        DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'SGK İşveren Primi (%)' ) \ 100
+     *DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'SGK' );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'SGDP İşveren Payı'] = N: 
+        ['Toplam SGK Matrahı'] * 
+        DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'SGDP İşveren (%)' ) \ 100
+     *DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'SGDP' );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'işsizlik işveren Payı'] = N: 
+        ['Toplam SGK Matrahı'] * 
+        DB( 'Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'İşsizlik İşveren Primi (%)' ) \ 100;
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Ücret'] = N: 
+        IF(
+            DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'Maaş Hesaplama Yöntemi' )@='Brüt',
+            [Salary_M:'Salary_M':'Ücret Giriş']  ,
+            CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Brüt Maaş'] = N: 
+        IF(
+            DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'Maaş Hesaplama Yöntemi' )@='Brüt',
+            [Salary_M:'Salary_M':'Brüt Kazançlar']  ,
+            [Salary_M:'Salary_M':'Brüt Kazançlar Hesaplama']  
+        );
+
+[Scenario:'Scenario':'Live', 'Gelir Vergisi'] = N:
+       IF([Salary_M:'Salary_M':'Ücret Giriş']<>0, 
+          IF( ATTRN('Period',!Period,'Month N')= 1,
+              + [Salary_M:'Salary_M':'Kümüle Gelir Vergisi']
+              - DB('Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'AÜ Gelir Vergisi' ),
+               CONTINUE),
+          CONTINUE
+      );
+
+[Scenario:'Scenario':'Live', 'Gelir Vergisi'] = N:
+       IF([Salary_M:'Salary_M':'Ücret Giriş']<>0, 
+        + [Salary_M:'Salary_M':'Kümüle Gelir Vergisi']
+        - DB('Salary', !Scenario, !Version, ATTRS('Period', !Period, 'Previous Period'), !Entity, !Employees, 'Kümüle Gelir Vergisi' )
+        - DB('Salary_Assumption', !Scenario, !Version, !Entity, !Period, 'AÜ Gelir Vergisi' ),
+          CONTINUE
+      );  
+
+[Scenario:'Scenario':'Live', Salary_M:'Salary_M':'Kümüle Vergi Matrahı'] = N:
+          IF( ATTRN('Period',!Period,'Month N')= 1,
+               [Salary_M:'Salary_M':'Vergi Matrahı'],
+               [Salary_M:'Salary_M':'Vergi Matrahı'] + DB( 'Salary', !Scenario, !Version, ATTRS('Period', !Period, 'Previous Period'), !Entity, !Employees, 'Kümüle Vergi Matrahı')
+          );  
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Kümüle Gelir Vergisi'] = N:
+    IF([Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  > DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '1', 'KVM Alt' ) & [Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  <= DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '1', 'KVM Üst' ),
+        [Salary_M:'Salary_M':'Kümüle Vergi Matrahı'] * DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '1', 'Vergi Oranı' ) \ 100,
+        CONTINUE
+    );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Kümüle Gelir Vergisi'] = N:
+    IF([Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  > DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '2', 'KVM Alt' ) & [Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  <= DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '2', 'KVM Üst' ),
+       DB('Tax_Assumption', !Scenario, !Version, !Entity, !Period, '1', 'Kümüle Gelir Vergisi' )
+      + ([Salary_M:'Salary_M':'Kümüle Vergi Matrahı'] - DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '2', 'KVM Alt' )) * DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '2', 'Vergi Oranı' ) \ 100,
+         CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Kümüle Gelir Vergisi'] = N:
+    IF([Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  > DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '3', 'KVM Alt' ) & [Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  <= DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '3', 'KVM Üst' ),
+       DB('Tax_Assumption', !Scenario, !Version, !Entity, !Period, '2', 'Kümüle Gelir Vergisi' )
+      + ([Salary_M:'Salary_M':'Kümüle Vergi Matrahı'] - DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '3', 'KVM Alt' )) * DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '3', 'Vergi Oranı' ) \ 100,
+         CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Kümüle Gelir Vergisi'] = N:
+    IF([Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  > DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '4', 'KVM Alt' ) & [Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  <= DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '4', 'KVM Üst' ),
+       DB('Tax_Assumption', !Scenario, !Version, !Entity, !Period, '3', 'Kümüle Gelir Vergisi' )
+      + ([Salary_M:'Salary_M':'Kümüle Vergi Matrahı'] - DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '4', 'KVM Alt' )) * DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '4', 'Vergi Oranı' ) \ 100,
+         CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Kümüle Gelir Vergisi'] = N:
+    IF([Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  > DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '5', 'KVM Alt' ) & [Salary_M:'Salary_M':'Kümüle Vergi Matrahı']  <= DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '5', 'KVM Üst' ),
+       DB('Tax_Assumption', !Scenario, !Version, !Entity, !Period, '4', 'Kümüle Gelir Vergisi' )
+      + ([Salary_M:'Salary_M':'Kümüle Vergi Matrahı'] - DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '5', 'KVM Alt' )) * DB( 'Tax_Assumption', !Scenario, !Version, !Entity, !Period, '5', 'Vergi Oranı' ) \ 100,
+         CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Maaş Hesaplama Yöntemi']=S:
+      DB('Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'Maaş Hesaplama Yöntemi' );
+
+[Scenario:'Scenario':'Live',Salary_M:'Salary_M':'FTE']=N:
+      IF([Salary_M:'Salary_M':'Ücret Giriş']>0,1,0);
+
+FEEDERS;
+ [Scenario:'Scenario':'Live',Salary_M:'Salary_M':'Ücret Giriş']=>
+          [Salary_M:'Salary_M':'Net Maaş'],
+          [Salary_M:'Salary_M':'Ücret'],    
+          [Salary_M:'Salary_M':'SGK Matrahı'],
+          [Salary_M:'Salary_M':'Vergi Matrahı'],
+          [Salary_M:'Salary_M':'FTE'],
+          [Salary_M:'Salary_M':'Toplam İşveren Maliyeti'],
+          [Salary_M:'Salary_M':'Maaş Hesaplama Yöntemi'],
+          [Salary_M:'Salary_M':'Kümüle Gelir Vergisi'],
+          [Salary_M:'Salary_M':'Kümüle Vergi Matrahı'];
+  
+
+[Scenario:'Scenario':'Live']=>
+      DB( 'Salary_Cost_Center_Mapping', !Scenario, !Version, !Entity, !Period, !Employees, 'Cost_Center':'Total Cost Center', !Salary_M );
+

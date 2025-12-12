@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Salary_Assumption",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Salary_Assumption_M')"
+		}
+	],
+	"Rules@Code.link":"Salary_Assumption.rules",
+	"Views@Code.links":[]
+}

@@ -1,0 +1,304 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+[BS_Treasury_M:'BS_Treasury_M':'Volume'] = C:
+   IF (DTYPE('Period',!Period) @='C',
+       DB('BS_Treasury', !Scenario, !Version, !Entity, ATTRS('Period', !Period, 'Last Period'), !Treasury_Accounts, !Segment, !Product, !Currency, !Currency_Reporting, !BS_Treasury_M ),
+       CONTINUE
+       );
+
+# ['BS Treasury m':'Rate']=C: 
+#          IF(Dtype('Month',!Month)@='C',
+#                 IF(!BS Account Treasury@<>'Vadeli Mevduat Borrow' & !BS Account Treasury@<>'Kredi Place' & !BS Account Treasury@<>'Vadesiz Mevduat Borrow' ,
+#                         ['NII'] \    ['Avg Volume'] * 100 / ATTRN( 'Month', !Month, 'Month Count' ) * 12, 
+#                    CONTINUE) ,
+#                 CONTINUE);
+
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'Avg Volume'] =N: IF(!BS Account Treasury@='Vadeli Mevduat Borrow' % !BS Account Treasury@='Kredi Place' % !BS Account Treasury@='Vadesiz Mevduat Borrow' ,
+#     IF( DB( 'System Version', !Scenario, !Version, !Year, !Month, 'Entry'  ) @='Actual',
+#         ['Scenario':'Actual'] , 
+#         CONTINUE), CONTINUE);
+
+
+# ['BS Treasury m':{'Rate','FTP Rate'}]=C:
+#     IF(Dtype('Month',!Month)@='C',
+#          IF(!Segment Local@='Total Segment Local',
+#               IF(!BS Account Treasury@='Vadeli Mevduat Borrow' % !BS Account Treasury@='Kredi Place' % !BS Account Treasury@='Vadesiz Mevduat Borrow' ,
+#                    ['Segment Local':'Segment Local':'Total Segment'],
+#                    CONTINUE),
+#               CONTINUE),
+#           CONTINUE);
+
+# ['BS Treasury m':'FTP Rate']=C:
+#      IF(!BS Account Treasury@='Kredi Place',
+#         IF(Dtype('Month',!Month)@='C', ['Interest Expense'] \  ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'CumulativeDays') , 
+#         CONTINUE),
+#       CONTINUE);  
+      
+# ['BS Treasury m':'Rate']=C:
+#      IF(!BS Account Treasury@='Vadeli Mevduat Borrow' % !BS Account Treasury@='Vadesiz Mevduat Borrow' ,
+#         IF(Dtype('Month',!Month)@='C', ['Interest Expense'] \  ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'CumulativeDays') , 
+#         CONTINUE),
+#       CONTINUE);  
+      
+# ['BS Treasury m':'FTP Rate']=C:
+#      IF(!BS Account Treasury@='Vadeli Mevduat Borrow' % !BS Account Treasury@='Vadesiz Mevduat Borrow' ,
+#         IF(Dtype('Month',!Month)@='C', ['Interest Income'] \  ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'CumulativeDays') , 
+#         CONTINUE),
+#       CONTINUE);  
+
+# ['BS Treasury m':'Rate']=C:
+#     IF(Dtype('Month',!Month)@='C', ['Interest Income'] \  ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'CumulativeDays') , CONTINUE );
+  
+# ['BS Treasury m':'FTP Rate']=C:
+#     IF(Dtype('Month',!Month)@='C', ['Interest Expense'] \  ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'CumulativeDays') * -1, CONTINUE ) ;  
+    
+#             ['Interest Income'] \    ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days') ;
+                                                                       
+# ['Scenario':'RFC Live', 'BS Treasury m':'FTP Rate'] =C: 
+#         ['Interest Expense'] \   ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days') ;
+        
+
+
+
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'Volume Calc']=N:['Volume'];
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'Volume'] =C:
+#                 IF(Dtype('Month',!Month)@='C', 
+#                 ConsolidatedAvg( 1, 'BS Treasury',!Scenario,!Version, !Year, !Month, !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', 'Volume'), 
+#                 CONTINUE );
+
+
+#  ['BS Treasury m':'Avg Volume'] =C:  IF(Dtype('Month',!Month)@='C', ['Volume Calc'] \ ATTRN('Month', !Month, 'Month Count'),CONTINUE);
+
+
+  
+# ['BS Treasury m':{'Volume','Rate','FTP Rate'}]=C:
+#     IF(Dtype('Month',!Month)@='C', 
+#           DB('BS Treasury', !Scenario, !Version, !Year, ATTRS('Month',!Month,'Last Period' ), !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', !'BS Treasury m' ), 
+#           CONTINUE
+#          ); 
+
+
+
+
+# ['Scenario':'RFC Live', 'BS Account Treasury':'Total BS Account Treasury', 'BS Treasury m':'Rate'] =C:0;
+
+# ['Scenario':'RFC Live', 'BS Account Treasury':'Total BS Account Treasury', 'BS Treasury m':{'Volume', 'Avg Volume'}] =C: 
+#     ['Total Assets'] - ['Total Liabilities'];
+
+### Paçalda doğru hesaplanabilmesi adına account altında ki tüm ürün ve segmentler için 30/360 -- Act/365 seçimlerinin aynı olması gerekmekte.
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'Rate','Segment Local':'Segment Local':'Total Segment Local','BS Account Treasury':{'Vadeli Mevduat Borrow','Kredi Place','Vadesiz Mevduat Borrow'}] =C: 
+#         ['NII'] \  ['Avg Volume'] * 100 * 12 ;
+
+# ['BS Treasury m':{'Rate','FTP Rate'}] =C: IF(!Segment Local@='Total Segment Local',
+# IF(!BS Account Treasury@='Vadeli Mevduat Borrow' % !BS Account Treasury@='Kredi Place' % !BS Account Treasury@='Vadesiz Mevduat Borrow' ,
+#  ['Segment Local':'Segment Local':'Total Segment'],
+#  CONTINUE),
+# CONTINUE);
+
+# ['Scenario':'RFC Live','Avg Volume'] =N:
+#     IF( !Segment Local@='GT' 
+#        & !Month @='01'
+#        & ATTRS('BS Account Treasury', !BS Account Treasury, 'Average Volume') @= 'Yes' ,
+#         (['Volume'] + DB('BS Treasury', !Scenario, !Version, ATTRS('Year', !Year, 'Y-1'), '12', !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', 'Volume' )) \ 2,
+#         CONTINUE
+#        );
+
+
+# ['Scenario':'RFC Live','Avg Volume'] =N:
+#     IF( !Segment Local@='GT' 
+#        & !Month @<>'01'
+#        & ATTRS('BS Account Treasury', !BS Account Treasury, 'Average Volume') @= 'Yes' ,
+#         (['Volume'] + DB('BS Treasury', !Scenario, !Version, !Year, ATTRS('Month', !Month, 'M-1'), !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', 'Volume' ) ) \ 2,
+#         CONTINUE
+
+
+[Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Kredi Place',Segment:'Segment':'Hazine',BS_Treasury_M:'BS_Treasury_M':'Interest_Income',Product:'Product':'Other_Product']=N:
+       -1 * [Segment:'Segment':'Segmentler',BS_Treasury_M:'BS_Treasury_M':'Interest_Expense',Product:'Product':'Total_Product'];
+
+[Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Vadeli Mevduat',Segment:'Segment':'Hazine',BS_Treasury_M:'BS_Treasury_M':'Interest_Expense']=N:
+      -1 *  [Segment:'Segment':'Segmentler',BS_Treasury_M:'BS_Treasury_M':'Interest_Income',Product:'Product':'Total_Product'];
+
+[Treasury_Accounts:'Treasury_Accounts':'Total_Treasury_Accounts',BS_Treasury_M:'BS_Treasury_M':{'Volume','AVG_Volume'}]=C:[Treasury_Accounts:'Treasury_Accounts':'Total_Assets'] - [ Treasury_Accounts:'Treasury_Accounts':'Total_Liabilities'];
+
+[Scenario:'Scenario':'Live',Currency_Reporting:'Currency_Reporting':'ORJ']=N:IF(ATTRS('Treasury_Accounts',!Treasury_Accounts,'Denklik')@='YES',STET,CONTINUE);
+
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':{'Client_Rate','FTP_Rate'}]=
+        IF(!Currency_Reporting@<>'ORJ', 
+              [Currency_Reporting:'Currency_Reporting':'ORJ'],
+              CONTINUE
+        );
+
+
+[Scenario:'Scenario':'Live']=N:
+        IF(!Currency_Reporting@<>'ORJ', 
+              [Currency_Reporting:'Currency_Reporting':'ORJ'] * DB( 'Cross Currency', !Scenario, !Version, !Period, !Currency, !Currency_Reporting ),
+              CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'ZK',BS_Treasury_M:'BS_Treasury_M':'Volume']=N:
+        [Treasury_Accounts:'Treasury_Accounts':'Vadeli Mevduat'] * ATTRN('Product', !Product, 'ZK') \ 100;
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'AVG_Volume',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+      IF(!Period@='Jan 2025', 
+          DB( 'Run_Off', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'Production_Type':'Total_Production', 'Volume' ),
+          CONTINUE
+        );
+
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Interest_Income']=N:
+      IF(ELPAR( 'Treasury_Accounts', !Treasury_Accounts, 1 )@='Total_Liabilities' & !Treasury_Accounts@<>'Vadeli Mevduat', 0, CONTINUE);
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Interest_Expense']=N:
+    IF(ELPAR( 'Treasury_Accounts', !Treasury_Accounts, 1 )@='Total_Liabilities' & !Treasury_Accounts@<>'Vadeli Mevduat',
+      -1 *  [BS_Treasury_M:'BS_Treasury_M':'AVG_Volume'] * [BS_Treasury_M:'BS_Treasury_M':'Client_Rate'] \ 12 \ 100,
+       CONTINUE
+    );
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Interest_Income',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+      IF(!Treasury_Accounts@='Vadeli Mevduat',
+        [BS_Treasury_M:'BS_Treasury_M':'AVG_Volume'] * [BS_Treasury_M:'BS_Treasury_M':'FTP_Rate'] \ 12 \ 100,
+        CONTINUE
+      );
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Interest_Expense',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+        IF(!Treasury_Accounts@='Vadeli Mevduat',
+              -1* [BS_Treasury_M:'BS_Treasury_M':'AVG_Volume'] * [BS_Treasury_M:'BS_Treasury_M':'Client_Rate'] \ 12 \ 100,
+        CONTINUE
+      );
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Interest_Income',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+        [BS_Treasury_M:'BS_Treasury_M':'AVG_Volume'] * [BS_Treasury_M:'BS_Treasury_M':'Client_Rate'] \ 12 \ 100;
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Interest_Expense',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+        -1* [BS_Treasury_M:'BS_Treasury_M':'AVG_Volume'] * [BS_Treasury_M:'BS_Treasury_M':'FTP_Rate'] \ 12 \ 100;
+
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'AVG_Volume',Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+     ( DB( 'Run_Off', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'Production_Type':'Total_Production', 'Volume' )
+    +DB( 'Run_Off', !Scenario, !Version, !Entity, ATTRS('Period',!Period,'Previous Period'), !Treasury_Accounts, !Segment, !Product, !Currency, 'Production_Type':'Total_Production', 'Volume' ))
+      \2;
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':{'Client_Rate','FTP_Rate'},Currency_Reporting:'Currency_Reporting':'ORJ']=
+      DB( 'Run_Off', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'Production_Type':'Total_Production', !BS_Treasury_M);
+
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':{'Volume'},Currency_Reporting:'Currency_Reporting':'ORJ']=N:
+      DB( 'Run_Off', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'Production_Type':'Total_Production', !BS_Treasury_M);
+
+
+
+# ['Scenario':'RFC Live','Avg Volume'] =N:IF(!Segment Local@='GT',['Volume'],CONTINUE);
+
+# # ['Scenario':'RFC Live', 'BS Treasury m':'Avg Volume'] =C:IF(Dtype('Month',!Month)@='C',ConsolidateChildren('Month')\ElcompN('Month',!Month),CONTINUE);
+
+# ['BS Treasury m':'Rate'] =C: IF(!BS Account Treasury@<>'Vadeli Mevduat Borrow' & !BS Account Treasury@<>'Kredi Place' & !BS Account Treasury@<>'Vadesiz Mevduat Borrow' ,
+#         ['NII'] \    ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days'), CONTINUE) ;
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'FTP Rate'] =C: IF(!BS Account Treasury@<>'Vadeli Mevduat Borrow' & !BS Account Treasury@<>'Kredi Place' & !BS Account Treasury@<>'Vadesiz Mevduat Borrow' ,
+#         0, CONTINUE) ;
+
+# [ 'BS Treasury m':'Rate','Segment Local':'Bireysel'] =C: 
+#         ['Interest Income'] \    ['Avg Volume'] * 100 * 12 ;
+
+
+
+## Kredi ve Mevduat için farklılaşacakmı ?
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'Rate'] =C: IF(ELISPAR( 'BS Account Treasury', 'Total Liabilities', !BS Account Treasury)=1,
+#                 ['Interest Expense'] \  ['Volume'] * 100 * 12, CONTINUE );
+
+
+
+# ['BS Treasury m':'Rate'] =C: IF(!BS Account Treasury@='Vadeli Mevduat Borrow' %  !BS Account Treasury@='Vadesiz Mevduat Borrow',
+#         ['Interest Expense'] \    ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days'), CONTINUE) ;
+        
+# ['BS Treasury m':'FTP Rate'] =C: IF(!BS Account Treasury@='Vadeli Mevduat Borrow' %  !BS Account Treasury@='Vadesiz Mevduat Borrow',
+#         ['Interest Income'] \    ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days'), CONTINUE) ;        
+                                                                       
+# ['BS Treasury m':'FTP Rate'] =C: 
+#         ['Interest Expense'] \   ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days') ;
+
+
+# ['BS Treasury m':'Rate'] =C: 
+#         ['Interest Income'] \    ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days') ;
+                                                                       
+# [ 'BS Treasury m':'FTP Rate'] =C: 
+#         ['Interest Expense'] \   ['Avg Volume'] * 100 * 365 \ ATTRN('Month', !Month, 'Days') ;
+        
+      
+        
+   
+  
+#   ['Scenario':'RFC Live', 'BS Treasury m':'Rate'] =C: 
+#       ['NII Volume'] \ ['Volume Calc'];
+                                                                       
+# ['Scenario':'RFC Live', 'BS Treasury m':'FTP Rate'] =C: 
+#     ['FTP  Volume'] \ ['Volume Calc'];
+   
+# ['Scenario':'RFC Live', 'BS Treasury m':'Avg Volume'] =N: (['Volume','02'] +  ['Volume','03']) \2  ;
+ 
+# ['Scenario':'RFC Live', 'BS Treasury m':'NII Volume'] =N: 
+#       ['Rate'] * ['Volume']; 
+                                                                       
+# ['Scenario':'RFC Live', 'BS Treasury m':'FTP Volume'] =N: 
+#       ['FTP  Rate'] * ['Volume'];
+ 
+# ['Scenario':'RFC Live', 'BS Account Treasury':'Total BS Account Treasury', 'BS Treasury m':'Rate'] =C:0;
+  
+# ['Scenario':'RFC Live', 'BS Treasury m':'Interest Income'] =N:
+#     IF(ATTRS('BS Account Treasury',!BS Account Treasury,'NII Source')@='' 
+#        &ATTRS('BS Account Treasury',!BS Account Treasury,'Treasury Source')@='Others',
+#           DB('BS Treasury', !Scenario, !Version, !Year, !Month, !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', 'Rate' )*
+#           DB('BS Treasury', !Scenario, !Version, !Year, !Month, !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', 'Volume' ) \ 36500 *
+#           ATTRN('Month',!Month,'Days'),  
+#           CONTINUE
+#         );
+  
+
+FEEDERS;
+
+ [Scenario:'Scenario':'Live',Segment:'Segment':'Bireysel',Product:'Product':'Konut_Kredisi',BS_Treasury_M:'BS_Treasury_M':'Volume'] =>
+      DB( 'PL', !Scenario, !Version, !Entity, !Period, !Currency, !Currency_Reporting, 'Net Interest Income', 'Amount' ),
+      [Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Kredi Place',Segment:'Segment':'Hazine',BS_Treasury_M:'BS_Treasury_M':'Interest_Income',Product:'Product':'Other_Product'],
+      [Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Vadeli Mevduat',Segment:'Segment':'Hazine',BS_Treasury_M:'BS_Treasury_M':'Interest_Expense']; 
+
+[Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Kredi Place',Currency:'Currency':'TRY']=>
+    [Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Kredi Place',Currency:'Currency':'Total Currency'];
+
+[Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Vadeli Mevduat',Currency:'Currency':'TRY']=>
+  [Scenario:'Scenario':'Live',Treasury_Accounts:'Treasury_Accounts':'Vadeli Mevduat',Currency:'Currency':'Total Currency'];
+  
+[Scenario:'Scenario':'Live',BS_Treasury_M:'BS_Treasury_M':'Volume',Product:'Product':'Vadeli Mevduat']=>
+      [Treasury_Accounts:'Treasury_Accounts':'ZK'];
+
+[Scenario:'Scenario':'Live']=>[Currency_Reporting:'Currency_Reporting':'Total Currency'];
+
+# ['Scenario':'RFC Live','Segment Local':'GT','BS Account Treasury':'Equity No ZK Borrow','TRY','Product Local':'Other Product','Volume']=>
+#   DB('CAR', !Scenario, !Version, !Year, !Month, 'Solo', 'Bank', 'Share capital', 'Yes', 'Amount' ),
+#   DB('CAR', !Scenario, !Version, !Year, !Month, 'Konsolide', 'Bank', 'Share capital', 'Yes', 'Amount' ),
+#   DB('CAR', !Scenario, !Version, !Year, !Month, 'Solo', 'Bank', 'Share capital', 'No', 'Amount' ),
+#   DB('CAR', !Scenario, !Version, !Year, !Month, 'Konsolide', 'Bank', 'Share capital', 'No', 'Amount' );
+
+# ['Scenario':'RFC Live'] =>
+#   DB('PL', !Scenario, !Version, !Year, !Month, !Entity, 'Entry', 'Total Business Lines', 'Group Treasury Other', 'Allocated Capital Income', 'TRY', 'BS Treasury', 'Total', 'Amount' );
+
+# ['Scenario':'RFC Live', 'BS Account Treasury':'BS Account Treasury':'PL Accounts'] =>
+#    ['PL Accounts Monthly Change'];
+
+# ['Scenario':{'RFC Live','Actual'}] =>
+#     DB('BS Treasury Reporting', !Scenario, !Version, !Year, !Month, !Entity, !Currency, !'Segment Local', !'Product Local', !'BS Account Treasury', 'ORJ', !'BS Treasury m' );
+
+# ['Scenario':'Actual']=>
+#     ['Scenario':'RFC Live'];    
+
+# ['Scenario':'RFC Live', 'BS Treasury m':'Volume'] =>
+#     ['NII Volume'], ['FTP Volume'], ['Interest Income'], ['Volume Calc'],['Avg Volume'],['Rate'];
+    
+# ['RFC Live','Segment Local':'Bireysel','Product Local':'Konut Kredileri','BS Account Treasury':'Kredi Place','Entity':'Bank','BS Treasury m':'Volume','Currency':'TRY']=>
+#      DB( 'BS NII', !Scenario, !Version, !Year, !Month, 'Solo', 'Retail Loans', 'NII'  ); 
+    
+

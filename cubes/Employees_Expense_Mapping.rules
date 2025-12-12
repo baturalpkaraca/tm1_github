@@ -1,0 +1,7 @@
+SKIPCHECK;
+
+
+
+[Scenario:'Scenario':'Live']=N:
+  DB('Salary', !Scenario, !Version, !Period, !Entity, !Employees, 
+     ATTRS( 'Expense_Accounts', !Expense_Accounts, 'Payroll' ));

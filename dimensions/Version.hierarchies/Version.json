@@ -1,0 +1,23 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Version",
+	"Elements":
+	[
+		{
+			"Name":"Input",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget v2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Input2",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Version.subsets/All N Elements.json"
+	]
+}

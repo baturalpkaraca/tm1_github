@@ -1,0 +1,21 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+[Scenario:'Scenario':'Live',Depreciation_M:'Depreciation_M':'Amount']=N:
+        IF(ATTRN( 'Period', !Period, 'MonthID' )>=DB( 'Capex', !Scenario, !Version, !Entity, '2025', !Cost_Center, !Items, 'First Date' ) &
+          ATTRN( 'Period', !Period, 'MonthID' )<DB( 'Capex', !Scenario, !Version, !Entity, '2025', !Cost_Center, !Items, 'End Date' ),
+          DB( 'Capex', !Scenario, !Version, !Entity, '2025', !Cost_Center, !Items, 'Amount' ) \
+            (DB('Capex', !Scenario, !Version, !Entity, '2025', !Cost_Center, !Items, 'Useful Life') * 12) *
+            DB( 'Macoeconomic_Indicators', !Scenario, !Version, !Entity, DB( 'Capex', !Scenario, !Version, !Entity, '2025', !Cost_Center, !Items, 'Purchase Date' ), DB( 'Capex', !Scenario, !Version, !Entity, '2025', !Cost_Center, !Items, 'Currency' ) ),
+            0  
+      );
+
+
+FEEDERS;
+
+[Scenario:'Scenario':'Live']=>
+          DB( 'Depreciation', !Scenario, !Version, !Entity, ATTRS('Period',!Period,'Next Period'),!Cost_Center, !Items, !Depreciation_M );
+
+[Scenario:'Scenario':'Live',Items:'Items':'1']=>
+          DB( 'P&L', !Scenario, !Version, !Entity, !Period, 'Amortisman & İtfa Giderleri', 'TRY', 'ORJ', 'Amount' );
+

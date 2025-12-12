@@ -1,0 +1,60 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Segment",
+	"Elements":
+	[
+		{
+			"Name":"Bireysel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticari",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kurumsal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hazine",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Segment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Segmentler",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Segment",
+			"ComponentName":"Hazine",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Segment",
+			"ComponentName":"Segmentler",
+			"Weight":1
+		},
+		{
+			"ParentName":"Segmentler",
+			"ComponentName":"Bireysel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Segmentler",
+			"ComponentName":"Ticari",
+			"Weight":1
+		},
+		{
+			"ParentName":"Segmentler",
+			"ComponentName":"Kurumsal",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

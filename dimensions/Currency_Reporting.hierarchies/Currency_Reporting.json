@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Currency_Reporting",
+	"Elements":
+	[
+		{
+			"Name":"ORJ",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TRY",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EUR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"USD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Currency",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Currency",
+			"ComponentName":"ORJ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Currency",
+			"ComponentName":"TRY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Currency",
+			"ComponentName":"EUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Currency",
+			"ComponentName":"USD",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

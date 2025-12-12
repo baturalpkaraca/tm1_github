@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Tax_Assumption",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Tax_ID')"
+		},
+		{
+			"@id":"Dimensions('Tax_Assumption_M')"
+		}
+	],
+	"Rules@Code.link":"Tax_Assumption.rules",
+	"Views@Code.links":
+	[
+		"Tax_Assumption.views/Tax_Assumption.json"
+	]
+}

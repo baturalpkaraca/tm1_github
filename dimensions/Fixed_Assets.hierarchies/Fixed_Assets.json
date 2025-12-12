@@ -1,0 +1,83 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Fixed_Assets",
+	"Elements":
+	[
+		{
+			"Name":"Office Building",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Warehouse Facility",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Desktop Computer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Laptop",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Networking Equipment (e.g. Router, Switch)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Enterprise Firewall",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Industrial Printer / Scanner",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Production Machinery (CNC, robotics, etc.)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Electric Forklift / Vehicle",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capitalized ERP Software",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CRM / Specialized Software",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Meeting Room Equipment (VC Systems)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Solar Panel System",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"HVAC System",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R&D Laboratory Equipment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Medical Imaging Device (e.g. MRI)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Office Furniture (Desks, Chairs)",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Fixed_Assets.subsets/All N Elements.json"
+	]
+}

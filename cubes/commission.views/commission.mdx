@@ -1,0 +1,1 @@
+SELECT {DRILLDOWNMEMBER([Period].[Year].LEVELS(0).MEMBERS , {[Period].[Year].[2025]})} ON 0, {[commission_accounts].[commission_accounts].MEMBERS} ON 1 FROM [commission] WHERE ([Scenario].[Scenario].[Live], [Version].[Version].[Input], [Entity].[Entity].[Ereteam], [Segment].[Segment].[Total Segment], [commission_m].[commission_m].[Amount], [Currency].[Currency].[TRY])

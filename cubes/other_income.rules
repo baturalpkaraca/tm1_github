@@ -1,0 +1,18 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+[Scenario:'Scenario':'Live',other_income_m:'other_income_m':'Amount'] =N:
+    IF( DB('System_Version', !Scenario, !Version, !Entity, !Period, 'Input' ) @='Actual',
+          [Scenario:'Scenario':'Actual'], 
+          CONTINUE
+      );
+
+
+
+
+
+
+FEEDERS;
+
+[Scenario:'Scenario':'Actual'] => 
+      [Scenario:'Scenario':'Live'];

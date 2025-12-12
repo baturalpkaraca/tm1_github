@@ -1,0 +1,69 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Items].[Items]" : 
+			{
+				"Expression" : "{[Items].[Items].MEMBERS}"
+			},
+			"[Maturity].[Maturity]" : 
+			{
+				"Expression" : "{[Maturity].[Maturity].MEMBERS}"
+			},
+			"[Period].[Period]" : 
+			{
+				"Expression" : "{[Period].[Period].MEMBERS}"
+			},
+			"[Product].[Product]" : 
+			{
+				"Expression" : "{[Product].[Product].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Segment].[Segment]" : 
+			{
+				"Expression" : "{[Segment].[Segment].MEMBERS}"
+			},
+			"[Treasury_Accounts].[Treasury_Accounts]" : 
+			{
+				"Expression" : "{[Treasury_Accounts].[Treasury_Accounts].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Cash_Flow_M].[Cash_Flow_M]" : false,
+			"[Currency].[Currency]" : false,
+			"[Entity].[Entity]" : false,
+			"[Items].[Items]" : false,
+			"[Maturity].[Maturity]" : false,
+			"[Period].[Period]" : false,
+			"[Product].[Product]" : false,
+			"[Production_Type].[Production_Type]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Segment].[Segment]" : false,
+			"[Treasury_Accounts].[Treasury_Accounts]" : false,
+			"[Version].[Version]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

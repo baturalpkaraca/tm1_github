@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Depreciation",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Cost_Center')"
+		},
+		{
+			"@id":"Dimensions('Items')"
+		},
+		{
+			"@id":"Dimensions('Depreciation_M')"
+		}
+	],
+	"Rules@Code.link":"Depreciation.rules",
+	"Views@Code.links":[]
+}

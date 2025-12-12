@@ -1,0 +1,37 @@
+{
+	"@type":"Cube",
+	"Name":"Expense_Entry",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Years')"
+		},
+		{
+			"@id":"Dimensions('Cost_Center')"
+		},
+		{
+			"@id":"Dimensions('Expense_Accounts')"
+		},
+		{
+			"@id":"Dimensions('Items')"
+		},
+		{
+			"@id":"Dimensions('Expense_Entry_M')"
+		}
+	],
+	"Rules@Code.link":"Expense_Entry.rules",
+	"Views@Code.links":
+	[
+		"Expense_Entry.views/DrillView.json",
+		"Expense_Entry.views/Sample.json"
+	]
+}

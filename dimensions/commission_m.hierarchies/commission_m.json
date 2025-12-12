@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"commission_m",
+	"Elements":
+	[
+		{
+			"Name":"Amount",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

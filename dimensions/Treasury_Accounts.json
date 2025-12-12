@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Treasury_Accounts",
+	"Hierarchies@Code.links":
+	[
+		"Treasury_Accounts.hierarchies/Treasury_Accounts.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Treasury_Accounts')/Hierarchies('Treasury_Accounts')"
+	}
+}

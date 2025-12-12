@@ -1,0 +1,159 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Treasury_Accounts",
+	"Elements":
+	[
+		{
+			"Name":"Total_Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total_Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total_Treasury_Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ZK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Securities",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ters Repo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX Swap USD/TRY",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX Swap EUR/USD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"XCY Place",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kredi Place",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vadeli Mevduat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vadesiz Mevduat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sendikasyon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Repo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX Swap USD/TRY Borrow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX Swap EUR/USD Borrow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"XCY Borrow",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"Kredi Place",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"Securities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"ZK",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"Ters Repo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"XCY Place",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"FX Swap USD/TRY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Assets",
+			"ComponentName":"FX Swap EUR/USD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"Vadeli Mevduat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"Vadesiz Mevduat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"Sendikasyon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"Repo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"XCY Borrow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"FX Swap USD/TRY Borrow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Liabilities",
+			"ComponentName":"FX Swap EUR/USD Borrow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Treasury_Accounts",
+			"ComponentName":"Total_Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Treasury_Accounts",
+			"ComponentName":"Total_Liabilities",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

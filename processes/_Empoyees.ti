@@ -1,0 +1,9 @@
+#region Prolog
+
+# DimensionElementInsert( 'Employees', 1, 'Total Employees', 'N' );
+
+DimensionTopElementInsert( 'Employees', '1', 'Total Employees' );
+
+
+
+#endregion

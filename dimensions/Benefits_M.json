@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Benefits_M",
+	"Hierarchies@Code.links":
+	[
+		"Benefits_M.hierarchies/Benefits_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Benefits_M')/Hierarchies('Benefits_M')"
+	}
+}

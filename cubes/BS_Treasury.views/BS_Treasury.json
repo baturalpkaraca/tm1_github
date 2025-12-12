@@ -1,0 +1,55 @@
+{
+	"@type":"MDXView",
+	"Name":"BS_Treasury",
+	"MDX@Code.link":"BS_Treasury.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Currency].[Currency]" : 
+			{
+				"Expression" : "{[Currency].[Currency].MEMBERS}"
+			},
+			"[Currency_Reporting].[Currency_Reporting]" : 
+			{
+				"Expression" : "{[Currency_Reporting].[Currency_Reporting].MEMBERS}"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[Product].[Product]" : 
+			{
+				"Expression" : "{[Product].[Product].MEMBERS}"
+			},
+			"[Scenario].[Scenario]" : 
+			{
+				"Expression" : "{[Scenario].[Scenario].MEMBERS}"
+			},
+			"[Segment].[Segment]" : 
+			{
+				"Expression" : "{[Segment].[Segment].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[BS_Treasury_M].[BS_Treasury_M]" : false,
+			"[Currency].[Currency]" : false,
+			"[Currency_Reporting].[Currency_Reporting]" : false,
+			"[Entity].[Entity]" : false,
+			"[Period].[Period]" : false,
+			"[Product].[Product]" : false,
+			"[Scenario].[Scenario]" : false,
+			"[Segment].[Segment]" : false,
+			"[Treasury_Accounts].[Treasury_Accounts]" : false,
+			"[Version].[Version]" : false
+		}
+	},
+	"ViewExtractSkipConsolidatedValues" : true,
+	"ViewExtractSkipZeroes" : true
+}

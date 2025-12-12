@@ -1,0 +1,32 @@
+{
+	"@type":"Cube",
+	"Name":"Curve",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Maturity')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Curve_M')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Curve.views/Curve.json"
+	]
+}

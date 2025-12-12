@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Macroeconomic_Indicators_M",
+	"Hierarchies@Code.links":
+	[
+		"Macroeconomic_Indicators_M.hierarchies/Macroeconomic_Indicators_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Macroeconomic_Indicators_M')/Hierarchies('Macroeconomic_Indicators_M')"
+	}
+}

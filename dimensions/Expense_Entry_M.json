@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Expense_Entry_M",
+	"Hierarchies@Code.links":
+	[
+		"Expense_Entry_M.hierarchies/Expense_Entry_M.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Expense_Entry_M')/Hierarchies('Expense_Entry_M')"
+	}
+}

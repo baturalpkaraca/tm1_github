@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Curve_M",
+	"Elements":
+	[
+		{
+			"Name":"IR",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FTP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total_Curve",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total_Curve",
+			"ComponentName":"IR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Curve",
+			"ComponentName":"FTP",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

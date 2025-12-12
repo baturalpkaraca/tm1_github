@@ -1,0 +1,12 @@
+SKIPCHECK;
+
+[Scenario:'Scenario':'Live',Employees_History_M:'Employees_History_M':'SGK']=N: 
+    IF( (DB( 'Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'Emekli mi?') @='Evet' ), 0, 1 );
+
+[Scenario:'Scenario':'Live',Employees_History_M:'Employees_History_M':'SGDP']=N:
+    IF( (DB( 'Employees_History', !Scenario, !Version, !Entity, !Period, !Employees, 'Emekli mi?') @='Evet' ), 1, 0 );
+
+FEEDERS;
+
+[Scenario:'Scenario':'Live',Employees_History_M:'Employees_History_M':'Sicil No']=>
+      [Employees_History_M:'Employees_History_M':'SGK'],[Employees_History_M:'Employees_History_M':'SGDP'];

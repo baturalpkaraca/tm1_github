@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"Create_Scenario_Version",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Create_Scenario_Version.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pSelection",
+			"Prompt":"Select Scenario or Version !",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pName",
+			"Prompt":"Enter Name ?",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

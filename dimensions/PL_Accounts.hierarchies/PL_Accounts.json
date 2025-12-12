@@ -1,0 +1,135 @@
+{
+	"@type":"Hierarchy",
+	"Name":"PL_Accounts",
+	"Elements":
+	[
+		{
+			"Name":"Corporate tax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Risk Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Staff Expense",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IT Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Interest Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Commission Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Result Before Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Result After Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Office and General Administrative",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation and Amortization",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Staff Expense",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"IT Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Office and General Administrative",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Other Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Depreciation and Amortization",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Income",
+			"ComponentName":"Net Interest Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Income",
+			"ComponentName":"Commission Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Income",
+			"ComponentName":"Other Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Result Before Tax",
+			"ComponentName":"Risk Costs",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Result Before Tax",
+			"ComponentName":"Total Expenses",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Result Before Tax",
+			"ComponentName":"Total Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Result After Tax",
+			"ComponentName":"Corporate tax",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Result After Tax",
+			"ComponentName":"Result Before Tax",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"PL_Accounts.subsets/pl.json"
+	]
+}

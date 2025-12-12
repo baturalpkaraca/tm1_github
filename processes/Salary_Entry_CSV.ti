@@ -1,0 +1,69 @@
+#region Prolog
+sScenario ='Live';
+sProcess  = GetProcessName();
+sTimeStamp = TIMST(NOW,'\y\m\d\h\i\s');
+v_CubeName = 'Salary';
+
+v_ViewName = '}Process_' | sProcess | '_' | sTimeStamp ;
+
+v_Dim1Name = 'Scenario';
+v_Dim2Name = 'Version';
+v_Dim3Name = 'Period'; 
+v_Dim4Name = 'Entity';
+v_Dim5Name = 'Employees';
+v_Dim6Name = 'Salary_M';
+
+v_Subs1Name = v_Dim1Name | '_' |v_ViewName;
+v_Subs2Name = v_Dim2Name | '_' |v_ViewName;
+v_Subs3Name = v_Dim3Name | '_' |v_ViewName;
+v_Subs4Name = v_Dim4Name | '_' |v_ViewName;
+v_Subs5Name = v_Dim5Name | '_' |v_ViewName;
+v_Subs6Name = v_Dim6Name | '_' |v_ViewName;
+
+VIEWCREATE(v_CubeName, v_ViewName, 1);
+
+SUBSETCREATEBYMDX (v_Subs1Name, '{[Scenario].['   | sScenario | ']}', 1);
+SUBSETCREATEBYMDX (v_Subs2Name, '{[Version].['   | pVersion   | ']}', 1); 
+SUBSETCREATEBYMDX (v_Subs3Name, 'TM1FILTERBYLEVEL(DESCENDANTS([Period].['   | pYear   | ']) , 0)', 1);
+SUBSETCREATEBYMDX (v_Subs4Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Entity] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs5Name, '{TM1FILTERBYLEVEL( {TM1SUBSETALL( [Employees] )}, 0)}', 1);
+SUBSETCREATEBYMDX (v_Subs6Name, '{[Salary_M].[Ücret Giriş]}', 1);
+
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim1Name, v_Subs1Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim2Name, v_Subs2Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim3Name, v_Subs3Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim4Name, v_Subs4Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim5Name, v_Subs5Name);
+VIEWSUBSETASSIGN (v_CubeName, v_ViewName, v_Dim6Name, v_Subs6Name);
+
+VIEWZEROOUT(v_CubeName, v_ViewName);
+
+SetInputCharacterSet( 'TM1CS_ISO_8859_9' );
+
+sFile = 'model_upload\' | pFile;
+
+#DataSource#
+DataSourceType = 'CHARACTERDELIMITED';
+DatasourceASCIIDelimiter=';';
+DatasourceNameForServer = sFile;
+DatasourceNameForClient = sFile;
+DatasourceASCIIHeaderRecords=1;
+DatasourceASCIIThousandSeparator='.';
+DatasourceASCIIDecimalSeparator=',';
+
+#endregion
+#region Data
+
+CellPutN( v01,    'Salary', sScenario, pVersion, 'Jan ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v02,    'Salary', sScenario, pVersion, 'Feb ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v03,    'Salary', sScenario, pVersion, 'Mar ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v04,    'Salary', sScenario, pVersion, 'Apr ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v05,    'Salary', sScenario, pVersion, 'May ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v06,    'Salary', sScenario, pVersion, 'Jun ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v07,    'Salary', sScenario, pVersion, 'Jul ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v08,    'Salary', sScenario, pVersion, 'Aug ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v09,    'Salary', sScenario, pVersion, 'Sep ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v10,    'Salary', sScenario, pVersion, 'Oct ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v11,    'Salary', sScenario, pVersion, 'Nov ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+CellPutN( v12,    'Salary', sScenario, pVersion, 'Dec ' | vYear, vEntity, vEmployees, 'Ücret Giriş' );
+#endregion

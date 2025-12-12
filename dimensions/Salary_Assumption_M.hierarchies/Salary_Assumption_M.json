@@ -1,0 +1,248 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Salary_Assumption_M",
+	"Elements":
+	[
+		{
+			"Name":"SGK Parametreleri",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"SGK Taban Matrahı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGK Tavan Matrahı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGK İşçi Primi (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGK İşveren Primi (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşsizlik İşçi Primi (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"İşsizlik İşveren Primi (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGDP İşçi (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGDP İşveren (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AÜ SGK İşveren Primi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asgari Ücret Vergi İstisnası",
+			"Type":"String"
+		},
+		{
+			"Name":"Vergiler",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Damga Vergisi (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Engelli GV İndirimi 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Engelli GV İndirimi 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Engelli GV İndirimi 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vergi İstisnası",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AÜ Gelir Vergisi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AÜ Kümüle Gelir Vergisi",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AÜ Kümüle Vergi Matrahı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Teşvikler",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"5510 Prim Teşvik (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5746 Prim Teşvik (%)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kıdem Tazminatı Tavan",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asgari Ücret (Brüt)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asgari Ücret (Net)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Kreş Desteği Tutarı",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AÜ Damga Vergisi İstisnası",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"SGK Taban Matrahı",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"SGK Tavan Matrahı",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"SGK İşçi Primi (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"SGK İşveren Primi (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"İşsizlik İşçi Primi (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"İşsizlik İşveren Primi (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"SGDP İşçi (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"SGDP İşveren (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"AÜ SGK İşveren Primi",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGK Parametreleri",
+			"ComponentName":"Asgari Ücret Vergi İstisnası",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"Damga Vergisi (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"Engelli GV İndirimi 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"Engelli GV İndirimi 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"Engelli GV İndirimi 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"Vergi İstisnası",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"AÜ Gelir Vergisi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"AÜ Kümüle Gelir Vergisi",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"AÜ Kümüle Vergi Matrahı",
+			"Weight":1
+		},
+		{
+			"ParentName":"Vergiler",
+			"ComponentName":"AÜ Damga Vergisi İstisnası",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teşvikler",
+			"ComponentName":"5510 Prim Teşvik (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teşvikler",
+			"ComponentName":"5746 Prim Teşvik (%)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teşvikler",
+			"ComponentName":"Kıdem Tazminatı Tavan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teşvikler",
+			"ComponentName":"Asgari Ücret (Brüt)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teşvikler",
+			"ComponentName":"Asgari Ücret (Net)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teşvikler",
+			"ComponentName":"Kreş Desteği Tutarı",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

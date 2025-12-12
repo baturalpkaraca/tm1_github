@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"commission",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Scenario')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Segment')"
+		},
+		{
+			"@id":"Dimensions('commission_accounts')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('commission_m')"
+		}
+	],
+	"Rules@Code.link":"commission.rules",
+	"Views@Code.links":
+	[
+		"commission.views/commission.json"
+	]
+}

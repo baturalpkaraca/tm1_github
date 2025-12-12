@@ -1,0 +1,48 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+[Run_Off_M:'Run_Off_M':'Volume',Production_Type:'Production_Type':'Entry'] = C:
+    IF( DTYPE('Period',!Period) @='C',
+          DB('Run_Off', !Scenario, !Version, !Entity, ATTRS('Period', !Period,'Last Period'), !Treasury_Accounts, !Segment, !Product, !Currency, !Production_Type, !Run_Off_M ),
+          CONTINUE
+        );
+
+[Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'Client_Rate']=N:
+        IF( ATTRS('Treasury_Accounts', !Treasury_Accounts, 'ClientRate' )@='NO',STET,CONTINUE);
+
+
+[Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'Client_Rate']= [Run_Off_M:'Run_Off_M':'Client_Amount'] \ [Run_Off_M:'Run_Off_M':'Volume'];
+[Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'FTP_Rate']= [Run_Off_M:'Run_Off_M':'FTP_Amount'] \ [Run_Off_M:'Run_Off_M':'Volume'];
+
+[Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'Client_Amount']=N:
+        IF(ATTRS( 'Treasury_Accounts', !Treasury_Accounts, 'ClientRate' )@='NO',
+          [Run_Off_M:'Run_Off_M':'Client_Rate'] * [Run_Off_M:'Run_Off_M':'Volume'],
+          CONTINUE
+        );
+
+# [Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'Client_Amount',Production_Type:'Production_Type':'Old']=N:
+#           [Run_Off_M:'Run_Off_M':'Client_Rate'] * [Run_Off_M:'Run_Off_M':'Volume'];
+
+# [Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'FTP_Amount',Production_Type:'Production_Type':'Old']=N:
+#           [Run_Off_M:'Run_Off_M':'FTP_Rate'] * [Run_Off_M:'Run_Off_M':'Volume'];
+
+# [Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'FTP_Amount']=N:
+#         IF(ATTRS( 'Treasury_Accounts', !Treasury_Accounts, 'ClientRate' )@='NO',
+#           [Run_Off_M:'Run_Off_M':'FTP_Rate'] * [Run_Off_M:'Run_Off_M':'Volume'],
+#           CONTINUE
+#         );
+
+FEEDERS;
+
+[Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'Volume']=>
+    [Run_Off_M:'Run_Off_M':'Client_Amount'], [Run_Off_M:'Run_Off_M':'FTP_Amount'];
+  
+[Scenario:'Scenario':'Live']=>
+    DB('Run_Off_Reporting', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, !Production_Type, 'ORJ', !Run_Off_M );
+
+[Scenario:'Scenario':'Live',Run_Off_M:'Run_Off_M':'Volume']=>
+        DB( 'BS_Treasury', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'ORJ', 'Client_Rate' ),
+        DB( 'BS_Treasury', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'ORJ', 'FTP_Rate' ),
+        DB( 'BS_Treasury', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'ORJ', 'NII' ),
+        DB( 'BS_Treasury', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'ORJ', 'Volume' ),
+        DB( 'BS_Treasury', !Scenario, !Version, !Entity, !Period, !Treasury_Accounts, !Segment, !Product, !Currency, 'ORJ', 'AVG_Volume' );
