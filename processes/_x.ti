@@ -1,6 +1,0 @@
-#region Prolog
-
-
-SwapAliasWithPrincipalName( 'Entity', 'AlternatifName', 0 );
-
-#endregion
