@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Expense + FTE",
-	"Alias":"MEMBER_NAME",
-	"Expression":"{DRILLUPMEMBER([Expense_Accounts].[Expense_Accounts].MEMBERS , {[Expense_Accounts].[Expense_Accounts].[Toplam Giderler]})}"
-}

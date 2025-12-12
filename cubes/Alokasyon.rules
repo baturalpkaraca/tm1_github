@@ -1,8 +1,0 @@
-SKIPCHECK;
-
-FEEDERS;
-
-[Scenario:'Scenario':'Live',Alokasyon_M:'Alokasyon_M':'Amount']=>
-    DB( 'Alokasyon_Cost_Center', !Scenario, !Version, !Period, 'Cost_Center':'Total Cost Center', !Expense_Accounts, 'Oran' ),
-    DB( 'Alokasyon_Cost_Center', !Scenario, !Version, !Period, 'Cost_Center':'Total Cost Center', !Expense_Accounts, 'M2' ),
-    DB( 'Alokasyon_Cost_Center', !Scenario, !Version, !Period, 'Cost_Center':'Total Cost Center', !Expense_Accounts, 'FTE' );

@@ -1,9 +1,0 @@
-FEEDSTRINGS;
-
-FEEDERS;
-[]=>
-      DB( '}CellSecurity_Expense_Entry', !Cost_Center, !Expense_Accounts, !}Groups ),
-      DB( '}ElementSecurity_Cost_Center', !Cost_Center, !}Groups ),
-      DB( '}ElementSecurity_Expense_Accounts', !Expense_Accounts, !}Groups );
- 
-

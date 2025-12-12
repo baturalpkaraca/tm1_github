@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"2030",
-	"Alias":"MEMBER_NAME",
-	"Expression":"{FILTER([Period].[Period].MEMBERS , [Period].[Year] = \"2030\")}"
-}

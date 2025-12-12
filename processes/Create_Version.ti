@@ -1,5 +1,0 @@
-#region Prolog
-IF( DimensionElementExists( 'Version', pVersion ) = 0 );  
-    DimensionElementInsertDirect( 'Version', '', pVersion, 'N' );
-ENDIF;
-#endregion

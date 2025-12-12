@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"All N Elements",
-	"Expression":"{TM1FILTERBYLEVEL(TM1SUBSETALL([Fixed_Assets].[Fixed_Assets]) , 0)}"
-}

@@ -1,6 +1,0 @@
-#region Prolog
-
-ExecuteProcess( 'BS_Treasury_Denklik_EUR', 'pScenario', pScenario , 'pVersion' , pVersion);
-ExecuteProcess( 'BS_Treasury_Denklik_USD', 'pScenario', pScenario , 'pVersion' , pVersion);
-ExecuteProcess( 'BS_Treasury_Denklik_TRY', 'pScenario', pScenario , 'pVersion' , pVersion);
-#endregion

@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Budget Periods",
-	"Alias":"MEMBER_NAME",
-	"Expression":"{INTERSECT(TM1FILTERBYLEVEL(FILTER(TM1SUBSETALL([Period]) , [Period].[Index] >= [System_Info].([System_Info].[Budget Periods Start],[System_Info_M].[Input])) , 0) , TM1FILTERBYLEVEL(FILTER(TM1SUBSETALL([Period]) , [Period].[Index] <= [System_Info].([System_Info].[Budget Periods End],[System_Info_M].[Input])) , 0))}"
-}
